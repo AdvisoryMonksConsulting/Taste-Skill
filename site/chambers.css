@@ -180,3 +180,13 @@ a.pv-back:hover,.cta-btn-secondary:hover{ border-color:var(--gold); }
 .brief-track{ overflow:hidden !important; scroll-snap-type:none !important; display:block !important; }
 .brief-rail{ display:flex; gap:16px; transition:transform .45s cubic-bezier(.4,0,.2,1); will-change:transform; }
 .brief-card{ scroll-snap-align:none !important; }
+
+/* Round-3: contact + legal spacing, Global Desk */
+#contact{ padding-top:clamp(24px,3vw,40px); }
+#contact .s-head{ margin-bottom:clamp(22px,3vw,34px); align-items:start; }
+#contact .contact-cta{ margin:18px 0 0; }
+.page-view .pv-lead{ margin-bottom:clamp(22px,3vw,32px) !important; }
+.page-view h2{ margin:clamp(26px,3vw,34px) 0 12px !important; }
+.page-view .pv-meta{ margin-bottom:24px !important; }
+#aud-global .aud-title{ display:inline-block; }
+#aud-global .prac-tag-global{ }
