@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+.yarn/
+
+# Build output
+dist/
+build/
+.next/
+.nuxt/
+.output/
+.cache/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+Thumbs.db
+
+# Test / coverage
+coverage/
+.nyc_output/
+
+# Local Supabase
+supabase/.branches/
+supabase/.temp/
