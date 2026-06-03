@@ -225,3 +225,11 @@ a.pv-back:hover,.cta-btn-secondary:hover{ border-color:var(--gold); }
   hyphens: auto;
   -webkit-hyphens: auto;
 }
+
+/* Justify remaining long-form prose: scenarios, FAQ answers, team bios */
+.scenario-body, .faq-a, .team-bio{
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
