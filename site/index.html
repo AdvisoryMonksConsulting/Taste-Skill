@@ -2884,7 +2884,8 @@ footer.foot {
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
         </button>
 
-        <div class="brief-track" role="region" aria-label="Engagement briefs, scroll horizontally" tabindex="0">
+        <div class="brief-track" role="region" aria-label="Engagement briefs" tabindex="0">
+          <div class="brief-rail">
 
           <article class="brief brief-card" data-idx="01">
             <div class="brief-tag">For · Indian founders · Series A SaaS</div>
@@ -3006,6 +3007,7 @@ footer.foot {
             <div class="brief-row"><div class="brief-key">Engagement</div><div class="brief-val brief-val-em">India · Growth <span class="brief-divider">+</span> Global · Advanced</div></div>
           </article>
 
+          </div>
         </div>
 
         <button type="button" class="brief-nav brief-next" aria-label="Next brief">
@@ -4836,47 +4838,38 @@ footer.foot {
    ============================================================ */
 (function () {
   const track = document.querySelector('.brief-track');
-  const cards = track ? track.querySelectorAll('.brief-card') : [];
+  const rail = track ? track.querySelector('.brief-rail') : null;
+  const cards = rail ? Array.from(rail.querySelectorAll('.brief-card')) : [];
   const counter = document.getElementById('brief-current');
   const prev = document.querySelector('.brief-prev');
   const next = document.querySelector('.brief-next');
-  if (!track || !cards.length) return;
+  if (!track || !rail || !cards.length) return;
 
-  function currentIndex() {
-    const w = track.clientWidth;
-    return Math.max(0, Math.min(cards.length - 1, Math.round(track.scrollLeft / w)));
-  }
+  let idx = 0;
+  const clamp = (i) => Math.max(0, Math.min(cards.length - 1, i));
+  const gap = () => parseFloat(getComputedStyle(rail).columnGap || getComputedStyle(rail).gap) || 16;
+  const step = () => cards[0].getBoundingClientRect().width + gap();
+  const maxTx = () => Math.max(0, rail.scrollWidth - track.clientWidth);
 
-  function update() {
-    const idx = currentIndex();
+  function render() {
+    const tx = Math.min(idx * step(), maxTx());
+    rail.style.transform = 'translateX(' + (-tx) + 'px)';
     if (counter) counter.textContent = String(idx + 1).padStart(2, '0');
     if (prev) prev.disabled = (idx <= 0);
     if (next) next.disabled = (idx >= cards.length - 1);
     const fill = document.getElementById('brief-progress-fill');
     if (fill) fill.style.width = ((idx + 1) / cards.length * 100).toFixed(2) + '%';
   }
+  function go(i) { idx = clamp(i); render(); }
 
-  function scrollTo(idx) {
-    const target = cards[Math.max(0, Math.min(cards.length - 1, idx))];
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-  }
-
-  prev?.addEventListener('click', () => scrollTo(currentIndex() - 1));
-  next?.addEventListener('click', () => scrollTo(currentIndex() + 1));
-
-  // Keyboard support when track has focus
+  prev?.addEventListener('click', () => go(idx - 1));
+  next?.addEventListener('click', () => go(idx + 1));
   track.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft')  { e.preventDefault(); scrollTo(currentIndex() - 1); }
-    if (e.key === 'ArrowRight') { e.preventDefault(); scrollTo(currentIndex() + 1); }
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); go(idx - 1); }
+    if (e.key === 'ArrowRight') { e.preventDefault(); go(idx + 1); }
   });
-
-  let scrollTick = null;
-  track.addEventListener('scroll', () => {
-    if (scrollTick) return;
-    scrollTick = requestAnimationFrame(() => { update(); scrollTick = null; });
-  });
-
-  update();
+  window.addEventListener('resize', render);
+  render();
 })();
 /* ============================================================
    Cookie consent (DPDP / GDPR)

@@ -172,3 +172,11 @@ a.pv-back:hover,.cta-btn-secondary:hover{ border-color:var(--gold); }
 .prac-quote figcaption{ display:inline-flex; flex-direction:column; gap:4px; padding-top:16px; border-top:2px solid var(--gold); }
 .prac-quote .pq-name{ font-weight:600; font-size:14px; color:var(--text-strong); }
 .prac-quote .pq-role{ font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--text-faint); }
+
+/* Unify footer navy across all pages (match homepage) */
+.footer{ background:var(--ink) !important; }
+
+/* Engagement briefs: transform slider (robust, no native scroll) */
+.brief-track{ overflow:hidden !important; scroll-snap-type:none !important; display:block !important; }
+.brief-rail{ display:flex; gap:16px; transition:transform .45s cubic-bezier(.4,0,.2,1); will-change:transform; }
+.brief-card{ scroll-snap-align:none !important; }
