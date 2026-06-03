@@ -190,3 +190,30 @@ a.pv-back:hover,.cta-btn-secondary:hover{ border-color:var(--gold); }
 .page-view .pv-meta{ margin-bottom:24px !important; }
 #aud-global .aud-title{ display:inline-block; }
 #aud-global .prac-tag-global{ }
+
+/* ============================================================
+   Long-form reading measure — consistent, aligned text column
+   (body paragraphs were running full-width ~150 chars/line)
+   ============================================================ */
+.page-view > p, .page-view > ul, .page-view > ol,
+.page-view > h2, .page-view > h3, .page-view > .pv-lead,
+.page-view > blockquote{
+  max-width: 72ch;
+}
+/* keep wide elements wide */
+.page-view > .pv-meta, .page-view > .ins-list, .page-view > .map-table,
+.page-view > .ins-related, .page-view > .team-grid, .page-view > .team-foot,
+.page-view > .calc, .page-view > table{ max-width: none; }
+.map-table{ max-width: 100%; }
+
+/* Practice "what we do" — unify measures so left & right edges align */
+#what > p, #what > p:first-of-type, #what .what-list, #what .what-note, #what h3{ max-width: 74ch; }
+
+/* Fixed reading measure (px) so all long-form text shares the same edges */
+.page-view > p, .page-view > ul, .page-view > ol,
+.page-view > h2, .page-view > h3, .page-view > .pv-lead, .page-view > blockquote{
+  max-width: 680px !important;
+}
+#what > p, #what > p:first-of-type, #what h3, #what .what-list, #what .what-note{
+  max-width: 720px !important;
+}
