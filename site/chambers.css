@@ -217,3 +217,11 @@ a.pv-back:hover,.cta-btn-secondary:hover{ border-color:var(--gold); }
 #what > p, #what > p:first-of-type, #what h3, #what .what-list, #what .what-note{
   max-width: 720px !important;
 }
+
+/* Justified long-form body paragraphs (with hyphenation to avoid rivers) */
+.page-view > p, .page-view > .pv-lead, #what > p, #what .what-note{
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
