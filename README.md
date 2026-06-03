@@ -28,6 +28,13 @@ See `docs/spec.md` § "Out of scope for v1". Short list: Trading Comps, Preceden
 - `docs/spec.md` — full product + architecture spec.
 - `docs/dcf-math.md` — the DCF formulas the engine implements, for analyst reference.
 
+## Build log
+
+- **Iter 1** (`aimsg_01kt6vy9jxe5c9c1kgady33z9k`): scaffold — auth, models CRUD with RLS, three-grid DCF workspace (Assumptions / Projections / Output) wired to a pure-TS engine in `src/lib/dcf/engine.ts`, Save/Reload, Vitest engine tests green.
+- **Iter 2** (`aimsg_01kt75drkxf558bjmf7xbb8831`, commit `5393dcd`): Excel/CSV import + export via SheetJS in `src/lib/io/xlsx.ts` with a round-trip Vitest test; Sensitivity heatmap (`src/components/Sensitivity.tsx`) with cool→warm cells and a ringed center; football-field range chart (`src/components/FootballField.tsx`) via Recharts; assumption inputs accept `15` or `0.15` for percentages; "Last saved Xs ago" indicator that turns amber when dirty.
+
+Next up: sharing UI + a polished marketing landing.
+
 ## Development
 
 All code lives in the Lovable project (linked above). To iterate:
