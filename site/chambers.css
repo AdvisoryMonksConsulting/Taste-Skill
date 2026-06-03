@@ -233,3 +233,10 @@ a.pv-back:hover,.cta-btn-secondary:hover{ border-color:var(--gold); }
   hyphens: auto;
   -webkit-hyphens: auto;
 }
+
+/* Tighter inter-section spacing (was ~104px between sections) */
+.section{ padding-top:clamp(18px,2.2vw,34px) !important; padding-bottom:clamp(18px,2.2vw,34px) !important; }
+.cta-section{ padding-top:clamp(40px,4.6vw,60px) !important; padding-bottom:clamp(40px,4.6vw,60px) !important; }
+.hero{ padding-bottom:clamp(22px,2.6vw,38px) !important; }
+/* trim the big gap under section headings on the homepage */
+.s-head{ margin-bottom:clamp(22px,3vw,40px) !important; }
