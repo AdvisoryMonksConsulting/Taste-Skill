@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Advisory Monks Consulting · Insights</title>
+    <link>https://www.advisorymonks.io/insights</link>
+    <atom:link href="https://www.advisorymonks.io/rss.xml" rel="self" type="application/rss+xml"/>
+    <description>Practical cross-border tax, legal, and structuring notes for Indian founders, NRIs, foreign companies, and investors.</description>
+    <language>en</language>
+    <lastBuildDate>Wed, 01 Apr 2026 00:00:00 +0530</lastBuildDate>
+    <item>
+      <title>Form 13 LDC for NRIs: when it works, when it doesn't.</title>
+      <link>https://www.advisorymonks.io/insights/form-13-ldc-nri</link>
+      <guid>https://www.advisorymonks.io/insights/form-13-ldc-nri</guid>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 +0530</pubDate>
+      <description>When a Form 13 Lower Deduction Certificate actually helps NRIs reduce TDS on Indian income — and when it does not. Practical guidance from Advisory Monks Consulting.</description>
+    </item>
+    <item>
+      <title>Flip structuring after GAAR. Delaware, Singapore, Cayman, IFSC, UAE compared.</title>
+      <link>https://www.advisorymonks.io/insights/flip-structuring-gaar</link>
+      <guid>https://www.advisorymonks.io/insights/flip-structuring-gaar</guid>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 +0530</pubDate>
+      <description>How GAAR changes flip structuring for Indian startups. Delaware, Singapore, Cayman, IFSC GIFT City, and UAE compared for holding-company structures.</description>
+    </item>
+    <item>
+      <title>What changed in India-US transfer pricing for FY26.</title>
+      <link>https://www.advisorymonks.io/insights/india-us-transfer-pricing-fy26</link>
+      <guid>https://www.advisorymonks.io/insights/india-us-transfer-pricing-fy26</guid>
+      <pubDate>Sun, 01 Feb 2026 00:00:00 +0530</pubDate>
+      <description>What changed in India-US transfer pricing for FY26 — documentation thresholds, safe harbours, and practical compliance for cross-border related-party transactions.</description>
+    </item>
+    <item>
+      <title>The Income-tax Act, 2025 — what changes for founders, NRIs and foreign companies</title>
+      <link>https://www.advisorymonks.io/insights/income-tax-act-2025</link>
+      <guid>https://www.advisorymonks.io/insights/income-tax-act-2025</guid>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0530</pubDate>
+      <description>India's Income-tax Act, 2025 (effective 1 April 2026): what it replaces, the new tax year, and a 1961-to-2025 section map for cross-border and founder tax.</description>
+    </item>
+  </channel>
+</rss>

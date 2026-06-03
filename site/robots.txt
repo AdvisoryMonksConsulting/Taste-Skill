@@ -1,0 +1,6 @@
+# Production robots.txt for advisorymonks.io
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.advisorymonks.io/sitemap.xml
