@@ -240,3 +240,6 @@ a.pv-back:hover,.cta-btn-secondary:hover{ border-color:var(--gold); }
 .hero{ padding-bottom:clamp(22px,2.6vw,38px) !important; }
 /* trim the big gap under section headings on the homepage */
 .s-head{ margin-bottom:clamp(22px,3vw,40px) !important; }
+
+/* Reliability: never hide content behind scroll-reveal (caused empty bands) */
+.reveal{ opacity:1 !important; transform:none !important; }
