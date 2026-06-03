@@ -1,0 +1,6 @@
+# Cloudflare Pages redirects
+# Removed page (Client Portal)
+/portal            /            301
+/portal/*          /            301
+# Force www as canonical (matches <link rel=canonical>) — apex -> www
+https://advisorymonks.io/*   https://www.advisorymonks.io/:splat   301
