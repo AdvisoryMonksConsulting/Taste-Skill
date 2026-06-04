@@ -1,0 +1,9 @@
+{
+  // Static-assets Worker for the Advisory Monks website.
+  // Serves the prebuilt files in /site — no build step required.
+  "name": "advisorymonks-site",
+  "compatibility_date": "2025-06-01",
+  "assets": {
+    "directory": "./site"
+  }
+}
