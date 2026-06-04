@@ -114,3 +114,31 @@ e74157c Long-form pages: consistent aligned reading column
 f1359c1 Fix carousel (transform slider); unify footer navy
 8459651 Add Advisory Monks static website (Chambers design)
 ```
+
+---
+
+## 12. LATEST STATE — deployment in progress (read first)
+**Date:** this session continues from above.
+
+**Where things stand:**
+- The Chambers site is **deployed to Cloudflare as a Worker (Static Assets)** via dashboard "Upload and deploy" (not Pages — that's Cloudflare's current default and is fine; confirmed `_headers`, `_redirects`, and clean URLs all work natively on Workers Static Assets).
+- Worker name is the auto-generated **`soft-morning-ab65`** (user may rename to `advisory-monks`). It's live on its `*.workers.dev` URL.
+- **`advisorymonks.io` is already an ACTIVE zone in this Cloudflare account (Free plan)** — DNS is managed by Cloudflare, so **no nameserver change is needed**.
+- **PENDING NEXT STEP (the site is not yet on the real domain):** attach the custom domain to the Worker:
+  Dashboard → **Compute → Workers & Pages → `soft-morning-ab65` → Settings → Domains & Routes → Add → Custom domain** → add `advisorymonks.io`, then `www.advisorymonks.io`. Cloudflare auto-creates the DNS record + SSL. This **replaces the current/old site** at the apex, so check the `workers.dev` preview first. Verify existing **MX/email records** still present in DNS (zone already active, so they should be).
+- Canonical host = **www** (`_redirects` 301s apex→www). Can flip to bare domain on request.
+
+**Latest deploy bundle:** `AdvisoryMonks-site-DEPLOY.zip` = contents of `/site` (production). Latest commit: **818c573**.
+
+**Fixes since section 11:**
+- Logo wordmark was clipping on the user's machine (live SVG `<text>` in Georgia renders wider than sandbox serif → overflowed viewBox). Fixed by widening `logo.svg` + `logo-light.svg` viewBox `344→392`.
+- Removed the **Founder Math** callout from `practices/ma-advisory.html` (linked to non-live `foundermath.advisorymonks.io`).
+- Dropped `QC-REPORT.md` from the public `/site`.
+
+**Still pending (needs user input):**
+1. Attach custom domain (above) to finish go-live.
+2. Old→new **`_redirects`** map — need the OLD site's URL list/sitemap to preserve SEO (old site platform unknown; possibly Wix).
+3. Google Search Console: resubmit `https://www.advisorymonks.io/sitemap.xml`; request indexing for new pages (3 guides, NRI tool, income-tax-act-2025). Unchanged URLs just re-crawl.
+4. Calendly link placeholder in `#contact`; contact-form endpoint; real fee numbers; Chambers vs Brand final choice.
+
+**Environment limits for the assistant:** cannot reach external sites (network allowlist — `advisorymonks.io` returns "Host not in allowlist"); the Cloudflare MCP that connects is **read-only** for Workers + create-only for D1/KV/R2 (no Pages deploy, no DNS, no custom-domain) — so the assistant **cannot deploy or attach the domain directly**; the user does it in the dashboard.
