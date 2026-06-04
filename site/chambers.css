@@ -243,3 +243,147 @@ a.pv-back:hover,.cta-btn-secondary:hover{ border-color:var(--gold); }
 
 /* Reliability: never hide content behind scroll-reveal (caused empty bands) */
 .reveal{ opacity:1 !important; transform:none !important; }
+
+/* ============================================================
+   RAMP POLISH — pass 1 (2026)
+   Modern SaaS-grade polish on the navy/gold Chambers identity.
+   CSS-only, appended last → upgrades all 26 pages at once.
+   Inspired by ramp.com: bold type, generous space, soft elevation,
+   confident buttons, calm motion. Fully reversible (delete this block).
+   ============================================================ */
+
+:root{
+  --rp-shadow-sm: 0 1px 2px rgba(16,27,48,.04), 0 2px 6px rgba(16,27,48,.05);
+  --rp-shadow-md: 0 6px 16px -8px rgba(16,27,48,.16), 0 14px 40px -22px rgba(16,27,48,.22);
+  --rp-shadow-lg: 0 18px 50px -24px rgba(16,27,48,.30);
+  --rp-ease: cubic-bezier(.21,.68,.28,1);
+  --rp-gold-grad: linear-gradient(96deg,#C9A455 0%,#A9863F 48%,#8A6C2E 100%);
+  --rp-navy-grad: linear-gradient(160deg,#1E3050 0%,#16243C 55%,#0F1B30 100%);
+}
+
+html{ scroll-behavior:smooth; }
+::selection{ background:var(--gold-tint); color:var(--ink); }
+
+/* ---- Generous, Ramp-like vertical rhythm -------------------- */
+.section{
+  padding-top:clamp(54px,6.2vw,104px) !important;
+  padding-bottom:clamp(54px,6.2vw,104px) !important;
+}
+.cta-section{
+  padding-top:clamp(72px,8vw,128px) !important;
+  padding-bottom:clamp(72px,8vw,128px) !important;
+}
+.hero{ padding-top:clamp(56px,6.5vw,104px) !important; padding-bottom:clamp(40px,4.6vw,72px) !important; }
+
+/* ---- Display typography: bigger + tighter (Ramp signature) --- */
+.hero-display{
+  font-size:clamp(40px,6.4vw,88px) !important;
+  line-height:1.02 !important;
+  letter-spacing:-.032em !important;
+  text-wrap:balance;
+}
+.s-display,.section-title{
+  font-size:clamp(28px,4vw,52px) !important;
+  line-height:1.06 !important;
+  letter-spacing:-.028em !important;
+  text-wrap:balance;
+}
+.hero-lede,.hero-deck{
+  font-size:clamp(17px,1.55vw,21px) !important;
+  line-height:1.55 !important;
+  color:var(--text-mid);
+}
+/* Gold gradient accent for emphasised words: <em> / .accent in headings */
+.hero-display em,.s-display em,.section-title em,
+.hero-display .accent,.s-display .accent,.section-title .accent{
+  font-style:normal;
+  background:var(--rp-gold-grad);
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:transparent;
+}
+
+/* ---- Eyebrows: refined gold tick ---------------------------- */
+.hero-eyebrow,.eyebrow{
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:var(--mono); font-size:12px; letter-spacing:.18em; text-transform:uppercase;
+}
+.hero-eyebrow::before{
+  content:""; width:22px; height:2px; border-radius:2px; background:var(--rp-gold-grad);
+}
+
+/* ---- Buttons: confident, with hover lift -------------------- */
+.btn,.cta-btn-primary,.cta-btn-secondary,.nav-cta,.btn-consult{
+  border-radius:999px !important;
+  font-weight:600;
+  transition:transform .22s var(--rp-ease), box-shadow .22s var(--rp-ease),
+             background .22s var(--rp-ease), border-color .22s var(--rp-ease), color .22s var(--rp-ease) !important;
+  will-change:transform;
+}
+.btn-primary,.cta-btn-primary,.nav-cta{
+  background:var(--rp-navy-grad) !important;
+  color:var(--text-paper-strong) !important;
+  border:1px solid var(--ink) !important;
+  box-shadow:var(--rp-shadow-sm);
+}
+.btn-primary:hover,.cta-btn-primary:hover,.nav-cta:hover,.btn-consult:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--rp-shadow-md);
+}
+.btn-ghost,.cta-btn-secondary{
+  border:1px solid var(--text-line-strong) !important;
+  background:transparent !important;
+  color:var(--text-strong) !important;
+}
+.btn-ghost:hover,.cta-btn-secondary:hover{
+  transform:translateY(-2px);
+  border-color:var(--gold) !important;
+  background:var(--gold-tint) !important;
+  box-shadow:var(--rp-shadow-sm);
+}
+
+/* ---- Cards: unified soft elevation + hover lift ------------- */
+.who-card,.prac-card,.outcome,.tcard,.ins-card,.brief-card,.price-card{
+  border-radius:18px !important;
+  box-shadow:var(--rp-shadow-sm);
+  transition:transform .3s var(--rp-ease), box-shadow .3s var(--rp-ease), border-color .3s var(--rp-ease) !important;
+}
+.who-card:hover,.prac-card:hover,.outcome:hover,.tcard:hover,.ins-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--rp-shadow-md);
+  border-color:var(--gold) !important;
+}
+
+/* ---- Nav: frosted, modern feel ------------------------------ */
+.rail{
+  backdrop-filter:saturate(1.4) blur(14px);
+  -webkit-backdrop-filter:saturate(1.4) blur(14px);
+  background:color-mix(in srgb, var(--paper) 82%, transparent) !important;
+  border-bottom:1px solid var(--text-line);
+}
+
+/* ---- Links in prose: animated gold underline ---------------- */
+.page-view a:not(.btn):not(.pv-back):not(.ins-card){
+  border-bottom-color:var(--gold) !important;
+}
+
+/* ---- CTA band: rich navy gradient + soft glow --------------- */
+.cta-section{ background:var(--rp-navy-grad) !important; position:relative; overflow:hidden; }
+.cta-section::after{
+  content:""; position:absolute; inset:auto -10% -60% auto; width:60%; height:120%;
+  background:radial-gradient(closest-side, rgba(169,134,63,.18), transparent 70%);
+  pointer-events:none;
+}
+
+/* ---- Calm entrance motion (CSS-only → can never hide content) */
+@media (prefers-reduced-motion: no-preference){
+  .hero-eyebrow,.hero-display,.hero-lede,.hero-deck,.hero-r{
+    animation:rpRise .7s var(--rp-ease) both;
+  }
+  .hero-display{ animation-delay:.06s; }
+  .hero-lede,.hero-deck{ animation-delay:.12s; }
+  .hero-r{ animation-delay:.18s; }
+}
+@keyframes rpRise{ from{ opacity:0; transform:translateY(14px); } to{ opacity:1; transform:none; } }
+/* ============================================================
+   END RAMP POLISH — pass 1
+   ============================================================ */
