@@ -8,218 +8,211 @@
 <script>document.documentElement.className='js';</script>
 <style>
 /* ============================================================
-   ADVISORY MONKS — Ramp-style homepage (preview build)
-   Self-contained. Navy + gold identity, self-hosted fonts.
+   ADVISORY MONKS — full Ramp-style homepage (preview build)
+   Ramp aesthetic: warm cream, near-black bold sans, lime accent.
    ============================================================ */
-@font-face{font-family:'Lora';src:url('fonts/Lora-Regular.ttf');font-weight:400;font-display:swap}
-@font-face{font-family:'Lora';src:url('fonts/Lora-Bold.ttf');font-weight:700;font-display:swap}
-@font-face{font-family:'Lora';src:url('fonts/Lora-Italic.ttf');font-style:italic;font-display:swap}
 @font-face{font-family:'Instrument Sans';src:url('fonts/InstrumentSans-Regular.ttf');font-weight:400;font-display:swap}
 @font-face{font-family:'Instrument Sans';src:url('fonts/InstrumentSans-Bold.ttf');font-weight:600 700;font-display:swap}
 @font-face{font-family:'IBM Plex Mono';src:url('fonts/IBMPlexMono-Regular.ttf');font-weight:400;font-display:swap}
 @font-face{font-family:'IBM Plex Mono';src:url('fonts/IBMPlexMono-Bold.ttf');font-weight:500 700;font-display:swap}
 
 :root{
-  --paper:#FBF9F3; --white:#FFFFFF; --paper-dim:#F3EEE3;
-  --navy:#16243C; --navy-deep:#0F1B30; --navy-soft:#3D5374;
-  --navy-tint:#EEF1F6; --navy-veil:#E7E0D2;
-  --gold:#A9863F; --gold-bright:#C9A455; --gold-tint:#F6EFDC;
-  --ink:#16243C; --mid:#585345; --faint:#9A9281; --line:#E7E0D2; --line-strong:#D8CFB8;
-  --sans:'Instrument Sans',system-ui,-apple-system,Segoe UI,sans-serif;
-  --serif:'Lora',Georgia,serif;
+  --bg:#F5F2EA;            /* Ramp warm cream */
+  --card:#FFFFFF;
+  --ink:#16170F;           /* near-black, warm */
+  --mid:#56564C;
+  --faint:#8C8B7E;
+  --line:#E4DFD2;
+  --line-2:#D5CFBE;
+  --lime:#D2F24B;          /* Ramp signature lime-yellow */
+  --lime-deep:#C2E337;
+  --mint:#E7F1E3; --lav:#EBE8F5; --peach:#F7ECDF; --sky:#E4EEF2;
+  --sans:'Instrument Sans',system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif;
   --mono:'IBM Plex Mono',ui-monospace,monospace;
-  --maxw:1180px; --pad:clamp(20px,5vw,40px);
-  --ease:cubic-bezier(.21,.68,.28,1);
-  --r:22px;
-  --sh-sm:0 1px 2px rgba(16,27,48,.05),0 4px 12px -6px rgba(16,27,48,.10);
-  --sh-md:0 10px 24px -12px rgba(16,27,48,.20),0 24px 60px -34px rgba(16,27,48,.28);
-  --gold-grad:linear-gradient(96deg,#C9A455,#A9863F 55%,#876A2C);
-  --navy-grad:linear-gradient(165deg,#1E3050,#16243C 55%,#0F1B30);
+  --maxw:1200px; --pad:clamp(20px,5vw,44px);
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --r:20px; --r-lg:28px;
+  --sh-sm:0 1px 2px rgba(20,22,12,.04),0 6px 18px -10px rgba(20,22,12,.14);
+  --sh-md:0 12px 28px -14px rgba(20,22,12,.22),0 30px 70px -40px rgba(20,22,12,.30);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--paper);color:var(--ink);
-  font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:17px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 a{color:inherit;text-decoration:none}
 img,svg{display:block;max-width:100%}
-::selection{background:var(--gold-tint);color:var(--navy)}
+::selection{background:var(--lime);color:var(--ink)}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
-.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--gold);display:inline-flex;align-items:center;gap:10px}
-.eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--gold-grad)}
+.lab{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mid)}
+.hl{background:var(--lime);padding:0 .12em;border-radius:3px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 
 /* ---- Buttons ---- */
-.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-weight:600;
-  font-size:15px;padding:14px 24px;border-radius:999px;border:1px solid transparent;cursor:pointer;
-  transition:transform .22s var(--ease),box-shadow .22s var(--ease),background .22s var(--ease),border-color .22s var(--ease),color .22s var(--ease)}
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-weight:600;font-size:15px;
+  padding:14px 24px;border-radius:999px;border:1.5px solid transparent;cursor:pointer;white-space:nowrap;
+  transition:transform .2s var(--ease),background .2s var(--ease),color .2s var(--ease),border-color .2s var(--ease),box-shadow .2s var(--ease)}
 .btn svg{width:16px;height:16px}
-.btn-primary{background:var(--navy-grad);color:#F4F0E7;box-shadow:var(--sh-sm)}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:var(--sh-md)}
-.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
-.btn-ghost:hover{transform:translateY(-2px);border-color:var(--gold);background:var(--gold-tint)}
-.btn-gold{background:var(--gold-grad);color:#231a07;box-shadow:var(--sh-sm)}
-.btn-gold:hover{transform:translateY(-2px);box-shadow:var(--sh-md)}
+.btn-dark{background:var(--ink);color:#F5F2EA}
+.btn-dark:hover{transform:translateY(-2px);box-shadow:var(--sh-md)}
+.btn-lime{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+.btn-lime:hover{transform:translateY(-2px);background:var(--lime-deep);border-color:var(--lime-deep)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-2)}
+.btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
 
 /* ---- Nav ---- */
-.nav{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--paper) 84%,transparent);
-  -webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);
-  border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
-.nav.scrolled{border-bottom-color:var(--line);box-shadow:0 1px 0 rgba(16,27,48,.02)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px}
-.nav-logo{font-family:var(--serif);font-weight:700;font-size:21px;letter-spacing:-.01em;color:var(--navy);display:flex;align-items:center;gap:10px}
-.nav-logo .dot{width:9px;height:9px;border-radius:50%;background:var(--gold-grad)}
+.nav{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--bg) 86%,transparent);
+  -webkit-backdrop-filter:saturate(1.3) blur(12px);backdrop-filter:saturate(1.3) blur(12px);
+  border-bottom:1px solid transparent;transition:border-color .3s}
+.nav.scrolled{border-bottom-color:var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:74px}
+.nav-logo{font-weight:700;font-size:20px;letter-spacing:-.02em;color:var(--ink);display:flex;align-items:center;gap:9px}
+.nav-logo .dot{width:11px;height:11px;border-radius:50%;background:var(--lime);border:1.5px solid var(--ink)}
 .nav-links{display:flex;align-items:center;gap:30px}
 .nav-links a{font-size:15px;font-weight:500;color:var(--mid);transition:color .2s}
-.nav-links a:hover{color:var(--navy)}
+.nav-links a:hover{color:var(--ink)}
 .nav-cta{display:flex;align-items:center;gap:12px}
-.nav-toggle{display:none;background:none;border:0;cursor:pointer;width:40px;height:40px}
-.nav-toggle span{display:block;width:22px;height:2px;background:var(--navy);margin:5px auto;border-radius:2px;transition:.3s}
-@media(max-width:900px){
+.nav-toggle{display:none;background:none;border:0;cursor:pointer;width:42px;height:42px}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--ink);margin:5px auto;border-radius:2px}
+@media(max-width:920px){
   .nav-links,.nav-cta .btn-ghost{display:none}
   .nav-toggle{display:block}
-  .nav-links.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;
-    background:var(--paper);border-bottom:1px solid var(--line);padding:18px var(--pad);gap:18px}
+  .nav-links.open{display:flex;position:absolute;top:74px;left:0;right:0;flex-direction:column;
+    background:var(--bg);border-bottom:1px solid var(--line);padding:18px var(--pad);gap:18px}
 }
 
 /* ---- Hero ---- */
-.hero{padding:clamp(48px,7vw,104px) 0 clamp(40px,5vw,76px)}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,64px);align-items:center}
-@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:40px}}
-.hero h1{font-family:var(--sans);font-weight:700;font-size:clamp(38px,6vw,72px);line-height:1.02;
-  letter-spacing:-.035em;color:var(--navy);margin:22px 0 0;text-wrap:balance}
-.hero h1 .accent{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
-.hero-lede{font-size:clamp(17px,1.6vw,20px);line-height:1.6;color:var(--mid);max-width:34em;margin:24px 0 0}
-.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
-.hero-trust{margin-top:30px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--faint);
-  display:flex;gap:10px 18px;flex-wrap:wrap;align-items:center}
-.hero-trust b{color:var(--mid);font-weight:500}
-.hero-trust .sep{width:4px;height:4px;border-radius:50%;background:var(--line-strong)}
+.hero{padding:clamp(44px,6vw,88px) 0 clamp(20px,3vw,40px);text-align:center}
+.hero .lab{display:inline-block;margin-bottom:22px;background:var(--card);border:1px solid var(--line);
+  padding:8px 16px;border-radius:999px;color:var(--mid)}
+.hero h1{font-weight:700;font-size:clamp(42px,7.2vw,92px);line-height:.98;letter-spacing:-.04em;
+  max-width:16ch;margin:0 auto;text-wrap:balance}
+.hero-lede{font-size:clamp(17px,1.7vw,21px);line-height:1.55;color:var(--mid);max-width:60ch;margin:26px auto 0}
+.hero-cta{display:flex;gap:13px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.hero-note{margin-top:18px;font-family:var(--mono);font-size:12px;color:var(--faint)}
 
-/* hero product-style visual */
-.hero-vis{position:relative}
-.memo{background:var(--white);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh-md);
-  padding:26px 26px 22px;transform:rotate(-1.4deg)}
-.memo-top{display:flex;justify-content:space-between;align-items:center;padding-bottom:16px;border-bottom:1px solid var(--line)}
-.memo-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
-.memo-meta{font-family:var(--mono);font-size:10.5px;color:var(--faint)}
-.memo h3{font-family:var(--serif);font-weight:700;font-size:21px;letter-spacing:-.01em;color:var(--navy);margin:18px 0 6px}
-.memo p{font-size:13.5px;color:var(--mid);line-height:1.6}
-.memo-rows{margin:18px 0 0;border-top:1px solid var(--line)}
-.memo-row{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:13px}
-.memo-row span{color:var(--mid)}.memo-row b{font-family:var(--mono);color:var(--navy);font-weight:600}
-.memo-row b.pos{color:#2C7A57}
-.memo-stamp{position:absolute;right:-14px;bottom:-16px;background:var(--navy-grad);color:#F4F0E7;
-  border-radius:16px;padding:16px 20px;box-shadow:var(--sh-md);transform:rotate(2deg)}
-.memo-stamp .n{font-family:var(--serif);font-weight:700;font-size:26px;line-height:1}
-.memo-stamp .l{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#C9A455;margin-top:6px}
+/* hero product dashboard */
+.shot{margin:clamp(40px,5vw,72px) auto 0;max-width:1040px;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--r-lg);box-shadow:var(--sh-md);overflow:hidden}
+.shot-bar{display:flex;align-items:center;gap:8px;padding:15px 20px;border-bottom:1px solid var(--line);background:#FBFAF6}
+.shot-bar i{width:11px;height:11px;border-radius:50%;background:var(--line-2)}
+.shot-bar .u{margin-left:14px;font-family:var(--mono);font-size:12px;color:var(--faint)}
+.shot-body{display:grid;grid-template-columns:200px 1fr;min-height:340px}
+@media(max-width:680px){.shot-body{grid-template-columns:1fr}}
+.shot-side{border-right:1px solid var(--line);padding:20px 16px;display:flex;flex-direction:column;gap:6px;background:#FCFBF7}
+@media(max-width:680px){.shot-side{display:none}}
+.shot-side .si{font-family:var(--mono);font-size:12.5px;color:var(--mid);padding:9px 12px;border-radius:9px}
+.shot-side .si.on{background:var(--lime);color:var(--ink);font-weight:600}
+.shot-main{padding:24px clamp(18px,3vw,30px);text-align:left}
+.shot-h{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px;margin-bottom:20px}
+.shot-h .t{font-weight:700;font-size:19px;letter-spacing:-.02em}
+.shot-h .pill{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+  background:var(--mint);color:#2C7A57;padding:5px 11px;border-radius:999px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
+@media(max-width:520px){.kpis{grid-template-columns:1fr}}
+.kpi{border:1px solid var(--line);border-radius:14px;padding:16px}
+.kpi .n{font-weight:700;font-size:26px;letter-spacing:-.03em}
+.kpi .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-top:6px}
+.rows{border-top:1px solid var(--line)}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);font-size:14px}
+.row span{color:var(--mid)}
+.row .chip{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+.chip.ok{background:var(--mint);color:#2C7A57}.chip.go{background:var(--peach);color:#9A5B22}.chip.wait{background:var(--sky);color:#3F6076}
 
-/* ---- Credential strip ---- */
-.creds{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--white)}
-.creds-in{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:22px 0}
-.creds-lab{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
-.creds-list{display:flex;gap:12px 26px;flex-wrap:wrap}
-.creds-list span{font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;color:var(--mid)}
-.creds-list b{color:var(--navy);font-weight:600}
+/* ---- Trust wall ---- */
+.trust{padding:36px 0 8px;text-align:center}
+.trust .lab{color:var(--faint)}
+.trust-row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 40px;margin-top:20px}
+.trust-row span{font-weight:700;font-size:clamp(16px,2vw,22px);letter-spacing:-.02em;color:#A7A496}
 
-/* ---- Section scaffolding ---- */
-section{padding:clamp(56px,7vw,112px) 0}
-.s-head{max-width:760px;margin-bottom:clamp(34px,4vw,56px)}
-.s-head h2{font-family:var(--sans);font-weight:700;font-size:clamp(30px,4.4vw,52px);line-height:1.05;
-  letter-spacing:-.03em;color:var(--navy);margin:16px 0 0;text-wrap:balance}
-.s-head h2 .accent{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
-.s-head p{font-size:18px;color:var(--mid);margin-top:18px;line-height:1.6}
+/* ---- Sections ---- */
+section{padding:clamp(58px,7vw,116px) 0}
+.s-head{max-width:780px;margin:0 auto clamp(36px,4vw,60px)}
+.s-head.left{margin-left:0;text-align:left}
+.s-head{text-align:center}
+.s-head h2{font-weight:700;font-size:clamp(32px,5vw,60px);line-height:1.02;letter-spacing:-.035em;text-wrap:balance;margin-top:14px}
+.s-head p{font-size:18px;color:var(--mid);margin-top:18px;line-height:1.55}
 
-/* ---- Stats band ---- */
-.stats{background:var(--navy-grad);color:#F4F0E7;position:relative;overflow:hidden}
-.stats::after{content:"";position:absolute;right:-8%;top:-40%;width:46%;height:180%;
-  background:radial-gradient(closest-side,rgba(201,164,85,.18),transparent 70%);pointer-events:none}
-.stats .s-head h2{color:#fff}.stats .s-head p{color:#AAB1BF}
-.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;z-index:1}
+/* ---- Stats ---- */
+.stats{background:var(--ink);color:#F5F2EA}
+.stats .s-head h2{color:#fff}.stats .s-head p{color:#B9B8AC}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 @media(max-width:760px){.stats-grid{grid-template-columns:1fr}}
-.stat{border:1px solid rgba(244,240,231,.16);border-radius:var(--r);padding:30px 28px;background:rgba(255,255,255,.03)}
-.stat .n{font-family:var(--serif);font-weight:700;font-size:clamp(38px,5vw,56px);line-height:1;letter-spacing:-.02em;color:#fff}
-.stat p{font-size:14.5px;line-height:1.6;color:#C8CEDA;margin:16px 0 16px}
-.stat .tag{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-bright)}
+.stat{border:1px solid rgba(245,242,234,.16);border-radius:var(--r);padding:30px 26px}
+.stat .n{font-weight:700;font-size:clamp(40px,5.4vw,60px);line-height:1;letter-spacing:-.03em;color:var(--lime)}
+.stat p{font-size:14.5px;line-height:1.55;color:#CFCEC2;margin:16px 0 16px}
+.stat .tag{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#9A998D}
 
-/* ---- Services grid ---- */
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+/* ---- Services ---- */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 @media(max-width:980px){.svc-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:640px){.svc-grid{grid-template-columns:1fr}}
-.svc{display:flex;flex-direction:column;gap:12px;background:var(--white);border:1px solid var(--line);
+@media(max-width:600px){.svc-grid{grid-template-columns:1fr}}
+.svc{display:flex;flex-direction:column;gap:11px;background:var(--card);border:1px solid var(--line);
   border-radius:var(--r);padding:26px 24px;box-shadow:var(--sh-sm);
-  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease)}
-.svc:hover{transform:translateY(-4px);box-shadow:var(--sh-md);border-color:var(--gold)}
-.svc .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
-.svc h3{font-family:var(--serif);font-weight:700;font-size:21px;letter-spacing:-.01em;color:var(--navy);line-height:1.2}
-.svc p{font-size:13.5px;color:var(--mid);line-height:1.6;flex:1}
-.svc .go{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mid);
-  display:inline-flex;align-items:center;gap:7px;margin-top:4px;transition:color .2s,gap .2s}
-.svc:hover .go{color:var(--gold);gap:11px}
+  transition:transform .28s var(--ease),box-shadow .28s var(--ease),border-color .28s var(--ease)}
+.svc:hover{transform:translateY(-5px);box-shadow:var(--sh-md);border-color:var(--ink)}
+.svc .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);
+  align-self:flex-start;background:var(--bg);border:1px solid var(--line);padding:5px 10px;border-radius:999px}
+.svc h3{font-weight:700;font-size:20px;letter-spacing:-.025em;line-height:1.15}
+.svc p{font-size:13.5px;color:var(--mid);line-height:1.55;flex:1}
+.svc .go{font-weight:600;font-size:14px;color:var(--ink);display:inline-flex;align-items:center;gap:7px;transition:gap .2s}
+.svc:hover .go{gap:11px}
+.svc .go svg{width:15px;height:15px}
 
-/* ---- Feature (alternating) ---- */
-.feat{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:center}
-@media(max-width:860px){.feat{grid-template-columns:1fr;gap:36px}}
-.feat-list{list-style:none;margin:24px 0 0;display:flex;flex-direction:column;gap:2px}
-.feat-list li{position:relative;padding:14px 0 14px 30px;border-top:1px solid var(--line);font-size:15.5px;color:var(--mid);line-height:1.55}
-.feat-list li:last-child{border-bottom:1px solid var(--line)}
-.feat-list li::before{content:"";position:absolute;left:6px;top:20px;width:8px;height:8px;background:var(--gold-grad);transform:rotate(45deg)}
-.feat-list li b{color:var(--navy);font-weight:600}
-.panel{background:var(--white);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh-md);overflow:hidden}
-.panel-top{display:flex;align-items:center;gap:8px;padding:16px 20px;border-bottom:1px solid var(--line);background:var(--paper-dim)}
-.panel-top i{width:11px;height:11px;border-radius:50%;background:var(--line-strong)}
-.panel-top .t{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-left:8px}
-.panel-body{padding:24px}
-.panel-line{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);font-size:14px}
-.panel-line:last-child{border-bottom:0}
-.panel-line span{color:var(--mid)}.panel-line b{font-family:var(--mono);font-weight:600;color:var(--navy)}
-.panel-line .chip{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
-  padding:4px 10px;border-radius:999px;background:var(--gold-tint);color:var(--gold)}
-.panel-line .chip.done{background:#E4F0EA;color:#2C7A57}
+/* ---- Feature panels (Ramp pastel blocks) ---- */
+.feat{padding:clamp(28px,3vw,40px);border-radius:var(--r-lg);display:grid;grid-template-columns:1fr 1fr;
+  gap:clamp(28px,4vw,60px);align-items:center;margin-bottom:20px}
+@media(max-width:860px){.feat{grid-template-columns:1fr;gap:30px}}
+.feat.mint{background:var(--mint)}.feat.lav{background:var(--lav)}
+.feat h2{font-weight:700;font-size:clamp(28px,3.6vw,44px);line-height:1.05;letter-spacing:-.03em;margin-top:14px;text-wrap:balance}
+.feat-list{list-style:none;margin:22px 0 0;display:flex;flex-direction:column;gap:2px}
+.feat-list li{position:relative;padding:13px 0 13px 30px;border-top:1px solid rgba(20,22,12,.10);font-size:15.5px;color:var(--mid);line-height:1.5}
+.feat-list li:last-child{border-bottom:1px solid rgba(20,22,12,.10)}
+.feat-list li::before{content:"";position:absolute;left:4px;top:17px;width:14px;height:14px;border-radius:50%;
+  background:var(--lime);border:1.5px solid var(--ink)}
+.feat-list li b{color:var(--ink);font-weight:600}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh-md);overflow:hidden}
+.panel .shot-bar{background:#FBFAF6}
+.panel-body{padding:22px 24px}
 
 /* ---- Testimonials ---- */
-.tsec{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 @media(max-width:980px){.tgrid{grid-template-columns:1fr 1fr}}
-@media(max-width:640px){.tgrid{grid-template-columns:1fr}}
-.tcard{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);
-  border-radius:var(--r);padding:26px 24px;box-shadow:var(--sh-sm);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
-.tcard:hover{transform:translateY(-4px);box-shadow:var(--sh-md)}
-.tcard blockquote{font-family:var(--serif);font-size:16px;line-height:1.5;color:var(--navy);letter-spacing:-.005em}
+@media(max-width:600px){.tgrid{grid-template-columns:1fr}}
+.tcard{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--r);padding:26px 24px;box-shadow:var(--sh-sm);transition:transform .28s var(--ease),box-shadow .28s var(--ease)}
+.tcard:hover{transform:translateY(-5px);box-shadow:var(--sh-md)}
+.tcard .stars{color:var(--ink);font-size:13px;letter-spacing:3px;margin-bottom:14px}
+.tcard blockquote{font-size:15.5px;line-height:1.5;color:var(--ink);font-weight:500;letter-spacing:-.01em}
 .tcard figcaption{margin-top:auto;padding-top:16px;border-top:1px solid var(--line)}
-.tcard .nm{font-weight:600;font-size:14px;color:var(--navy)}
-.tcard .rl{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--faint);margin-top:5px}
-.stars{color:var(--gold);font-size:13px;letter-spacing:2px;margin-bottom:14px}
+.tcard .nm{font-weight:700;font-size:14px}
+.tcard .rl{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.03em;text-transform:uppercase;color:var(--faint);margin-top:5px}
 
-/* ---- CTA ---- */
-.cta{background:var(--navy-grad);color:#F4F0E7;position:relative;overflow:hidden;text-align:center}
-.cta::after{content:"";position:absolute;left:50%;bottom:-60%;transform:translateX(-50%);width:70%;height:140%;
-  background:radial-gradient(closest-side,rgba(201,164,85,.20),transparent 70%);pointer-events:none}
-.cta-in{position:relative;z-index:1;max-width:720px;margin:0 auto}
-.cta h2{font-family:var(--sans);font-weight:700;font-size:clamp(30px,4.6vw,52px);line-height:1.05;letter-spacing:-.03em;color:#fff;margin:16px 0 0}
-.cta p{font-size:18px;color:#C8CEDA;margin:18px 0 0}
-.cta .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
-.cta .eyebrow{color:var(--gold-bright)}
+/* ---- CTA (iconic lime) ---- */
+.cta{background:var(--lime)}
+.cta-in{text-align:center;max-width:760px;margin:0 auto}
+.cta h2{font-weight:700;font-size:clamp(34px,5.4vw,64px);line-height:1;letter-spacing:-.04em;color:var(--ink)}
+.cta p{font-size:18px;color:#3B4012;margin-top:18px;line-height:1.5}
+.cta-row{display:flex;gap:13px;justify-content:center;flex-wrap:wrap;margin-top:34px}
 
 /* ---- Footer ---- */
-.foot{background:var(--navy-deep);color:#AAB1BF;padding:64px 0 40px}
-.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+.foot{background:var(--ink);color:#A7A698;padding:64px 0 40px}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px}
 @media(max-width:780px){.foot-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.foot-grid{grid-template-columns:1fr}}
-.foot-logo{font-family:var(--serif);font-weight:700;font-size:20px;color:#F4F0E7;display:flex;align-items:center;gap:9px}
-.foot-logo .dot{width:8px;height:8px;border-radius:50%;background:var(--gold-grad)}
-.foot p{font-size:13.5px;line-height:1.6;margin-top:14px;max-width:30ch}
-.foot h4{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
-.foot-col a{display:block;font-size:14px;color:#AAB1BF;padding:6px 0;transition:color .2s}
+.foot-logo{font-weight:700;font-size:19px;color:#F5F2EA;display:flex;align-items:center;gap:9px}
+.foot-logo .dot{width:10px;height:10px;border-radius:50%;background:var(--lime);border:1.5px solid #F5F2EA}
+.foot p{font-size:13.5px;line-height:1.6;margin-top:14px;max-width:32ch}
+.foot h4{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--lime);margin-bottom:14px}
+.foot-col a{display:block;font-size:14px;color:#A7A698;padding:6px 0;transition:color .2s}
 .foot-col a:hover{color:#fff}
-.foot-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(244,240,231,.12);
-  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:11.5px;color:#7B8497}
+.foot-bottom{margin-top:46px;padding-top:24px;border-top:1px solid rgba(245,242,234,.12);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:11.5px;color:#7E7D70}
 
 /* ---- WhatsApp FAB ---- */
-.wa{position:fixed;right:18px;bottom:18px;z-index:70;width:54px;height:54px;border-radius:50%;
-  background:#25D366;display:grid;place-items:center;box-shadow:0 10px 26px rgba(0,0,0,.24);transition:transform .2s}
+.wa{position:fixed;right:18px;bottom:18px;z-index:70;width:54px;height:54px;border-radius:50%;background:#25D366;
+  display:grid;place-items:center;box-shadow:0 10px 26px rgba(0,0,0,.24);transition:transform .2s}
 .wa:hover{transform:scale(1.07)}.wa svg{width:30px;height:30px;fill:#fff}
 
-/* ---- Safe scroll reveal (visible without JS) ---- */
+/* ---- Safe scroll reveal ---- */
 .js .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .js .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.js .reveal{opacity:1!important;transform:none!important;transition:none}}
@@ -239,8 +232,8 @@ section{padding:clamp(56px,7vw,112px) 0}
       <a href="#contact">Contact</a>
     </nav>
     <div class="nav-cta">
-      <a href="insights.html" class="btn btn-ghost">Read insights</a>
-      <a href="https://wa.me/918595116297?text=Hi%20Advisory%20Monks%2C%20I%27d%20like%20to%20speak%20with%20a%20partner" class="btn btn-primary">Talk to a partner</a>
+      <a href="insights.html" class="btn btn-ghost">Insights</a>
+      <a href="https://wa.me/918595116297?text=Hi%20Advisory%20Monks%2C%20I%27d%20like%20to%20speak%20with%20a%20partner" class="btn btn-dark">Talk to a partner</a>
       <button class="nav-toggle" id="navtoggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -248,49 +241,55 @@ section{padding:clamp(56px,7vw,112px) 0}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-l reveal">
-      <span class="eyebrow">Independent · Advisory-led · Ex-Big 4 leadership</span>
-      <h1>Cross-border tax and structuring, <span class="accent">settled with one team.</span></h1>
-      <p class="hero-lede">Advisory Monks Consulting advises Indian founders, NRIs, foreign companies, and investors across tax, FEMA, transfer pricing, valuation and M&amp;A — with a Global desk for businesses operating worldwide.</p>
-      <div class="hero-cta">
-        <a href="https://wa.me/918595116297?text=Hi%20Advisory%20Monks%2C%20I%27d%20like%20to%20speak%20with%20a%20partner" class="btn btn-primary">Talk to a partner
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="#services" class="btn btn-ghost">Explore practices</a>
-      </div>
-      <div class="hero-trust">
-        <b>90+ tax treaties</b><span class="sep"></span><b>IBBI Registered Valuers</b><span class="sep"></span><b>Founded 2021 · Noida, India</b>
-      </div>
+  <div class="wrap">
+    <span class="lab reveal">Independent · Advisory-led · Ex-Big 4 leadership</span>
+    <h1 class="reveal">Cross-border tax, <span class="hl">finally certain.</span></h1>
+    <p class="hero-lede reveal">We advise Indian founders, NRIs, foreign companies, and investors across tax, FEMA, transfer pricing, valuation and M&amp;A — with a Global desk for businesses operating worldwide.</p>
+    <div class="hero-cta reveal">
+      <a href="https://wa.me/918595116297?text=Hi%20Advisory%20Monks%2C%20I%27d%20like%20to%20speak%20with%20a%20partner" class="btn btn-dark">Talk to a partner
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#services" class="btn btn-ghost">Explore practices</a>
     </div>
-    <div class="hero-r reveal">
-      <div class="hero-vis">
-        <div class="memo">
-          <div class="memo-top"><span class="memo-tag">Engagement memo</span><span class="memo-meta">India ⇄ US</span></div>
-          <h3>One cross-border position, signed off both sides.</h3>
-          <p>DTAA relief, Form 15CB certification and the GILTI question — reconciled in a single memo for the client's auditor and US CPA.</p>
-          <div class="memo-rows">
-            <div class="memo-row"><span>DTAA treaty relief</span><b class="pos">Applied</b></div>
-            <div class="memo-row"><span>Form 15CA / 15CB</span><b>Certified</b></div>
-            <div class="memo-row"><span>GILTI / PFIC exposure</span><b class="pos">Cleared</b></div>
+    <p class="hero-note reveal">90+ tax treaties · IBBI Registered Valuers · Founded 2021 · Noida, India</p>
+
+    <!-- product dashboard -->
+    <div class="shot reveal">
+      <div class="shot-bar"><i></i><i></i><i></i><span class="u">advisorymonks.io · engagement</span></div>
+      <div class="shot-body">
+        <aside class="shot-side">
+          <div class="si on">Cross-border tax</div>
+          <div class="si">FEMA &amp; FDI</div>
+          <div class="si">Transfer pricing</div>
+          <div class="si">Valuation</div>
+          <div class="si">M&amp;A</div>
+          <div class="si">Global desk</div>
+        </aside>
+        <div class="shot-main">
+          <div class="shot-h"><span class="t">India ⇄ US · engagement memo</span><span class="pill">Both auditors agree</span></div>
+          <div class="kpis">
+            <div class="kpi"><div class="n">₹52L</div><div class="k">Cash freed</div></div>
+            <div class="kpi"><div class="n">5 wks</div><div class="k">To invoice-ready</div></div>
+            <div class="kpi"><div class="n">1 memo</div><div class="k">One position</div></div>
+          </div>
+          <div class="rows">
+            <div class="row"><span>DTAA treaty relief</span><span class="chip ok">Applied</span></div>
+            <div class="row"><span>Form 15CA / 15CB</span><span class="chip ok">Certified</span></div>
+            <div class="row"><span>GILTI / PFIC exposure</span><span class="chip ok">Cleared</span></div>
+            <div class="row"><span>FC-GPR filing</span><span class="chip wait">Filed</span></div>
+            <div class="row"><span>Transfer pricing — 3CEB</span><span class="chip go">In review</span></div>
           </div>
         </div>
-        <div class="memo-stamp"><div class="n">1 memo</div><div class="l">Two auditors agree</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CREDENTIAL STRIP -->
-<div class="creds">
-  <div class="wrap creds-in">
-    <span class="creds-lab">What we cover</span>
-    <div class="creds-list">
-      <span><b>FEMA</b> &amp; RBI</span>
-      <span><b>Transfer Pricing</b></span>
-      <span><b>Valuation</b> · Rule 11UA</span>
-      <span><b>M&amp;A</b> &amp; NCLT</span>
-      <span><b>GST</b> &amp; Direct Tax</span>
-      <span><b>Global</b> desk</span>
+<!-- TRUST WALL -->
+<div class="trust">
+  <div class="wrap">
+    <span class="lab">Corridors we work across</span>
+    <div class="trust-row">
+      <span>India</span><span>United States</span><span>Singapore</span><span>UAE</span><span>United Kingdom</span><span>Cayman</span><span>GIFT City</span>
     </div>
   </div>
 </div>
@@ -298,11 +297,7 @@ section{padding:clamp(56px,7vw,112px) 0}
 <!-- STATS -->
 <section class="stats">
   <div class="wrap">
-    <div class="s-head reveal">
-      <span class="eyebrow">Representative outcomes</span>
-      <h2>Technical depth, measured in results.</h2>
-      <p>A few engagements that show what a precise cross-border position is worth.</p>
-    </div>
+    <div class="s-head reveal"><span class="lab" style="color:var(--lime)">Representative outcomes</span><h2>Technical depth, measured in results.</h2></div>
     <div class="stats-grid">
       <div class="stat reveal"><div class="n">₹52L</div><p>Cash freed for an NRI on a ₹3&nbsp;crore Mumbai flat via a Form&nbsp;13 lower-deduction certificate — instead of a 12-month refund wait.</p><span class="tag">Pravasi Desk</span></div>
       <div class="stat reveal"><div class="n">5 weeks</div><p>From engagement to an invoicing-ready Indian subsidiary for a US tech company — incorporation, FDI/FC-GPR, GST and bank account.</p><span class="tag">India Entry</span></div>
@@ -314,52 +309,48 @@ section{padding:clamp(56px,7vw,112px) 0}
 <!-- SERVICES -->
 <section id="services">
   <div class="wrap">
-    <div class="s-head reveal">
-      <span class="eyebrow">Practices</span>
-      <h2>Thirteen desks. <span class="accent">One coordinated team.</span></h2>
-      <p>From flip structuring to the Pravasi desk — partner-led specialists who hand off cleanly instead of sending you to thirteen advisors.</p>
-    </div>
+    <div class="s-head reveal"><span class="lab">Practices</span><h2>Thirteen desks. <span class="hl">One team.</span></h2><p>Partner-led specialists who hand off cleanly — instead of sending you to thirteen separate advisors.</p></div>
     <div class="svc-grid">
-      <a class="svc reveal" href="practices/cross-border-tax.html"><span class="k">Tax</span><h3>Cross-Border Tax &amp; Structuring</h3><p>DTAA across 90+ treaties, Form 15CA/15CB, ODI structuring, PFIC &amp; GILTI for US persons, Section 195 TDS.</p><span class="go">View practice →</span></a>
-      <a class="svc reveal" href="practices/flip-structuring.html"><span class="k">Structuring</span><h3>Flip Structuring</h3><p>Delaware, Singapore, Cayman, GIFT City &amp; UAE selection, FEMA &amp; ODI, IP migration and post-flip transition.</p><span class="go">View practice →</span></a>
-      <a class="svc reveal" href="practices/founders-tax-desk.html"><span class="k">Private client</span><h3>Founders Tax Desk</h3><p>ESOP/RSU exercise planning, exit capital gains, HUF &amp; private trust architecture, cross-border holdings, estate planning.</p><span class="go">View practice →</span></a>
-      <a class="svc reveal" href="practices/gcc-india.html"><span class="k">Global capability</span><h3>GCC India Advisory</h3><p>Entity, transfer pricing, FEMA, payroll &amp; ESOPs, Virtual CFO, multi-state GST and audit coordination.</p><span class="go">View practice →</span></a>
-      <a class="svc reveal" href="practices/india-entry.html"><span class="k">Inbound</span><h3>India Entry &amp; Foreign Co.</h3><p>Market entry, entity setup, FDI/FEMA, GST, transfer pricing, MCA filings and labour law — end to end.</p><span class="go">View practice →</span></a>
-      <a class="svc reveal" href="practices/ma-advisory.html"><span class="k">Transactions</span><h3>M&amp;A Advisory</h3><p>Buy/sell-side diligence, Rule 11UA valuation, SPA drafting, NCLT schemes, CCI clearance and FC-TRS.</p><span class="go">View practice →</span></a>
-      <a class="svc reveal" href="practices/pravasi-desk.html"><span class="k">Diaspora</span><h3>Pravasi Desk</h3><p>Form 13 LDC for property sales, RNOR optimisation, USD 1M repatriation, DTAA &amp; FTC, NRI returns, estate planning.</p><span class="go">View practice →</span></a>
-      <a class="svc reveal" href="practices/startup-legal.html"><span class="k">Founders</span><h3>Startup Legal &amp; Fundraising</h3><p>Incorporation, DPIIT &amp; 80-IAC, ESOP design, cap tables, SHA drafting, Rule 11UA and fundraise readiness.</p><span class="go">View practice →</span></a>
-      <a class="svc reveal" href="practices/valuation-advisory.html"><span class="k">Valuation</span><h3>Valuation Advisory</h3><p>Rule 11UA/11UAA, ESOP Black-Scholes, DCF, IBC &amp; NCLT, Ind AS 113, fairness opinions and PPA — IBBI valuers.</p><span class="go">View practice →</span></a>
-      <a class="svc reveal" href="practices/vc-advisory.html"><span class="k">Investors</span><h3>VC &amp; Investor Advisory</h3><p>Legal &amp; financial diligence, investor-side agreements, CP/CS tracking, portfolio compliance and exits.</p><span class="go">View practice →</span></a>
-      <a class="svc reveal" href="practices/virtual-cfo.html"><span class="k">Finance function</span><h3>Virtual CFO Services</h3><p>MIS, 13-week cash flow, compliance calendar, financial modelling, board packs and investor-ready financials.</p><span class="go">View practice →</span></a>
-      <a class="svc reveal" href="practices/global-accounting.html"><span class="k">Global</span><h3>Global Accounting &amp; Tax</h3><p>Monthly close, management reporting and partner-signed tax prep across US, UK, Singapore, UAE and DTAA jurisdictions.</p><span class="go">View practice →</span></a>
-      <a class="svc reveal" href="practices/incubator.html"><span class="k">Institutions</span><h3>Incubator Desk</h3><p>Section 8 equity frameworks, grant utilisation certification, SHA/investment templates and embedded counsel for incubator portfolios.</p><span class="go">View practice →</span></a>
+      <a class="svc reveal" href="practices/cross-border-tax.html"><span class="k">Tax</span><h3>Cross-Border Tax &amp; Structuring</h3><p>DTAA across 90+ treaties, Form 15CA/15CB, ODI structuring, PFIC &amp; GILTI for US persons, Section 195 TDS.</p><span class="go">View practice <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      <a class="svc reveal" href="practices/flip-structuring.html"><span class="k">Structuring</span><h3>Flip Structuring</h3><p>Delaware, Singapore, Cayman, GIFT City &amp; UAE selection, FEMA &amp; ODI, IP migration and post-flip transition.</p><span class="go">View practice <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      <a class="svc reveal" href="practices/founders-tax-desk.html"><span class="k">Private client</span><h3>Founders Tax Desk</h3><p>ESOP/RSU exercise planning, exit capital gains, HUF &amp; private trust architecture, cross-border holdings, estate planning.</p><span class="go">View practice <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      <a class="svc reveal" href="practices/gcc-india.html"><span class="k">Global capability</span><h3>GCC India Advisory</h3><p>Entity, transfer pricing, FEMA, payroll &amp; ESOPs, Virtual CFO, multi-state GST and audit coordination.</p><span class="go">View practice <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      <a class="svc reveal" href="practices/india-entry.html"><span class="k">Inbound</span><h3>India Entry &amp; Foreign Co.</h3><p>Market entry, entity setup, FDI/FEMA, GST, transfer pricing, MCA filings and labour law — end to end.</p><span class="go">View practice <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      <a class="svc reveal" href="practices/ma-advisory.html"><span class="k">Transactions</span><h3>M&amp;A Advisory</h3><p>Buy/sell-side diligence, Rule 11UA valuation, SPA drafting, NCLT schemes, CCI clearance and FC-TRS.</p><span class="go">View practice <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      <a class="svc reveal" href="practices/pravasi-desk.html"><span class="k">Diaspora</span><h3>Pravasi Desk</h3><p>Form 13 LDC for property sales, RNOR optimisation, USD 1M repatriation, DTAA &amp; FTC, NRI returns, estate planning.</p><span class="go">View practice <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      <a class="svc reveal" href="practices/startup-legal.html"><span class="k">Founders</span><h3>Startup Legal &amp; Fundraising</h3><p>Incorporation, DPIIT &amp; 80-IAC, ESOP design, cap tables, SHA drafting, Rule 11UA and fundraise readiness.</p><span class="go">View practice <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      <a class="svc reveal" href="practices/valuation-advisory.html"><span class="k">Valuation</span><h3>Valuation Advisory</h3><p>Rule 11UA/11UAA, ESOP Black-Scholes, DCF, IBC &amp; NCLT, Ind AS 113, fairness opinions and PPA — IBBI valuers.</p><span class="go">View practice <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      <a class="svc reveal" href="practices/vc-advisory.html"><span class="k">Investors</span><h3>VC &amp; Investor Advisory</h3><p>Legal &amp; financial diligence, investor-side agreements, CP/CS tracking, portfolio compliance and exits.</p><span class="go">View practice <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      <a class="svc reveal" href="practices/virtual-cfo.html"><span class="k">Finance function</span><h3>Virtual CFO Services</h3><p>MIS, 13-week cash flow, compliance calendar, financial modelling, board packs and investor-ready financials.</p><span class="go">View practice <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      <a class="svc reveal" href="practices/global-accounting.html"><span class="k">Global</span><h3>Global Accounting &amp; Tax</h3><p>Monthly close, management reporting and partner-signed tax prep across US, UK, Singapore, UAE and DTAA jurisdictions.</p><span class="go">View practice <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      <a class="svc reveal" href="practices/incubator.html"><span class="k">Institutions</span><h3>Incubator Desk</h3><p>Section 8 equity frameworks, grant utilisation certification, SHA/investment templates and embedded counsel for portfolios.</p><span class="go">View practice <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
     </div>
   </div>
 </section>
 
-<!-- FEATURE -->
-<section style="background:var(--paper-dim)">
-  <div class="wrap feat">
-    <div class="reveal">
-      <span class="eyebrow">How we work</span>
-      <h2 style="font-family:var(--sans);font-weight:700;font-size:clamp(28px,4vw,46px);line-height:1.06;letter-spacing:-.03em;color:var(--navy);margin-top:16px">One desk owns the file — start to sign-off.</h2>
-      <ul class="feat-list">
-        <li><b>Partner-led, not handed down.</b> The person who scopes your engagement stays on it.</li>
-        <li><b>Clean hand-offs across desks.</b> Tax, FEMA, valuation and legal coordinate internally — you brief once.</li>
-        <li><b>Positions you can file.</b> Memos signed off so your auditor and overseas CPA both agree.</li>
-        <li><b>Global where you operate.</b> Returns prepared by our team, signed by partners licensed in-jurisdiction.</li>
-      </ul>
-      <div class="hero-cta"><a href="team.html" class="btn btn-ghost">Meet the team</a></div>
-    </div>
-    <div class="reveal">
+<!-- FEATURE 1 -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="feat mint reveal">
+      <div>
+        <span class="lab">How we work</span>
+        <h2>One desk owns the file — start to sign-off.</h2>
+        <ul class="feat-list">
+          <li><b>Partner-led, not handed down.</b> Whoever scopes your engagement stays on it.</li>
+          <li><b>Clean hand-offs across desks.</b> Tax, FEMA, valuation and legal coordinate internally — you brief once.</li>
+          <li><b>Positions you can file.</b> Memos signed off so your auditor and overseas CPA both agree.</li>
+          <li><b>Global where you operate.</b> Returns prepared by our team, signed by partners licensed in-jurisdiction.</li>
+        </ul>
+        <div class="hero-cta" style="justify-content:flex-start;margin-top:28px"><a href="team.html" class="btn btn-dark">Meet the team</a></div>
+      </div>
       <div class="panel">
-        <div class="panel-top"><i></i><i></i><i></i><span class="t">Compliance calendar · Q2</span></div>
-        <div class="panel-body">
-          <div class="panel-line"><span>FC-GPR filing</span><span class="chip done">Filed</span></div>
-          <div class="panel-line"><span>Advance tax — Q1</span><span class="chip done">Paid</span></div>
-          <div class="panel-line"><span>Transfer pricing — Form 3CEB</span><span class="chip">In review</span></div>
-          <div class="panel-line"><span>GST (3 states)</span><span class="chip done">Reconciled</span></div>
-          <div class="panel-line"><span>Board pack — investor</span><span class="chip">Drafting</span></div>
+        <div class="shot-bar"><i></i><i></i><i></i><span class="u">Compliance calendar · Q2</span></div>
+        <div class="panel-body rows" style="padding-top:6px">
+          <div class="row"><span>FC-GPR filing</span><span class="chip ok">Filed</span></div>
+          <div class="row"><span>Advance tax — Q1</span><span class="chip ok">Paid</span></div>
+          <div class="row"><span>Transfer pricing — 3CEB</span><span class="chip go">In review</span></div>
+          <div class="row"><span>GST — 3 states</span><span class="chip ok">Reconciled</span></div>
+          <div class="row"><span>Board pack — investor</span><span class="chip wait">Drafting</span></div>
         </div>
       </div>
     </div>
@@ -367,12 +358,9 @@ section{padding:clamp(56px,7vw,112px) 0}
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="tsec">
+<section style="padding-top:0">
   <div class="wrap">
-    <div class="s-head reveal">
-      <span class="eyebrow">In their words</span>
-      <h2>Founders, COOs and government advisors.</h2>
-    </div>
+    <div class="s-head reveal"><span class="lab">In their words</span><h2>Founders, COOs and government advisors.</h2></div>
     <div class="tgrid">
       <figure class="tcard reveal"><div class="stars">★★★★★</div><blockquote>"Handled investment fundraising across OCRD, CCD and equity — extremely professional, diligent and swift from start to end. No hesitation recommending him for CA services."</blockquote><figcaption><span class="nm">Neeta Trivedi, PhD</span><span class="rl">Founder, Inferigence Quotient</span></figcaption></figure>
       <figure class="tcard reveal"><div class="stars">★★★★★</div><blockquote>"An exceptional Chartered Accountant — a rare combination of technical depth, strategic thinking and practical execution across taxation, regulatory compliance, investment structuring and startup advisory."</blockquote><figcaption><span class="nm">Ashish Sharma</span><span class="rl">COO, OctaNE CoE-STPINEXT</span></figcaption></figure>
@@ -386,13 +374,13 @@ section{padding:clamp(56px,7vw,112px) 0}
 
 <!-- CTA -->
 <section class="cta" id="contact">
-  <div class="wrap cta-in">
-    <span class="eyebrow">Speak with a partner</span>
-    <h2>A precise position is one conversation away.</h2>
+  <div class="wrap cta-in reveal">
+    <span class="lab">Speak with a partner</span>
+    <h2 style="margin-top:14px">A precise position is one conversation away.</h2>
     <p>Tell us the corridor and the question. We'll tell you the structure, the filings, and what it's worth.</p>
     <div class="cta-row">
-      <a href="https://wa.me/918595116297?text=Hi%20Advisory%20Monks%2C%20I%27d%20like%20to%20speak%20with%20a%20partner" class="btn btn-gold">WhatsApp a partner</a>
-      <a href="mailto:shamik@advisorymonks.io" class="btn btn-ghost" style="color:#F4F0E7;border-color:rgba(244,240,231,.3)">shamik@advisorymonks.io</a>
+      <a href="https://wa.me/918595116297?text=Hi%20Advisory%20Monks%2C%20I%27d%20like%20to%20speak%20with%20a%20partner" class="btn btn-dark">WhatsApp a partner</a>
+      <a href="mailto:shamik@advisorymonks.io" class="btn btn-ghost">shamik@advisorymonks.io</a>
     </div>
   </div>
 </section>
@@ -438,15 +426,12 @@ section{padding:clamp(56px,7vw,112px) 0}
 
 <script>
 (function(){
-  // nav shrink shadow
   var nav=document.getElementById('nav');
   var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>8)};
   onScroll();window.addEventListener('scroll',onScroll,{passive:true});
-  // mobile menu
   var t=document.getElementById('navtoggle'),l=document.getElementById('navlinks');
   if(t)t.addEventListener('click',function(){l.classList.toggle('open')});
   l&&l.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){l.classList.remove('open')})});
-  // safe scroll reveal
   var els=[].slice.call(document.querySelectorAll('.reveal'));
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
