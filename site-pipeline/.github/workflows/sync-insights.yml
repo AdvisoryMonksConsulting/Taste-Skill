@@ -33,11 +33,21 @@ jobs:
         run: |
           git config user.name  "Insights Bot"
           git config user.email "actions@users.noreply.github.com"
-          if [ -n "$(git status --porcelain)" ]; then
-            git add -A
-            git commit -m "Publish insights from Notion [skip ci]"
-            git push
-            echo "Published changes."
-          else
+          if [ -z "$(git status --porcelain)" ]; then
             echo "No changes to publish."
+            exit 0
           fi
+          git add -A
+          git commit -m "Publish insights from Notion [skip ci]"
+          # Rebase-and-retry so a run never fails just because another already pushed.
+          for attempt in 1 2 3 4 5; do
+            if git push; then
+              echo "Published changes."
+              exit 0
+            fi
+            echo "Push rejected (attempt $attempt) — rebasing on latest main and retrying…"
+            git pull --rebase origin main || true
+            sleep 3
+          done
+          echo "Could not push after several attempts."
+          exit 1
