@@ -40,8 +40,11 @@ ORG = {
   "@type": "ProfessionalService",
   "name": "Advisory Monks Consulting",
   "url": SITE + "/",
+  "image": SITE + "/logo.png",
+  "logo": SITE + "/logo.png",
   "telephone": "+91-85951-16297",
   "email": "shamik@advisorymonks.io",
+  "priceRange": "₹₹₹",
   "address": {"@type": "PostalAddress", "addressLocality": "Noida",
               "addressRegion": "Uttar Pradesh", "addressCountry": "IN"},
   "areaServed": ["IN", "US", "GB", "SG", "AE"],
@@ -71,32 +74,29 @@ def process(path):
         src = re.sub(r'(<meta name="twitter:title" content=")[^"]*(">)', lambda m: m.group(1)+html.escape(title)+m.group(2), src, count=1)
         src = re.sub(r'(<meta name="twitter:description" content=")[^"]*(">)', lambda m: m.group(1)+html.escape(desc)+m.group(2), src, count=1)
 
-    if MARK in src:
-        open(path, "w", encoding="utf-8").write(src); return "updated meta (schema already present)"
+    # remove any previously-injected schema block so this script is re-runnable
+    src = re.sub(r'<script type="application/ld\+json">/\*' + MARK + r'\*/.*?</script>\n?', '', src, flags=re.S)
 
-    # 2) extract FAQs
-    faqs = re.findall(r'<div class="faq-q">(.*?)</div>\s*<div class="faq-a">(.*?)</div>', src, re.S)
-    faq_entities = [{"@type": "Question", "name": strip_tags(q),
-                     "acceptedAnswer": {"@type": "Answer", "text": strip_tags(a)}} for q, a in faqs]
-
+    # Schema: BreadcrumbList + Service (with ProfessionalService provider).
+    # NOTE: FAQPage intentionally omitted — Google restricted FAQ rich results to
+    # gov/health sites (Aug 2023), so it adds no value and flags as invalid.
+    name = strip_tags(h1).rstrip(".")
     graph = [
         {"@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
             {"@type": "ListItem", "position": 2, "name": "Practices", "item": SITE + "/#practices"},
-            {"@type": "ListItem", "position": 3, "name": strip_tags(h1).rstrip("."), "item": canon},
+            {"@type": "ListItem", "position": 3, "name": name, "item": canon},
         ]},
-        {"@type": "Service", "name": strip_tags(h1).rstrip("."),
-         "serviceType": strip_tags(h1).rstrip("."), "provider": ORG,
+        {"@type": "Service", "name": name,
+         "serviceType": name, "provider": ORG,
          "areaServed": ORG["areaServed"], "url": canon},
     ]
-    if faq_entities:
-        graph.append({"@type": "FAQPage", "mainEntity": faq_entities})
 
     ld = {"@context": "https://schema.org", "@graph": graph}
     block = f'<script type="application/ld+json">/*{MARK}*/\n{json.dumps(ld, ensure_ascii=False, indent=0)}\n</script>\n'
     src = src.replace("</head>", block + "</head>", 1)
     open(path, "w", encoding="utf-8").write(src)
-    return f"schema+meta ({len(faq_entities)} FAQs)"
+    return "schema+meta (Breadcrumb+Service)"
 
 for f in sorted(glob.glob("practices/*.html")):
     print(f"{os.path.basename(f):28} -> {process(f)}")
