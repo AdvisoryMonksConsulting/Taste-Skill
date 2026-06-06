@@ -4,14 +4,14 @@
  *
  * Reads the Notion database (Status = Published), generates one article page per
  * entry under insights/<slug>.html, and injects cards/links into insights.html,
- * sitemap.xml and rss.xml between <!-- NOTION:START --> / <!-- NOTION:END --> markers
- * (which it creates automatically on first run). Existing hand-written articles are
- * left untouched.
+ * sitemap.xml and rss.xml between marker comments (created automatically). Existing
+ * hand-written content is preserved. Listing/sitemap/RSS updates are best-effort:
+ * if an insertion point isn't found, it logs and continues (article still publishes).
  *
  * Env:
  *   NOTION_TOKEN        (required) Notion internal integration secret
  *   NOTION_DATABASE_ID  (required) the "Website Insights" database id
- *   CONTENT_DIR         (optional) repo path that holds index.html etc. Default "."
+ *   CONTENT_DIR         (optional) repo path holding index.html etc. Default "."
  *
  * No external dependencies — uses Node 20+ built-in fetch.
  */
@@ -37,16 +37,15 @@ const api = async (url, opts = {}) => {
       ...(opts.headers || {}),
     },
   });
-  if (!r.ok) throw new Error(`Notion ${r.status}: ${await r.text()}`);
+  if (!r.ok) throw new Error(`Notion API ${r.status} on ${url}\n${await r.text()}`);
   return r.json();
 };
 
 const esc = (s = '') => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const slugify = (s) => s.toLowerCase().replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '-').slice(0, 70);
 
-// ---- rich text → HTML ----
 const richToHtml = (rt = []) => rt.map((t) => {
-  let out = esc(t.plain_text);
+  let out = esc(t.plain_text || '');
   const a = t.annotations || {};
   if (a.code) out = `<code>${out}</code>`;
   if (a.bold) out = `<strong>${out}</strong>`;
@@ -54,10 +53,8 @@ const richToHtml = (rt = []) => rt.map((t) => {
   if (t.href) out = `<a href="${esc(t.href)}" rel="noopener">${out}</a>`;
   return out;
 }).join('');
+const plain = (rt = []) => rt.map((t) => t.plain_text || '').join('');
 
-const plain = (rt = []) => rt.map((t) => t.plain_text).join('');
-
-// ---- blocks → HTML ----
 async function blocksToHtml(blockId) {
   let html = '', cursor, listBuf = null, listTag = null;
   const flush = () => { if (listBuf) { html += `<${listTag}>${listBuf}</${listTag}>\n`; listBuf = null; listTag = null; } };
@@ -76,12 +73,10 @@ async function blocksToHtml(blockId) {
       flush();
       switch (t) {
         case 'paragraph': if (plain(rt).trim()) html += `<p>${richToHtml(rt)}</p>\n`; break;
-        case 'heading_1': html += `<h2>${richToHtml(rt)}</h2>\n`; break;
-        case 'heading_2': html += `<h2>${richToHtml(rt)}</h2>\n`; break;
+        case 'heading_1': case 'heading_2': html += `<h2>${richToHtml(rt)}</h2>\n`; break;
         case 'heading_3': html += `<h3>${richToHtml(rt)}</h3>\n`; break;
-        case 'quote': html += `<blockquote>${richToHtml(rt)}</blockquote>\n`; break;
+        case 'quote': case 'callout': html += `<blockquote>${richToHtml(rt)}</blockquote>\n`; break;
         case 'divider': html += `<hr>\n`; break;
-        case 'callout': html += `<blockquote>${richToHtml(rt)}</blockquote>\n`; break;
         case 'code': html += `<pre><code>${esc(plain(rt))}</code></pre>\n`; break;
         default: if (rt && plain(rt).trim()) html += `<p>${richToHtml(rt)}</p>\n`;
       }
@@ -92,12 +87,11 @@ async function blocksToHtml(blockId) {
   return html;
 }
 
-// ---- property helpers ----
 const prop = (p, name) => p[name];
 const getText = (p, name) => plain(prop(p, name)?.rich_text || []);
-const getTitle = (p) => { const k = Object.keys(p).find((k) => p[k].type === 'title'); return plain(p[k].title); };
+const getTitle = (p) => { const k = Object.keys(p).find((k) => p[k].type === 'title'); return k ? plain(p[k].title) : ''; };
+const monthName = (d) => new Date(d).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 
-// ---- templates ----
 const articleHtml = (a) => `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -183,21 +177,35 @@ const cardHtml = (a) => `    <a class="ins-card" href="insights/${a.slug}.html">
       <span class="ins-card-cta">Read the full note <span aria-hidden="true">→</span></span>
     </a>`;
 
-// inject content between markers, creating them after `anchor` if absent
-function inject(src, anchor, block) {
-  const START = '<!-- NOTION:START -->', END = '<!-- NOTION:END -->';
-  if (!src.includes(START)) {
-    const i = src.indexOf(anchor);
-    if (i === -1) throw new Error(`Anchor not found: ${anchor}`);
-    const at = i + anchor.length;
-    src = src.slice(0, at) + `\n${START}\n${END}\n` + src.slice(at);
+const START = '<!-- NOTION:START -->', END = '<!-- NOTION:END -->';
+
+/** Insert/replace a marked block. mode 'after' inserts after openRe match; 'before' inserts before closeStr. Returns new string or null if no insertion point. */
+function injectInto(src, block, { afterRe, beforeStr } = {}) {
+  if (src.includes(START)) {
+    return src.replace(new RegExp(`${START}[\\s\\S]*?${END}`), `${START}\n${block}\n${END}`);
   }
-  const re = new RegExp(`${START}[\\s\\S]*?${END}`);
-  return src.replace(re, `${START}\n${block}\n${END}`);
+  if (afterRe) {
+    const m = src.match(afterRe);
+    if (m) { const at = m.index + m[0].length; return src.slice(0, at) + `\n${START}\n${block}\n${END}` + src.slice(at); }
+  }
+  if (beforeStr) {
+    const i = src.lastIndexOf(beforeStr);
+    if (i !== -1) return src.slice(0, i) + `${START}\n${block}\n${END}\n` + src.slice(i);
+  }
+  return null;
 }
 
-// ---- main ----
-const monthName = (d) => new Date(d).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+async function updateFile(file, build, opts) {
+  const fp = path.join(ROOT, file);
+  if (!existsSync(fp)) { console.log(`• ${file} not found — skipped.`); return; }
+  try {
+    const src = await readFile(fp, 'utf8');
+    const out = injectInto(src, build(), opts);
+    if (out == null) { console.log(`• ${file}: no insertion point found — skipped (article page still published).`); return; }
+    await writeFile(fp, out);
+    console.log(`✓ updated ${file}`);
+  } catch (e) { console.log(`• ${file}: update skipped (${e.message})`); }
+}
 
 async function main() {
   const q = await api(`https://api.notion.com/v1/databases/${DB}/query`, {
@@ -207,55 +215,38 @@ async function main() {
       sorts: [{ property: 'Publish Date', direction: 'descending' }],
     }),
   });
+  console.log(`Notion returned ${q.results.length} published entr${q.results.length === 1 ? 'y' : 'ies'}.`);
 
   const articles = [];
   for (const page of q.results) {
-    const p = page.properties;
-    const title = getTitle(p);
-    if (!title) continue;
-    const slug = (getText(p, 'Slug') || slugify(title)).replace(/[^\w-]/g, '');
-    const deck = getText(p, 'Deck');
-    const tag = prop(p, 'Tag')?.select?.name || 'Insights';
-    const date = prop(p, 'Publish Date')?.date?.start || page.created_time.slice(0, 10);
-    const seo = getText(p, 'SEO Description') || deck;
-    const body = await blocksToHtml(page.id);
-    const words = body.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
-    const readMin = Math.max(1, Math.round(words / 200));
-    articles.push({ title, slug, deck, tag, date, dateLabel: monthName(date), seo, body, readMin });
+    try {
+      const p = page.properties;
+      const title = getTitle(p);
+      if (!title) { console.log('• skipping an entry with no title'); continue; }
+      const slug = (getText(p, 'Slug') || slugify(title)).replace(/[^\w-]/g, '');
+      const deck = getText(p, 'Deck');
+      const tag = prop(p, 'Tag')?.select?.name || 'Insights';
+      const date = prop(p, 'Publish Date')?.date?.start || page.created_time.slice(0, 10);
+      const seo = getText(p, 'SEO Description') || deck;
+      const body = await blocksToHtml(page.id);
+      const words = body.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
+      const readMin = Math.max(1, Math.round(words / 200));
+      const a = { title, slug, deck, tag, date, dateLabel: monthName(date), seo, body, readMin };
+      await mkdir(path.join(ROOT, 'insights'), { recursive: true });
+      await writeFile(path.join(ROOT, 'insights', `${slug}.html`), articleHtml(a));
+      console.log(`✓ insights/${slug}.html`);
+      articles.push(a);
+    } catch (e) {
+      console.error(`! failed to build "${getTitle(page.properties) || page.id}": ${e.message}`);
+    }
   }
 
-  // write article pages
-  await mkdir(path.join(ROOT, 'insights'), { recursive: true });
-  for (const a of articles) {
-    await writeFile(path.join(ROOT, 'insights', `${a.slug}.html`), articleHtml(a));
-    console.log(`✓ insights/${a.slug}.html`);
+  if (articles.length) {
+    await updateFile('insights.html', () => articles.map(cardHtml).join('\n'), { afterRe: /<div\s+class="ins-list"\s*>/ });
+    await updateFile('sitemap.xml', () => articles.map((a) => `  <url><loc>${SITE}/insights/${a.slug}</loc><lastmod>${a.date}</lastmod></url>`).join('\n'), { beforeStr: '</urlset>' });
+    await updateFile('rss.xml', () => articles.map((a) => `    <item><title>${esc(a.title)}</title><link>${SITE}/insights/${a.slug}</link><guid>${SITE}/insights/${a.slug}</guid><pubDate>${new Date(a.date).toUTCString()}</pubDate><description>${esc(a.deck)}</description></item>`).join('\n'), { beforeStr: '</channel>' });
   }
-
-  // insights.html listing
-  const listingPath = path.join(ROOT, 'insights.html');
-  let listing = await readFile(listingPath, 'utf8');
-  listing = inject(listing, '<div class="ins-list">', articles.map(cardHtml).join('\n'));
-  await writeFile(listingPath, listing);
-
-  // sitemap.xml
-  const smPath = path.join(ROOT, 'sitemap.xml');
-  if (existsSync(smPath)) {
-    let sm = await readFile(smPath, 'utf8');
-    const urls = articles.map((a) => `  <url><loc>${SITE}/insights/${a.slug}</loc><lastmod>${a.date}</lastmod></url>`).join('\n');
-    sm = inject(sm, '<urlset', urls);
-    await writeFile(smPath, sm);
-  }
-
-  // rss.xml
-  const rssPath = path.join(ROOT, 'rss.xml');
-  if (existsSync(rssPath)) {
-    let rss = await readFile(rssPath, 'utf8');
-    const items = articles.map((a) => `    <item><title>${esc(a.title)}</title><link>${SITE}/insights/${a.slug}</link><guid>${SITE}/insights/${a.slug}</guid><pubDate>${new Date(a.date).toUTCString()}</pubDate><description>${esc(a.deck)}</description></item>`).join('\n');
-    rss = inject(rss, '<channel>', items);
-    await writeFile(rssPath, rss);
-  }
-
-  console.log(`Done. ${articles.length} published article(s) synced.`);
+  console.log(`Done. ${articles.length} article page(s) generated.`);
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+main().catch((e) => { console.error('FATAL:', e.message); process.exit(1); });
