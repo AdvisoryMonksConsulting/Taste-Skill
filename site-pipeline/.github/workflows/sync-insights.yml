@@ -1,0 +1,43 @@
+name: Sync Insights from Notion
+
+on:
+  schedule:
+    - cron: '17 * * * *'   # hourly, at :17 past the hour
+  workflow_dispatch:        # lets you run it on demand from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-insights
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate insight pages from Notion
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: '1986269a-1a4d-429b-afbd-9d3c8c43d4ea'
+          CONTENT_DIR: '.'        # set to 'site' if your site files live in a /site folder
+        run: node scripts/sync-insights.mjs
+
+      - name: Commit & push if anything changed
+        run: |
+          git config user.name  "Insights Bot"
+          git config user.email "actions@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "Publish insights from Notion [skip ci]"
+            git push
+            echo "Published changes."
+          else
+            echo "No changes to publish."
+          fi
