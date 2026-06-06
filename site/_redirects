@@ -1,6 +1,38 @@
-# Cloudflare Pages redirects
+# ============================================================
+# Advisory Monks — redirects
+# ============================================================
+
+# Consolidate indexed .html URLs to clean canonical URLs (fixes GSC "redirect error")
+/guides/india-entry-for-foreign-companies.html  /guides/india-entry-for-foreign-companies  301
+/guides/india-us-cross-border-tax.html  /guides/india-us-cross-border-tax  301
+/guides/nri-selling-property-in-india.html  /guides/nri-selling-property-in-india  301
+/index.html  /  301
+/insights.html  /insights  301
+/insights/flip-structuring-gaar.html  /insights/flip-structuring-gaar  301
+/insights/form-13-ldc-nri.html  /insights/form-13-ldc-nri  301
+/insights/income-tax-act-2025.html  /insights/income-tax-act-2025  301
+/insights/india-us-transfer-pricing-fy26.html  /insights/india-us-transfer-pricing-fy26  301
+/practices/cross-border-tax.html  /practices/cross-border-tax  301
+/practices/flip-structuring.html  /practices/flip-structuring  301
+/practices/founders-tax-desk.html  /practices/founders-tax-desk  301
+/practices/gcc-india.html  /practices/gcc-india  301
+/practices/global-accounting.html  /practices/global-accounting  301
+/practices/incubator.html  /practices/incubator  301
+/practices/india-entry.html  /practices/india-entry  301
+/practices/ma-advisory.html  /practices/ma-advisory  301
+/practices/pravasi-desk.html  /practices/pravasi-desk  301
+/practices/startup-legal.html  /practices/startup-legal  301
+/practices/valuation-advisory.html  /practices/valuation-advisory  301
+/practices/vc-advisory.html  /practices/vc-advisory  301
+/practices/virtual-cfo.html  /practices/virtual-cfo  301
+/privacy.html  /privacy  301
+/team.html  /team  301
+/terms.html  /terms  301
+/tools/nri-property-tds.html  /tools/nri-property-tds  301
+
 # Removed page (Client Portal)
 /portal            /            301
 /portal/*          /            301
+
 # Force www as canonical (matches <link rel=canonical>) — apex -> www
 https://advisorymonks.io/*   https://www.advisorymonks.io/:splat   301
