@@ -4,6 +4,7 @@ import { Hero, Logos, Features, Pricing, Testimonials, Faq, Cta, Footer } from "
 
 // SEO — driven entirely by content.seo. OG image lives at /opengraph-image (1200x630).
 export const metadata: Metadata = {
+  metadataBase: new URL(content.seo.url),
   title: content.seo.title,
   description: content.seo.description,
   alternates: { canonical: content.seo.url },
