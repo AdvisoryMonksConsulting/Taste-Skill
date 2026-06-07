@@ -1,9 +1,10 @@
 import type { FC } from "react";
 
 /**
- * 10 genuinely distinct landing-page DESIGNS (not one template recolored).
- * Each is a different layout + aesthetic to show range. Text content comes from
- * the sample; the look is defined by the design itself.
+ * 10 premium, cinematic landing-page DESIGNS — Awwwards "Site of the Day" feel,
+ * built entirely with CSS (glowing orbs, aurora/mesh gradients, glass, gradient
+ * "photo" heroes, dashboard/app mockups, bento grids). No external images.
+ * Complex gradients use inline styles (Tailwind v4 drops comma'd arbitrary values).
  */
 export type DesignContent = {
   name: string;
@@ -16,283 +17,266 @@ export type DesignContent = {
   ctaSecondary?: string;
   features: { title: string; description: string }[];
 };
-
 type P = { d: DesignContent };
 
-/* 1 — Enterprise / Stats (navy, structured, trust-led) */
-const EnterpriseStats: FC<P> = ({ d }) => (
-  <main className="bg-white text-slate-800">
-    <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-      <span className="font-semibold tracking-tight text-[#061C33]">{d.name}</span>
-      <a href="#" className="rounded-md bg-[#061C33] px-4 py-2 text-sm font-medium text-white">{d.ctaPrimary}</a>
-    </nav>
-    <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 lg:grid-cols-2">
-      <div>
-        <p className="text-sm font-semibold uppercase tracking-widest text-[#061C33]/60">{d.industry}</p>
-        <h1 className="mt-4 text-4xl font-semibold leading-tight tracking-tight text-[#061C33] sm:text-5xl">
-          {d.headline} {d.headlineAccent}
-        </h1>
-        <p className="mt-5 max-w-md text-lg text-slate-600">{d.sub}</p>
-        <div className="mt-8 flex gap-3">
-          <a href="#" className="rounded-md bg-[#061C33] px-6 py-3 text-sm font-medium text-white">{d.ctaPrimary}</a>
-          {d.ctaSecondary && <a href="#" className="rounded-md border border-slate-300 px-6 py-3 text-sm font-medium">{d.ctaSecondary}</a>}
-        </div>
-      </div>
-      <div className="grid grid-cols-2 gap-4">
-        {[["99.9%", "uptime SLA"], ["5 min", "to set up"], ["$2B+", "processed"], ["4.9/5", "customer rating"]].map(([n, l]) => (
-          <div key={l} className="rounded-xl border border-slate-200 bg-slate-50 p-6">
-            <div className="text-3xl font-bold text-[#061C33]">{n}</div>
-            <div className="mt-1 text-sm text-slate-500">{l}</div>
-          </div>
-        ))}
-      </div>
-    </section>
-    <section className="border-t border-slate-100 bg-slate-50 py-16">
-      <div className="mx-auto grid max-w-6xl gap-8 px-6 md:grid-cols-4">
-        {d.features.map((f) => (
-          <div key={f.title}><h3 className="font-semibold text-[#061C33]">{f.title}</h3><p className="mt-2 text-sm text-slate-600">{f.description}</p></div>
-        ))}
-      </div>
-    </section>
-  </main>
-);
+const BARS = [42, 68, 55, 88, 63, 79, 48, 92, 58, 74];
 
-/* 2 — Dark split (Linear-style: dark bg + mock app window) */
-const DarkSplit: FC<P> = ({ d }) => (
-  <main className="bg-[#08090a] text-white">
-    <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+/* 1 — Northwind · dark analytics dashboard (fintech) */
+const DarkDashboard: FC<P> = ({ d }) => (
+  <main className="relative overflow-hidden bg-[#0a0b0f] text-white">
+    <div className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-indigo-600/20 blur-[120px]" />
+    <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
       <span className="font-semibold tracking-tight">{d.name}</span>
-      <a href="#" className="rounded-lg bg-[#5e6ad2] px-4 py-2 text-sm font-medium">{d.ctaPrimary}</a>
+      <a href="#" className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-[#0a0b0f]">{d.ctaPrimary}</a>
     </nav>
-    <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 lg:grid-cols-2">
+    <section className="relative mx-auto max-w-6xl px-6 pt-16 text-center">
+      {d.badge && <span className="rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-indigo-300">{d.badge}</span>}
+      <h1 className="mx-auto mt-6 max-w-3xl text-5xl font-semibold tracking-tight sm:text-6xl">{d.headline} <span className="bg-gradient-to-r from-indigo-300 to-violet-400 bg-clip-text text-transparent">{d.headlineAccent}</span></h1>
+      <p className="mx-auto mt-5 max-w-xl text-lg text-white/60">{d.sub}</p>
+      {/* dashboard mockup */}
+      <div className="mx-auto mt-12 max-w-4xl rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-left shadow-2xl backdrop-blur">
+        <div className="grid gap-4 sm:grid-cols-3">
+          {["Reconciled", "Open items", "Cash position"].map((k, i) => (
+            <div key={k} className="rounded-xl border border-white/10 bg-white/[0.04] p-4">
+              <div className="text-xs text-white/40">{k}</div>
+              <div className="mt-1 text-2xl font-semibold">{["$2.4M", "12", "$840K"][i]}</div>
+            </div>
+          ))}
+        </div>
+        <div className="mt-4 flex h-40 items-end gap-2 rounded-xl border border-white/10 bg-white/[0.02] p-4">
+          {BARS.map((h, i) => (<div key={i} className="flex-1 rounded-t bg-gradient-to-t from-indigo-500/40 to-violet-400" style={{ height: `${h}%` }} />))}
+        </div>
+      </div>
+    </section>
+    <section className="relative mx-auto grid max-w-5xl gap-6 px-6 py-20 sm:grid-cols-2 lg:grid-cols-4">
+      {d.features.map((f) => (<div key={f.title} className="rounded-xl border border-white/10 bg-white/[0.03] p-5"><h3 className="font-semibold">{f.title}</h3><p className="mt-2 text-sm text-white/50">{f.description}</p></div>))}
+    </section>
+  </main>
+);
+
+/* 2 — Cortex · aurora glow + glass ask-bar (AI) */
+const Aurora: FC<P> = ({ d }) => (
+  <main className="relative min-h-screen overflow-hidden bg-black text-white">
+    <div className="pointer-events-none absolute -left-32 -top-32 h-[480px] w-[480px] rounded-full bg-violet-600/40 blur-[120px]" />
+    <div className="pointer-events-none absolute right-0 top-20 h-[420px] w-[420px] rounded-full bg-cyan-500/30 blur-[120px]" />
+    <div className="pointer-events-none absolute bottom-0 left-1/3 h-[420px] w-[420px] rounded-full bg-fuchsia-600/25 blur-[120px]" />
+    <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+      <span className="font-semibold tracking-tight">{d.name}</span>
+      <a href="#" className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm backdrop-blur">{d.ctaPrimary}</a>
+    </nav>
+    <section className="relative mx-auto max-w-4xl px-6 pt-24 text-center">
+      {d.badge && <span className="rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-white/70 backdrop-blur">{d.badge}</span>}
+      <h1 className="mx-auto mt-6 max-w-3xl text-6xl font-medium leading-[1.05] tracking-tight sm:text-7xl">{d.headline} <span className="bg-gradient-to-r from-violet-300 via-fuchsia-300 to-cyan-300 bg-clip-text text-transparent">{d.headlineAccent}</span></h1>
+      <p className="mx-auto mt-6 max-w-xl text-lg text-white/60">{d.sub}</p>
+      <div className="mx-auto mt-10 flex max-w-xl items-center gap-3 rounded-2xl border border-white/15 bg-white/5 p-2 pl-5 backdrop-blur-xl">
+        <span className="text-white/40">Ask anything…</span>
+        <span className="ml-auto rounded-xl bg-white px-5 py-2.5 text-sm font-medium text-black">{d.ctaPrimary}</span>
+      </div>
+    </section>
+    <section className="relative mx-auto grid max-w-5xl gap-5 px-6 py-24 sm:grid-cols-2 lg:grid-cols-4">
+      {d.features.map((f) => (<div key={f.title} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur"><h3 className="font-semibold">{f.title}</h3><p className="mt-2 text-sm text-white/55">{f.description}</p></div>))}
+    </section>
+  </main>
+);
+
+/* 3 — Forge · dev dark, code window + bento (devtool) */
+const DevCode: FC<P> = ({ d }) => (
+  <main className="relative overflow-hidden bg-[#0a0a0a] text-white">
+    <div className="pointer-events-none absolute -top-32 right-10 h-[420px] w-[420px] rounded-full bg-emerald-500/20 blur-[120px]" />
+    <div className="pointer-events-none absolute inset-0 opacity-[0.07]" style={{ backgroundImage: "linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px)", backgroundSize: "44px 44px" }} />
+    <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+      <span className="font-mono font-bold tracking-tight">{d.name}</span>
+      <a href="#" className="rounded-md bg-emerald-500 px-4 py-2 text-sm font-semibold text-black">{d.ctaPrimary}</a>
+    </nav>
+    <section className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 lg:grid-cols-2">
       <div>
-        {d.badge && <span className="inline-block rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-[#828fff]">{d.badge}</span>}
-        <h1 className="mt-6 text-5xl font-medium leading-[1.05] tracking-tight text-[#f7f8f8]">
-          {d.headline} <span className="text-[#828fff]">{d.headlineAccent}</span>
-        </h1>
-        <p className="mt-5 max-w-md text-lg text-[#8a8f98]">{d.sub}</p>
-        <div className="mt-8 flex gap-3">
-          <a href="#" className="rounded-lg bg-[#5e6ad2] px-6 py-3 text-sm font-medium">{d.ctaPrimary}</a>
-          {d.ctaSecondary && <a href="#" className="rounded-lg border border-white/10 px-6 py-3 text-sm font-medium text-[#d0d6e0]">{d.ctaSecondary}</a>}
-        </div>
+        {d.badge && <span className="rounded border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 font-mono text-xs text-emerald-300">{d.badge}</span>}
+        <h1 className="mt-6 text-5xl font-semibold leading-tight tracking-tight">{d.headline} <span className="text-emerald-400">{d.headlineAccent}</span></h1>
+        <p className="mt-5 max-w-md text-lg text-white/60">{d.sub}</p>
+        <a href="#" className="mt-8 inline-block rounded-md bg-emerald-500 px-7 py-3 text-sm font-semibold text-black">{d.ctaPrimary} →</a>
       </div>
-      <div className="rounded-xl border border-white/10 bg-[#0f1011] p-3 shadow-2xl">
-        <div className="flex gap-1.5 px-2 py-2"><span className="h-2.5 w-2.5 rounded-full bg-white/15" /><span className="h-2.5 w-2.5 rounded-full bg-white/15" /><span className="h-2.5 w-2.5 rounded-full bg-white/15" /></div>
-        <div className="space-y-3 rounded-lg bg-[#08090a] p-5">
-          <div className="h-3 w-1/2 rounded bg-white/10" />
-          <div className="h-3 w-3/4 rounded bg-white/10" />
-          <div className="h-24 rounded-lg bg-gradient-to-br from-[#5e6ad2]/30 to-transparent" />
-          <div className="h-3 w-2/3 rounded bg-white/10" />
-        </div>
+      <div className="rounded-xl border border-white/10 bg-[#0d0d0d] shadow-2xl">
+        <div className="flex gap-1.5 border-b border-white/10 px-4 py-3"><span className="h-2.5 w-2.5 rounded-full bg-red-400/70" /><span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" /><span className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" /></div>
+        <pre className="overflow-hidden p-5 font-mono text-[13px] leading-6"><span className="text-white/40">$ forge deploy</span>{"\n"}<span className="text-emerald-400">✓</span> building…{"\n"}<span className="text-emerald-400">✓</span> preview ready{"\n"}<span className="text-white/50">→ https://</span><span className="text-cyan-300">app.forge.dev</span>{"\n"}<span className="text-emerald-400">✓</span> live in <span className="text-emerald-300">1.2s</span></pre>
       </div>
     </section>
+    <section className="relative mx-auto grid max-w-6xl gap-4 px-6 pb-20 sm:grid-cols-2 lg:grid-cols-4">
+      {d.features.map((f) => (<div key={f.title} className="rounded-xl border border-white/10 bg-white/[0.03] p-5"><h3 className="font-mono font-semibold text-emerald-300">{f.title}</h3><p className="mt-2 text-sm text-white/55">{f.description}</p></div>))}
+    </section>
   </main>
 );
 
-/* 3 — Mono / brutalist (dev tool) */
-const Mono: FC<P> = ({ d }) => (
-  <main className="bg-white font-mono text-black">
-    <nav className="flex items-center justify-between border-b-2 border-black px-6 py-4">
-      <span className="font-bold uppercase tracking-tight">{d.name}</span>
-      <a href="#" className="border-2 border-black bg-black px-4 py-2 text-sm font-bold text-white">{d.ctaPrimary}</a>
+/* 4 — Lumé · glossy product orb (D2C) */
+const ProductOrb: FC<P> = ({ d }) => (
+  <main className="relative overflow-hidden bg-[#1a1012] text-white">
+    <div className="pointer-events-none absolute left-1/2 top-24 h-[460px] w-[460px] -translate-x-1/2 rounded-full blur-[40px]" style={{ background: "radial-gradient(circle at 35% 30%, #fda4af, #e11d48 45%, #4c0519 80%)" }} />
+    <nav className="relative mx-auto flex max-w-5xl items-center justify-between px-6 py-6">
+      <span className="font-serif text-xl">{d.name}</span>
+      <a href="#" className="rounded-full bg-white px-5 py-2 text-sm font-medium text-[#1a1012]">{d.ctaPrimary}</a>
     </nav>
-    <section className="mx-auto max-w-5xl px-6 py-24">
-      {d.badge && <span className="border-2 border-black px-2 py-1 text-xs font-bold uppercase">{d.badge}</span>}
-      <h1 className="mt-6 text-5xl font-bold uppercase leading-[1.02] tracking-tight sm:text-7xl">
-        {d.headline} <span className="bg-[#059669] px-2 text-white">{d.headlineAccent}</span>
-      </h1>
-      <p className="mt-6 max-w-xl text-lg">{d.sub}</p>
-      <a href="#" className="mt-8 inline-block border-2 border-black bg-[#059669] px-7 py-3 font-bold text-white shadow-[5px_5px_0_#000]">{d.ctaPrimary} →</a>
+    <section className="relative mx-auto max-w-3xl px-6 pb-24 pt-72 text-center">
+      {d.badge && <p className="font-serif text-sm uppercase tracking-[0.3em] text-white/50">{d.badge}</p>}
+      <h1 className="mt-4 font-serif text-6xl leading-[1.05]">{d.headline} <em className="text-rose-300">{d.headlineAccent}</em></h1>
+      <p className="mx-auto mt-5 max-w-md text-lg text-white/60">{d.sub}</p>
+      <a href="#" className="mt-8 inline-block rounded-full bg-white px-8 py-3 text-sm font-medium text-[#1a1012]">{d.ctaPrimary}</a>
     </section>
-    <section className="grid border-y-2 border-black md:grid-cols-4">
-      {d.features.map((f, i) => (
-        <div key={f.title} className={"p-6 " + (i ? "border-t-2 border-black md:border-l-2 md:border-t-0" : "")}>
-          <h3 className="font-bold uppercase">{f.title}</h3><p className="mt-2 text-sm">{f.description}</p>
-        </div>
-      ))}
+    <section className="relative mx-auto grid max-w-4xl gap-5 px-6 pb-20 sm:grid-cols-2 lg:grid-cols-4">
+      {d.features.map((f) => (<div key={f.title} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur"><h3 className="font-serif text-lg">{f.title}</h3><p className="mt-2 text-sm text-white/55">{f.description}</p></div>))}
     </section>
   </main>
 );
 
-/* 4 — Soft product / D2C (cream, serif, blob) */
-const SoftProduct: FC<P> = ({ d }) => (
-  <main className="bg-[#fbf7f4] text-stone-800">
-    <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-6">
-      <span className="font-serif text-xl text-[#e11d48]">{d.name}</span>
-      <a href="#" className="rounded-full bg-[#e11d48] px-5 py-2 text-sm font-medium text-white">{d.ctaPrimary}</a>
-    </nav>
-    <section className="mx-auto max-w-3xl px-6 pb-20 pt-10 text-center">
-      <div className="mx-auto mb-10 h-44 w-44 rounded-full bg-gradient-to-br from-[#fda4af] via-[#e11d48] to-[#9f1239] shadow-xl" />
-      {d.badge && <p className="text-sm uppercase tracking-widest text-stone-400">{d.badge}</p>}
-      <h1 className="mt-4 font-serif text-5xl leading-tight text-stone-900">{d.headline} <em className="text-[#e11d48]">{d.headlineAccent}</em></h1>
-      <p className="mx-auto mt-5 max-w-lg text-lg text-stone-600">{d.sub}</p>
-      <a href="#" className="mt-8 inline-block rounded-full bg-[#e11d48] px-8 py-3 text-sm font-medium text-white">{d.ctaPrimary}</a>
-    </section>
-    <section className="mx-auto grid max-w-4xl gap-6 px-6 pb-20 sm:grid-cols-2">
-      {d.features.map((f) => (
-        <div key={f.title} className="rounded-2xl bg-white p-6 shadow-sm"><h3 className="font-serif text-lg text-stone-900">{f.title}</h3><p className="mt-2 text-sm text-stone-600">{f.description}</p></div>
-      ))}
-    </section>
-  </main>
-);
-
-/* 5 — Pastel playful (health) */
-const Pastel: FC<P> = ({ d }) => (
-  <main className="bg-gradient-to-b from-teal-50 to-sky-50 text-slate-800">
-    <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-6">
+/* 5 — Pulse · soft gradient + phone mockup (health) */
+const PhoneApp: FC<P> = ({ d }) => (
+  <main className="relative overflow-hidden" style={{ background: "linear-gradient(160deg,#ecfeff,#f0fdfa 40%,#eff6ff)" }}>
+    <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 text-slate-800">
       <span className="text-xl font-bold text-teal-600">{d.name}</span>
-      <a href="#" className="rounded-full bg-teal-500 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-teal-500/30">{d.ctaPrimary}</a>
+      <a href="#" className="rounded-full bg-teal-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-teal-500/30">{d.ctaPrimary}</a>
     </nav>
-    <section className="mx-auto max-w-3xl px-6 py-20 text-center">
-      {d.badge && <span className="rounded-full bg-white px-4 py-1.5 text-sm font-medium text-teal-600 shadow-sm">{d.badge}</span>}
-      <h1 className="mt-6 text-5xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-6xl">{d.headline} <span className="text-teal-500">{d.headlineAccent}</span></h1>
-      <p className="mx-auto mt-5 max-w-lg text-lg text-slate-600">{d.sub}</p>
-      <div className="mt-8 flex justify-center gap-3">
-        <a href="#" className="rounded-full bg-teal-500 px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-teal-500/30">{d.ctaPrimary}</a>
-        {d.ctaSecondary && <a href="#" className="rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-teal-700 shadow-sm">{d.ctaSecondary}</a>}
+    <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 text-slate-800 lg:grid-cols-2">
+      <div>
+        {d.badge && <span className="rounded-full bg-white px-4 py-1.5 text-sm font-medium text-teal-600 shadow-sm">{d.badge}</span>}
+        <h1 className="mt-6 text-5xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-6xl">{d.headline} <span className="text-teal-500">{d.headlineAccent}</span></h1>
+        <p className="mt-5 max-w-md text-lg text-slate-600">{d.sub}</p>
+        <a href="#" className="mt-8 inline-block rounded-full bg-teal-500 px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-teal-500/30">{d.ctaPrimary}</a>
+      </div>
+      <div className="mx-auto w-[260px] rounded-[2.5rem] border-[10px] border-slate-900 bg-white p-4 shadow-2xl">
+        <div className="mb-4 h-2 w-16 rounded-full bg-slate-200" />
+        <div className="rounded-2xl bg-gradient-to-br from-teal-400 to-cyan-500 p-4 text-white"><div className="text-xs opacity-80">Next appointment</div><div className="mt-1 font-semibold">Dr. Rao · 4:30pm</div></div>
+        <div className="mt-3 space-y-2">{[0, 1, 2].map((i) => (<div key={i} className="flex items-center gap-3 rounded-xl border border-slate-100 p-3"><div className="h-8 w-8 rounded-full bg-teal-100" /><div className="h-2 flex-1 rounded bg-slate-100" /></div>))}</div>
       </div>
     </section>
-    <section className="mx-auto grid max-w-4xl gap-5 px-6 pb-20 sm:grid-cols-2 lg:grid-cols-4">
-      {d.features.map((f) => (
-        <div key={f.title} className="rounded-3xl bg-white/70 p-6 backdrop-blur"><h3 className="font-bold text-slate-900">{f.title}</h3><p className="mt-2 text-sm text-slate-600">{f.description}</p></div>
-      ))}
+    <section className="mx-auto grid max-w-5xl gap-5 px-6 pb-20 text-slate-800 sm:grid-cols-2 lg:grid-cols-4">
+      {d.features.map((f) => (<div key={f.title} className="rounded-3xl bg-white/70 p-6 backdrop-blur"><h3 className="font-bold text-slate-900">{f.title}</h3><p className="mt-2 text-sm text-slate-600">{f.description}</p></div>))}
     </section>
   </main>
 );
 
-/* 6 — Editorial serif (real estate) */
-const Editorial: FC<P> = ({ d }) => (
-  <main className="bg-[#faf8f3] text-stone-800">
-    <nav className="mx-auto flex max-w-5xl items-center justify-between border-b border-stone-300 px-6 py-5">
-      <span className="font-serif text-xl tracking-tight">{d.name}</span>
-      <a href="#" className="text-sm font-medium underline decoration-[#d97706] decoration-2 underline-offset-4">{d.ctaPrimary}</a>
-    </nav>
-    <section className="mx-auto max-w-5xl px-6 py-20">
-      <p className="font-serif text-sm uppercase tracking-[0.3em] text-[#d97706]">{d.industry}</p>
-      <div className="mt-8 grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-end">
-        <h1 className="font-serif text-5xl leading-[1.05] tracking-tight text-stone-900 sm:text-6xl">{d.headline} {d.headlineAccent}</h1>
-        <p className="text-lg leading-relaxed text-stone-600">{d.sub}</p>
+/* 6 — Acre · cinematic landscape (real estate) */
+const Cinematic: FC<P> = ({ d }) => (
+  <main className="text-white">
+    <section className="relative flex min-h-[600px] flex-col" style={{ background: "linear-gradient(180deg,#1e293b 0%,#7c3aed20 30%,#d97706 80%,#fbbf24 100%)" }}>
+      <div className="absolute inset-0" style={{ background: "linear-gradient(180deg,rgba(0,0,0,0.55),rgba(0,0,0,0.1) 50%,rgba(0,0,0,0.5))" }} />
+      <nav className="relative mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-6">
+        <span className="font-serif text-xl">{d.name}</span>
+        <a href="#" className="rounded-md bg-white px-4 py-2 text-sm font-medium text-stone-900">{d.ctaPrimary}</a>
+      </nav>
+      <div className="relative mx-auto mt-auto w-full max-w-6xl px-6 pb-16">
+        {d.badge && <p className="text-sm uppercase tracking-[0.3em] text-white/70">{d.badge}</p>}
+        <h1 className="mt-3 max-w-2xl font-serif text-6xl leading-[1.02] sm:text-7xl">{d.headline} {d.headlineAccent}</h1>
+        <p className="mt-5 max-w-md text-lg text-white/80">{d.sub}</p>
+        <a href="#" className="mt-7 inline-block bg-white px-8 py-3 text-sm font-medium text-stone-900">{d.ctaPrimary}</a>
       </div>
-      <a href="#" className="mt-10 inline-block bg-stone-900 px-8 py-3 text-sm font-medium text-white">{d.ctaPrimary}</a>
     </section>
-    <section className="mx-auto max-w-5xl border-t border-stone-300 px-6 py-12">
-      <div className="grid gap-8 md:grid-cols-4">
-        {d.features.map((f, i) => (
-          <div key={f.title}><div className="font-serif text-2xl text-[#d97706]">0{i + 1}</div><h3 className="mt-2 font-medium text-stone-900">{f.title}</h3><p className="mt-1 text-sm text-stone-600">{f.description}</p></div>
-        ))}
-      </div>
+    <section className="mx-auto grid max-w-6xl gap-8 bg-stone-900 px-6 py-16 md:grid-cols-4">
+      {d.features.map((f, i) => (<div key={f.title}><div className="font-serif text-2xl text-amber-400">0{i + 1}</div><h3 className="mt-2 font-medium">{f.title}</h3><p className="mt-1 text-sm text-white/60">{f.description}</p></div>))}
     </section>
   </main>
 );
 
-/* 7 — Minimal centered (light, clean) */
-const MinimalCentered: FC<P> = ({ d }) => (
-  <main className="bg-white text-neutral-800">
-    <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-6">
+/* 7 — Signal · light bento dashboard (analytics) */
+const Bento: FC<P> = ({ d }) => (
+  <main className="bg-neutral-50 text-neutral-800">
+    <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
       <span className="font-semibold tracking-tight text-neutral-900">{d.name}</span>
-      <a href="#" className="rounded-md bg-[#2563eb] px-4 py-2 text-sm font-medium text-white">{d.ctaPrimary}</a>
+      <a href="#" className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white">{d.ctaPrimary}</a>
     </nav>
-    <section className="mx-auto max-w-3xl px-6 py-24 text-center">
-      {d.badge && <span className="rounded-full border border-neutral-200 bg-neutral-50 px-4 py-1.5 text-sm text-neutral-600">{d.badge}</span>}
-      <h1 className="mt-6 text-5xl font-semibold tracking-tight text-neutral-900 sm:text-6xl">{d.headline} <span className="text-[#2563eb]">{d.headlineAccent}</span></h1>
-      <p className="mx-auto mt-6 max-w-xl text-lg text-neutral-600">{d.sub}</p>
-      <div className="mt-9 flex justify-center gap-3">
-        <a href="#" className="rounded-md bg-[#2563eb] px-7 py-3 text-sm font-medium text-white">{d.ctaPrimary}</a>
-        {d.ctaSecondary && <a href="#" className="rounded-md border border-neutral-300 px-7 py-3 text-sm font-medium">{d.ctaSecondary}</a>}
+    <section className="mx-auto max-w-3xl px-6 pt-16 text-center">
+      {d.badge && <span className="rounded-full border border-neutral-200 bg-white px-4 py-1.5 text-sm text-neutral-600">{d.badge}</span>}
+      <h1 className="mt-6 text-5xl font-semibold tracking-tight text-neutral-900 sm:text-6xl">{d.headline} <span className="text-blue-600">{d.headlineAccent}</span></h1>
+      <p className="mx-auto mt-5 max-w-xl text-lg text-neutral-600">{d.sub}</p>
+      <a href="#" className="mt-8 inline-block rounded-md bg-blue-600 px-7 py-3 text-sm font-medium text-white">{d.ctaPrimary}</a>
+    </section>
+    <section className="mx-auto grid max-w-5xl auto-rows-[150px] grid-cols-2 gap-4 px-6 py-16 lg:grid-cols-4">
+      <div className="col-span-2 row-span-2 rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
+        <div className="text-sm text-neutral-500">Active users</div>
+        <div className="mt-1 text-3xl font-bold text-neutral-900">48,210</div>
+        <div className="mt-6 flex h-28 items-end gap-1.5">{BARS.map((h, i) => (<div key={i} className="flex-1 rounded-t bg-blue-500/80" style={{ height: `${h}%` }} />))}</div>
       </div>
-    </section>
-    <section className="mx-auto grid max-w-5xl gap-6 px-6 pb-24 sm:grid-cols-2 lg:grid-cols-4">
-      {d.features.map((f) => (
-        <div key={f.title} className="rounded-xl border border-neutral-200 p-6"><h3 className="font-semibold text-neutral-900">{f.title}</h3><p className="mt-2 text-sm text-neutral-600">{f.description}</p></div>
-      ))}
+      {d.features.slice(0, 4).map((f) => (<div key={f.title} className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm"><h3 className="text-sm font-semibold text-neutral-900">{f.title}</h3><p className="mt-1 text-xs text-neutral-500 line-clamp-3">{f.description}</p></div>))}
     </section>
   </main>
 );
 
-/* 8 — Gradient vivid (crypto) */
-const Gradient: FC<P> = ({ d }) => (
-  <main className="min-h-screen bg-gradient-to-br from-violet-600 via-purple-600 to-fuchsia-600 text-white">
-    <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+/* 8 — Ledger · glowing crystal over dark ocean (crypto / Hashgraph vibe) */
+const Crystal: FC<P> = ({ d }) => (
+  <main className="relative overflow-hidden text-white" style={{ background: "linear-gradient(180deg,#020617,#0b1f3a 55%,#1e3a5f)" }}>
+    <div className="pointer-events-none absolute left-1/2 top-28 h-72 w-72 -translate-x-1/2 rounded-full blur-[30px]" style={{ background: "radial-gradient(circle at 40% 35%, #bae6fd, #38bdf8 35%, #1d4ed8 65%, #1e1b4b 90%)" }} />
+    <div className="pointer-events-none absolute left-1/2 top-32 h-44 w-44 -translate-x-1/2 rotate-45 rounded-3xl opacity-80 blur-[2px]" style={{ background: "linear-gradient(135deg,#e0f2fe,#38bdf8 50%,#0369a1)" }} />
+    <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
       <span className="font-semibold tracking-tight">{d.name}</span>
-      <a href="#" className="rounded-lg bg-white px-4 py-2 text-sm font-semibold text-purple-700">{d.ctaPrimary}</a>
+      <a href="#" className="rounded-lg border border-white/15 bg-white/5 px-4 py-2 text-sm backdrop-blur">{d.ctaPrimary}</a>
     </nav>
-    <section className="mx-auto max-w-4xl px-6 py-24 text-center">
-      {d.badge && <span className="rounded-full bg-white/15 px-4 py-1.5 text-sm backdrop-blur">{d.badge}</span>}
-      <h1 className="mt-6 text-5xl font-bold leading-tight tracking-tight sm:text-7xl">{d.headline} {d.headlineAccent}</h1>
-      <p className="mx-auto mt-6 max-w-xl text-lg text-white/80">{d.sub}</p>
-      <a href="#" className="mt-9 inline-block rounded-lg bg-white px-8 py-3.5 text-sm font-semibold text-purple-700 shadow-xl">{d.ctaPrimary}</a>
+    <section className="relative mx-auto max-w-3xl px-6 pb-24 pt-72 text-center">
+      {d.badge && <p className="text-sm uppercase tracking-[0.3em] text-sky-300/80">{d.badge}</p>}
+      <h1 className="mt-4 text-5xl font-semibold leading-tight tracking-tight sm:text-6xl">{d.headline} <span className="bg-gradient-to-r from-sky-300 to-cyan-200 bg-clip-text text-transparent">{d.headlineAccent}</span></h1>
+      <p className="mx-auto mt-5 max-w-lg text-lg text-white/60">{d.sub}</p>
+      <a href="#" className="mt-8 inline-block rounded-lg bg-white px-8 py-3 text-sm font-medium text-slate-900">{d.ctaPrimary}</a>
     </section>
-    <section className="mx-auto grid max-w-5xl gap-5 px-6 pb-24 sm:grid-cols-2 lg:grid-cols-4">
-      {d.features.map((f) => (
-        <div key={f.title} className="rounded-2xl border border-white/15 bg-white/10 p-6 backdrop-blur"><h3 className="font-semibold">{f.title}</h3><p className="mt-2 text-sm text-white/75">{f.description}</p></div>
-      ))}
+    <section className="relative mx-auto grid max-w-5xl gap-5 px-6 pb-20 sm:grid-cols-2 lg:grid-cols-4">
+      {d.features.map((f) => (<div key={f.title} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur"><h3 className="font-semibold">{f.title}</h3><p className="mt-2 text-sm text-white/55">{f.description}</p></div>))}
     </section>
   </main>
 );
 
-/* 9 — Bold oversized (education) */
-const Bold: FC<P> = ({ d }) => (
-  <main className="bg-[#fafafa] text-neutral-900">
+/* 9 — Scholar · bold vivid gradient (education) */
+const VividBold: FC<P> = ({ d }) => (
+  <main className="text-white" style={{ background: "linear-gradient(135deg,#0284c7,#4f46e5 55%,#7c3aed)" }}>
     <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
       <span className="text-xl font-black tracking-tight">{d.name}</span>
-      <a href="#" className="rounded-full bg-neutral-900 px-5 py-2.5 text-sm font-bold text-white">{d.ctaPrimary}</a>
+      <a href="#" className="rounded-full bg-white px-5 py-2.5 text-sm font-bold text-indigo-700">{d.ctaPrimary}</a>
     </nav>
     <section className="mx-auto max-w-5xl px-6 py-20">
-      {d.badge && <span className="text-sm font-bold uppercase tracking-widest text-[#0284c7]">{d.badge}</span>}
-      <h1 className="mt-4 text-6xl font-black leading-[0.95] tracking-tighter sm:text-8xl">
-        {d.headline} <span className="bg-[#0284c7] px-3 text-white">{d.headlineAccent}</span>
-      </h1>
-      <p className="mt-8 max-w-xl text-xl text-neutral-600">{d.sub}</p>
-      <a href="#" className="mt-9 inline-block rounded-full bg-[#0284c7] px-9 py-4 text-base font-bold text-white">{d.ctaPrimary}</a>
+      {d.badge && <span className="rounded-full bg-white/15 px-4 py-1.5 text-sm font-medium backdrop-blur">{d.badge}</span>}
+      <h1 className="mt-6 text-6xl font-black leading-[0.95] tracking-tighter sm:text-8xl">{d.headline} <span className="bg-white/20 px-3 backdrop-blur">{d.headlineAccent}</span></h1>
+      <p className="mt-8 max-w-xl text-xl text-white/80">{d.sub}</p>
+      <a href="#" className="mt-9 inline-block rounded-full bg-white px-9 py-4 text-base font-bold text-indigo-700">{d.ctaPrimary}</a>
     </section>
-    <section className="mx-auto grid max-w-5xl gap-6 px-6 pb-20 sm:grid-cols-2 lg:grid-cols-4">
-      {d.features.map((f) => (
-        <div key={f.title} className="rounded-2xl border-2 border-neutral-900 p-6"><h3 className="text-lg font-black">{f.title}</h3><p className="mt-2 text-sm text-neutral-600">{f.description}</p></div>
-      ))}
+    <section className="mx-auto grid max-w-5xl gap-5 px-6 pb-20 sm:grid-cols-2 lg:grid-cols-4">
+      {d.features.map((f) => (<div key={f.title} className="rounded-2xl border border-white/15 bg-white/10 p-6 backdrop-blur"><h3 className="text-lg font-bold">{f.title}</h3><p className="mt-2 text-sm text-white/75">{f.description}</p></div>))}
     </section>
   </main>
 );
 
-/* 10 — Split visual (travel; text + large image block) */
-const SplitVisual: FC<P> = ({ d }) => (
-  <main className="bg-white text-stone-800">
-    <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-      <span className="font-serif text-xl tracking-tight text-[#c2410c]">{d.name}</span>
-      <a href="#" className="rounded-md bg-[#c2410c] px-4 py-2 text-sm font-medium text-white">{d.ctaPrimary}</a>
-    </nav>
-    <section className="mx-auto grid max-w-6xl items-stretch gap-10 px-6 py-16 lg:grid-cols-2">
-      <div className="flex flex-col justify-center">
-        {d.badge && <p className="text-sm uppercase tracking-widest text-stone-400">{d.badge}</p>}
-        <h1 className="mt-3 font-serif text-5xl leading-tight text-stone-900 sm:text-6xl">{d.headline} <span className="text-[#c2410c]">{d.headlineAccent}</span></h1>
-        <p className="mt-5 max-w-md text-lg text-stone-600">{d.sub}</p>
-        <div className="mt-8 flex gap-3">
-          <a href="#" className="rounded-md bg-[#c2410c] px-7 py-3 text-sm font-medium text-white">{d.ctaPrimary}</a>
-          {d.ctaSecondary && <a href="#" className="rounded-md border border-stone-300 px-7 py-3 text-sm font-medium">{d.ctaSecondary}</a>}
-        </div>
+/* 10 — Sojourn · sunset cinematic + gallery bento (travel) */
+const Sunset: FC<P> = ({ d }) => (
+  <main className="text-white">
+    <section className="relative flex min-h-[560px] flex-col" style={{ background: "linear-gradient(180deg,#312e81,#9333ea 40%,#f97316 80%,#fbbf24)" }}>
+      <div className="absolute inset-0" style={{ background: "linear-gradient(180deg,rgba(0,0,0,0.4),transparent 40%,rgba(0,0,0,0.45))" }} />
+      <nav className="relative mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-6">
+        <span className="font-serif text-xl">{d.name}</span>
+        <a href="#" className="rounded-full bg-white px-5 py-2 text-sm font-medium text-stone-900">{d.ctaPrimary}</a>
+      </nav>
+      <div className="relative mx-auto mt-auto w-full max-w-4xl px-6 pb-16 text-center">
+        {d.badge && <p className="text-sm uppercase tracking-[0.3em] text-white/80">{d.badge}</p>}
+        <h1 className="mt-3 font-serif text-6xl leading-[1.02] sm:text-7xl">{d.headline} {d.headlineAccent}</h1>
+        <p className="mx-auto mt-5 max-w-lg text-lg text-white/85">{d.sub}</p>
+        <a href="#" className="mt-7 inline-block rounded-full bg-white px-8 py-3 text-sm font-medium text-stone-900">{d.ctaPrimary}</a>
       </div>
-      <div className="min-h-[360px] rounded-3xl bg-gradient-to-br from-[#fdba74] via-[#c2410c] to-[#7c2d12] shadow-2xl" />
     </section>
-    <section className="mx-auto grid max-w-6xl gap-8 px-6 pb-16 md:grid-cols-4">
-      {d.features.map((f) => (
-        <div key={f.title}><h3 className="font-serif text-lg text-stone-900">{f.title}</h3><p className="mt-2 text-sm text-stone-600">{f.description}</p></div>
-      ))}
+    <section className="bg-stone-950 px-6 py-12">
+      <div className="mx-auto grid max-w-6xl auto-rows-[120px] grid-cols-2 gap-3 lg:grid-cols-4">
+        {["linear-gradient(135deg,#f97316,#be185d)", "linear-gradient(135deg,#0ea5e9,#312e81)", "linear-gradient(135deg,#10b981,#064e3b)", "linear-gradient(135deg,#a855f7,#6b21a8)", "linear-gradient(135deg,#fbbf24,#b45309)", "linear-gradient(135deg,#f43f5e,#7f1d1d)"].map((g, i) => (
+          <div key={i} className={"rounded-2xl " + (i === 0 ? "col-span-2 row-span-2" : "")} style={{ background: g }} />
+        ))}
+      </div>
     </section>
   </main>
 );
 
 export const designBySlug: Record<string, FC<P>> = {
-  northwind: EnterpriseStats,
-  cortex: DarkSplit,
-  forge: Mono,
-  lume: SoftProduct,
-  pulse: Pastel,
-  acre: Editorial,
-  signal: MinimalCentered,
-  ledger: Gradient,
-  scholar: Bold,
-  sojourn: SplitVisual,
+  northwind: DarkDashboard,
+  cortex: Aurora,
+  forge: DevCode,
+  lume: ProductOrb,
+  pulse: PhoneApp,
+  acre: Cinematic,
+  signal: Bento,
+  ledger: Crystal,
+  scholar: VividBold,
+  sojourn: Sunset,
 };
 
 export function getDesign(slug: string): FC<P> {
-  return designBySlug[slug] ?? MinimalCentered;
+  return designBySlug[slug] ?? Bento;
 }
