@@ -21,7 +21,7 @@ export function Hero({ brand, hero, nav }: Pick<LandingContent, "brand" | "hero"
 
       {/* hero */}
       <div className="relative mx-auto max-w-4xl px-6 pb-24 pt-20 text-center sm:pt-28">
-        <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-gradient-to-b from-indigo-100 to-transparent blur-3xl" />
+        <div className={"pointer-events-none absolute left-1/2 top-0 -z-10 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-gradient-to-b to-transparent blur-3xl " + brand.gradientFrom} />
         {hero.badge && (
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-50 px-4 py-1.5 text-sm text-neutral-600">
             <span className={"h-1.5 w-1.5 rounded-full " + brand.accent.split(" ")[0]} />

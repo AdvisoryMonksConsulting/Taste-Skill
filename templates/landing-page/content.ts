@@ -24,9 +24,13 @@ export type Testimonial = { quote: string; name: string; role: string };
 export type LandingContent = {
   brand: {
     name: string;
-    /** Tailwind accent classes — change these two lines to re-theme everything. */
-    accent: string; // e.g. "bg-indigo-600 hover:bg-indigo-500"
-    accentText: string; // e.g. "text-indigo-600"
+    /** Tailwind accent classes — change these to re-theme everything. */
+    accent: string; // e.g. "bg-[#533afd] hover:bg-[#4a33e3]"
+    accentText: string; // e.g. "text-[#533afd]"
+    accentSoftBg: string; // tinted surface, e.g. "bg-[#533afd]/5"
+    accentSoftBorder: string; // tinted border, e.g. "border-[#533afd]/30"
+    accentRing: string; // focus/emphasis ring, e.g. "ring-[#533afd]/15"
+    gradientFrom: string; // hero glow, e.g. "from-[#533afd]/15"
   };
   seo: { title: string; description: string; url: string };
   nav: { label: string; href: string }[];
@@ -54,8 +58,13 @@ export type LandingContent = {
 export const content: LandingContent = {
   brand: {
     name: "Northwind",
-    accent: "bg-indigo-600 hover:bg-indigo-500",
-    accentText: "text-indigo-600",
+    // Stripe blue (#533afd) — change these tokens to re-theme the whole page.
+    accent: "bg-[#533afd] hover:bg-[#4a33e3]",
+    accentText: "text-[#533afd]",
+    accentSoftBg: "bg-[#533afd]/5",
+    accentSoftBorder: "border-[#533afd]/30",
+    accentRing: "ring-[#533afd]/15",
+    gradientFrom: "from-[#533afd]/15",
   },
   seo: {
     title: "Northwind — Close your books in a day, not a week",

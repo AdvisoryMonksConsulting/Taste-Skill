@@ -17,7 +17,7 @@ export function Pricing({ brand, pricing }: Pick<LandingContent, "brand" | "pric
               className={
                 "flex flex-col rounded-2xl border p-8 " +
                 (p.highlighted
-                  ? "border-indigo-200 bg-indigo-50/40 shadow-lg ring-1 ring-indigo-100"
+                  ? `${brand.accentSoftBorder} ${brand.accentSoftBg} shadow-lg ring-1 ${brand.accentRing}`
                   : "border-neutral-200 bg-white")
               }
             >
