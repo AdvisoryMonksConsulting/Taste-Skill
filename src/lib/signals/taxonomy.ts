@@ -1,0 +1,346 @@
+import type { CategoryId } from "./types";
+
+type CategoryDef = {
+  id: CategoryId;
+  label: string;
+  description: string;
+  /** Lowercased keywords/phrases that indicate this problem */
+  keywords: string[];
+  /** Helpful, compliant first-contact angle for an NRI-focused CA */
+  outreachAngle: string;
+};
+
+/**
+ * NRI tax / CA service taxonomy. Order matters only as a tie-break:
+ * "general" is the fallback and intentionally has no keywords.
+ */
+export const CATEGORIES: CategoryDef[] = [
+  {
+    id: "tax_notice",
+    label: "Tax Notice / Scrutiny",
+    description: "Income-tax notices, demands, assessments — time sensitive.",
+    keywords: [
+      "income tax notice",
+      "got a notice",
+      "received a notice",
+      "tax notice",
+      "scrutiny",
+      "assessment",
+      "section 143",
+      "143(1)",
+      "142(1)",
+      "section 148",
+      "148a",
+      "demand notice",
+      "defective return",
+      "reassessment",
+      "income escaping",
+      "penalty notice",
+    ],
+    outreachAngle:
+      "Time-sensitive and high intent. Offer notice review + representation before the response deadline; reassure that NRI notices are routine to resolve.",
+  },
+  {
+    id: "capital_gains",
+    label: "Capital Gains / Property Sale",
+    description: "Selling property/shares from abroad, TDS on sale, exemptions.",
+    keywords: [
+      "capital gain",
+      "capital gains",
+      "sold property",
+      "selling property",
+      "sale of property",
+      "sold my flat",
+      "sold flat",
+      "sold apartment",
+      "sold land",
+      "sold a house",
+      "sold shares",
+      "sold mutual fund",
+      "ltcg",
+      "stcg",
+      "indexation",
+      "tds on property",
+      "section 54",
+      "54ec",
+      "property sale",
+    ],
+    outreachAngle:
+      "Buyers usually over-deduct TDS on NRI property sales (often 20%+). Mention a Lower Deduction Certificate (Form 13) and capital-gains exemptions (54 / 54EC) to recover cash.",
+  },
+  {
+    id: "dtaa",
+    label: "DTAA / Double Taxation",
+    description: "Taxed in two countries, foreign tax credit, tax treaties.",
+    keywords: [
+      "dtaa",
+      "double taxation",
+      "double taxed",
+      "taxed twice",
+      "taxed in both",
+      "tax treaty",
+      "foreign tax credit",
+      "ftc",
+      "form 67",
+      "section 90",
+      "tax residency certificate",
+      "trc",
+      "avoid double tax",
+    ],
+    outreachAngle:
+      "Explain Foreign Tax Credit + Form 67 and how the DTAA with their country of residence prevents double taxation. Offer to compute the credit correctly.",
+  },
+  {
+    id: "accounts_repatriation",
+    label: "Accounts & Repatriation",
+    description: "NRE/NRO/FCNR accounts and moving money out of India.",
+    keywords: [
+      "nre account",
+      "nro account",
+      "fcnr",
+      "repatriate",
+      "repatriation",
+      "remit money",
+      "remittance",
+      "transfer money to india",
+      "move money out of india",
+      "send money abroad",
+      "15ca",
+      "15cb",
+      "form 15ca",
+      "nro to nre",
+      "outward remittance",
+    ],
+    outreachAngle:
+      "Offer help with Form 15CA/15CB and NRO→NRE repatriation within the USD 1M/year limit — one of the most common and confusing NRI pain points.",
+  },
+  {
+    id: "tds",
+    label: "TDS / Lower Deduction",
+    description: "Excess TDS, Form 13 lower-deduction certificate, refunds.",
+    keywords: [
+      "lower deduction",
+      "form 13",
+      "nil deduction",
+      "tds deducted",
+      "tds refund",
+      "tds on rent",
+      "tds on nro",
+      "high tds",
+      "higher tds",
+      "30% tds",
+      "section 195",
+      "section 206",
+    ],
+    outreachAngle:
+      "A Lower Deduction Certificate (Form 13) can stop the excess TDS at source, or it can be reclaimed via ITR. Quantify the likely refund to grab attention.",
+  },
+  {
+    id: "inheritance",
+    label: "Inheritance / Gift",
+    description: "Inherited or gifted property, estate, succession.",
+    keywords: [
+      "inherit",
+      "inherited",
+      "inheritance",
+      "ancestral property",
+      "legal heir",
+      "succession",
+      "estate",
+      "gift tax",
+      "gifted property",
+      "received as gift",
+      "father's property",
+      "parents property",
+    ],
+    outreachAngle:
+      "Clarify India has no inheritance tax, but selling inherited property triggers capital gains + TDS, plus FEMA rules on repatriating the proceeds.",
+  },
+  {
+    id: "fema",
+    label: "FEMA / RBI Compliance",
+    description: "Foreign exchange rules, LRS, overseas investments.",
+    keywords: [
+      "fema",
+      "rbi rules",
+      "foreign exchange management",
+      "liberalised remittance",
+      "lrs",
+      "overseas investment",
+      "compounding",
+      "fema violation",
+      "fema compliance",
+      "odi",
+    ],
+    outreachAngle:
+      "Position on FEMA/LRS compliance and, where needed, RBI compounding. Many NRIs are unknowingly non-compliant — a gentle audit offer works well.",
+  },
+  {
+    id: "business_gst",
+    label: "Business / GST",
+    description: "Consulting/freelance income, GST, India company compliance.",
+    keywords: [
+      "gst",
+      "export of services",
+      "freelance income",
+      "consulting income",
+      "professional income",
+      "sole proprietor",
+      "company in india",
+      "llp",
+      "gst registration",
+      "business in india",
+      "startup india",
+    ],
+    outreachAngle:
+      "Cover GST on export-of-services (often zero-rated) and India business/ROC compliance for NRIs earning consulting or freelance income.",
+  },
+  {
+    id: "residential_status",
+    label: "Residency & ITR Filing",
+    description: "Am-I-an-NRI questions, RNOR, which ITR, do I need to file.",
+    keywords: [
+      "residential status",
+      "am i nri",
+      "am i an nri",
+      "am i a resident",
+      "rnor",
+      "resident but not ordinarily",
+      "182 days",
+      "days in india",
+      "number of days",
+      "tax residency",
+      "which itr",
+      "itr-2",
+      "itr 2",
+      "do i need to file",
+      "need to file itr",
+      "file taxes in india",
+      "file return in india",
+      "returning to india",
+    ],
+    outreachAngle:
+      "Offer a quick residency-status check (days-in-India + RNOR rules) and confirm which ITR applies — most NRIs file the wrong form and miss RNOR benefits.",
+  },
+  {
+    id: "general",
+    label: "General NRI Tax",
+    description: "Clear NRI tax intent that doesn't fit a specific bucket.",
+    keywords: [],
+    outreachAngle:
+      "Reply with a specific, genuinely helpful answer to their exact question to open the relationship — lead with value, not a pitch.",
+  },
+];
+
+export const CATEGORY_BY_ID: Record<CategoryId, CategoryDef> = CATEGORIES.reduce(
+  (acc, c) => {
+    acc[c.id] = c;
+    return acc;
+  },
+  {} as Record<CategoryId, CategoryDef>,
+);
+
+/** Terms that establish NRI / cross-border context. */
+export const NRI_CONTEXT_TERMS = [
+  "nri",
+  "non-resident",
+  "non resident",
+  "oci",
+  "pio",
+  "rnor",
+  "moved abroad",
+  "living abroad",
+  "settled abroad",
+  "working abroad",
+  "based in the us",
+  "based in uk",
+  "based in uae",
+  "in the us",
+  "in the uk",
+  "in dubai",
+  "in singapore",
+  "in canada",
+  "in australia",
+  "h1b",
+  "h-1b",
+  "green card",
+  "foreign income",
+  "foreign salary",
+  "returning to india",
+  "relocated",
+  "abroad",
+  "overseas",
+  "expat",
+];
+
+/** Terms that establish a tax / CA / finance topic. */
+export const TAX_CONTEXT_TERMS = [
+  "tax",
+  "itr",
+  "income tax",
+  "tds",
+  "capital gain",
+  "dtaa",
+  "double taxation",
+  "repatriat",
+  "nre",
+  "nro",
+  "fcnr",
+  "fema",
+  "rbi",
+  "15ca",
+  "15cb",
+  "form 13",
+  "lower deduction",
+  "inherit",
+  "gift tax",
+  "gst",
+  "pan",
+  "filing",
+  "return",
+  "notice",
+  "scrutiny",
+  "refund",
+  "property",
+  "remittance",
+  "chartered accountant",
+];
+
+/** Words that suggest the person needs help NOW. */
+export const URGENCY_TERMS_HIGH = [
+  "deadline",
+  "last date",
+  "due date",
+  "before march 31",
+  "by march 31",
+  "31st july",
+  "31 july",
+  "urgent",
+  "urgently",
+  "asap",
+  "as soon as possible",
+  "notice",
+  "penalty",
+  "this week",
+  "by tomorrow",
+  "running out of time",
+  "time sensitive",
+  "expires",
+];
+
+export const URGENCY_TERMS_MEDIUM = [
+  "this month",
+  "this year",
+  "soon",
+  "need to file",
+  "have to file",
+  "need help",
+  "looking for a ca",
+  "looking for an accountant",
+  "recommend a ca",
+  "any ca",
+  "need a ca",
+  "need advice",
+  "how do i",
+  "what should i do",
+];
