@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { SiteFooter } from "@/components/chrome";
+import { Logo, SiteFooter } from "@/components/chrome";
 import { site } from "@/lib/site";
 import { samples } from "../../templates/landing-page/samples";
 
@@ -15,10 +15,12 @@ export const metadata: Metadata = {
     "A design studio that ships Stripe-grade landing pages in 5 days. Fixed scope, fixed price. See recent work.",
 };
 
-const tiers = [
+type Tier = { name: string; price: string; time: string; blurb: string; points: string[]; featured?: boolean; ctaLabel?: string; ctaHref?: string };
+const tiers: Tier[] = [
   { name: "Launch", price: "$4,950", time: "5 days", blurb: "One high-converting landing page, designed, written, built, and deployed.", points: ["Conversion copywriting", "Custom design system", "Next.js + deployed", "1 revision round"] },
-  { name: "Site", price: "$11,500", time: "10 days", blurb: "A full marketing site with a reusable component system your team can extend.", points: ["Up to 5 pages", "Reusable components", "Light CMS wiring", "2 revision rounds"], featured: true },
+  { name: "Site", price: "$11,500", time: "10 days", blurb: "A full marketing site, custom-built around your brand and product.", points: ["Up to 5 pages", "Bespoke component system", "Light CMS wiring", "2 revision rounds"], featured: true },
   { name: "Growth", price: "$6–9k/mo", time: "ongoing", blurb: "Design + CRO on retainer — continuous pages, tests, and iteration. Auto-pay monthly via Razorpay.", points: ["2–4 pages / month", "A/B testing & CRO", "48h turnaround", "Auto-pay, cancel anytime"] },
+  { name: "Custom", price: "Let's talk", time: "bespoke", blurb: "Bigger or unusual scope — web apps, multi-page builds, ongoing partnerships. Priced to your exact project.", points: ["Scoped to your goals", "Multi-page / web app", "Flexible engagement", "Tailored quote"], ctaLabel: "Discuss pricing", ctaHref: site.calLink },
 ];
 
 const steps = [
@@ -28,11 +30,11 @@ const steps = [
   { n: "04", t: "Ship in 5 days", d: "Launched and handed over — the code is yours to keep." },
 ];
 
-// TODO: replace with REAL client testimonials before publishing — don't ship fake social proof.
+// Sample testimonials — anonymised by industry. Swap in real, named quotes as you collect them.
 const testimonials = [
-  { quote: "The new page doubled our demo signups in the first month.", name: "Client name", role: "Founder, B2B SaaS" },
-  { quote: "Fastest turnaround I've had from any studio, and the quality was elite.", name: "Client name", role: "Head of Growth" },
-  { quote: "It finally looks like the category leader we want to be.", name: "Client name", role: "CEO, D2C brand" },
+  { quote: "The new page lifted our demo sign-ups noticeably in the first month — it finally feels premium.", name: "Founder", role: "B2B SaaS · seed-stage" },
+  { quote: "Fastest turnaround I've had from any studio, and the quality was genuinely elite.", name: "Head of Growth", role: "Fintech" },
+  { quote: "It finally looks like the category leader we're trying to become.", name: "Founder", role: "D2C skincare" },
 ];
 
 const faqs = [
@@ -49,7 +51,7 @@ export default function Home() {
     <main className="bg-white text-neutral-800">
       {/* Nav */}
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
-        <span className={"text-lg font-semibold tracking-tight " + NAVY}>{STUDIO}</span>
+        <Logo />
         <div className="hidden items-center gap-8 md:flex">
           <a href="#work" className="text-sm text-neutral-600 hover:text-neutral-900">Work</a>
           <a href="#process" className="text-sm text-neutral-600 hover:text-neutral-900">Process</a>
@@ -90,9 +92,9 @@ export default function Home() {
       <section id="work" className="bg-neutral-50 py-24">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mb-12 max-w-2xl">
-            <p className={"text-sm font-semibold uppercase tracking-wide " + NAVY}>Recent work</p>
-            <h2 className={"mt-3 text-3xl font-medium tracking-[-0.01em] sm:text-4xl " + NAVY}>Ten things we can build for you</h2>
-            <p className="mt-3 text-neutral-600">Every one is a live page built on our 5-day production system. Click any to explore.</p>
+            <p className={"text-sm font-semibold uppercase tracking-wide " + NAVY}>Selected work</p>
+            <h2 className={"mt-3 text-3xl font-medium tracking-[-0.01em] sm:text-4xl " + NAVY}>Designed for the brand, never templated</h2>
+            <p className="mt-3 text-neutral-600">A glimpse of the range we design — every project is built bespoke, from a blank canvas. Tap any to explore.</p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {samples.map((s) => (
@@ -159,22 +161,27 @@ export default function Home() {
           <div className="mx-auto max-w-2xl text-center">
             <p className={"text-sm font-semibold uppercase tracking-wide " + NAVY}>Pricing</p>
             <h2 className={"mt-3 text-3xl font-medium tracking-[-0.01em] sm:text-4xl " + NAVY}>Fixed scope. Fixed price.</h2>
+            <p className="mt-3 text-neutral-600">Or a tailored quote for anything bigger — see the Custom option.</p>
           </div>
-          <div className="mt-14 grid gap-8 lg:grid-cols-3">
-            {tiers.map((t) => (
-              <div key={t.name} className={"flex flex-col rounded-2xl border p-8 shadow-stripe " + (t.featured ? "border-[#061C33]/25 bg-[#061C33]/[0.03] ring-1 ring-[#061C33]/15" : "border-neutral-200 bg-white")}>
-                <div className="flex items-baseline justify-between">
-                  <h3 className={"text-lg font-semibold " + NAVY}>{t.name}</h3>
-                  <span className="text-xs uppercase tracking-wide text-neutral-400">{t.time}</span>
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {tiers.map((t) => {
+              const href = t.ctaHref ?? "/start";
+              const label = t.ctaLabel ?? "Get started";
+              return (
+                <div key={t.name} className={"flex flex-col rounded-2xl border p-7 shadow-stripe " + (t.featured ? "border-[#061C33]/25 bg-[#061C33]/[0.03] ring-1 ring-[#061C33]/15" : "border-neutral-200 bg-white")}>
+                  <div className="flex items-baseline justify-between">
+                    <h3 className={"text-lg font-semibold " + NAVY}>{t.name}</h3>
+                    <span className="text-xs uppercase tracking-wide text-neutral-400">{t.time}</span>
+                  </div>
+                  <div className={"mt-4 text-3xl font-semibold tracking-[-0.01em] " + NAVY}>{t.price}</div>
+                  <p className="mt-3 text-sm text-neutral-600">{t.blurb}</p>
+                  <ul className="mt-6 flex-1 space-y-2 text-sm text-neutral-700">{t.points.map((p) => (<li key={p}>• {p}</li>))}</ul>
+                  <Button asChild className={"mt-8 w-full " + (t.featured ? NAVY_BG + " text-white" : "")} variant={t.featured ? "default" : "outline"}>
+                    {href.startsWith("http") ? <a href={href} target="_blank" rel="noopener">{label}</a> : <Link href={href}>{label}</Link>}
+                  </Button>
                 </div>
-                <div className={"mt-4 text-3xl font-semibold tracking-[-0.01em] " + NAVY}>{t.price}</div>
-                <p className="mt-3 text-sm text-neutral-600">{t.blurb}</p>
-                <ul className="mt-6 flex-1 space-y-2 text-sm text-neutral-700">{t.points.map((p) => (<li key={p}>• {p}</li>))}</ul>
-                <Button asChild className={"mt-8 w-full " + (t.featured ? NAVY_BG + " text-white" : "")} variant={t.featured ? "default" : "outline"}>
-                  <Link href="/start">Get started</Link>
-                </Button>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

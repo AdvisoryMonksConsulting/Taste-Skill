@@ -4,10 +4,20 @@ import { site } from "@/lib/site";
 const NAVY = "text-[#061C33]";
 const NAVY_BG = "bg-[#061C33] hover:bg-[#0b2c52]";
 
+/** Veska wordmark (enlarged) with "Powered by Advisory Monks Consulting" beneath. */
+export function Logo() {
+  return (
+    <span className="block leading-tight">
+      <span className={"block text-2xl font-semibold tracking-tight " + NAVY}>{site.name}</span>
+      <span className="block text-[11px] font-normal tracking-wide text-neutral-400">Powered by {site.legalEntity}</span>
+    </span>
+  );
+}
+
 export function SiteNav() {
   return (
     <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
-      <Link href="/" className={"text-lg font-semibold tracking-tight " + NAVY}>{site.name}</Link>
+      <Link href="/"><Logo /></Link>
       <div className="hidden items-center gap-8 md:flex">
         <Link href="/#work" className="text-sm text-neutral-600 hover:text-neutral-900">Work</Link>
         <Link href="/#pricing" className="text-sm text-neutral-600 hover:text-neutral-900">Pricing</Link>
@@ -22,7 +32,7 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-neutral-200 py-12">
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 sm:flex-row sm:items-center sm:justify-between">
-        <span className={"font-semibold " + NAVY}>{site.name}</span>
+        <Logo />
         <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-neutral-500">
           <Link href="/start" className="hover:text-neutral-900">Start a project</Link>
           <Link href="/contact" className="hover:text-neutral-900">Contact</Link>
@@ -30,7 +40,7 @@ export function SiteFooter() {
           <Link href="/privacy" className="hover:text-neutral-900">Privacy</Link>
           <Link href="/refund" className="hover:text-neutral-900">Refunds</Link>
         </nav>
-        <span className="text-sm text-neutral-500">A brand of {site.legalEntity} · © {new Date().getFullYear()}</span>
+        <span className="text-sm text-neutral-500">© {new Date().getFullYear()} {site.legalEntity}</span>
       </div>
     </footer>
   );

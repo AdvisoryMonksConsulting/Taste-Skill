@@ -79,29 +79,32 @@ const Aurora: FC<P> = ({ d }) => (
   </main>
 );
 
-/* 3 — Forge · dev dark, code window + bento (devtool) */
+/* 3 — Forge · minimal dev (ElevenLabs-style: clean, monochrome, refined code card) */
 const DevCode: FC<P> = ({ d }) => (
-  <main className="relative overflow-hidden bg-[#0a0a0a] text-white">
-    <div className="pointer-events-none absolute -top-32 right-10 h-[420px] w-[420px] rounded-full bg-emerald-500/20 blur-[120px]" />
-    <div className="pointer-events-none absolute inset-0 opacity-[0.07]" style={{ backgroundImage: "linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px)", backgroundSize: "44px 44px" }} />
-    <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-      <span className="font-mono font-bold tracking-tight">{d.name}</span>
-      <a href="#" className="rounded-md bg-emerald-500 px-4 py-2 text-sm font-semibold text-black">{d.ctaPrimary}</a>
+  <main className="bg-white text-neutral-900">
+    <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+      <span className="font-semibold tracking-tight">{d.name}</span>
+      <a href="#" className="rounded-full bg-neutral-900 px-5 py-2 text-sm font-medium text-white">{d.ctaPrimary}</a>
     </nav>
-    <section className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 lg:grid-cols-2">
+    <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 lg:grid-cols-2">
       <div>
-        {d.badge && <span className="rounded border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 font-mono text-xs text-emerald-300">{d.badge}</span>}
-        <h1 className="mt-6 text-5xl font-semibold leading-tight tracking-tight">{d.headline} <span className="text-emerald-400">{d.headlineAccent}</span></h1>
-        <p className="mt-5 max-w-md text-lg text-white/60">{d.sub}</p>
-        <a href="#" className="mt-8 inline-block rounded-md bg-emerald-500 px-7 py-3 text-sm font-semibold text-black">{d.ctaPrimary} →</a>
+        {d.badge && <span className="inline-block rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1 text-xs text-neutral-500">{d.badge}</span>}
+        <h1 className="mt-6 text-5xl font-medium leading-[1.05] tracking-tight text-neutral-900">{d.headline} <span className="text-neutral-400">{d.headlineAccent}</span></h1>
+        <p className="mt-5 max-w-md text-lg text-neutral-500">{d.sub}</p>
+        <div className="mt-8 flex gap-3">
+          <a href="#" className="rounded-full bg-neutral-900 px-6 py-3 text-sm font-medium text-white">{d.ctaPrimary}</a>
+          <a href="#" className="rounded-full border border-neutral-200 px-6 py-3 text-sm font-medium text-neutral-700">Read the docs</a>
+        </div>
       </div>
-      <div className="rounded-xl border border-white/10 bg-[#0d0d0d] shadow-2xl">
-        <div className="flex gap-1.5 border-b border-white/10 px-4 py-3"><span className="h-2.5 w-2.5 rounded-full bg-red-400/70" /><span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" /><span className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" /></div>
-        <pre className="overflow-hidden p-5 font-mono text-[13px] leading-6"><span className="text-white/40">$ forge deploy</span>{"\n"}<span className="text-emerald-400">✓</span> building…{"\n"}<span className="text-emerald-400">✓</span> preview ready{"\n"}<span className="text-white/50">→ https://</span><span className="text-cyan-300">app.forge.dev</span>{"\n"}<span className="text-emerald-400">✓</span> live in <span className="text-emerald-300">1.2s</span></pre>
+      <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-2 shadow-sm">
+        <div className="flex gap-1.5 px-3 py-2"><span className="h-2.5 w-2.5 rounded-full bg-neutral-300" /><span className="h-2.5 w-2.5 rounded-full bg-neutral-300" /><span className="h-2.5 w-2.5 rounded-full bg-neutral-300" /></div>
+        <pre className="overflow-hidden rounded-xl border border-neutral-100 bg-white p-5 font-mono text-[13px] leading-6 text-neutral-600"><span className="text-neutral-400">$ forge deploy</span>{"\n"}✓ building…{"\n"}✓ preview ready{"\n"}→ app.forge.dev{"\n"}✓ live in 1.2s</pre>
       </div>
     </section>
-    <section className="relative mx-auto grid max-w-6xl gap-4 px-6 pb-20 sm:grid-cols-2 lg:grid-cols-4">
-      {d.features.map((f) => (<div key={f.title} className="rounded-xl border border-white/10 bg-white/[0.03] p-5"><h3 className="font-mono font-semibold text-emerald-300">{f.title}</h3><p className="mt-2 text-sm text-white/55">{f.description}</p></div>))}
+    <section className="mx-auto max-w-6xl px-6 pb-20">
+      <div className="grid gap-px overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-200 sm:grid-cols-2 lg:grid-cols-4">
+        {d.features.map((f) => (<div key={f.title} className="bg-white p-6"><h3 className="font-medium text-neutral-900">{f.title}</h3><p className="mt-2 text-sm text-neutral-500">{f.description}</p></div>))}
+      </div>
     </section>
   </main>
 );
@@ -198,42 +201,52 @@ const Bento: FC<P> = ({ d }) => (
   </main>
 );
 
-/* 8 — Ledger · glowing crystal over dark ocean (crypto / Hashgraph vibe) */
+/* 8 — Ledger · minimal product (ElevenLabs-style: clean, soft single-gradient panel) */
 const Crystal: FC<P> = ({ d }) => (
-  <main className="relative overflow-hidden text-white" style={{ background: "linear-gradient(180deg,#020617,#0b1f3a 55%,#1e3a5f)" }}>
-    <div className="pointer-events-none absolute left-1/2 top-28 h-72 w-72 -translate-x-1/2 rounded-full blur-[30px]" style={{ background: "radial-gradient(circle at 40% 35%, #bae6fd, #38bdf8 35%, #1d4ed8 65%, #1e1b4b 90%)" }} />
-    <div className="pointer-events-none absolute left-1/2 top-32 h-44 w-44 -translate-x-1/2 rotate-45 rounded-3xl opacity-80 blur-[2px]" style={{ background: "linear-gradient(135deg,#e0f2fe,#38bdf8 50%,#0369a1)" }} />
-    <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
+  <main className="bg-white text-neutral-900">
+    <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
       <span className="font-semibold tracking-tight">{d.name}</span>
-      <a href="#" className="rounded-lg border border-white/15 bg-white/5 px-4 py-2 text-sm backdrop-blur">{d.ctaPrimary}</a>
+      <a href="#" className="rounded-full bg-neutral-900 px-5 py-2 text-sm font-medium text-white">{d.ctaPrimary}</a>
     </nav>
-    <section className="relative mx-auto max-w-3xl px-6 pb-24 pt-72 text-center">
-      {d.badge && <p className="text-sm uppercase tracking-[0.3em] text-sky-300/80">{d.badge}</p>}
-      <h1 className="mt-4 text-5xl font-semibold leading-tight tracking-tight sm:text-6xl">{d.headline} <span className="bg-gradient-to-r from-sky-300 to-cyan-200 bg-clip-text text-transparent">{d.headlineAccent}</span></h1>
-      <p className="mx-auto mt-5 max-w-lg text-lg text-white/60">{d.sub}</p>
-      <a href="#" className="mt-8 inline-block rounded-lg bg-white px-8 py-3 text-sm font-medium text-slate-900">{d.ctaPrimary}</a>
+    <section className="mx-auto max-w-3xl px-6 pt-16 text-center">
+      {d.badge && <span className="inline-block rounded-full border border-neutral-200 bg-neutral-50 px-4 py-1.5 text-sm text-neutral-500">{d.badge}</span>}
+      <h1 className="mx-auto mt-6 max-w-2xl text-5xl font-medium leading-[1.05] tracking-tight sm:text-6xl">{d.headline} <span className="text-neutral-400">{d.headlineAccent}</span></h1>
+      <p className="mx-auto mt-5 max-w-xl text-lg text-neutral-500">{d.sub}</p>
+      <div className="mt-8 flex justify-center gap-3">
+        <a href="#" className="rounded-full bg-neutral-900 px-7 py-3 text-sm font-medium text-white">{d.ctaPrimary}</a>
+        {d.ctaSecondary && <a href="#" className="rounded-full border border-neutral-200 px-7 py-3 text-sm font-medium text-neutral-700">{d.ctaSecondary}</a>}
+      </div>
     </section>
-    <section className="relative mx-auto grid max-w-5xl gap-5 px-6 pb-20 sm:grid-cols-2 lg:grid-cols-4">
-      {d.features.map((f) => (<div key={f.title} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur"><h3 className="font-semibold">{f.title}</h3><p className="mt-2 text-sm text-white/55">{f.description}</p></div>))}
+    <section className="mx-auto max-w-5xl px-6 py-16">
+      <div className="flex h-64 items-center justify-center rounded-3xl border border-neutral-200" style={{ background: "linear-gradient(135deg,#f5f3ff,#eef2ff 55%,#ffffff)" }}>
+        <div className="h-24 w-24 rotate-45 rounded-2xl" style={{ background: "linear-gradient(135deg,#c7d2fe,#818cf8)" }} />
+      </div>
+    </section>
+    <section className="mx-auto max-w-5xl px-6 pb-20">
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        {d.features.map((f) => (<div key={f.title}><h3 className="font-medium text-neutral-900">{f.title}</h3><p className="mt-2 text-sm text-neutral-500">{f.description}</p></div>))}
+      </div>
     </section>
   </main>
 );
 
-/* 9 — Scholar · bold vivid gradient (education) */
+/* 9 — Scholar · minimal editorial (ElevenLabs-style: clean, airy, left-aligned) */
 const VividBold: FC<P> = ({ d }) => (
-  <main className="text-white" style={{ background: "linear-gradient(135deg,#0284c7,#4f46e5 55%,#7c3aed)" }}>
-    <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
-      <span className="text-xl font-black tracking-tight">{d.name}</span>
-      <a href="#" className="rounded-full bg-white px-5 py-2.5 text-sm font-bold text-indigo-700">{d.ctaPrimary}</a>
+  <main className="bg-[#fafafa] text-neutral-900">
+    <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+      <span className="font-semibold tracking-tight">{d.name}</span>
+      <a href="#" className="rounded-full bg-neutral-900 px-5 py-2 text-sm font-medium text-white">{d.ctaPrimary}</a>
     </nav>
-    <section className="mx-auto max-w-5xl px-6 py-20">
-      {d.badge && <span className="rounded-full bg-white/15 px-4 py-1.5 text-sm font-medium backdrop-blur">{d.badge}</span>}
-      <h1 className="mt-6 text-6xl font-black leading-[0.95] tracking-tighter sm:text-8xl">{d.headline} <span className="bg-white/20 px-3 backdrop-blur">{d.headlineAccent}</span></h1>
-      <p className="mt-8 max-w-xl text-xl text-white/80">{d.sub}</p>
-      <a href="#" className="mt-9 inline-block rounded-full bg-white px-9 py-4 text-base font-bold text-indigo-700">{d.ctaPrimary}</a>
+    <section className="mx-auto max-w-5xl px-6 py-24">
+      {d.badge && <span className="text-sm font-medium text-neutral-400">{d.badge}</span>}
+      <h1 className="mt-4 max-w-3xl text-5xl font-medium leading-[1.05] tracking-tight sm:text-7xl">{d.headline} <span className="text-neutral-400">{d.headlineAccent}</span></h1>
+      <p className="mt-6 max-w-xl text-xl text-neutral-500">{d.sub}</p>
+      <a href="#" className="mt-9 inline-block rounded-full bg-neutral-900 px-8 py-3.5 text-sm font-medium text-white">{d.ctaPrimary}</a>
     </section>
-    <section className="mx-auto grid max-w-5xl gap-5 px-6 pb-20 sm:grid-cols-2 lg:grid-cols-4">
-      {d.features.map((f) => (<div key={f.title} className="rounded-2xl border border-white/15 bg-white/10 p-6 backdrop-blur"><h3 className="text-lg font-bold">{f.title}</h3><p className="mt-2 text-sm text-white/75">{f.description}</p></div>))}
+    <section className="mx-auto max-w-5xl px-6 pb-24">
+      <div className="divide-y divide-neutral-200 border-y border-neutral-200">
+        {d.features.map((f, i) => (<div key={f.title} className="flex gap-6 py-6"><span className="text-sm text-neutral-300">0{i + 1}</span><div><h3 className="font-medium text-neutral-900">{f.title}</h3><p className="mt-1 text-sm text-neutral-500">{f.description}</p></div></div>))}
+      </div>
     </section>
   </main>
 );
