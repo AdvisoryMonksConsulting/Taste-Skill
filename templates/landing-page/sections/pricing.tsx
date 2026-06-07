@@ -8,7 +8,7 @@ export function Pricing({ brand, pricing }: Pick<LandingContent, "brand" | "pric
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-2xl text-center">
           <p className={"text-sm font-semibold uppercase tracking-wide " + brand.accentText}>{pricing.eyebrow}</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl">{pricing.heading}</h2>
+          <h2 className={"mt-3 text-3xl font-medium tracking-[-0.01em] sm:text-4xl " + brand.heading}>{pricing.heading}</h2>
         </div>
         <div className="mt-14 grid gap-8 lg:grid-cols-3">
           {pricing.plans.map((p) => (
@@ -18,13 +18,13 @@ export function Pricing({ brand, pricing }: Pick<LandingContent, "brand" | "pric
                 "flex flex-col rounded-2xl border p-8 " +
                 (p.highlighted
                   ? `${brand.accentSoftBorder} ${brand.accentSoftBg} shadow-lg ring-1 ${brand.accentRing}`
-                  : "border-neutral-200 bg-white")
+                  : `border-neutral-200/70 bg-white ${brand.shadow}`)
               }
             >
-              <h3 className="text-lg font-semibold text-neutral-900">{p.name}</h3>
+              <h3 className={"text-lg font-semibold " + brand.heading}>{p.name}</h3>
               <p className="mt-1 text-sm text-neutral-500">{p.description}</p>
               <div className="mt-6 flex items-baseline gap-1">
-                <span className="text-4xl font-bold tracking-tight text-neutral-900">{p.price}</span>
+                <span className={"text-4xl font-semibold tracking-[-0.01em] " + brand.heading}>{p.price}</span>
                 {p.cadence && <span className="text-neutral-500">{p.cadence}</span>}
               </div>
               <ul className="mt-6 flex-1 space-y-3">

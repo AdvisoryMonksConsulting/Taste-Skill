@@ -24,8 +24,8 @@ export default function LandingPage() {
       {content.logos && <Logos logos={content.logos} />}
       <Features brand={content.brand} features={content.features} />
       <Pricing brand={content.brand} pricing={content.pricing} />
-      {content.testimonials && <Testimonials testimonials={content.testimonials} />}
-      <Faq faq={content.faq} />
+      {content.testimonials && <Testimonials brand={content.brand} testimonials={content.testimonials} />}
+      <Faq brand={content.brand} faq={content.faq} />
       <Cta brand={content.brand} cta={content.cta} />
       <Footer brand={content.brand} footer={content.footer} />
     </main>

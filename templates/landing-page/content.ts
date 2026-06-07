@@ -31,6 +31,8 @@ export type LandingContent = {
     accentSoftBorder: string; // tinted border, e.g. "border-[#533afd]/30"
     accentRing: string; // focus/emphasis ring, e.g. "ring-[#533afd]/15"
     gradientFrom: string; // hero glow, e.g. "from-[#533afd]/15"
+    heading: string; // heading text color — Stripe navy "text-[#061b31]"
+    shadow: string; // Stripe blue-tinted elevation
   };
   seo: { title: string; description: string; url: string };
   nav: { label: string; href: string }[];
@@ -65,6 +67,9 @@ export const content: LandingContent = {
     accentSoftBorder: "border-[#533afd]/30",
     accentRing: "ring-[#533afd]/15",
     gradientFrom: "from-[#533afd]/15",
+    // Stripe signatures: deep-navy headings + blue-tinted multi-layer shadow.
+    heading: "text-[#061b31]",
+    shadow: "shadow-stripe", // defined in src/app/globals.css (@utility shadow-stripe)
   },
   seo: {
     title: "Northwind — Close your books in a day, not a week",

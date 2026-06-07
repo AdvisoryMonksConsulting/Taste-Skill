@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @plugin "tailwindcss-animate";
 
+/* Stripe-style blue-tinted multi-layer elevation (used via brand.shadow token). */
+@utility shadow-stripe {
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

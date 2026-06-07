@@ -6,7 +6,7 @@ export function Hero({ brand, hero, nav }: Pick<LandingContent, "brand" | "hero"
     <header className="relative overflow-hidden border-b border-neutral-200 bg-white">
       {/* nav */}
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-        <span className="text-lg font-semibold tracking-tight text-neutral-900">{brand.name}</span>
+        <span className={"text-lg font-semibold tracking-tight " + brand.heading}>{brand.name}</span>
         <div className="hidden items-center gap-8 md:flex">
           {nav.map((n) => (
             <a key={n.href} href={n.href} className="text-sm text-neutral-600 transition-colors hover:text-neutral-900">
@@ -28,7 +28,7 @@ export function Hero({ brand, hero, nav }: Pick<LandingContent, "brand" | "hero"
             {hero.badge}
           </div>
         )}
-        <h1 className="mx-auto max-w-3xl text-balance text-4xl font-semibold tracking-tight text-neutral-900 sm:text-6xl">
+        <h1 className={"mx-auto max-w-3xl text-balance text-4xl font-light tracking-[-0.02em] sm:text-6xl " + brand.heading}>
           {hero.headline}{" "}
           {hero.headlineAccent && <span className={brand.accentText}>{hero.headlineAccent}</span>}
         </h1>
