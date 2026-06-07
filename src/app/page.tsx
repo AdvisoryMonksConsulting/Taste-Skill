@@ -78,22 +78,28 @@ export default function Home() {
                 href={`/work/${s.slug}`}
                 className="group block overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-stripe transition-transform hover:-translate-y-1"
               >
-                {/* faux browser */}
+                {/* browser chrome */}
                 <div className="flex items-center gap-1.5 border-b border-neutral-100 bg-neutral-50 px-4 py-3">
                   <span className="h-2.5 w-2.5 rounded-full bg-neutral-300" />
                   <span className="h-2.5 w-2.5 rounded-full bg-neutral-300" />
                   <span className="h-2.5 w-2.5 rounded-full bg-neutral-300" />
                 </div>
-                <div className={"h-1.5 " + s.brand.accent.split(" ")[0]} />
-                <div className="p-6">
-                  <div className="flex items-baseline justify-between">
-                    <h3 className="text-lg font-semibold text-neutral-900">{s.label}</h3>
-                    <span className={"text-sm font-medium " + s.brand.accentText}>View live →</span>
+                {/* live design preview */}
+                <div className="relative aspect-[16/10] overflow-hidden bg-neutral-100">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={`/work/${s.slug}.png`}
+                    alt={`${s.label} — ${s.industry} landing page design`}
+                    loading="lazy"
+                    className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                </div>
+                <div className="flex items-baseline justify-between p-5">
+                  <div>
+                    <h3 className="text-base font-semibold text-neutral-900">{s.label}</h3>
+                    <p className="mt-0.5 text-sm text-neutral-500">{s.industry}</p>
                   </div>
-                  <p className="mt-1 text-sm text-neutral-500">{s.industry}</p>
-                  <p className="mt-4 line-clamp-2 text-pretty text-neutral-700">
-                    {s.headline} {s.headlineAccent}
-                  </p>
+                  <span className={"text-sm font-medium " + s.brand.accentText}>View live →</span>
                 </div>
               </Link>
             ))}

@@ -1,0 +1,6 @@
+# One prospect per line. Either "https://url" or "Company Name,https://url".
+# Lines starting with # are ignored. Build this list from your sourcing (Google
+# dorks for stale copyright years, BuiltWith old-stack filters, niche+city searches).
+Acme Accounting,https://example.com
+Globex Logistics,https://example.org
+https://example.net
