@@ -53,6 +53,17 @@ export default function StartPage() {
           </li>
         </ol>
 
+        <div className="mt-12 rounded-2xl border border-neutral-200 bg-neutral-50 p-6">
+          <h2 className={"text-lg font-semibold " + NAVY}>How billing works</h2>
+          <ul className="mt-3 space-y-2 text-sm text-neutral-600">
+            <li>• <strong>Landing page / Site:</strong> 50% to start, 50% on delivery.</li>
+            <li>• <strong>Larger projects:</strong> split into milestones — 40% to start, 30% at design sign-off, 30% on delivery.</li>
+            <li>• <strong>Growth retainer:</strong> billed monthly in advance via Razorpay subscription (auto-pay) — cancel anytime with notice.</li>
+            <li>• <strong>Final files &amp; deploy access are released once the final payment clears.</strong> You preview everything live before then.</li>
+            <li>• Pay by card (Razorpay) or bank transfer (Wise / Payoneer). USD invoices issued from {site.legalEntity}.</li>
+          </ul>
+        </div>
+
         <p className="mt-10 text-sm text-neutral-500">
           Not ready to pay yet? <Link href="/contact" className={"font-medium " + NAVY}>Send us a message</Link> and we&apos;ll reply within a day.
         </p>

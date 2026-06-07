@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const tiers = [
   { name: "Launch", price: "$4,950", time: "5 days", blurb: "One high-converting landing page, designed, written, built, and deployed.", points: ["Conversion copywriting", "Custom design system", "Next.js + deployed", "1 revision round"] },
   { name: "Site", price: "$11,500", time: "10 days", blurb: "A full marketing site with a reusable component system your team can extend.", points: ["Up to 5 pages", "Reusable components", "Light CMS wiring", "2 revision rounds"], featured: true },
-  { name: "Growth", price: "$6–9k/mo", time: "ongoing", blurb: "Design + CRO on retainer — continuous pages, tests, and iteration.", points: ["2–4 pages / month", "A/B testing & CRO", "48h turnaround", "Monthly review"] },
+  { name: "Growth", price: "$6–9k/mo", time: "ongoing", blurb: "Design + CRO on retainer — continuous pages, tests, and iteration. Auto-pay monthly via Razorpay.", points: ["2–4 pages / month", "A/B testing & CRO", "48h turnaround", "Auto-pay, cancel anytime"] },
 ];
 
 const steps = [
