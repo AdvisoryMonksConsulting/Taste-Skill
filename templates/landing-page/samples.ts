@@ -233,7 +233,7 @@ export const samples: SampleSpec[] = [
 export function toContent(s: SampleSpec): LandingContent {
   return {
     brand: s.brand,
-    seo: { title: s.seoTitle, description: s.seoDesc, url: `https://veska.studio/work/${s.slug}` },
+    seo: { title: s.seoTitle, description: s.seoDesc, url: `https://veskadesign.com/work/${s.slug}` },
     nav: [
       { label: "Features", href: "#features" },
       { label: "Pricing", href: "#pricing" },
