@@ -60,15 +60,14 @@ export type LandingContent = {
 export const content: LandingContent = {
   brand: {
     name: "Northwind",
-    // Stripe blue (#533afd) — change these tokens to re-theme the whole page.
-    accent: "bg-[#533afd] hover:bg-[#4a33e3]",
-    accentText: "text-[#533afd]",
-    accentSoftBg: "bg-[#533afd]/5",
-    accentSoftBorder: "border-[#533afd]/30",
-    accentRing: "ring-[#533afd]/15",
-    gradientFrom: "from-[#533afd]/15",
-    // Stripe signatures: deep-navy headings + blue-tinted multi-layer shadow.
-    heading: "text-[#061b31]",
+    // Brand navy #061C33 (from the brand PDF, Pantone 296 C) — monochrome premium.
+    accent: "bg-[#061C33] hover:bg-[#0b2c52]",
+    accentText: "text-[#061C33]",
+    accentSoftBg: "bg-[#061C33]/5",
+    accentSoftBorder: "border-[#061C33]/25",
+    accentRing: "ring-[#061C33]/15",
+    gradientFrom: "from-[#061C33]/10",
+    heading: "text-[#061C33]",
     shadow: "shadow-stripe", // defined in src/app/globals.css (@utility shadow-stripe)
   },
   seo: {
