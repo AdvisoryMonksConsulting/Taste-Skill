@@ -12,7 +12,7 @@ export const site = {
   // Contact form — create a form at formspree.io (free) and paste its endpoint:
   formspree: "https://formspree.io/f/xykawwpr",
   // Razorpay Dashboard → Payment Button → copy the button id (pl_xxx):
-  razorpayButtonId: "pl_REPLACE_ME", // TODO
+  razorpayButtonId: "pl_Sz5Rm27yGXHHh8",
   // Alternate global payment options (optional):
   wiseLink: "https://wise.com/pay/me/REPLACE", // TODO
   paypalLink: "https://paypal.me/REPLACE", // TODO
