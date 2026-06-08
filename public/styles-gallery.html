@@ -1,0 +1,1044 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>67 Design Styles — Hero Gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&family=Limelight:wght@300;400;500;600;700;800;900&family=Archivo+Black:wght@300;400;500;600;700;800;900&family=Darker+Grotesque:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Anthropic+Sans:wght@300;400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;600;700;800;900&family=Inconsolata:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800;900&family=Jost:wght@300;400;500;600;700;800;900&family=Overpass+Mono:wght@300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@300;400;500;600;700;800;900&family=Audiowide:wght@300;400;500;600;700;800;900&family=Bangers:wght@300;400;500;600;700;800;900&family=IBM+Plex+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=Delius+Swash+Caps:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=Gelasio:wght@300;400;500;600;700;800;900&family=Ubuntu+Mono:wght@300;400;500;600;700;800;900&family=Google+Sans:wght@300;400;500;600;700;800;900&family=Anonymous+Pro:wght@300;400;500;600;700;800;900&family=Oswald:wght@300;400;500;600;700;800;900&family=Ubuntu:wght@300;400;500;600;700;800;900&family=New+Rocker:wght@300;400;500;600;700;800;900&family=Cossette+Texte:wght@300;400;500;600;700;800;900&family=Noto+Serif+Display:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@300;400;500;600;700;800;900&family=Chakra+Petch:wght@300;400;500;600;700;800;900&family=Nunito:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@300;400;500;600;700;800;900&family=IBM+Plex+Serif:wght@300;400;500;600;700;800;900&family=STIX+Two+Text:wght@300;400;500;600;700;800;900&family=Source+Code+Pro:wght@300;400;500;600;700;800;900&family=Press+Start+2P:wght@300;400;500;600;700;800;900&family=PT+Mono:wght@300;400;500;600;700;800;900&family=Macondo:wght@300;400;500;600;700;800;900&family=VT323:wght@300;400;500;600;700;800;900&family=Geist:wght@300;400;500;600;700;800;900&family=Delicious+Handrawn:wght@300;400;500;600;700;800;900&family=Germania+One:wght@300;400;500;600;700;800;900&family=Abril+Fatface:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:wght@300;400;500;600;700;800;900&family=Fascinate:wght@300;400;500;600;700;800;900&family=Noto+Sans:wght@300;400;500;600;700;800;900&family=Silkscreen:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; background:#0b0b0d; color:#e8e8ea; font-family: ui-sans-serif, system-ui, sans-serif; }
+  .page-head { padding: 48px 24px 8px; text-align:center; }
+  .page-head h1 { font-size: clamp(28px, 4vw, 44px); margin:0 0 8px; letter-spacing:-0.02em; }
+  .page-head p { color:#9a9aa2; margin:0; }
+  .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap:20px; padding:32px clamp(16px,3vw,40px) 64px; max-width:1800px; margin:0 auto; }
+  .hero { background: var(--surface); color: var(--text); border-radius: 14px; overflow:hidden; border:1px solid rgba(255,255,255,.08); display:flex; flex-direction:column; min-height:360px; }
+  .hero-inner { padding: 40px 36px; flex:1; display:flex; flex-direction:column; gap:16px; }
+  .eyebrow { font-family: var(--label); text-transform:uppercase; letter-spacing:.18em; font-size:11px; font-weight:700; color:var(--primary); opacity:.9; }
+  .headline { font-family: var(--display); font-size: clamp(26px, 3vw, 36px); line-height:1.05; font-weight:800; margin:0; letter-spacing:-0.02em; color:var(--text); }
+  .sub { font-family: var(--body); font-size:15px; line-height:1.5; margin:0; opacity:.75; max-width:42ch; color:var(--text); }
+  .cta { display:flex; gap:12px; flex-wrap:wrap; margin-top:6px; }
+  .btn-primary { font-family: var(--body); font-weight:600; font-size:14px; padding:11px 20px; border:none; border-radius: var(--rad); background:var(--primary); color:var(--btn-text); cursor:pointer; }
+  .btn-ghost { font-family: var(--body); font-weight:600; font-size:14px; padding:11px 18px; border:1.5px solid var(--primary); border-radius: var(--rad); background:transparent; color:var(--primary); cursor:pointer; }
+  .swatches { display:flex; gap:8px; margin-top:auto; padding-top:18px; }
+  .sw { width:22px; height:22px; border-radius:6px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.12); }
+  .meta { font-family: ui-monospace, monospace; font-size:11px; display:flex; justify-content:space-between; gap:12px; padding:12px 36px; background:rgba(0,0,0,.04); color:var(--text); opacity:.55; border-top:1px solid rgba(0,0,0,.06); }
+  .meta span:last-child { text-align:right; opacity:.8; }
+</style>
+</head>
+<body>
+  <header class="page-head">
+    <h1>67 Design Styles · Hero Gallery</h1>
+    <p>The same hero section rendered with each style's own tokens — colors, type, and shape. Source: awesome-design-skills (MIT).</p>
+  </header>
+  <main class="grid">
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#FF5701;--accent:#F6F6F1;--rad:8px;--display:"Playfair Display", system-ui, sans-serif;--body:"Playfair Display", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Agentic</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Conversational AI-first interface with minimal controls, clear outcomes, and delegated task flows for agentic workflows.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #FF5701" style="background:#FF5701"></span><span class="sw" title="secondary #F6F6F1" style="background:#F6F6F1"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>agentic</span><span>modern, bold</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#1677ff;--accent:#8B5CF6;--rad:8px;--display:"Plus Jakarta Sans", system-ui, sans-serif;--body:"Plus Jakarta Sans", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Ant</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Structured, enterprise-focused design system emphasizing clarity, consistency, and efficiency for data-dense web applications.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #1677ff" style="background:#1677ff"></span><span class="sw" title="secondary #8B5CF6" style="background:#8B5CF6"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>ant</span><span>data-dense, enterprise</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#09090b;--primary:#9333ea;--accent:#a855f7;--rad:8px;--display:"Inter", system-ui, sans-serif;--body:"Inter", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Application</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">App dashboard with purple-themed aesthetic, top-bar navigation, card-based layouts, and developer-first workflows.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #9333ea" style="background:#9333ea"></span><span class="sw" title="secondary #a855f7" style="background:#a855f7"></span><span class="sw" title="success #10b981" style="background:#10b981"></span><span class="sw" title="warning #f59e0b" style="background:#f59e0b"></span><span class="sw" title="danger #ef4444" style="background:#ef4444"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>application</span><span>modern, clean, high-contrast, glass-like panels, soft shadows, rounded components</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#3B82F6;--accent:#8B5CF6;--rad:8px;--display:"Limelight", system-ui, sans-serif;--body:"Limelight", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Artistic</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">High-contrast, expressive style with creative typography and bold color choices for visually striking interfaces.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #3B82F6" style="background:#3B82F6"></span><span class="sw" title="secondary #8B5CF6" style="background:#8B5CF6"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>artistic</span><span>high-contrast, artistic</span></footer>
+</article>
+<article class="hero" style="--surface:#FFF5E6;--text:#111827;--primary:#FAD4C0;--accent:#80A1C1;--rad:8px;--display:"Inter", system-ui, sans-serif;--body:"Inter", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#0a0a0a">
+  <div class="hero-inner">
+    <span class="eyebrow">Bento</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Modular grid layout with card-like blocks, clear hierarchy, soft spacing, and subtle visual contrast for organized, scannable inte</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #FAD4C0" style="background:#FAD4C0"></span><span class="sw" title="secondary #80A1C1" style="background:#80A1C1"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>bento</span><span>modern, clean</span></footer>
+</article>
+<article class="hero" style="--surface:#111111;--text:#111827;--primary:#0077BC;--accent:#009866;--rad:8px;--display:"Archivo Black", system-ui, sans-serif;--body:"Archivo Black", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Bold</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Strong visual presence with heavyweight typography, high-contrast colors, and commanding layouts.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #0077BC" style="background:#0077BC"></span><span class="sw" title="secondary #009866" style="background:#009866"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>bold</span><span>bold</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#DD614C;--accent:#DAA144;--rad:8px;--display:"Darker Grotesque", system-ui, sans-serif;--body:"Darker Grotesque", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Brutalism</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Raw, anti-design aesthetic inspired by concrete architecture with unadorned elements, jarring layouts, and functional minimalism.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #DD614C" style="background:#DD614C"></span><span class="sw" title="secondary #DAA144" style="background:#DAA144"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>brutalism</span><span>bold</span></footer>
+</article>
+<article class="hero" style="--surface:#F9F7F5;--text:#3E2B1E;--primary:#5D4432;--accent:#E9E3DD;--rad:8px;--display:"Poppins", system-ui, sans-serif;--body:"Poppins", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Cafe</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Cozy cafe-inspired interface with warm tones, soft typography, and clean layouts for a relaxed browsing experience.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #5D4432" style="background:#5D4432"></span><span class="sw" title="secondary #E9E3DD" style="background:#E9E3DD"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>cafe</span><span>minimal, clean</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#141413;--accent:#FAF9F6;--rad:8px;--display:"Anthropic Sans", system-ui, sans-serif;--body:"Anthropic Sans", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Claude</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Research-journal aesthetic on warm stone with near-black ink, restrained earthy accents, and editorially strict contrast.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #141413" style="background:#141413"></span><span class="sw" title="secondary #FAF9F6" style="background:#FAF9F6"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>claude</span><span>modern, minimal, clean</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#1C398E;--primary:#3B82F6;--accent:#FFFFFF;--rad:8px;--display:"Poppins", system-ui, sans-serif;--body:"Montserrat", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Claymorphism</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Soft, rounded 3D-like shapes mimicking malleable clay with playful, puffy elements and colorful surfaces.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #3B82F6" style="background:#3B82F6"></span><span class="sw" title="secondary #FFFFFF" style="background:#FFFFFF"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>claymorphism</span><span>modern, high-contrast, playful</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#3B82F6;--accent:#8B5CF6;--rad:8px;--display:"Poppins", system-ui, sans-serif;--body:"Roboto", system-ui, sans-serif;--label:"Inconsolata", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Clean</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Simplicity-focused design with ample whitespace, legible typography, and a limited color palette to reduce visual clutter.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #3B82F6" style="background:#3B82F6"></span><span class="sw" title="secondary #8B5CF6" style="background:#8B5CF6"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>clean</span><span>minimal, clean</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#000000;--accent:#FFFFFF;--rad:8px;--display:"Open Sans", system-ui, sans-serif;--body:"Open Sans", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Codex</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Radically minimal blank-canvas interface where black carries structure and typography drives hierarchy.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #000000" style="background:#000000"></span><span class="sw" title="secondary #FFFFFF" style="background:#FFFFFF"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>codex</span><span>modern, minimal, clean</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#3B82F6;--accent:#8B5CF6;--rad:8px;--display:"Inter", system-ui, sans-serif;--body:"Inter", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Colorful</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Vibrant, high-contrast palettes and gradients for engaging, memorable, and modern user experiences.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #3B82F6" style="background:#3B82F6"></span><span class="sw" title="secondary #8B5CF6" style="background:#8B5CF6"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>colorful</span><span>high-contrast, playful, premium</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#C800DF;--accent:#E60076;--rad:8px;--display:"Jost", system-ui, sans-serif;--body:"Jost", system-ui, sans-serif;--label:"Overpass Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Contemporary</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Current-era minimalist design with bento grids, dark mode support, and high-performance accessible layouts.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #C800DF" style="background:#C800DF"></span><span class="sw" title="secondary #E60076" style="background:#E60076"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>contemporary</span><span>modern, minimal, bold, playful</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#3B82F6;--accent:#8B5CF6;--rad:8px;--display:"Poppins", system-ui, sans-serif;--body:"Open Sans", system-ui, sans-serif;--label:"IBM Plex Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Corporate</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Professional, brand-aligned design with structured grids, minimalist layouts, and consistent enterprise patterns.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #3B82F6" style="background:#3B82F6"></span><span class="sw" title="secondary #8B5CF6" style="background:#8B5CF6"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>corporate</span><span>enterprise, premium</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#3B82F6;--accent:#8B5CF6;--rad:8px;--display:"Audiowide", system-ui, sans-serif;--body:"Audiowide", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Cosmic</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Futuristic sci-fi aesthetic with dark themes, vibrant neon accents, and immersive spatial elements.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #3B82F6" style="background:#3B82F6"></span><span class="sw" title="secondary #8B5CF6" style="background:#8B5CF6"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>cosmic</span><span>playful, premium</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#3B82F6;--accent:#8B5CF6;--rad:8px;--display:"Bangers", system-ui, sans-serif;--body:"Bangers", system-ui, sans-serif;--label:"IBM Plex Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Creative</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Playful, character-driven design with expressive typography and bold graphics for landing pages and creative projects.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #3B82F6" style="background:#3B82F6"></span><span class="sw" title="secondary #8B5CF6" style="background:#8B5CF6"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>creative</span><span>playful</span></footer>
+</article>
+<article class="hero" style="--surface:#09090b;--text:#fafafa;--primary:#0C5CAB;--accent:#0a4a8a;--rad:8px;--display:"IBM Plex Sans", system-ui, sans-serif;--body:"IBM Plex Sans", system-ui, sans-serif;--label:"IBM Plex Sans", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Dashboard</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Dark-themed cloud-platform aesthetic with modular grids, glass-like panels, and strong data hierarchy for productivity dashboards.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #0C5CAB" style="background:#0C5CAB"></span><span class="sw" title="secondary #0a4a8a" style="background:#0a4a8a"></span><span class="sw" title="success #10b981" style="background:#10b981"></span><span class="sw" title="warning #f59e0b" style="background:#f59e0b"></span><span class="sw" title="danger #ef4444" style="background:#ef4444"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>dashboard</span><span>modern, clean, cloud-platform aesthetic (Heroku/Vercel/GitHub inspired), dark theme, subtle gradients, soft shadows, glass-like panels, rounded components</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#3B82F6;--accent:#8B5CF6;--rad:8px;--display:"Space Grotesk", system-ui, sans-serif;--body:"Open Sans", system-ui, sans-serif;--label:"IBM Plex Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Dithered</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Dot-pattern rendering technique that simulates shades with a limited palette for nostalgic, retro, high-contrast visuals.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #3B82F6" style="background:#3B82F6"></span><span class="sw" title="secondary #8B5CF6" style="background:#8B5CF6"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>dithered</span><span>modern, minimal</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#49B6E5;--accent:#263D5B;--rad:8px;--display:"Delius Swash Caps", system-ui, sans-serif;--body:"Delius Swash Caps", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#0a0a0a">
+  <div class="hero-inner">
+    <span class="eyebrow">Doodle</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Hand-drawn, sketch-like style with doodles, handwritten fonts, and imperfect lines for a playful, informal feel.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #49B6E5" style="background:#49B6E5"></span><span class="sw" title="secondary #263D5B" style="background:#263D5B"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>doodle</span><span>playful</span></footer>
+</article>
+<article class="hero" style="--surface:#09090B;--text:#FAFAFA;--primary:#8B5CF6;--accent:#F43F5E;--rad:8px;--display:"Outfit", system-ui, sans-serif;--body:"Outfit", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Dramatic</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">High-contrast, theatrical design with bold layouts, immersive visuals, and unconventional compositions that command attention.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #8B5CF6" style="background:#8B5CF6"></span><span class="sw" title="secondary #F43F5E" style="background:#F43F5E"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>dramatic</span><span>modern, clean, high-contrast</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#111111;--accent:#f1f1f1;--rad:8px;--display:"Gelasio", system-ui, sans-serif;--body:"Gelasio", system-ui, sans-serif;--label:"Ubuntu Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Editorial</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Magazine-inspired editorial layout with refined serif typography, structured grids, and elegant reading experiences.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #111111" style="background:#111111"></span><span class="sw" title="secondary #f1f1f1" style="background:#f1f1f1"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>editorial</span><span>modern, editorial</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#3B82F6;--accent:#8B5CF6;--rad:8px;--display:"Google Sans", system-ui, sans-serif;--body:"Google Sans", system-ui, sans-serif;--label:"Anonymous Pro", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Elegant</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Graceful, refined aesthetic with delicate typography, minimal palettes, and polished layouts that exude sophistication.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #3B82F6" style="background:#3B82F6"></span><span class="sw" title="secondary #8B5CF6" style="background:#8B5CF6"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>elegant</span><span>minimal, clean</span></footer>
+</article>
+<article class="hero" style="--surface:#FDBA74;--text:#EA580C;--primary:#EA580B;--accent:#F59E0B;--rad:8px;--display:"Limelight", system-ui, sans-serif;--body:"Limelight", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Energetic</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Dynamic, vibrant style with thick borders, geometric shapes, high-contrast colors, and expressive typography conveying motion and </p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #EA580B" style="background:#EA580B"></span><span class="sw" title="secondary #F59E0B" style="background:#F59E0B"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>energetic</span><span>bold, geometric, vibrant, thick-bordered</span></footer>
+</article>
+<article class="hero" style="--surface:#EDEADE;--text:#111827;--primary:#072C2C;--accent:#FF5F03;--rad:8px;--display:"Oswald", system-ui, sans-serif;--body:"Ubuntu", system-ui, sans-serif;--label:"Ubuntu Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Enterprise</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Clean, high-contrast enterprise design for data-driven workflows with intuitive drag-and-drop patterns and structured layouts.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #072C2C" style="background:#072C2C"></span><span class="sw" title="secondary #FF5F03" style="background:#FF5F03"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>enterprise</span><span>clean, high-contrast, enterprise</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#db2777;--accent:#2563eb;--rad:8px;--display:"IBM Plex Mono", system-ui, sans-serif;--body:"IBM Plex Mono", system-ui, sans-serif;--label:"IBM Plex Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Expressive</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Vibrant, personality-driven design with bold colors, playful graphics, and dynamic layouts that balance creativity with structure.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #db2777" style="background:#db2777"></span><span class="sw" title="secondary #2563eb" style="background:#2563eb"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>expressive</span><span>modern, playful</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#0250CC;--accent:#FDC800;--rad:8px;--display:"New Rocker", system-ui, sans-serif;--body:"New Rocker", system-ui, sans-serif;--label:"IBM Plex Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Fantasy</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Game-inspired fantasy aesthetic with bold, premium visuals, rich color palettes, and immersive thematic elements.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #0250CC" style="background:#0250CC"></span><span class="sw" title="secondary #FDC800" style="background:#FDC800"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>fantasy</span><span>bold, premium</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#222222;--accent:#FFE9CE;--rad:8px;--display:"Cossette Texte", system-ui, sans-serif;--body:"Cossette Texte", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Fiction</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Playful, storybook-inspired interface with warm surfaces, chunky outlines, and expressive display typography.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #222222" style="background:#222222"></span><span class="sw" title="secondary #FFE9CE" style="background:#FFE9CE"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>fiction</span><span>playful</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#F2673C;--accent:#8B5CF6;--rad:8px;--display:"Inter", system-ui, sans-serif;--body:"Inter", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Flat</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Two-dimensional minimalist style with vibrant colors, clean typography, and no 3D effects for fast, user-friendly interfaces.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #F2673C" style="background:#F2673C"></span><span class="sw" title="secondary #8B5CF6" style="background:#8B5CF6"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>flat</span><span>minimal, enterprise</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#F2D9DC;--accent:#D9F2D8;--rad:8px;--display:"Noto Serif Display", system-ui, sans-serif;--body:"Noto Serif Display", system-ui, sans-serif;--label:"Space Mono", ui-monospace, monospace;--btn-text:#0a0a0a">
+  <div class="hero-inner">
+    <span class="eyebrow">Friendly</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Approachable, intuitive design with rounded elements, ample whitespace, and soft pastel color palettes.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #F2D9DC" style="background:#F2D9DC"></span><span class="sw" title="secondary #D9F2D8" style="background:#D9F2D8"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>friendly</span><span>bold, playful, premium</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#3B82F6;--accent:#8B5CF6;--rad:8px;--display:"Audiowide", system-ui, sans-serif;--body:"Roboto", system-ui, sans-serif;--label:"Anonymous Pro", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Futuristic</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Forward-looking design with tech-inspired typography, modern layouts, and a sleek, innovation-driven aesthetic.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #3B82F6" style="background:#3B82F6"></span><span class="sw" title="secondary #8B5CF6" style="background:#8B5CF6"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>futuristic</span><span>modern</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#141414;--primary:#1856FF;--accent:#3A344E;--rad:8px;--display:"Plus Jakarta Sans", system-ui, sans-serif;--body:"Plus Jakarta Sans", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Glassmorphism</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Frosted glass effect with translucent layers, subtle blur, and luminous borders for depth and modern elegance.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #1856FF" style="background:#1856FF"></span><span class="sw" title="secondary #3A344E" style="background:#3A344E"></span><span class="sw" title="success #07CA6B" style="background:#07CA6B"></span><span class="sw" title="warning #E89558" style="background:#E89558"></span><span class="sw" title="danger #EA2143" style="background:#EA2143"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>glassmorphism</span><span>clean, high-contrast, bold, enterprise, liquidglass effect, glassmorphism</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#990FFA;--accent:#E60076;--rad:8px;--display:"Space Grotesk", system-ui, sans-serif;--body:"Montserrat", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Gradient</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Smooth color transitions and gradient-rich surfaces for modern, playful interfaces with visual depth.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #990FFA" style="background:#990FFA"></span><span class="sw" title="secondary #E60076" style="background:#E60076"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>gradient</span><span>modern, playful</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#00592B;--accent:#0023D1;--rad:8px;--display:"Oswald", system-ui, sans-serif;--body:"Oswald", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Immersive</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Exhibit-style interface that blends storytelling and game-like interaction on a continuous deep-green canvas.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #00592B" style="background:#00592B"></span><span class="sw" title="secondary #0023D1" style="background:#0023D1"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>immersive</span><span>modern, clean, high-contrast</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#CC8800;--accent:#C55221;--rad:8px;--display:"Chakra Petch", system-ui, sans-serif;--body:"Chakra Petch", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Impeccable</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Graphic editorial-poster aesthetic with warm cream and burnt-orange rhythm plus a sharp amber accent.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #CC8800" style="background:#CC8800"></span><span class="sw" title="secondary #C55221" style="background:#C55221"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>impeccable</span><span>modern, clean, high-contrast</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#27272A;--accent:#8B5CF6;--rad:8px;--display:"Inter", system-ui, sans-serif;--body:"Inter", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Levels</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Conversion-focused design that removes friction and guides users toward action through clarity, trust, and speed.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #27272A" style="background:#27272A"></span><span class="sw" title="secondary #8B5CF6" style="background:#8B5CF6"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>levels</span><span>modern, clean</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#3c3c3c;--primary:#58cc02;--accent:#ce82ff;--rad:8px;--display:"Nunito", system-ui, sans-serif;--body:"Nunito", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#0a0a0a">
+  <div class="hero-inner">
+    <span class="eyebrow">Lingo</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Playful, minimal design with bright colors, rounded shapes, tactile 3D borders, and friendly illustrations for approachable interf</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #58cc02" style="background:#58cc02"></span><span class="sw" title="secondary #ce82ff" style="background:#ce82ff"></span><span class="sw" title="success #58cc02" style="background:#58cc02"></span><span class="sw" title="warning #ffc800" style="background:#ffc800"></span><span class="sw" title="danger #ff4b4b" style="background:#ff4b4b"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>lingo</span><span>bold, playful</span></footer>
+</article>
+<article class="hero" style="--surface:#000000;--text:#ffffff;--primary:#FAFAFA;--accent:#FAFAFA;--rad:8px;--display:"Oswald", system-ui, sans-serif;--body:"Oswald", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#0a0a0a">
+  <div class="hero-inner">
+    <span class="eyebrow">Luxury</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">High-end dark aesthetic with bold headings, monochromatic palette, and premium feel for luxury brand experiences.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #FAFAFA" style="background:#FAFAFA"></span><span class="sw" title="secondary #FAFAFA" style="background:#FAFAFA"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>luxury</span><span>modern, bold, big headings</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#6442D6;--accent:#C8B3FD;--rad:8px;--display:"Roboto", system-ui, sans-serif;--body:"Inter", system-ui, sans-serif;--label:"Fira Code", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Material</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Google's Material Design with layered surfaces, dynamic theming, built-in motion, and responsive cross-platform patterns.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #6442D6" style="background:#6442D6"></span><span class="sw" title="secondary #C8B3FD" style="background:#C8B3FD"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>material</span><span>modern, minimal, clean</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#2DB58A;--accent:#0B0C14;--rad:8px;--display:"Space Mono", system-ui, sans-serif;--body:"Space Mono", system-ui, sans-serif;--label:"Space Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Matrix</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Dark cyber-terminal visual language with mono typography, dense data layouts, and one green interaction accent.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #2DB58A" style="background:#2DB58A"></span><span class="sw" title="secondary #0B0C14" style="background:#0B0C14"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>matrix</span><span>high-contrast</span></footer>
+</article>
+<article class="hero" style="--surface:#F4F4F1;--text:#0C0C09;--primary:#0C0C09;--accent:#312C85;--rad:8px;--display:"Inter", system-ui, sans-serif;--body:"Open Sans", system-ui, sans-serif;--label:"Inconsolata", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Minimal</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Stripped-back design emphasizing whitespace, clean typography, and restrained color for maximum clarity and focus.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #0C0C09" style="background:#0C0C09"></span><span class="sw" title="secondary #312C85" style="background:#312C85"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>minimal</span><span>minimal, clean, bold</span></footer>
+</article>
+<article class="hero" style="--surface:#553F83;--text:#ffffff;--primary:#553F83;--accent:#111111;--rad:8px;--display:"IBM Plex Serif", system-ui, sans-serif;--body:"IBM Plex Serif", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Modern</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Contemporary editorial style with serif typography, minimal palettes, and clean layouts for polished digital products.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #553F83" style="background:#553F83"></span><span class="sw" title="secondary #111111" style="background:#111111"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>modern</span><span>modern, minimal, clean, editorial</span></footer>
+</article>
+<article class="hero" style="--surface:#E7E5E4;--text:#78716B;--primary:#37F712;--accent:#00A6F4;--rad:8px;--display:"Space Mono", system-ui, sans-serif;--body:"Space Mono", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#0a0a0a">
+  <div class="hero-inner">
+    <span class="eyebrow">Mono</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Monospace-driven, matrix-inspired design with high-contrast elements, compact density, and a hacker-chic aesthetic.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #37F712" style="background:#37F712"></span><span class="sw" title="secondary #00A6F4" style="background:#00A6F4"></span><span class="sw" title="success #00A63D" style="background:#00A63D"></span><span class="sw" title="warning #FE9900" style="background:#FE9900"></span><span class="sw" title="danger #FF2157" style="background:#FF2157"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>mono</span><span>minimal, clean, high-contrast, playful, matrix</span></footer>
+</article>
+<article class="hero" style="--surface:#FBFBF9;--text:#1C293C;--primary:#FDC800;--accent:#432DD7;--rad:8px;--display:"Inter", system-ui, sans-serif;--body:"Inter", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#0a0a0a">
+  <div class="hero-inner">
+    <span class="eyebrow">Neobrutalism</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Modern take on brutalism with bold borders, vivid accent colors, and raw, high-contrast layouts on warm surfaces.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #FDC800" style="background:#FDC800"></span><span class="sw" title="secondary #432DD7" style="background:#432DD7"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>neobrutalism</span><span>modern, clean, high-contrast</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#BBF351;--accent:#00BCFF;--rad:8px;--display:"STIX Two Text", system-ui, sans-serif;--body:"Roboto", system-ui, sans-serif;--label:"Source Code Pro", ui-monospace, monospace;--btn-text:#0a0a0a">
+  <div class="hero-inner">
+    <span class="eyebrow">Neon</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Electric neon glow effects with high-contrast color pairings for bold, attention-grabbing interfaces.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #BBF351" style="background:#BBF351"></span><span class="sw" title="secondary #00BCFF" style="background:#00BCFF"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>neon</span><span>high-contrast</span></footer>
+</article>
+<article class="hero" style="--surface:#E7E5E4;--text:#1E2938;--primary:#006666;--accent:#F1F2F5;--rad:8px;--display:"Space Mono", system-ui, sans-serif;--body:"Space Mono", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Neumorphism</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Soft, extruded UI elements with inner and outer shadows on monochromatic surfaces for a tactile, embedded look.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #006666" style="background:#006666"></span><span class="sw" title="secondary #F1F2F5" style="background:#F1F2F5"></span><span class="sw" title="success #00A63D" style="background:#00A63D"></span><span class="sw" title="warning #FE9900" style="background:#FE9900"></span><span class="sw" title="danger #FF2157" style="background:#FF2157"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>neumorphism</span><span>minimal, clean, high-contrast, playful, matrix</span></footer>
+</article>
+<article class="hero" style="--surface:#000000;--text:#111827;--primary:#2A3FE5;--accent:#F4B9B0;--rad:8px;--display:"Press Start 2P", system-ui, sans-serif;--body:"Press Start 2P", system-ui, sans-serif;--label:"Space Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Pacman</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Retro arcade-inspired design with pixel fonts, dotted borders, playful high-contrast colors, and 8-bit game aesthetics.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #2A3FE5" style="background:#2A3FE5"></span><span class="sw" title="secondary #F4B9B0" style="background:#F4B9B0"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>pacman</span><span>high-contrast, playful, dotted borders</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#111111;--accent:#8B5CF6;--rad:8px;--display:"Montserrat", system-ui, sans-serif;--body:"Roboto", system-ui, sans-serif;--label:"PT Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Paper</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Paper-textured, print-inspired design with minimal colors, clean serif/sans typography, and tactile surface qualities.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #111111" style="background:#111111"></span><span class="sw" title="secondary #8B5CF6" style="background:#8B5CF6"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>paper</span><span>minimal, clean</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#00BD7D;--accent:#00BD7D;--rad:8px;--display:"Oswald", system-ui, sans-serif;--body:"Poppins", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Perspective</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Spatial depth design with isometric views, vanishing points, and layered elements that guide attention through 3D-like realism.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #00BD7D" style="background:#00BD7D"></span><span class="sw" title="secondary #00BD7D" style="background:#00BD7D"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>perspective</span><span>modern, clean, high-contrast</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#3B82F6;--accent:#8B5CF6;--rad:8px;--display:"Inter", system-ui, sans-serif;--body:"Inter", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Premium</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Apple-inspired premium aesthetic with precise spacing, modern typography, and a refined, polished visual language.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #3B82F6" style="background:#3B82F6"></span><span class="sw" title="secondary #8B5CF6" style="background:#8B5CF6"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>premium</span><span>modern</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#FECE14;--accent:#000000;--rad:8px;--display:"Poppins", system-ui, sans-serif;--body:"Poppins", system-ui, sans-serif;--label:"IBM Plex Mono", ui-monospace, monospace;--btn-text:#0a0a0a">
+  <div class="hero-inner">
+    <span class="eyebrow">Professional</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Polished, business-ready design with modern typography, structured layouts, and a trustworthy visual identity.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #FECE14" style="background:#FECE14"></span><span class="sw" title="secondary #000000" style="background:#000000"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>professional</span><span>modern</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#0A1829;--primary:#A855F7;--accent:#0A1829;--rad:8px;--display:"Oswald", system-ui, sans-serif;--body:"Nunito", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Publication</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Print-inspired visual language for books, magazines, and reports with editorial grids and expressive typography.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #A855F7" style="background:#A855F7"></span><span class="sw" title="secondary #0A1829" style="background:#0A1829"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>publication</span><span>modern, editorial</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#3B82F6;--accent:#8B5CF6;--rad:8px;--display:"Playfair Display", system-ui, sans-serif;--body:"Playfair Display", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Refined</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Carefully curated, modern minimal style with elegant serif typography and understated, sophisticated palettes.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #3B82F6" style="background:#3B82F6"></span><span class="sw" title="secondary #8B5CF6" style="background:#8B5CF6"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>refined</span><span>modern, minimal</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#3B82F6;--accent:#8B5CF6;--rad:8px;--display:"Macondo", system-ui, sans-serif;--body:"Macondo", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Retro</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Throwback design with vintage-inspired typography, high-contrast retro palettes, and nostalgic visual elements.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #3B82F6" style="background:#3B82F6"></span><span class="sw" title="secondary #8B5CF6" style="background:#8B5CF6"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>retro</span><span>high-contrast, retro</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#F237A1;--accent:#2C40A7;--rad:8px;--display:"Space Grotesk", system-ui, sans-serif;--body:"Space Grotesk", system-ui, sans-serif;--label:"Overpass Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Riso</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Playful two-color risograph-inspired system with paper-like warmth, vivid pink actions, and bold blue structure.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #F237A1" style="background:#F237A1"></span><span class="sw" title="secondary #2C40A7" style="background:#2C40A7"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>riso</span><span>clean, high-contrast</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#4502FF;--accent:#FFDA14;--rad:8px;--display:"VT323", system-ui, sans-serif;--body:"VT323", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Sega</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Arcade-inspired game interface with pixel typography, hard edges, and physically punchy, offset-shadow controls.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #4502FF" style="background:#4502FF"></span><span class="sw" title="secondary #FFDA14" style="background:#FFDA14"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>sega</span><span>modern, playful</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#000000;--accent:#111111;--rad:8px;--display:"Geist", system-ui, sans-serif;--body:"Geist", system-ui, sans-serif;--label:"Fira Code", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Shadcn</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Shadcn/ui-inspired design with minimal, clean components, monochrome palette, and utility-first patterns.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #000000" style="background:#000000"></span><span class="sw" title="secondary #111111" style="background:#111111"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>shadcn</span><span>minimal, clean</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#3B82F6;--accent:#8B5CF6;--rad:8px;--display:"Inter", system-ui, sans-serif;--body:"Inter", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Simple</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Straightforward, no-frills design with clean typography, neutral colors, and intuitive layouts that stay out of the way.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #3B82F6" style="background:#3B82F6"></span><span class="sw" title="secondary #8B5CF6" style="background:#8B5CF6"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>simple</span><span>minimal, clean</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#1DAD97;--accent:#F4EDE0;--rad:8px;--display:"Delicious Handrawn", system-ui, sans-serif;--body:"Delicious Handrawn", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Sketch</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Hand-drawn sketch aesthetic on warm paper with soft teal accents, dashed outlines, and tactile illustrated shadows.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #1DAD97" style="background:#1DAD97"></span><span class="sw" title="secondary #F4EDE0" style="background:#F4EDE0"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>sketch</span><span>modern, clean, high-contrast</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#FA3C00;--accent:#F08321;--rad:8px;--display:"Germania One", system-ui, sans-serif;--body:"Roboto", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Skeumorphism</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Real-world mimicry with textured surfaces, 3D effects, and familiar physical metaphors for intuitive digital interfaces.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #FA3C00" style="background:#FA3C00"></span><span class="sw" title="secondary #F08321" style="background:#F08321"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>skeumorphism</span><span>playful</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#3B82F6;--accent:#8B5CF6;--rad:8px;--display:"Inter", system-ui, sans-serif;--body:"Inter", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Sleek</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Modern minimalist aesthetic with clean lines, intentional color palette, subtle interactions, and consistent spacing.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #3B82F6" style="background:#3B82F6"></span><span class="sw" title="secondary #8B5CF6" style="background:#8B5CF6"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>sleek</span><span>modern, minimal, clean</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#3B82F6;--accent:#8B5CF6;--rad:8px;--display:"Montserrat", system-ui, sans-serif;--body:"Open Sans", system-ui, sans-serif;--label:"IBM Plex Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Spacious</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Generous whitespace, consistent padding, and grid-based layouts for clean, readable, and breathing interfaces.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #3B82F6" style="background:#3B82F6"></span><span class="sw" title="secondary #8B5CF6" style="background:#8B5CF6"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>spacious</span><span>minimal, clean</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#3B82F6;--accent:#8B5CF6;--rad:8px;--display:"Abril Fatface", system-ui, sans-serif;--body:"Inter", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Storytelling</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Narrative-driven design using visuals, copy, and interaction to guide users through engaging, emotionally resonant journeys.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #3B82F6" style="background:#3B82F6"></span><span class="sw" title="secondary #8B5CF6" style="background:#8B5CF6"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>storytelling</span><span>playful</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#111827;--primary:#C56A3C;--accent:#F3E9D8;--rad:8px;--display:"DM Serif Display", system-ui, sans-serif;--body:"DM Serif Display", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Terracotta</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Sun-baked, clay-toned editorial system with warm cream surfaces, serif headlines, and a single terracotta accent.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #C56A3C" style="background:#C56A3C"></span><span class="sw" title="secondary #F3E9D8" style="background:#F3E9D8"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>terracotta</span><span>modern, clean, high-contrast, playful</span></footer>
+</article>
+<article class="hero" style="--surface:#DFE7FF;--text:#1C398E;--primary:#1C202B;--accent:#7107E7;--rad:8px;--display:"Bangers", system-ui, sans-serif;--body:"Bangers", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Tetris</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Classic block-game inspired design with playful colors, bold display fonts, and compact, high-energy layouts.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #1C202B" style="background:#1C202B"></span><span class="sw" title="secondary #7107E7" style="background:#7107E7"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>tetris</span><span>high-contrast, playful, premium</span></footer>
+</article>
+<article class="hero" style="--surface:#FFFFFF;--text:#2F281D;--primary:#7C61D4;--accent:#EAAE87;--rad:8px;--display:"Fascinate", system-ui, sans-serif;--body:"Noto Sans", system-ui, sans-serif;--label:"Fira Code", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Vibrant</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">Lively, colorful design with bold playful typography, warm accents, and dynamic visual energy.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #7C61D4" style="background:#7C61D4"></span><span class="sw" title="secondary #EAAE87" style="background:#EAAE87"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>vibrant</span><span>modern, clean, bold, playful</span></footer>
+</article>
+<article class="hero" style="--surface:#C0C0C0;--text:#000000;--primary:#008080;--accent:#C0C0C0;--rad:8px;--display:"Silkscreen", system-ui, sans-serif;--body:"Silkscreen", system-ui, sans-serif;--label:"JetBrains Mono", ui-monospace, monospace;--btn-text:#ffffff">
+  <div class="hero-inner">
+    <span class="eyebrow">Vintage</span>
+    <h2 class="headline">Build something people<br>actually remember.</h2>
+    <p class="sub">1950s-1990s nostalgia with skeuomorphic touches, grainy textures, retro color palettes, and pixel-style typography.</p>
+    <div class="cta">
+      <button class="btn-primary">Get started</button>
+      <button class="btn-ghost">Learn more →</button>
+    </div>
+    <div class="swatches">
+      <span class="sw" title="primary #008080" style="background:#008080"></span><span class="sw" title="secondary #C0C0C0" style="background:#C0C0C0"></span><span class="sw" title="success #16A34A" style="background:#16A34A"></span><span class="sw" title="warning #D97706" style="background:#D97706"></span><span class="sw" title="danger #DC2626" style="background:#DC2626"></span>
+    </div>
+  </div>
+  <footer class="meta"><span>vintage</span><span>clean, vintage, retro</span></footer>
+</article>
+  </main>
+</body>
+</html>
