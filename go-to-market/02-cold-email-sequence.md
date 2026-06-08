@@ -18,6 +18,10 @@ Before sending, **rebuild their current landing page hero** (2–3 hrs with `/te
 - [ ] 4–6 week domain warmup; start ~20/day, ramp slowly.
 - [ ] Cap ~30–50/day per inbox; verify the list to keep bounce < 5%.
 - [ ] Plain text, real signature, simple opt-out line.
+- [ ] **Unsubscribe link in EVERY email** — enable Instantly unsubscribe + `{{unsubscribeLink}}`. Append to every email:
+  `— Not relevant? Unsubscribe: {{unsubscribeLink}} (or reply "stop").` Include a physical mailing address in the footer.
+
+> Note: this is the original generic sequence. The current, tailored, tier-ordered campaigns (with unsubscribe baked into every email) live in `03-outreach-campaigns.md` — use those.
 
 ---
 

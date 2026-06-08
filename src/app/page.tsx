@@ -41,6 +41,8 @@ const faqs = [
   { q: "How fast is delivery, really?", a: "A Launch landing page ships in 5 business days. Larger sites take 10. You'll see a live preview before final handoff." },
   { q: "Why fixed price instead of hourly?", a: "Scope is defined up front, so the price is too. No open-ended meters, no surprise invoices." },
   { q: "Do I own the code?", a: "Completely. We hand over a clean Next.js repo on delivery — it's yours forever." },
+  { q: "Do you launch it, or just hand over files?", a: "We launch it. We deploy your site live and connect your domain — you get a working website, not a zip of HTML. On-page and technical SEO foundations (speed, meta, schema, sitemap, mobile) are built in." },
+  { q: "Do you handle ongoing SEO?", a: "On-page SEO is included at build. Ongoing SEO (content, keywords, backlinks) and paid ads aren't part of the one-off — we offer them via a retainer or a trusted partner so you have one point of contact." },
   { q: "What about revisions?", a: "Launch includes one revision round; Site includes two. Need ongoing changes? The Growth retainer covers that." },
   { q: "How do payments work?", a: "50% deposit to book your slot, 50% on delivery. Pay by card via Razorpay, or by Wise/PayPal for international clients." },
   { q: "What if I'm not happy?", a: "The final 50% is only due once you're happy with the work. We'd rather fix it than bill it." },
