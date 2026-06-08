@@ -8,7 +8,7 @@ export const site = {
   domain: "veskadesign.com",
   email: "hello@veskadesign.com", // TODO: create this inbox after buying the domain
   // Booking — create a free Cal.com event and paste its link:
-  calLink: "https://cal.com/veska/15min", // TODO
+  calLink: "https://cal.com/shamik/cal.com-shamik-15min",
   // Contact form — create a form at formspree.io (free) and paste its endpoint:
   formspree: "https://formspree.io/f/REPLACE_ID", // TODO
   // Razorpay Dashboard → Payment Button → copy the button id (pl_xxx):
