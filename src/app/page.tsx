@@ -58,6 +58,7 @@ export default function Home() {
           <a href="#work" className="text-sm text-neutral-600 hover:text-neutral-900">Work</a>
           <a href="#process" className="text-sm text-neutral-600 hover:text-neutral-900">Process</a>
           <a href="#pricing" className="text-sm text-neutral-600 hover:text-neutral-900">Pricing</a>
+          <Link href="/about" className="text-sm text-neutral-600 hover:text-neutral-900">About</Link>
           <a href="#faq" className="text-sm text-neutral-600 hover:text-neutral-900">FAQ</a>
         </div>
         <a href={site.calLink} target="_blank" rel="noopener" className={"rounded-md px-4 py-2 text-sm font-medium text-white " + NAVY_BG}>Book a call</a>
