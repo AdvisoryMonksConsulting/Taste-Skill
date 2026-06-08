@@ -36,16 +36,17 @@ export default function StartPage() {
               <p className="mt-1 text-neutral-600">A 50% deposit locks your slot; the balance is due on delivery (and only once you&apos;re happy).</p>
 
               <div className="mt-4 rounded-2xl border border-neutral-200 bg-neutral-50 p-6 shadow-stripe">
-                <div className="text-sm font-medium text-neutral-500">Pay by card (India & global)</div>
+                <div className="text-sm font-medium text-neutral-500">Pay by card</div>
                 {/* Renders once site.razorpayButtonId is set to a real pl_xxx */}
                 <div className="mt-2"><RazorpayButton buttonId={site.razorpayButtonId} /></div>
+                <p className="mt-2 text-xs text-neutral-400">International clients are invoiced in USD with secure card &amp; bank-transfer options — just request an invoice below.</p>
 
                 <div className="mt-6 border-t border-neutral-200 pt-6">
-                  <div className="text-sm font-medium text-neutral-500">Prefer another method?</div>
+                  <div className="text-sm font-medium text-neutral-500">Other ways to pay</div>
                   <div className="mt-3 flex flex-wrap gap-3">
-                    <a href={site.wiseLink} target="_blank" rel="noopener" className="rounded-md border border-neutral-300 px-5 py-2.5 text-sm font-medium hover:bg-white">Pay with Wise</a>
-                    <a href={site.paypalLink} target="_blank" rel="noopener" className="rounded-md border border-neutral-300 px-5 py-2.5 text-sm font-medium hover:bg-white">Pay with PayPal</a>
-                    <a href={`mailto:${site.email}?subject=Invoice%20request`} className="rounded-md border border-neutral-300 px-5 py-2.5 text-sm font-medium hover:bg-white">Request an invoice</a>
+                    <a href={`mailto:${site.email}?subject=Deposit%20invoice%20request`} className={"rounded-md px-5 py-2.5 text-sm font-medium text-white " + NAVY_BG}>Request a USD invoice</a>
+                    {!site.wiseLink.includes("REPLACE") && <a href={site.wiseLink} target="_blank" rel="noopener" className="rounded-md border border-neutral-300 px-5 py-2.5 text-sm font-medium hover:bg-white">Pay with Wise</a>}
+                    {!site.paypalLink.includes("REPLACE") && <a href={site.paypalLink} target="_blank" rel="noopener" className="rounded-md border border-neutral-300 px-5 py-2.5 text-sm font-medium hover:bg-white">Pay with PayPal</a>}
                   </div>
                 </div>
               </div>
