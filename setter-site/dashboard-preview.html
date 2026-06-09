@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Setter — Client Dashboard (preview)</title>
+<style>
+  :root{--ink:#0e1320;--muted:#6b7390;--line:#e7e9f0;--soft:#f6f7fb;--brand:#3b5bff;--accent:#0bbf86;--warn:#f59e0b;--red:#ef4444}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--soft);color:var(--ink);-webkit-font-smoothing:antialiased}
+  .top{background:#fff;border-bottom:1px solid var(--line);padding:16px 28px;display:flex;align-items:center;justify-content:space-between}
+  .logo{font-weight:800;font-size:1.15rem}.logo span{color:var(--brand)}
+  .who{font-size:.9rem;color:var(--muted)}
+  .who b{color:var(--ink)}
+  .wrap{max-width:1080px;margin:0 auto;padding:28px}
+  .banner{font-size:.82rem;color:#7a5b00;background:#fff7d6;border:1px solid #f0e2a8;padding:8px 14px;border-radius:8px;margin-bottom:20px;text-align:center}
+  h1{font-size:1.4rem;letter-spacing:-.02em;margin-bottom:4px}
+  .sub{color:var(--muted);font-size:.92rem;margin-bottom:22px}
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
+  .card .lbl{font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:600}
+  .card .val{font-size:2rem;font-weight:800;letter-spacing:-.02em;margin-top:6px}
+  .card .delta{font-size:.8rem;color:var(--accent);font-weight:600;margin-top:2px}
+  .hero-metric{background:linear-gradient(135deg,#1f3bdc,#3b5bff);color:#fff;border:none}
+  .hero-metric .lbl,.hero-metric .delta{color:#dfe4ff}
+  .grid2{display:grid;grid-template-columns:1.6fr 1fr;gap:20px}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px}
+  .panel h2{font-size:1rem;margin-bottom:14px}
+  table{width:100%;border-collapse:collapse;font-size:.9rem}
+  th{text-align:left;color:var(--muted);font-weight:600;font-size:.76rem;text-transform:uppercase;letter-spacing:.03em;padding:8px 6px;border-bottom:1px solid var(--line)}
+  td{padding:11px 6px;border-bottom:1px solid var(--line)}
+  tr:last-child td{border-bottom:none}
+  .pill{font-size:.74rem;font-weight:700;padding:3px 9px;border-radius:999px}
+  .p-booked{background:#e7ecff;color:#1f3bdc}
+  .p-showed{background:#e3f9f0;color:#06845c}
+  .p-noshow{background:#fdeaea;color:#c0392b}
+  .pace-wrap{margin:4px 0 18px}
+  .pace-bar{height:14px;border-radius:999px;background:var(--soft);overflow:hidden;border:1px solid var(--line)}
+  .pace-fill{height:100%;width:60%;background:linear-gradient(90deg,var(--accent),#3b5bff)}
+  .pace-lbl{display:flex;justify-content:space-between;font-size:.82rem;color:var(--muted);margin-top:6px}
+  .feed li{list-style:none;display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.88rem}
+  .feed li:last-child{border-bottom:none}
+  .feed .ico{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:#e7ecff;color:#1f3bdc;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
+  .feed b{color:var(--ink)}
+  .summary{background:var(--soft);border:1px dashed var(--line);border-radius:10px;padding:14px;font-size:.9rem;color:var(--ink)}
+  @media(max-width:840px){.cards{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="logo">Set<span>ter</span> · Client Dashboard</div>
+  <div class="who">Logged in as <b>Apex Healthcare Staffing</b></div>
+</div>
+
+<div class="wrap">
+  <div class="banner">⚠️ Static preview with example data. The real version is multi-tenant (Supabase auth, one workspace per client) — build it in Lovable using the prompt in doc 8.</div>
+
+  <h1>Your campaign, live.</h1>
+  <p class="sub">Updated continuously · 90-day window: 14 Apr → 13 Jul 2026</p>
+
+  <div class="cards">
+    <div class="card"><div class="lbl">Emails Sent</div><div class="val">5,820</div><div class="delta">+612 this week</div></div>
+    <div class="card"><div class="lbl">Reply Rate</div><div class="val">4.6%</div><div class="delta">+0.3% vs last wk</div></div>
+    <div class="card"><div class="lbl">Positive Replies</div><div class="val">38</div><div class="delta">+9 this week</div></div>
+    <div class="card hero-metric"><div class="lbl">Meetings Booked</div><div class="val">9</div><div class="delta">+3 this week</div></div>
+  </div>
+
+  <div class="panel" style="margin-bottom:20px">
+    <h2>Pace to your guarantee</h2>
+    <div class="pace-wrap">
+      <div class="pace-bar"><div class="pace-fill"></div></div>
+      <div class="pace-lbl"><span><b>9</b> of 15 qualified meetings</span><span>Day 38 of 90 · on track</span></div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <h2>Meetings</h2>
+      <table>
+        <thead><tr><th>Company</th><th>Contact</th><th>Date</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Cedar Valley Medical</td><td>HR Director</td><td>09 Jun</td><td><span class="pill p-showed">Showed</span></td></tr>
+          <tr><td>Northgate Care Group</td><td>Talent Lead</td><td>11 Jun</td><td><span class="pill p-booked">Booked</span></td></tr>
+          <tr><td>Brightwell Clinics</td><td>Ops Manager</td><td>12 Jun</td><td><span class="pill p-booked">Booked</span></td></tr>
+          <tr><td>Summit Home Health</td><td>Owner</td><td>05 Jun</td><td><span class="pill p-noshow">No-show*</span></td></tr>
+          <tr><td>Riverside Hospital Grp</td><td>Recruitment Mgr</td><td>03 Jun</td><td><span class="pill p-showed">Showed</span></td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:.76rem;color:var(--muted);margin-top:10px">*Confirmed bookings that no-show still count toward the guarantee.</p>
+    </div>
+
+    <div class="panel">
+      <h2>Recent positive replies</h2>
+      <ul class="feed">
+        <li><span class="ico">CV</span><div><b>Cedar Valley Medical</b> — "Yes, we're short on nurses — send times."</div></li>
+        <li><span class="ico">NG</span><div><b>Northgate Care</b> — "Interested, who do you place?"</div></li>
+        <li><span class="ico">BW</span><div><b>Brightwell</b> — "Booked a slot for Thursday."</div></li>
+        <li><span class="ico">SM</span><div><b>Summit Home Health</b> — "Call me next week."</div></li>
+      </ul>
+      <h2 style="margin-top:22px">This week from Setter</h2>
+      <div class="summary">Healthcare angle is outperforming — reply rate up to 4.6%. We've added 600 new verified hospital-group contacts and are testing a "short-staffed this quarter?" subject line. 3 meetings booked this week; on pace for the guarantee.</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
