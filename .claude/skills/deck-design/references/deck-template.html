@@ -1,0 +1,124 @@
+<!doctype html>
+<!--
+  Veska deck template — the design system behind the sample decks.
+  A4 landscape. Render: chrome --headless --no-pdf-header-footer
+  --print-to-pdf=out.pdf "file://$PWD/deck-template.html"
+  Duplicate .page sections; keep the navy cover first. Pure CSS (no remote assets).
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Deck template</title>
+<style>
+  :root{ --navy:#061C33; --navy2:#0c2b4a; }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  @page{ size:A4 landscape; margin:0; }
+  html,body{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body{ font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif; color:#0b0b0b; }
+  .page{ position:relative; width:297mm; height:210mm; overflow:hidden; page-break-after:always; display:flex; flex-direction:column; background:#eef1f4; }
+  .page:last-child{ page-break-after:auto; }
+
+  /* COVER SYSTEM (the "exceptional first slide") */
+  .cover{ background:radial-gradient(120% 120% at 80% 10%, var(--navy2), var(--navy) 60%); color:#fff; justify-content:space-between; padding:22mm 24mm; }
+  .cover .top{ display:flex; justify-content:space-between; align-items:flex-start; }
+  .brandmark{ display:flex; align-items:center; gap:12px; }
+  .brandmark .dot{ width:30px;height:30px;border-radius:8px;background:#fff;position:relative; }
+  .brandmark .dot::after{ content:"";position:absolute;inset:8px;border-radius:3px;background:var(--navy); }
+  .brandmark .name{ font-size:24px;font-weight:700;letter-spacing:.16em; }
+  .kicker{ font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:#9bb4cf; }
+  .cover h1{ font-family:Georgia,'Times New Roman',serif;font-weight:500;font-size:72px;line-height:1.04;letter-spacing:-.01em;max-width:21ch; }
+  .cover h1 em{ font-style:italic;color:#cfe0f3; }
+  .cover .sub{ margin-top:18px;font-size:17px;color:#c4d3e4;max-width:64ch;line-height:1.55; }
+  .chips{ display:flex;gap:8px;flex-wrap:wrap;margin-top:24px; }
+  .chip{ font-size:11px;letter-spacing:.05em;padding:7px 12px;border:1px solid rgba(255,255,255,.22);border-radius:999px;color:#dbe6f2; }
+  .cover .foot{ display:flex;justify-content:space-between;align-items:flex-end;font-size:12px;color:#8fa8c4; }
+
+  /* CONTENT PAGE + BROWSER-FRAMED MOCKUP COMPONENT */
+  .sample{ padding:11mm 13mm 9mm; }
+  .browser{ flex:1;border-radius:14px;overflow:hidden;box-shadow:0 18px 50px rgba(6,28,51,.20),0 2px 6px rgba(0,0,0,.08);background:#fff;display:flex;flex-direction:column;border:1px solid rgba(6,28,51,.08); }
+  .bar{ height:34px;background:#f3f4f6;border-bottom:1px solid #e6e8ec;display:flex;align-items:center;gap:8px;padding:0 14px;flex:0 0 auto; }
+  .bar i{ width:11px;height:11px;border-radius:50%;display:inline-block; }
+  .bar .r{background:#ff5f57;} .bar .y{background:#febc2e;} .bar .g{background:#28c840;}
+  .bar .url{ margin-left:12px;font-size:11px;color:#7a7f87;background:#fff;border:1px solid #e6e8ec;border-radius:6px;padding:4px 12px;min-width:240px; }
+  .viewport{ flex:1;position:relative;overflow:hidden;display:flex;flex-direction:column; }
+  nav.site{ display:flex;align-items:center;justify-content:space-between;padding:16px 30px;flex:0 0 auto; }
+  nav.site .logo{ font-weight:700;font-size:16px;letter-spacing:.04em; }
+  nav.site .links{ display:flex;gap:22px;font-size:12.5px;opacity:.8; }
+  nav.site .cta{ font-size:12px;padding:9px 16px;border-radius:999px;font-weight:600; }
+  .hero{ flex:1;display:grid;padding:30px;gap:24px;align-content:center; }
+  .hero.split{ grid-template-columns:1.1fr .9fr;align-items:center; }
+  .hero.center{ justify-items:center;text-align:center; }
+  .eyebrow{ font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600; }
+  .display{ font-size:40px;line-height:1.05;letter-spacing:-.01em; }
+  .lede{ font-size:14px;line-height:1.55;opacity:.78;max-width:42ch; }
+  .btnrow{ display:flex;gap:12px;align-items:center;flex-wrap:wrap; }
+  .btn{ font-size:12.5px;font-weight:600;padding:11px 20px;border-radius:10px; }
+  .btn.ghost{ background:transparent; }
+  .visual{ height:100%;min-height:170px;border-radius:14px;position:relative;overflow:hidden; }
+  .pill{ position:absolute;font-size:11px;padding:7px 12px;border-radius:999px;background:#fff;box-shadow:0 8px 22px rgba(0,0,0,.14);font-weight:600; }
+  .card{ position:absolute;background:#fff;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.14); }
+
+  /* META STRIP under the mockup */
+  .meta-strip{ flex:0 0 auto;display:flex;align-items:center;gap:18px;padding:9px 4px 0; }
+  .sector-no{ font-family:Georgia,serif;font-size:13px;color:#061C33;font-weight:700; }
+  .sector-name{ font-size:13px;font-weight:700;color:#0b1726; }
+  .concept{ font-size:11.5px;color:#56606c;flex:1;line-height:1.4; }
+  .swatches{ display:flex;gap:6px; } .swatches i{ width:16px;height:16px;border-radius:4px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);display:inline-block; }
+  .delivery{ font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#061C33;border:1px solid rgba(6,28,51,.18);border-radius:999px;padding:6px 11px;white-space:nowrap; }
+  .pageno{ position:absolute;bottom:5mm;right:13mm;font-size:10px;color:#9aa6b3;letter-spacing:.1em; }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER (duplicate-and-edit) ===== -->
+<section class="page cover">
+  <div class="top">
+    <div class="brandmark"><span class="dot"></span><span class="name">VESKA</span></div>
+    <div style="text-align:right"><div class="kicker">Design Studio</div><div style="font-size:12px;color:#9bb4cf;margin-top:6px">veskadesign.com</div></div>
+  </div>
+  <div>
+    <div class="kicker" style="margin-bottom:18px">Deck Title · Subtitle</div>
+    <h1>A headline that earns the <em>first impression.</em></h1>
+    <p class="sub">One or two sentences of premium framing. Keep it confident and short.</p>
+    <div class="chips"><span class="chip">Tag</span><span class="chip">Tag</span><span class="chip">Tag</span></div>
+  </div>
+  <div class="foot"><div>Powered by Advisory Monks Consulting</div><div>Concept deck · 2026</div></div>
+</section>
+
+<!-- ===== CONTENT PAGE w/ browser-framed mockup (duplicate-and-edit) ===== -->
+<section class="page sample">
+  <div class="browser">
+    <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">example.com</span></div>
+    <div class="viewport" style="background:#fbf7f3;color:#2e2620;font-family:Georgia,serif;">
+      <nav class="site">
+        <div class="logo" style="letter-spacing:.18em;font-weight:500;">BRAND</div>
+        <div class="links" style="font-family:-apple-system,sans-serif;"><span>Link</span><span>Link</span><span>Link</span></div>
+        <div class="cta" style="background:#b76e54;color:#fff;font-family:-apple-system,sans-serif;">Call to action</div>
+      </nav>
+      <div class="hero split">
+        <div>
+          <div class="eyebrow" style="color:#b76e54;font-family:-apple-system,sans-serif;">Eyebrow label</div>
+          <h2 class="display" style="margin:14px 0;">A confident<br>headline here.</h2>
+          <p class="lede" style="font-family:-apple-system,sans-serif;">Supporting sentence that sets the value proposition in a calm, premium tone.</p>
+          <div class="btnrow" style="margin-top:20px;font-family:-apple-system,sans-serif;">
+            <span class="btn" style="background:#b76e54;color:#fff;">Primary</span>
+            <span class="btn ghost" style="color:#2e2620;border:1px solid #d8c3b5;">Secondary →</span>
+          </div>
+        </div>
+        <div class="visual" style="background:linear-gradient(150deg,#f0dccd,#d9a98f);">
+          <span class="pill" style="top:18px;left:18px;color:#8a4f38;font-family:-apple-system,sans-serif;">Badge</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="meta-strip">
+    <span class="sector-no">01</span><span class="sector-name">Section name</span>
+    <span class="concept"><b>Direction</b> — one-line rationale. Taste reference: brand.</span>
+    <span class="swatches"><i style="background:#fbf7f3"></i><i style="background:#b76e54"></i><i style="background:#d9a98f"></i><i style="background:#2e2620"></i></span>
+    <span class="delivery">5-day build</span>
+  </div>
+  <div class="pageno">Veska · 01 / N</div>
+</section>
+
+</body>
+</html>
