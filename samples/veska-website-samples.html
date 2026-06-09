@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Veska — Website Samples</title>
+<style>
+  :root{
+    --navy:#061C33; --navy2:#0c2b4a; --paper:#ffffff;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  @page{ size: A4 landscape; margin:0; }
+  html,body{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body{ font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif; color:#0b0b0b; }
+  .page{
+    position:relative; width:297mm; height:210mm; overflow:hidden;
+    page-break-after:always; display:flex; flex-direction:column;
+    background:#eef1f4;
+  }
+  .page:last-child{ page-break-after:auto; }
+
+  /* ---------- COVER ---------- */
+  .cover{ background:radial-gradient(120% 120% at 80% 10%, var(--navy2), var(--navy) 60%); color:#fff; justify-content:space-between; padding:22mm 24mm; }
+  .cover .top{ display:flex; justify-content:space-between; align-items:flex-start; }
+  .brandmark{ display:flex; align-items:center; gap:12px; }
+  .brandmark .dot{ width:30px;height:30px;border-radius:8px;background:#fff; position:relative;}
+  .brandmark .dot::after{content:"";position:absolute;inset:8px;border-radius:3px;background:var(--navy);}
+  .brandmark .name{ font-size:24px; font-weight:700; letter-spacing:.16em; }
+  .cover .kicker{ font-size:12px; letter-spacing:.34em; text-transform:uppercase; color:#9bb4cf; }
+  .cover h1{ font-family:Georgia,'Times New Roman',serif; font-weight:500; font-size:74px; line-height:1.04; letter-spacing:-.01em; max-width:20ch; }
+  .cover h1 em{ font-style:italic; color:#cfe0f3; }
+  .cover .sub{ margin-top:18px; font-size:17px; color:#c4d3e4; max-width:62ch; line-height:1.55; }
+  .cover .meta{ display:flex; gap:40px; margin-top:30px; }
+  .cover .meta div span{ display:block; }
+  .cover .meta .l{ font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:#7f9ab8; margin-bottom:6px; }
+  .cover .meta .v{ font-size:15px; color:#eaf1f8; }
+  .cover .foot{ display:flex; justify-content:space-between; align-items:flex-end; font-size:12px; color:#8fa8c4; }
+  .chips{ display:flex; gap:8px; flex-wrap:wrap; margin-top:26px; }
+  .chip{ font-size:11px; letter-spacing:.06em; padding:7px 12px; border:1px solid rgba(255,255,255,.22); border-radius:999px; color:#dbe6f2; }
+
+  /* ---------- SAMPLE PAGE ---------- */
+  .sample{ padding:11mm 13mm 9mm; }
+  .browser{ flex:1; border-radius:14px; overflow:hidden; box-shadow:0 18px 50px rgba(6,28,51,.20), 0 2px 6px rgba(0,0,0,.08); background:#fff; display:flex; flex-direction:column; border:1px solid rgba(6,28,51,.08); }
+  .bar{ height:34px; background:#f3f4f6; border-bottom:1px solid #e6e8ec; display:flex; align-items:center; gap:8px; padding:0 14px; flex:0 0 auto; }
+  .bar i{ width:11px;height:11px;border-radius:50%; display:inline-block; }
+  .bar .r{background:#ff5f57;} .bar .y{background:#febc2e;} .bar .g{background:#28c840;}
+  .bar .url{ margin-left:12px; font-size:11px; color:#7a7f87; background:#fff; border:1px solid #e6e8ec; border-radius:6px; padding:4px 12px; min-width:240px; }
+  .viewport{ flex:1; position:relative; overflow:hidden; display:flex; flex-direction:column; }
+  nav.site{ display:flex; align-items:center; justify-content:space-between; padding:16px 30px; flex:0 0 auto; }
+  nav.site .logo{ font-weight:700; font-size:16px; letter-spacing:.04em; }
+  nav.site .links{ display:flex; gap:22px; font-size:12.5px; opacity:.8; }
+  nav.site .cta{ font-size:12px; padding:9px 16px; border-radius:999px; font-weight:600; }
+  .hero{ flex:1; display:grid; padding:30px 30px 24px; gap:24px; align-content:center; }
+  .hero.split{ grid-template-columns:1.1fr .9fr; align-items:center; }
+  .hero.center{ justify-items:center; text-align:center; align-content:center; }
+  .eyebrow{ font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:600; }
+  .display{ font-size:40px; line-height:1.05; letter-spacing:-.01em; }
+  .display.sm{ font-size:34px; }
+  .lede{ font-size:14px; line-height:1.55; opacity:.78; max-width:42ch; }
+  .btnrow{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+  .btn{ font-size:12.5px; font-weight:600; padding:11px 20px; border-radius:10px; }
+  .btn.ghost{ background:transparent; }
+  .visual{ height:100%; min-height:170px; border-radius:14px; position:relative; overflow:hidden; }
+  .stats{ display:flex; gap:26px; margin-top:6px; }
+  .stats div b{ display:block; font-size:24px; } .stats div span{ font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; opacity:.6; }
+  .pill{ position:absolute; font-size:11px; padding:7px 12px; border-radius:999px; background:#fff; box-shadow:0 8px 22px rgba(0,0,0,.14); font-weight:600; }
+  .card{ position:absolute; background:#fff; border-radius:12px; box-shadow:0 12px 30px rgba(0,0,0,.14); }
+
+  /* meta strip under the browser */
+  .meta-strip{ flex:0 0 auto; display:flex; align-items:center; gap:18px; padding:9px 4px 0; }
+  .sector-no{ font-family:Georgia,serif; font-size:13px; color:#061C33; font-weight:700; letter-spacing:.04em; }
+  .sector-name{ font-size:13px; font-weight:700; color:#0b1726; }
+  .concept{ font-size:11.5px; color:#56606c; flex:1; line-height:1.4; }
+  .concept b{ color:#1c2a3a; font-weight:600;}
+  .swatches{ display:flex; gap:6px; }
+  .swatches i{ width:16px;height:16px;border-radius:4px; box-shadow:inset 0 0 0 1px rgba(0,0,0,.08); display:inline-block; }
+  .delivery{ font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#061C33; border:1px solid rgba(6,28,51,.18); border-radius:999px; padding:6px 11px; white-space:nowrap; }
+  .pageno{ position:absolute; bottom:5mm; right:13mm; font-size:10px; color:#9aa6b3; letter-spacing:.1em; }
+</style>
+</head>
+<body>
+
+<!-- ===================== COVER ===================== -->
+<section class="page cover">
+  <div class="top">
+    <div class="brandmark"><span class="dot"></span><span class="name">VESKA</span></div>
+    <div style="text-align:right">
+      <div class="kicker">Design Studio</div>
+      <div style="font-size:12px;color:#9bb4cf;margin-top:6px">veskadesign.com</div>
+    </div>
+  </div>
+  <div>
+    <div class="kicker" style="margin-bottom:18px">Sample Concepts · 10 Sectors</div>
+    <h1>Websites we'd build, <em>before</em> you say go.</h1>
+    <p class="sub">Ten on-brand concept directions across the sectors we serve — each a premium, conversion-focused landing experience designed to taste. Built in 5 days, fixed price, and you own the code.</p>
+    <div class="chips">
+      <span class="chip">Aesthetics</span><span class="chip">Dental</span><span class="chip">Legal</span>
+      <span class="chip">Real Estate</span><span class="chip">SaaS</span><span class="chip">Wealth Advisory</span>
+      <span class="chip">Fine Dining</span><span class="chip">Fitness</span><span class="chip">Skincare</span><span class="chip">Hospitality</span>
+    </div>
+  </div>
+  <div class="foot">
+    <div>Powered by Advisory Monks Consulting</div>
+    <div>Concept deck · 2026</div>
+  </div>
+</section>
+
+<!-- ===================== 01 · AESTHETICS ===================== -->
+<section class="page sample" style="--accent:#b76e54;--accent2:#e9c9b8;">
+  <div class="browser">
+    <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">lumiere-aesthetics.com</span></div>
+    <div class="viewport" style="background:#fbf7f3; color:#2e2620; font-family:Georgia,serif;">
+      <nav class="site">
+        <div class="logo" style="letter-spacing:.18em;font-weight:500;">LUMIÈRE</div>
+        <div class="links" style="font-family:-apple-system,sans-serif;"><span>Treatments</span><span>About</span><span>Results</span><span>Pricing</span></div>
+        <div class="cta" style="background:#b76e54;color:#fff;font-family:-apple-system,sans-serif;">Book a consult</div>
+      </nav>
+      <div class="hero split">
+        <div>
+          <div class="eyebrow" style="color:#b76e54;font-family:-apple-system,sans-serif;">Advanced facial aesthetics</div>
+          <h2 class="display" style="margin:14px 0;">Confidence,<br>quietly restored.</h2>
+          <p class="lede" style="font-family:-apple-system,sans-serif;">Natural-looking results from a doctor-led clinic. Personal plans, gentle care, and a studio you'll actually want to visit.</p>
+          <div class="btnrow" style="margin-top:20px;font-family:-apple-system,sans-serif;">
+            <span class="btn" style="background:#b76e54;color:#fff;">Book your consultation</span>
+            <span class="btn ghost" style="color:#2e2620;border:1px solid #d8c3b5;">View results →</span>
+          </div>
+          <div class="stats" style="margin-top:26px;font-family:-apple-system,sans-serif;">
+            <div><b style="color:#b76e54;">4.9★</b><span>320 reviews</span></div>
+            <div><b style="color:#b76e54;">12k+</b><span>Treatments</span></div>
+            <div><b style="color:#b76e54;">CQC</b><span>Registered</span></div>
+          </div>
+        </div>
+        <div class="visual" style="background:linear-gradient(150deg,#f0dccd,#e9c9b8 55%,#d9a98f);">
+          <span class="pill" style="top:18px;left:18px;color:#8a4f38;font-family:-apple-system,sans-serif;">Skin · Injectables · Laser</span>
+          <div class="card" style="bottom:18px;left:18px;right:34px;height:62px;display:flex;align-items:center;gap:12px;padding:0 14px;font-family:-apple-system,sans-serif;">
+            <div style="width:38px;height:38px;border-radius:50%;background:#e9c9b8;"></div>
+            <div><div style="font-size:12px;font-weight:700;color:#2e2620;">Dr. Amara Hale</div><div style="font-size:10.5px;color:#8a7d72;">Medical Director · GMC reg.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="meta-strip">
+    <span class="sector-no">01</span><span class="sector-name">Aesthetics &amp; Med Spa</span>
+    <span class="concept"><b>Soft-luxury editorial</b> — serif display, warm neutrals, doctor-led trust cues. Taste reference: Apple calm × spa warmth.</span>
+    <span class="swatches"><i style="background:#fbf7f3"></i><i style="background:#b76e54"></i><i style="background:#e9c9b8"></i><i style="background:#2e2620"></i></span>
+    <span class="delivery">5-day build</span>
+  </div>
+  <div class="pageno">Veska · 01 / 10</div>
+</section>
+
+<!-- ===================== 02 · DENTAL ===================== -->
+<section class="page sample">
+  <div class="browser">
+    <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">brightwell-dental.com</span></div>
+    <div class="viewport" style="background:#ffffff;color:#0f2a33;font-family:-apple-system,sans-serif;">
+      <nav class="site">
+        <div class="logo" style="color:#0aa1a8;">◗ Brightwell</div>
+        <div class="links"><span>Invisalign</span><span>Implants</span><span>Hygiene</span><span>Plans</span></div>
+        <div class="cta" style="background:#0aa1a8;color:#fff;">Book appointment</div>
+      </nav>
+      <div class="hero split" style="background:linear-gradient(180deg,#f1fbfb,#ffffff);">
+        <div>
+          <div class="eyebrow" style="color:#0aa1a8;">Modern family dentistry</div>
+          <h2 class="display" style="margin:14px 0;font-weight:700;letter-spacing:-.02em;">A dentist you'll<br>look forward to.</h2>
+          <p class="lede">Gentle, transparent care with same-week appointments. Straighten, whiten, and maintain — all under one calm, modern roof.</p>
+          <div class="btnrow" style="margin-top:20px;">
+            <span class="btn" style="background:#0aa1a8;color:#fff;">Book online in 60s</span>
+            <span class="btn ghost" style="color:#0f2a33;border:1px solid #cfe7e8;">Membership from £14/mo</span>
+          </div>
+          <div class="stats" style="margin-top:26px;">
+            <div><b style="color:#0aa1a8;">Same wk</b><span>Appointments</span></div>
+            <div><b style="color:#0aa1a8;">0%</b><span>Finance</span></div>
+            <div><b style="color:#0aa1a8;">4.9★</b><span>Google</span></div>
+          </div>
+        </div>
+        <div class="visual" style="background:linear-gradient(150deg,#d6f3f3,#0aa1a8);">
+          <div class="card" style="top:18px;right:18px;width:150px;padding:14px;">
+            <div style="font-size:11px;color:#5b6b6e;">Next available</div>
+            <div style="font-size:18px;font-weight:700;color:#0aa1a8;">Tomorrow 9:40</div>
+            <div style="height:8px"></div>
+            <div style="font-size:10.5px;background:#eafafa;color:#0aa1a8;border-radius:6px;padding:6px;text-align:center;font-weight:600;">Reserve slot</div>
+          </div>
+          <span class="pill" style="bottom:18px;left:18px;color:#0aa1a8;">😁 Invisalign Diamond Provider</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="meta-strip">
+    <span class="sector-no">02</span><span class="sector-name">Dental Clinic</span>
+    <span class="concept"><b>Clean &amp; reassuring</b> — fresh teal, crisp sans, online-booking front and centre. Taste reference: Stripe clarity.</span>
+    <span class="swatches"><i style="background:#ffffff"></i><i style="background:#0aa1a8"></i><i style="background:#d6f3f3"></i><i style="background:#0f2a33"></i></span>
+    <span class="delivery">5-day build</span>
+  </div>
+  <div class="pageno">Veska · 02 / 10</div>
+</section>
+
+<!-- ===================== 03 · LAW FIRM ===================== -->
+<section class="page sample">
+  <div class="browser">
+    <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">hartleycrowne.com</span></div>
+    <div class="viewport" style="background:#0d1b2a;color:#eef2f7;font-family:Georgia,serif;">
+      <nav class="site">
+        <div class="logo" style="letter-spacing:.14em;">HARTLEY &amp; CROWNE</div>
+        <div class="links" style="font-family:-apple-system,sans-serif;color:#aebccd;"><span>Practice</span><span>Team</span><span>Insights</span><span>Contact</span></div>
+        <div class="cta" style="background:#c2a14d;color:#0d1b2a;font-family:-apple-system,sans-serif;">Request consultation</div>
+      </nav>
+      <div class="hero center">
+        <div class="eyebrow" style="color:#c2a14d;font-family:-apple-system,sans-serif;">Corporate &amp; private client law</div>
+        <h2 class="display" style="margin:16px 0;font-weight:500;max-width:20ch;">Counsel that protects what you've built.</h2>
+        <p class="lede" style="font-family:-apple-system,sans-serif;margin:0 auto;color:#b9c6d6;">A discreet, senior-led practice advising founders, families and boards across complex matters — with the rigour of a City firm and the attention of a boutique.</p>
+        <div class="btnrow" style="margin-top:22px;justify-content:center;font-family:-apple-system,sans-serif;">
+          <span class="btn" style="background:#c2a14d;color:#0d1b2a;">Arrange a confidential call</span>
+          <span class="btn ghost" style="color:#eef2f7;border:1px solid #2c3e54;">Our practice areas</span>
+        </div>
+        <div class="stats" style="margin-top:30px;justify-content:center;font-family:-apple-system,sans-serif;">
+          <div><b style="color:#c2a14d;">35+</b><span style="color:#8295a9;">Years</span></div>
+          <div><b style="color:#c2a14d;">£2.4bn</b><span style="color:#8295a9;">Advised</span></div>
+          <div><b style="color:#c2a14d;">Legal 500</b><span style="color:#8295a9;">Ranked</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="meta-strip">
+    <span class="sector-no">03</span><span class="sector-name">Law Firm</span>
+    <span class="concept"><b>Authority &amp; discretion</b> — deep navy, gold serif, centred gravitas. Taste reference: editorial, old-money restraint.</span>
+    <span class="swatches"><i style="background:#0d1b2a"></i><i style="background:#c2a14d"></i><i style="background:#eef2f7"></i><i style="background:#2c3e54"></i></span>
+    <span class="delivery">5-day build</span>
+  </div>
+  <div class="pageno">Veska · 03 / 10</div>
+</section>
+
+<!-- ===================== 04 · REAL ESTATE ===================== -->
+<section class="page sample">
+  <div class="browser">
+    <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">meridianproperties.com</span></div>
+    <div class="viewport" style="background:#15130f;color:#f3efe7;font-family:-apple-system,sans-serif;">
+      <nav class="site">
+        <div class="logo" style="font-family:Georgia,serif;letter-spacing:.06em;">Meridian</div>
+        <div class="links" style="color:#c9c2b4;"><span>Buy</span><span>Sell</span><span>Lettings</span><span>Valuations</span></div>
+        <div class="cta" style="background:#caa46a;color:#15130f;">Book valuation</div>
+      </nav>
+      <div class="hero split" style="background:linear-gradient(120deg,#1b1813,#15130f);">
+        <div>
+          <div class="eyebrow" style="color:#caa46a;">Prime &amp; country homes</div>
+          <h2 class="display" style="font-family:Georgia,serif;font-weight:500;margin:14px 0;">Find the address<br>that fits the life.</h2>
+          <p class="lede" style="color:#cfc8ba;">A boutique agency for distinctive homes. Considered marketing, qualified buyers, and a process that feels effortless from listing to keys.</p>
+          <div class="btnrow" style="margin-top:20px;">
+            <span class="btn" style="background:#caa46a;color:#15130f;">See the collection</span>
+            <span class="btn ghost" style="color:#f3efe7;border:1px solid #3a352c;">Free valuation →</span>
+          </div>
+        </div>
+        <div class="visual" style="background:linear-gradient(160deg,#6b5e44,#caa46a);">
+          <div class="card" style="bottom:16px;left:16px;right:16px;padding:13px 15px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:10.5px;color:#8a8170;">Featured · Hampstead</div><div style="font-size:14px;font-weight:700;color:#15130f;font-family:Georgia,serif;">The Garden Villa</div></div>
+            <div style="text-align:right;"><div style="font-size:16px;font-weight:700;color:#15130f;">£4.2m</div><div style="font-size:10px;color:#8a8170;">5 bed · 0.4 ac</div></div>
+          </div>
+          <span class="pill" style="top:16px;right:16px;color:#6b5e44;">New instruction</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="meta-strip">
+    <span class="sector-no">04</span><span class="sector-name">Real Estate</span>
+    <span class="concept"><b>Editorial luxury</b> — dark canvas, warm brass, image-led property cards. Taste reference: Airbnb editorial × estate-agent gloss.</span>
+    <span class="swatches"><i style="background:#15130f"></i><i style="background:#caa46a"></i><i style="background:#6b5e44"></i><i style="background:#f3efe7"></i></span>
+    <span class="delivery">5-day build</span>
+  </div>
+  <div class="pageno">Veska · 04 / 10</div>
+</section>
+
+<!-- ===================== 05 · SAAS ===================== -->
+<section class="page sample">
+  <div class="browser">
+    <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">flowstate.app</span></div>
+    <div class="viewport" style="background:radial-gradient(120% 120% at 80% -10%,#1a1f3a,#0a0b14 60%);color:#eef0ff;font-family:-apple-system,sans-serif;">
+      <nav class="site">
+        <div class="logo">▲ Flowstate</div>
+        <div class="links" style="color:#aab0d6;"><span>Product</span><span>Pricing</span><span>Docs</span><span>Customers</span></div>
+        <div class="cta" style="background:#6d5cff;color:#fff;">Start free</div>
+      </nav>
+      <div class="hero center">
+        <span class="pill" style="position:static;background:rgba(109,92,255,.15);color:#b9affd;box-shadow:none;border:1px solid rgba(109,92,255,.35);">✦ New · AI workflow agents</span>
+        <h2 class="display" style="margin:16px 0;font-weight:700;letter-spacing:-.03em;background:linear-gradient(90deg,#fff,#a9b0ff);-webkit-background-clip:text;background-clip:text;color:transparent;max-width:18ch;">Ship work, not status updates.</h2>
+        <p class="lede" style="margin:0 auto;color:#b4bae0;">The workspace that plans, tracks and automates your team's work in one fast, keyboard-first surface. Built for teams who hate busywork.</p>
+        <div class="btnrow" style="margin-top:22px;justify-content:center;">
+          <span class="btn" style="background:#6d5cff;color:#fff;">Get started — it's free</span>
+          <span class="btn ghost" style="color:#eef0ff;border:1px solid #2a2e4d;">Book a demo</span>
+        </div>
+        <div style="margin-top:26px;display:flex;gap:8px;justify-content:center;opacity:.55;font-size:11px;letter-spacing:.1em;">TRUSTED BY 4,000+ TEAMS · ◆ ◆ ◆ ◆ ◆</div>
+      </div>
+    </div>
+  </div>
+  <div class="meta-strip">
+    <span class="sector-no">05</span><span class="sector-name">SaaS / Tech Startup</span>
+    <span class="concept"><b>Modern dark gradient</b> — vivid accent, gradient display type, keyboard-first vibe. Taste reference: Linear × Vercel.</span>
+    <span class="swatches"><i style="background:#0a0b14"></i><i style="background:#6d5cff"></i><i style="background:#a9b0ff"></i><i style="background:#eef0ff"></i></span>
+    <span class="delivery">5-day build</span>
+  </div>
+  <div class="pageno">Veska · 05 / 10</div>
+</section>
+
+<!-- ===================== 06 · WEALTH ADVISORY ===================== -->
+<section class="page sample" style="--navyc:#061C33;">
+  <div class="browser">
+    <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">northcrest-advisory.com</span></div>
+    <div class="viewport" style="background:#f6f8fa;color:#061C33;font-family:-apple-system,sans-serif;">
+      <nav class="site">
+        <div class="logo" style="letter-spacing:.04em;">Northcrest</div>
+        <div class="links" style="color:#3d5168;"><span>Wealth</span><span>Tax</span><span>Planning</span><span>Insights</span></div>
+        <div class="cta" style="background:#061C33;color:#fff;">Speak to an adviser</div>
+      </nav>
+      <div class="hero split">
+        <div>
+          <div class="eyebrow" style="color:#1d6fb8;">Private wealth &amp; advisory</div>
+          <h2 class="display" style="font-family:Georgia,serif;font-weight:500;margin:14px 0;">Quiet confidence<br>about your money.</h2>
+          <p class="lede" style="color:#46596f;">Independent, fee-transparent advice for professionals, founders and families. Plans that compound — reviewed with you, never sold to you.</p>
+          <div class="btnrow" style="margin-top:20px;">
+            <span class="btn" style="background:#061C33;color:#fff;">Book a discovery call</span>
+            <span class="btn ghost" style="color:#061C33;border:1px solid #c5d2df;">How we charge →</span>
+          </div>
+          <div class="stats" style="margin-top:26px;">
+            <div><b>£480m</b><span>Assets advised</span></div>
+            <div><b>Fixed</b><span>Fee model</span></div>
+            <div><b>FCA</b><span>Regulated</span></div>
+          </div>
+        </div>
+        <div class="visual" style="background:linear-gradient(160deg,#0c2b4a,#061C33);">
+          <div class="card" style="inset:18px;padding:16px;">
+            <div style="font-size:11px;color:#7a8596;">Portfolio · projected</div>
+            <div style="font-size:20px;font-weight:700;color:#061C33;">+£312,000</div>
+            <svg viewBox="0 0 200 70" style="width:100%;height:64px;margin-top:8px;"><polyline points="0,60 30,52 60,55 90,38 120,42 150,24 200,10" fill="none" stroke="#1d6fb8" stroke-width="3"/><polyline points="0,60 30,52 60,55 90,38 120,42 150,24 200,10 200,70 0,70" fill="rgba(29,111,184,.12)" stroke="none"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="meta-strip">
+    <span class="sector-no">06</span><span class="sector-name">Wealth / Financial Advisory</span>
+    <span class="concept"><b>Understated trust</b> — Veska navy, serif headline, calm data viz. Taste reference: Stripe restraint × private-bank polish.</span>
+    <span class="swatches"><i style="background:#f6f8fa"></i><i style="background:#061C33"></i><i style="background:#1d6fb8"></i><i style="background:#0c2b4a"></i></span>
+    <span class="delivery">5-day build</span>
+  </div>
+  <div class="pageno">Veska · 06 / 10</div>
+</section>
+
+<!-- ===================== 07 · FINE DINING ===================== -->
+<section class="page sample">
+  <div class="browser">
+    <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">maisonnoir.restaurant</span></div>
+    <div class="viewport" style="background:#120f0d;color:#f0e9df;font-family:Georgia,serif;">
+      <nav class="site">
+        <div class="logo" style="letter-spacing:.22em;font-weight:500;">MAISON NOIR</div>
+        <div class="links" style="font-family:-apple-system,sans-serif;color:#b8aa97;"><span>Menus</span><span>The Room</span><span>Private dining</span></div>
+        <div class="cta" style="background:#b08d57;color:#120f0d;font-family:-apple-system,sans-serif;">Reserve a table</div>
+      </nav>
+      <div class="hero center" style="background:radial-gradient(120% 120% at 50% -20%,#241c16,#120f0d 60%);">
+        <div class="eyebrow" style="color:#b08d57;font-family:-apple-system,sans-serif;">Modern French · Mayfair</div>
+        <h2 class="display" style="font-weight:500;margin:16px 0;max-width:18ch;">An evening worth<br>dressing for.</h2>
+        <p class="lede" style="font-family:-apple-system,sans-serif;margin:0 auto;color:#c8bbab;">A seasonal tasting menu, a candle-lit room, and a cellar worth lingering in. Reservations open six weeks ahead.</p>
+        <div class="btnrow" style="margin-top:22px;justify-content:center;font-family:-apple-system,sans-serif;">
+          <span class="btn" style="background:#b08d57;color:#120f0d;">Reserve · OpenTable</span>
+          <span class="btn ghost" style="color:#f0e9df;border:1px solid #3a3027;">View the menu</span>
+        </div>
+        <div style="margin-top:24px;font-family:-apple-system,sans-serif;font-size:11px;letter-spacing:.14em;color:#8c7e6c;">★ MICHELIN GUIDE · ★ 3 AA ROSETTES</div>
+      </div>
+    </div>
+  </div>
+  <div class="meta-strip">
+    <span class="sector-no">07</span><span class="sector-name">Fine Dining Restaurant</span>
+    <span class="concept"><b>Moody &amp; atmospheric</b> — near-black canvas, gold serif, reservation-led. Taste reference: luxury hospitality editorial.</span>
+    <span class="swatches"><i style="background:#120f0d"></i><i style="background:#b08d57"></i><i style="background:#241c16"></i><i style="background:#f0e9df"></i></span>
+    <span class="delivery">5-day build</span>
+  </div>
+  <div class="pageno">Veska · 07 / 10</div>
+</section>
+
+<!-- ===================== 08 · FITNESS ===================== -->
+<section class="page sample">
+  <div class="browser">
+    <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">pulse.studio</span></div>
+    <div class="viewport" style="background:#0c0c0c;color:#fff;font-family:-apple-system,sans-serif;">
+      <nav class="site">
+        <div class="logo" style="font-weight:800;letter-spacing:-.02em;">PULSE<span style="color:#d6ff3f;">.</span></div>
+        <div class="links" style="color:#bdbdbd;"><span>Classes</span><span>Timetable</span><span>Coaches</span><span>Memberships</span></div>
+        <div class="cta" style="background:#d6ff3f;color:#0c0c0c;font-weight:800;">Claim free week</div>
+      </nav>
+      <div class="hero split" style="align-items:center;">
+        <div>
+          <div class="eyebrow" style="color:#d6ff3f;">Boutique strength &amp; conditioning</div>
+          <h2 class="display" style="font-weight:800;letter-spacing:-.03em;margin:12px 0;font-size:46px;line-height:.98;">TRAIN<br>LIKE YOU<br>MEAN IT.</h2>
+          <p class="lede" style="color:#c7c7c7;">45-minute classes, world-class coaches, a room that hits different. First week's on us — no contracts, just results.</p>
+          <div class="btnrow" style="margin-top:20px;">
+            <span class="btn" style="background:#d6ff3f;color:#0c0c0c;font-weight:800;">Start free trial</span>
+            <span class="btn ghost" style="color:#fff;border:1px solid #2a2a2a;">See timetable</span>
+          </div>
+        </div>
+        <div class="visual" style="background:linear-gradient(140deg,#1c1c1c,#0c0c0c);border:1px solid #1f1f1f;">
+          <div style="position:absolute;inset:0;background:linear-gradient(135deg,transparent 40%,rgba(214,255,63,.16));"></div>
+          <div class="card" style="top:16px;left:16px;background:#161616;border:1px solid #262626;padding:12px 14px;">
+            <div style="font-size:10.5px;color:#8a8a8a;">Tonight · 18:30</div>
+            <div style="font-size:15px;font-weight:800;color:#d6ff3f;">HYROX CONDITIONING</div>
+            <div style="font-size:10.5px;color:#9a9a9a;">3 spots left</div>
+          </div>
+          <span class="pill" style="bottom:16px;right:16px;background:#d6ff3f;color:#0c0c0c;">4.9★ · 800+ members</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="meta-strip">
+    <span class="sector-no">08</span><span class="sector-name">Boutique Fitness / Wellness</span>
+    <span class="concept"><b>Bold &amp; high-energy</b> — black + acid-lime, heavy display type, trial-led CTA. Taste reference: Nike attitude × class-booking apps.</span>
+    <span class="swatches"><i style="background:#0c0c0c"></i><i style="background:#d6ff3f"></i><i style="background:#161616"></i><i style="background:#ffffff"></i></span>
+    <span class="delivery">5-day build</span>
+  </div>
+  <div class="pageno">Veska · 08 / 10</div>
+</section>
+
+<!-- ===================== 09 · SKINCARE / ECOM ===================== -->
+<section class="page sample">
+  <div class="browser">
+    <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">verdant-skin.com</span></div>
+    <div class="viewport" style="background:#f4f1ea;color:#26302a;font-family:-apple-system,sans-serif;">
+      <nav class="site">
+        <div class="logo" style="letter-spacing:.16em;font-weight:600;">VERDANT</div>
+        <div class="links" style="color:#5b6760;"><span>Shop</span><span>Science</span><span>Ritual</span><span>Journal</span></div>
+        <div class="cta" style="background:#2f5d4a;color:#f4f1ea;">Shop the range</div>
+      </nav>
+      <div class="hero split" style="align-items:center;">
+        <div>
+          <div class="eyebrow" style="color:#2f5d4a;">Plant-led, clinically proven</div>
+          <h2 class="display" style="font-family:Georgia,serif;font-weight:500;margin:14px 0;">Skin, in its<br>natural state.</h2>
+          <p class="lede" style="color:#566159;">A focused range of biotech botanicals — fewer products, better formulated. Vegan, refillable, and kind to barrier and planet alike.</p>
+          <div class="btnrow" style="margin-top:20px;">
+            <span class="btn" style="background:#2f5d4a;color:#f4f1ea;">Build your ritual</span>
+            <span class="btn ghost" style="color:#26302a;border:1px solid #c9cabd;">Take the skin quiz →</span>
+          </div>
+          <div style="margin-top:22px;font-size:11px;letter-spacing:.1em;color:#7c857d;">♻ REFILLABLE · 🌿 VEGAN · ✓ DERMATOLOGIST-TESTED</div>
+        </div>
+        <div class="visual" style="background:linear-gradient(160deg,#dfe7d8,#2f5d4a);">
+          <div class="card" style="inset:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;">
+            <div style="width:54px;height:96px;border-radius:10px;background:linear-gradient(#3c6b56,#2f5d4a);box-shadow:0 8px 20px rgba(0,0,0,.18);"></div>
+            <div style="font-family:Georgia,serif;font-size:13px;color:#26302a;">The Barrier Serum</div>
+            <div style="font-size:12px;font-weight:700;color:#2f5d4a;">£48 · or £40 refill</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="meta-strip">
+    <span class="sector-no">09</span><span class="sector-name">Premium Skincare / E-commerce</span>
+    <span class="concept"><b>Minimal botanical</b> — oat &amp; forest-green, generous whitespace, product-hero focus. Taste reference: Aesop × modern DTC.</span>
+    <span class="swatches"><i style="background:#f4f1ea"></i><i style="background:#2f5d4a"></i><i style="background:#dfe7d8"></i><i style="background:#26302a"></i></span>
+    <span class="delivery">5-day build</span>
+  </div>
+  <div class="pageno">Veska · 09 / 10</div>
+</section>
+
+<!-- ===================== 10 · HOSPITALITY / HOTEL ===================== -->
+<section class="page sample">
+  <div class="browser">
+    <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">thearalia.com</span></div>
+    <div class="viewport" style="background:#2a1d16;color:#f7ede2;font-family:Georgia,serif;">
+      <nav class="site">
+        <div class="logo" style="letter-spacing:.14em;font-weight:500;">THE ARALIA</div>
+        <div class="links" style="font-family:-apple-system,sans-serif;color:#d8c4b2;"><span>Rooms</span><span>Dining</span><span>Spa</span><span>Stories</span></div>
+        <div class="cta" style="background:#d98e5a;color:#2a1d16;font-family:-apple-system,sans-serif;">Check availability</div>
+      </nav>
+      <div class="hero split" style="align-items:center;background:linear-gradient(120deg,#33251b,#2a1d16);">
+        <div>
+          <div class="eyebrow" style="color:#e0a878;font-family:-apple-system,sans-serif;">Boutique retreat · Amalfi</div>
+          <h2 class="display" style="font-weight:500;margin:14px 0;">Stay a while<br>longer.</h2>
+          <p class="lede" style="font-family:-apple-system,sans-serif;color:#e3d3c3;">Twenty-two rooms above the sea, a slow kitchen, and a spa carved into the cliff. The kind of place you cancel plans to extend.</p>
+          <div class="btnrow" style="margin-top:20px;font-family:-apple-system,sans-serif;">
+            <span class="btn" style="background:#d98e5a;color:#2a1d16;">Book direct &amp; save 12%</span>
+            <span class="btn ghost" style="color:#f7ede2;border:1px solid #4a3729;">Explore rooms →</span>
+          </div>
+        </div>
+        <div class="visual" style="background:linear-gradient(160deg,#e0a878,#a85f3a);">
+          <div class="card" style="bottom:16px;left:16px;right:16px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;font-family:-apple-system,sans-serif;">
+            <div><div style="font-size:10.5px;color:#8a7461;">Check-in → Check-out</div><div style="font-size:13px;font-weight:700;color:#2a1d16;">14 Jun → 18 Jun</div></div>
+            <div style="background:#d98e5a;color:#2a1d16;font-size:11px;font-weight:700;border-radius:8px;padding:8px 12px;">Search</div>
+          </div>
+          <span class="pill" style="top:16px;right:16px;color:#a85f3a;">★ 9.6 · Exceptional</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="meta-strip">
+    <span class="sector-no">10</span><span class="sector-name">Boutique Hotel / Hospitality</span>
+    <span class="concept"><b>Warm &amp; inviting</b> — terracotta &amp; cream, serif romance, direct-booking widget. Taste reference: editorial travel × boutique hotel.</span>
+    <span class="swatches"><i style="background:#2a1d16"></i><i style="background:#d98e5a"></i><i style="background:#e0a878"></i><i style="background:#f7ede2"></i></span>
+    <span class="delivery">5-day build</span>
+  </div>
+  <div class="pageno">Veska · 10 / 10</div>
+</section>
+
+</body>
+</html>
