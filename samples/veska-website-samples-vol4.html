@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Veska — Website Samples · Volume IV</title>
+<style>
+  :root{ --navy:#061C33; --navy2:#0c2b4a; }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  @page{ size:A4 landscape; margin:0; }
+  html,body{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body{ font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif; color:#0b0b0b; }
+  .page{ position:relative; width:297mm; height:210mm; overflow:hidden; page-break-after:always; display:flex; flex-direction:column; background:#eef1f4; }
+  .page:last-child{ page-break-after:auto; }
+  .cover{ background:radial-gradient(120% 120% at 80% 10%, var(--navy2), var(--navy) 60%); color:#fff; justify-content:space-between; padding:22mm 24mm; }
+  .cover .top{ display:flex; justify-content:space-between; align-items:flex-start; }
+  .brandmark{ display:flex; align-items:center; gap:12px; }
+  .brandmark .dot{ width:30px;height:30px;border-radius:8px;background:#fff;position:relative;}
+  .brandmark .dot::after{content:"";position:absolute;inset:8px;border-radius:3px;background:var(--navy);}
+  .brandmark .name{ font-size:24px;font-weight:700;letter-spacing:.16em; }
+  .cover .kicker{ font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:#9bb4cf; }
+  .cover h1{ font-family:Georgia,'Times New Roman',serif;font-weight:500;font-size:66px;line-height:1.05;letter-spacing:-.01em;max-width:22ch; }
+  .cover h1 em{ font-style:italic;color:#cfe0f3; }
+  .cover .sub{ margin-top:18px;font-size:16.5px;color:#c4d3e4;max-width:66ch;line-height:1.55; }
+  .cover .foot{ display:flex;justify-content:space-between;align-items:flex-end;font-size:12px;color:#8fa8c4; }
+  .chips{ display:flex;gap:8px;flex-wrap:wrap;margin-top:24px;max-width:95%; }
+  .chip{ font-size:11px;letter-spacing:.05em;padding:7px 12px;border:1px solid rgba(255,255,255,.22);border-radius:999px;color:#dbe6f2; }
+  .sample{ padding:11mm 13mm 9mm; }
+  .browser{ flex:1;border-radius:14px;overflow:hidden;box-shadow:0 18px 50px rgba(6,28,51,.20),0 2px 6px rgba(0,0,0,.08);background:#fff;display:flex;flex-direction:column;border:1px solid rgba(6,28,51,.08); }
+  .bar{ height:34px;background:#f3f4f6;border-bottom:1px solid #e6e8ec;display:flex;align-items:center;gap:8px;padding:0 14px;flex:0 0 auto; }
+  .bar i{ width:11px;height:11px;border-radius:50%;display:inline-block; }
+  .bar .r{background:#ff5f57;} .bar .y{background:#febc2e;} .bar .g{background:#28c840;}
+  .bar .url{ margin-left:12px;font-size:11px;color:#7a7f87;background:#fff;border:1px solid #e6e8ec;border-radius:6px;padding:4px 12px;min-width:240px; }
+  .viewport{ flex:1;position:relative;overflow:hidden;display:flex;flex-direction:column; }
+  nav.site{ display:flex;align-items:center;justify-content:space-between;padding:16px 30px;flex:0 0 auto; }
+  nav.site .logo{ font-weight:700;font-size:16px;letter-spacing:.04em; }
+  nav.site .links{ display:flex;gap:22px;font-size:12.5px;opacity:.8; }
+  nav.site .cta{ font-size:12px;padding:9px 16px;border-radius:999px;font-weight:600; }
+  .hero{ flex:1;display:grid;padding:30px;gap:24px;align-content:center; }
+  .hero.split{ grid-template-columns:1.1fr .9fr;align-items:center; }
+  .hero.center{ justify-items:center;text-align:center; }
+  .eyebrow{ font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600; }
+  .display{ font-size:40px;line-height:1.05;letter-spacing:-.01em; }
+  .lede{ font-size:14px;line-height:1.55;opacity:.78;max-width:42ch; }
+  .btnrow{ display:flex;gap:12px;align-items:center;flex-wrap:wrap; }
+  .btn{ font-size:12.5px;font-weight:600;padding:11px 20px;border-radius:10px; }
+  .btn.ghost{ background:transparent; }
+  .visual{ height:100%;min-height:170px;border-radius:14px;position:relative;overflow:hidden; }
+  .stats{ display:flex;gap:26px;margin-top:6px; }
+  .stats div b{ display:block;font-size:24px; } .stats div span{ font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.6; }
+  .pill{ position:absolute;font-size:11px;padding:7px 12px;border-radius:999px;background:#fff;box-shadow:0 8px 22px rgba(0,0,0,.14);font-weight:600; }
+  .card{ position:absolute;background:#fff;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.14); }
+  .meta-strip{ flex:0 0 auto;display:flex;align-items:center;gap:18px;padding:9px 4px 0; }
+  .sector-no{ font-family:Georgia,serif;font-size:13px;color:#061C33;font-weight:700; }
+  .sector-name{ font-size:13px;font-weight:700;color:#0b1726; }
+  .concept{ font-size:11.5px;color:#56606c;flex:1;line-height:1.4; } .concept b{ color:#1c2a3a;font-weight:600; }
+  .swatches{ display:flex;gap:6px; } .swatches i{ width:16px;height:16px;border-radius:4px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);display:inline-block; }
+  .delivery{ font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#061C33;border:1px solid rgba(6,28,51,.18);border-radius:999px;padding:6px 11px;white-space:nowrap; }
+  .pageno{ position:absolute;bottom:5mm;right:13mm;font-size:10px;color:#9aa6b3;letter-spacing:.1em; }
+</style></head><body>
+
+<!-- COVER -->
+<section class="page cover">
+  <div class="top"><div class="brandmark"><span class="dot"></span><span class="name">VESKA</span></div>
+  <div style="text-align:right"><div class="kicker">Design Studio</div><div style="font-size:12px;color:#9bb4cf;margin-top:6px">veskadesign.com</div></div></div>
+  <div>
+    <div class="kicker" style="margin-bottom:18px">Sample Concepts · Volume IV · the full suite</div>
+    <h1>Twenty more, run through the <em>whole system.</em></h1>
+    <p class="sub">Each concept here is grounded in a design-md taste reference, written with conversion-led copy, and rendered with our deck system — the same pipeline we run for every client. Premium, 5-day, you own the code.</p>
+    <div class="chips"><span class="chip">Cybersecurity</span><span class="chip">AI Platform</span><span class="chip">Marketplace</span><span class="chip">Logistics</span><span class="chip">Manufacturing</span><span class="chip">Florist</span><span class="chip">Private Chef</span><span class="chip">Day Spa</span><span class="chip">Eyewear</span><span class="chip">Physio</span><span class="chip">Nursery</span><span class="chip">University</span><span class="chip">Coworking</span><span class="chip">Developer</span><span class="chip">Car Dealer</span><span class="chip">Cleaning</span><span class="chip">Home Services</span><span class="chip">Cosmetics</span><span class="chip">Telehealth</span><span class="chip">Golf Club</span></div>
+  </div>
+  <div class="foot"><div>Powered by Advisory Monks Consulting</div><div>Concept deck · Vol IV · 2026</div></div>
+</section>
+
+<!-- 50 CYBERSECURITY -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">sentinel.security</span></div>
+<div class="viewport" style="background:radial-gradient(120% 120% at 85% -10%,#0d2a22,#060a12 60%);color:#e8f6f0;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo">🛡 Sentinel</div><div class="links" style="color:#86b3a4;"><span>Platform</span><span>Threats</span><span>Pricing</span><span>Docs</span></div><div class="cta" style="background:#2ee6a6;color:#06140f;font-weight:700;">Book a demo</div></nav>
+<div class="hero center"><span class="pill" style="position:static;background:rgba(46,230,166,.12);color:#7ff0cd;box-shadow:none;border:1px solid rgba(46,230,166,.35);">● Real-time threat detection</span>
+<h2 class="display" style="font-weight:800;letter-spacing:-.03em;margin:14px 0;max-width:18ch;">Security that sees it<br>before they do.</h2>
+<p class="lede" style="margin:0 auto;color:#a4c8bb;">AI-driven detection and response across your whole stack — endpoints, cloud, identity. Stop breaches in seconds, not days.</p>
+<div class="btnrow" style="justify-content:center;margin-top:20px;"><span class="btn" style="background:#2ee6a6;color:#06140f;font-weight:700;">Start free trial</span><span class="btn ghost" style="color:#e8f6f0;border:1px solid #1d3a32;">Talk to security</span></div>
+<div style="margin-top:22px;font-size:11px;letter-spacing:.12em;color:#5e8576;">SOC 2 · ISO 27001 · TRUSTED BY 600+ SECURITY TEAMS</div></div></div></div>
+<div class="meta-strip"><span class="sector-no">50</span><span class="sector-name">Cybersecurity SaaS</span><span class="concept"><b>Technical &amp; assured</b> — near-black + signal green, centred authority. Taste: <i>design-md/vercel</i>.</span><span class="swatches"><i style="background:#060a12"></i><i style="background:#2ee6a6"></i><i style="background:#0d2a22"></i><i style="background:#e8f6f0"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 50 / 69</div></section>
+
+<!-- 51 AI PLATFORM -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">synapse.dev</span></div>
+<div class="viewport" style="background:radial-gradient(120% 120% at 75% 0%,#1a1d3a,#08080f 60%);color:#eef0ff;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo">✦ Synapse</div><div class="links" style="color:#a7adda;"><span>Models</span><span>API</span><span>Pricing</span><span>Docs</span></div><div class="cta" style="background:#7c8bff;color:#08080f;font-weight:700;">Get API key</div></nav>
+<div class="hero split" style="align-items:center;"><div><div class="eyebrow" style="color:#9aa6ff;">Inference API for builders</div>
+<h2 class="display" style="font-weight:800;margin:12px 0;letter-spacing:-.03em;background:linear-gradient(90deg,#fff,#9aa6ff);-webkit-background-clip:text;background-clip:text;color:transparent;">Ship AI features<br>in an afternoon.</h2>
+<p class="lede" style="color:#b4bae0;">One fast, reliable API for the best open models. Generous free tier, sub-second latency, and SDKs for every language.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#7c8bff;color:#08080f;font-weight:700;">Start building free</span><span class="btn ghost" style="color:#eef0ff;border:1px solid #2a2e4d;">Read the docs →</span></div></div>
+<div class="visual" style="background:#0d0f1c;border:1px solid #20233d;font-family:ui-monospace,Menlo,monospace;padding:16px;"><div style="font-size:10.5px;color:#6f76a8;">$ curl synapse.dev/v1/chat</div><div style="font-size:11px;color:#9aa6ff;margin-top:8px;">POST /v1/chat/completions</div><div style="font-size:10.5px;color:#c7cbf0;margin-top:6px;">{ "model": "synapse-large",<br>&nbsp;&nbsp;"stream": true }</div><div style="margin-top:10px;font-size:10.5px;color:#4ad6a0;">✓ 200 · 480ms · streaming…</div></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">51</span><span class="sector-name">AI / Developer Platform</span><span class="concept"><b>Dev-first dark</b> — indigo gradient + code panel, terminal proof. Taste: <i>design-md/cursor</i> × <i>claude</i>.</span><span class="swatches"><i style="background:#08080f"></i><i style="background:#7c8bff"></i><i style="background:#1a1d3a"></i><i style="background:#eef0ff"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 51 / 69</div></section>
+
+<!-- 52 MARKETPLACE -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">trovo.market</span></div>
+<div class="viewport" style="background:#fff7f5;color:#2b2b2b;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="color:#ff6a4d;">◇ Trovo</div><div class="links" style="color:#6a6a6a;"><span>Explore</span><span>Become a host</span><span>How it works</span></div><div class="cta" style="background:#ff6a4d;color:#fff;">Sign up free</div></nav>
+<div class="hero split" style="align-items:center;"><div><div class="eyebrow" style="color:#ff6a4d;">The local services marketplace</div>
+<h2 class="display" style="font-weight:800;margin:12px 0;letter-spacing:-.02em;">Find trusted pros,<br>book in a tap.</h2>
+<p class="lede" style="color:#5e5e5e;">From cleaners to tutors to handymen — vetted, reviewed, and bookable instantly. Pay securely, only when the job's done.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#ff6a4d;color:#fff;">Find a pro</span><span class="btn ghost" style="color:#2b2b2b;border:1px solid #e4cdc6;">List your service →</span></div></div>
+<div class="visual" style="background:linear-gradient(160deg,#ffd9cf,#ff6a4d);"><div class="card" style="top:16px;left:16px;right:40px;padding:11px 13px;display:flex;align-items:center;gap:10px;"><div style="width:34px;height:34px;border-radius:50%;background:#1fb6a6;"></div><div style="flex:1;"><div style="font-size:12px;font-weight:700;">Maria · House Cleaning</div><div style="font-size:10px;color:#9a8a86;">⭐ 4.9 (320) · from £18/hr</div></div><span style="font-size:10px;background:#1fb6a6;color:#fff;border-radius:5px;padding:4px 8px;font-weight:700;">Book</span></div><div class="card" style="bottom:16px;left:30px;right:16px;padding:11px 13px;display:flex;align-items:center;gap:10px;"><div style="width:34px;height:34px;border-radius:50%;background:#ffb13d;"></div><div style="flex:1;"><div style="font-size:12px;font-weight:700;">James · Handyman</div><div style="font-size:10px;color:#9a8a86;">⭐ 5.0 (140) · available today</div></div><span style="font-size:10px;background:#1fb6a6;color:#fff;border-radius:5px;padding:4px 8px;font-weight:700;">Book</span></div></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">52</span><span class="sector-name">Marketplace Platform</span><span class="concept"><b>Friendly two-sided</b> — coral + teal, provider cards, trust &amp; reviews. Taste: <i>design-md/airbnb</i>.</span><span class="swatches"><i style="background:#fff7f5"></i><i style="background:#ff6a4d"></i><i style="background:#1fb6a6"></i><i style="background:#2b2b2b"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 52 / 69</div></section>
+
+<!-- 53 LOGISTICS -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">cargoline.com</span></div>
+<div class="viewport" style="background:#f3f6fa;color:#0b1f3a;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="color:#0b1f3a;">▣ Cargoline</div><div class="links" style="color:#46607e;"><span>Freight</span><span>Tracking</span><span>Network</span><span>Quote</span></div><div class="cta" style="background:#ff8a3d;color:#0b1f3a;font-weight:700;">Get a rate</div></nav>
+<div class="hero split"><div><div class="eyebrow" style="color:#e06a14;">Global freight, simplified</div>
+<h2 class="display" style="font-weight:800;margin:14px 0;letter-spacing:-.02em;">Your cargo,<br>always in sight.</h2>
+<p class="lede" style="color:#46607e;">Sea, air and road freight with live tracking, instant quotes, and a team that answers. Move goods anywhere, with zero guesswork.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#0b1f3a;color:#fff;">Get an instant quote</span><span class="btn ghost" style="color:#0b1f3a;border:1px solid #c6d4e3;">Track a shipment →</span></div>
+<div class="stats" style="margin-top:24px;"><div><b style="color:#e06a14;">120+</b><span>Countries</span></div><div><b style="color:#e06a14;">Live</b><span>Tracking</span></div><div><b style="color:#e06a14;">98.6%</b><span>On time</span></div></div></div>
+<div class="visual" style="background:linear-gradient(160deg,#2a4a72,#0b1f3a);"><div class="card" style="inset:18px;padding:16px;"><div style="display:flex;justify-content:space-between;align-items:center;"><div style="font-size:12px;font-weight:700;color:#0b1f3a;">SHPMT-4821</div><span style="font-size:10px;background:#fff1e3;color:#e06a14;border-radius:5px;padding:3px 8px;font-weight:700;">In transit</span></div><div style="display:flex;align-items:center;gap:6px;margin:14px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#ff8a3d;"></span><span style="flex:1;height:3px;background:linear-gradient(90deg,#ff8a3d 60%,#cdd7e3 60%);"></span><span style="width:10px;height:10px;border-radius:50%;background:#cdd7e3;"></span></div><div style="font-size:10.5px;color:#6a7c92;">Shanghai → Rotterdam · ETA 14 Jun</div></div></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">53</span><span class="sector-name">Logistics / Freight</span><span class="concept"><b>Operational clarity</b> — navy + cargo orange, live-tracking card, hard numbers. Taste: <i>design-md/stripe</i>.</span><span class="swatches"><i style="background:#f3f6fa"></i><i style="background:#ff8a3d"></i><i style="background:#0b1f3a"></i><i style="background:#2a4a72"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 53 / 69</div></section>
+
+<!-- 54 MANUFACTURING -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">forgeworks-mfg.com</span></div>
+<div class="viewport" style="background:#1c2024;color:#e9ebed;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="font-weight:800;letter-spacing:.04em;">FORGEWORKS</div><div class="links" style="color:#9aa0a6;"><span>Capabilities</span><span>Industries</span><span>Quality</span><span>RFQ</span></div><div class="cta" style="background:#ffd21e;color:#1c2024;font-weight:800;">Request a quote</div></nav>
+<div class="hero split" style="align-items:center;"><div><div class="eyebrow" style="color:#ffd21e;">Precision contract manufacturing</div>
+<h2 class="display" style="font-weight:800;margin:12px 0;letter-spacing:-.02em;">Engineered to<br>spec. Built to last.</h2>
+<p class="lede" style="color:#a8aeb4;">CNC machining, fabrication and assembly for aerospace, medical and industrial clients. ISO 9001, tight tolerances, on-time delivery.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#ffd21e;color:#1c2024;font-weight:800;">Submit an RFQ</span><span class="btn ghost" style="color:#e9ebed;border:1px solid #34393f;">Our capabilities →</span></div></div>
+<div class="visual" style="background:linear-gradient(150deg,#33383e,#1c2024);"><div style="position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 16px,rgba(255,210,30,.10) 16px,rgba(255,210,30,.10) 20px);"></div><div class="card" style="bottom:16px;left:16px;right:16px;padding:12px 14px;background:#262b30;display:flex;justify-content:space-between;align-items:center;"><div style="font-size:12px;font-weight:800;color:#ffd21e;">Tolerance ±0.01mm</div><div style="font-size:10.5px;color:#9aa0a6;">5-axis CNC · 24/5</div></div></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">54</span><span class="sector-name">Industrial Manufacturing (B2B)</span><span class="concept"><b>Precise &amp; industrial</b> — steel grey + caution yellow, RFQ-led, spec proof. Taste: <i>design-md/ibm</i>.</span><span class="swatches"><i style="background:#1c2024"></i><i style="background:#ffd21e"></i><i style="background:#33383e"></i><i style="background:#e9ebed"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 54 / 69</div></section>
+
+<!-- 55 FLORIST -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">wildstem.flowers</span></div>
+<div class="viewport" style="background:#fbf5f3;color:#2e2a2c;font-family:Georgia,serif;">
+<nav class="site"><div class="logo" style="letter-spacing:.1em;font-weight:500;">Wild Stem</div><div class="links" style="font-family:-apple-system,sans-serif;color:#7a6a6e;"><span>Bouquets</span><span>Weddings</span><span>Subscriptions</span></div><div class="cta" style="background:#c45d7a;color:#fff;font-family:-apple-system,sans-serif;">Order flowers</div></nav>
+<div class="hero split" style="align-items:center;"><div><div class="eyebrow" style="color:#c45d7a;font-family:-apple-system,sans-serif;">Seasonal florist · same-day</div>
+<h2 class="display" style="font-weight:500;margin:14px 0;">Flowers that say<br>it better.</h2>
+<p class="lede" style="font-family:-apple-system,sans-serif;color:#7a6a6e;">Hand-tied, locally grown stems delivered across the city today. Send a moment — birthdays, apologies, just-because.</p>
+<div class="btnrow" style="margin-top:20px;font-family:-apple-system,sans-serif;"><span class="btn" style="background:#2e2a2c;color:#fff;">Send a bouquet</span><span class="btn ghost" style="color:#2e2a2c;border:1px solid #e2cdd4;">Weekly subscription →</span></div></div>
+<div class="visual" style="background:linear-gradient(160deg,#e7c2cd,#6f8f6a);"><div class="card" style="inset:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;"><div style="display:flex;gap:-6px;"><span style="width:26px;height:26px;border-radius:50%;background:#c45d7a;"></span><span style="width:26px;height:26px;border-radius:50%;background:#e8a3b6;margin-left:-6px;"></span><span style="width:26px;height:26px;border-radius:50%;background:#6f8f6a;margin-left:-6px;"></span></div><div style="font-family:Georgia,serif;font-size:14px;color:#2e2a2c;">The Wildflower</div><div style="font-family:-apple-system,sans-serif;font-size:12px;color:#8a7a7e;">from £38 · free delivery</div></div></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">55</span><span class="sector-name">Florist</span><span class="concept"><b>Soft botanical</b> — rose + sage, serif charm, same-day order CTA. Taste: <i>design-md/pinterest</i>.</span><span class="swatches"><i style="background:#fbf5f3"></i><i style="background:#c45d7a"></i><i style="background:#6f8f6a"></i><i style="background:#2e2a2c"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 55 / 69</div></section>
+
+<!-- 56 PRIVATE CHEF -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">tablenoir.co</span></div>
+<div class="viewport" style="background:#15110d;color:#f2e9da;font-family:Georgia,serif;">
+<nav class="site"><div class="logo" style="letter-spacing:.18em;font-weight:500;">TABLE NOIR</div><div class="links" style="font-family:-apple-system,sans-serif;color:#b8a888;"><span>Experiences</span><span>Menus</span><span>Chefs</span></div><div class="cta" style="background:#c9a36a;color:#15110d;font-family:-apple-system,sans-serif;">Enquire</div></nav>
+<div class="hero center" style="background:radial-gradient(120% 120% at 50% -20%,#241c12,#15110d 60%);"><div class="eyebrow" style="color:#c9a36a;font-family:-apple-system,sans-serif;">Private chefs &amp; fine catering</div>
+<h2 class="display" style="font-weight:500;margin:14px 0;max-width:18ch;">Restaurant nights,<br>at your table.</h2>
+<p class="lede" style="font-family:-apple-system,sans-serif;margin:0 auto;color:#cbbb98;">Michelin-trained chefs cook a bespoke tasting menu in your home — sourcing, service and the washing up included.</p>
+<div class="btnrow" style="justify-content:center;margin-top:20px;font-family:-apple-system,sans-serif;"><span class="btn" style="background:#c9a36a;color:#15110d;">Plan an evening</span><span class="btn ghost" style="color:#f2e9da;border:1px solid #3a2f20;">Sample menus →</span></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">56</span><span class="sector-name">Private Chef / Catering</span><span class="concept"><b>Moody culinary luxe</b> — near-black + gold serif, experience-led. Taste: <i>design-md/superhuman</i> restraint.</span><span class="swatches"><i style="background:#15110d"></i><i style="background:#c9a36a"></i><i style="background:#241c12"></i><i style="background:#f2e9da"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 56 / 69</div></section>
+
+<!-- 57 DAY SPA -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">aureliaspa.com</span></div>
+<div class="viewport" style="background:#f3efe8;color:#2e2a22;font-family:Georgia,serif;">
+<nav class="site"><div class="logo" style="letter-spacing:.14em;font-weight:500;">AURELIA</div><div class="links" style="font-family:-apple-system,sans-serif;color:#6c6354;"><span>Treatments</span><span>Day passes</span><span>Gift cards</span></div><div class="cta" style="background:#a98c5a;color:#fff;font-family:-apple-system,sans-serif;">Book a treatment</div></nav>
+<div class="hero split"><div><div class="eyebrow" style="color:#a98c5a;font-family:-apple-system,sans-serif;">Urban spa &amp; thermal retreat</div>
+<h2 class="display" style="font-weight:500;margin:14px 0;">Switch off.<br>For a few hours.</h2>
+<p class="lede" style="font-family:-apple-system,sans-serif;color:#6c6354;">Massage, facials and a thermal suite in the middle of the city. Slip away for an afternoon and leave glowing.</p>
+<div class="btnrow" style="margin-top:20px;font-family:-apple-system,sans-serif;"><span class="btn" style="background:#2e2a22;color:#fff;">Book a treatment</span><span class="btn ghost" style="color:#2e2a22;border:1px solid #d4c9b4;">Buy a gift card →</span></div></div>
+<div class="visual" style="background:linear-gradient(160deg,#cfd8c5,#a98c5a);"><span class="pill" style="top:16px;left:16px;color:#7a6336;font-family:-apple-system,sans-serif;">Thermal suite · open daily</span><div class="card" style="bottom:16px;left:16px;right:16px;padding:12px 14px;font-family:-apple-system,sans-serif;display:flex;justify-content:space-between;align-items:center;"><div><div style="font-size:10.5px;color:#8a8170;">Signature · 60 min</div><div style="font-size:13px;font-weight:700;color:#2e2a22;">Aurelia Glow Facial</div></div><div style="font-size:14px;font-weight:700;color:#a98c5a;">£95</div></div></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">57</span><span class="sector-name">Luxury Day Spa</span><span class="concept"><b>Serene &amp; gilded</b> — sand, sage &amp; soft gold, calm serif, booking-led. Taste: <i>design-md/apple</i> calm.</span><span class="swatches"><i style="background:#f3efe8"></i><i style="background:#a98c5a"></i><i style="background:#cfd8c5"></i><i style="background:#2e2a22"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 57 / 69</div></section>
+
+<!-- 58 EYEWEAR -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">iris-eyewear.com</span></div>
+<div class="viewport" style="background:#f6f5f3;color:#111;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="letter-spacing:.2em;font-weight:600;">IRIS</div><div class="links" style="color:#555;"><span>Glasses</span><span>Sunglasses</span><span>Home try-on</span></div><div class="cta" style="background:#111;color:#fff;">Try 5 at home</div></nav>
+<div class="hero split" style="align-items:center;"><div><div class="eyebrow" style="color:#c08a4a;">Designer frames, direct price</div>
+<h2 class="display" style="font-weight:700;margin:14px 0;letter-spacing:-.02em;">Frames worth<br>a second look.</h2>
+<p class="lede" style="color:#555;">Premium acetate and titanium frames from £95, lenses included. Try five at home, free — keep the one that's you.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#111;color:#fff;">Start home try-on</span><span class="btn ghost" style="color:#111;border:1px solid #d8d4ce;">Shop all frames →</span></div></div>
+<div class="visual" style="background:linear-gradient(160deg,#e7e2da,#cbb89c);display:flex;align-items:center;justify-content:center;"><div style="display:flex;gap:10px;align-items:center;"><span style="width:54px;height:34px;border:5px solid #111;border-radius:14px;"></span><span style="width:14px;height:5px;background:#111;"></span><span style="width:54px;height:34px;border:5px solid #c08a4a;border-radius:14px;"></span></div><span class="pill" style="bottom:16px;left:16px;color:#a06f2c;">Free try-on · 5 frames</span></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">58</span><span class="sector-name">Eyewear (DTC)</span><span class="concept"><b>Clean product-first</b> — off-white + amber accent, frame motif, try-at-home CTA. Taste: <i>design-md/apple</i>.</span><span class="swatches"><i style="background:#f6f5f3"></i><i style="background:#111111"></i><i style="background:#c08a4a"></i><i style="background:#cbb89c"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 58 / 69</div></section>
+
+<!-- 59 PHYSIO -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">kineticphysio.com</span></div>
+<div class="viewport" style="background:#f4f7fb;color:#0c1e33;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="color:#1565d8;">⟁ Kinetic</div><div class="links" style="color:#46607e;"><span>Physio</span><span>Sports rehab</span><span>Pricing</span><span>Team</span></div><div class="cta" style="background:#1565d8;color:#fff;">Book assessment</div></nav>
+<div class="hero split"><div><div class="eyebrow" style="color:#1565d8;">Physiotherapy &amp; sports rehab</div>
+<h2 class="display" style="font-weight:800;margin:14px 0;letter-spacing:-.02em;">Move better.<br>Recover faster.</h2>
+<p class="lede" style="color:#46607e;">Expert, hands-on treatment to get you back to full strength — and keep you there. Same-week assessments, evening clinics.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#0c1e33;color:#fff;">Book an assessment</span><span class="btn ghost" style="color:#0c1e33;border:1px solid #cdddef;">See pricing →</span></div>
+<div class="stats" style="margin-top:24px;"><div><b style="color:#1565d8;">Same wk</b><span>Booking</span></div><div><b style="color:#1565d8;">HCPC</b><span>Registered</span></div><div><b style="color:#1565d8;">4.9★</b><span>600 reviews</span></div></div></div>
+<div class="visual" style="background:linear-gradient(160deg,#9ec4f0,#1565d8);"><div style="position:absolute;inset:0;background:linear-gradient(135deg,transparent 55%,rgba(198,242,78,.4));"></div><div class="card" style="inset:18px;padding:16px;"><div style="font-size:11px;color:#5b7088;">Recovery progress</div><svg viewBox="0 0 200 70" style="width:100%;height:64px;margin-top:8px;"><polyline points="0,60 40,52 80,40 120,30 160,18 200,8" fill="none" stroke="#1565d8" stroke-width="3"/><circle cx="200" cy="8" r="5" fill="#9ec524"/></svg><div style="font-size:10.5px;color:#5b7088;">Week 6 · 92% range restored</div></div></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">59</span><span class="sector-name">Physiotherapy / Sports Rehab</span><span class="concept"><b>Active &amp; clinical</b> — clean blue + energetic lime, progress viz, fast booking. Taste: <i>design-md/linear.app</i>.</span><span class="swatches"><i style="background:#f4f7fb"></i><i style="background:#1565d8"></i><i style="background:#c6f24e"></i><i style="background:#0c1e33"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 59 / 69</div></section>
+
+<!-- 60 NURSERY -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">littleacorns.nursery</span></div>
+<div class="viewport" style="background:#fff7ec;color:#3a3026;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="font-weight:800;color:#f2994a;">🌰 Little Acorns</div><div class="links" style="color:#7a6e5c;"><span>Our setting</span><span>Curriculum</span><span>Fees</span><span>Visit</span></div><div class="cta" style="background:#4cb3a9;color:#fff;">Book a visit</div></nav>
+<div class="hero split" style="align-items:center;"><div><div class="eyebrow" style="color:#f2994a;">Day nursery &amp; early years · 0–5</div>
+<h2 class="display" style="font-weight:800;margin:12px 0;letter-spacing:-.02em;">Where little ones<br>love to grow.</h2>
+<p class="lede" style="color:#7a6e5c;">A warm, Ofsted-rated nursery with garden play, home-cooked meals and qualified, caring staff. Funded places available.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#4cb3a9;color:#fff;">Book a show-round</span><span class="btn ghost" style="color:#3a3026;border:1px solid #ecdcc4;">Check funding →</span></div></div>
+<div class="visual" style="background:linear-gradient(160deg,#ffd9a8,#f2994a);"><div style="position:absolute;top:20px;left:20px;display:flex;gap:8px;"><span style="width:30px;height:30px;border-radius:8px;background:#4cb3a9;"></span><span style="width:30px;height:30px;border-radius:50%;background:#fff;"></span><span style="width:30px;height:30px;border-radius:8px;background:#e85d75;"></span></div><span class="pill" style="bottom:16px;left:16px;color:#4cb3a9;">Ofsted · Good</span></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">60</span><span class="sector-name">Nursery / Early Years</span><span class="concept"><b>Warm &amp; playful</b> — cream, apricot + teal, rounded, reassuring. Taste: <i>design-md/cal</i> friendliness.</span><span class="swatches"><i style="background:#fff7ec"></i><i style="background:#f2994a"></i><i style="background:#4cb3a9"></i><i style="background:#3a3026"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 60 / 69</div></section>
+
+<!-- 61 UNIVERSITY -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">westbourne.ac.uk</span></div>
+<div class="viewport" style="background:#f5f6f9;color:#0e2148;font-family:Georgia,serif;">
+<nav class="site"><div class="logo" style="letter-spacing:.04em;">Westbourne</div><div class="links" style="font-family:-apple-system,sans-serif;color:#46587a;"><span>Study</span><span>Research</span><span>Campus</span><span>Apply</span></div><div class="cta" style="background:#c9a24a;color:#0e2148;font-family:-apple-system,sans-serif;font-weight:700;">Apply now</div></nav>
+<div class="hero split"><div><div class="eyebrow" style="color:#a8842e;font-family:-apple-system,sans-serif;">Established 1887 · Russell-group calibre</div>
+<h2 class="display" style="font-weight:500;margin:14px 0;">Where ambition<br>finds its footing.</h2>
+<p class="lede" style="font-family:-apple-system,sans-serif;color:#46587a;">World-class teaching, research that matters, and a campus that feels like home. Undergraduate &amp; postgraduate places open for 2027 entry.</p>
+<div class="btnrow" style="margin-top:20px;font-family:-apple-system,sans-serif;"><span class="btn" style="background:#0e2148;color:#fff;">Explore courses</span><span class="btn ghost" style="color:#0e2148;border:1px solid #c6cdda;">Book an open day →</span></div></div>
+<div class="visual" style="background:linear-gradient(160deg,#3a527e,#0e2148);"><span class="pill" style="top:16px;left:16px;color:#0e2148;font-family:-apple-system,sans-serif;">Top 10 for student satisfaction</span><div class="card" style="bottom:16px;left:16px;right:16px;padding:12px 14px;font-family:-apple-system,sans-serif;display:flex;justify-content:space-around;text-align:center;"><div><div style="font-size:17px;font-weight:800;color:#0e2148;">94%</div><div style="font-size:9.5px;color:#7a86a0;">Grad employed</div></div><div><div style="font-size:17px;font-weight:800;color:#0e2148;">300+</div><div style="font-size:9.5px;color:#7a86a0;">Courses</div></div><div><div style="font-size:17px;font-weight:800;color:#0e2148;">1:14</div><div style="font-size:9.5px;color:#7a86a0;">Staff ratio</div></div></div></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">61</span><span class="sector-name">University / Higher Ed</span><span class="concept"><b>Prestige &amp; warmth</b> — academic navy + gold serif, stats, apply CTA. Taste: editorial institutional.</span><span class="swatches"><i style="background:#f5f6f9"></i><i style="background:#0e2148"></i><i style="background:#c9a24a"></i><i style="background:#3a527e"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 61 / 69</div></section>
+
+<!-- 62 COWORKING -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">thehangar.work</span></div>
+<div class="viewport" style="background:#1b1a18;color:#f0ece5;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="font-weight:800;letter-spacing:.04em;">THE HANGAR</div><div class="links" style="color:#a8a39a;"><span>Spaces</span><span>Membership</span><span>Events</span><span>Tour</span></div><div class="cta" style="background:#ff7a35;color:#1b1a18;font-weight:700;">Book a tour</div></nav>
+<div class="hero split" style="align-items:center;"><div><div class="eyebrow" style="color:#ff7a35;">Workspace with character</div>
+<h2 class="display" style="font-weight:800;margin:12px 0;letter-spacing:-.02em;">Work somewhere<br>you'd choose to be.</h2>
+<p class="lede" style="color:#b3aea4;">Hot desks, private studios and meeting rooms in a restored warehouse. Fast wifi, great coffee, a community that ships.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#ff7a35;color:#1b1a18;font-weight:700;">Book a tour</span><span class="btn ghost" style="color:#f0ece5;border:1px solid #34322d;">See membership →</span></div></div>
+<div class="visual" style="background:linear-gradient(150deg,#2c2a26,#1b1a18);"><span style="position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 30px,rgba(255,122,53,.07) 30px,rgba(255,122,53,.07) 32px);"></span><div class="card" style="bottom:16px;left:16px;right:16px;padding:12px 14px;background:#26241f;display:flex;justify-content:space-between;align-items:center;"><div><div style="font-size:10.5px;color:#a8a39a;">From</div><div style="font-size:16px;font-weight:800;color:#ff7a35;">£189<span style="font-size:11px;font-weight:500;">/mo</span></div></div><div style="font-size:10px;color:#a8a39a;">Hot desk · 24/7 access</div></div></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">62</span><span class="sector-name">Coworking Space</span><span class="concept"><b>Industrial-warm</b> — warehouse charcoal + orange, membership pricing, tour CTA. Taste: <i>design-md/warp</i>.</span><span class="swatches"><i style="background:#1b1a18"></i><i style="background:#ff7a35"></i><i style="background:#2c2a26"></i><i style="background:#f0ece5"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 62 / 69</div></section>
+
+<!-- 63 PROPERTY DEVELOPER -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">aetherdevelopments.com</span></div>
+<div class="viewport" style="background:#14171a;color:#f0ece4;font-family:Georgia,serif;">
+<nav class="site"><div class="logo" style="letter-spacing:.12em;font-weight:500;">AETHER</div><div class="links" style="font-family:-apple-system,sans-serif;color:#b0a994;"><span>Developments</span><span>Investors</span><span>Approach</span></div><div class="cta" style="background:#b89a64;color:#14171a;font-family:-apple-system,sans-serif;">Register interest</div></nav>
+<div class="hero split"><div><div class="eyebrow" style="color:#b89a64;font-family:-apple-system,sans-serif;">Premium residential development</div>
+<h2 class="display" style="font-weight:500;margin:14px 0;">Homes built<br>for the long view.</h2>
+<p class="lede" style="font-family:-apple-system,sans-serif;color:#cabfa6;">Architecturally-led developments in places people want to stay. Now releasing a collection of riverside residences.</p>
+<div class="btnrow" style="margin-top:20px;font-family:-apple-system,sans-serif;"><span class="btn" style="background:#b89a64;color:#14171a;">Register interest</span><span class="btn ghost" style="color:#f0ece4;border:1px solid #34352e;">View developments →</span></div></div>
+<div class="visual" style="background:linear-gradient(160deg,#6b5e44,#b89a64);"><div class="card" style="bottom:16px;left:16px;right:16px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;"><div><div style="font-size:10.5px;color:#8a8170;font-family:-apple-system,sans-serif;">Now launching</div><div style="font-size:14px;font-weight:700;color:#14171a;">Riverside · Phase I</div></div><div style="font-size:13px;font-weight:700;color:#14171a;font-family:-apple-system,sans-serif;">from £685k</div></div><span class="pill" style="top:16px;left:16px;color:#6b5e44;font-family:-apple-system,sans-serif;">42 residences</span></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">63</span><span class="sector-name">Property Developer</span><span class="concept"><b>Architectural luxe</b> — graphite + champagne serif, development showcase. Taste: <i>design-md/apple</i> × estate.</span><span class="swatches"><i style="background:#14171a"></i><i style="background:#b89a64"></i><i style="background:#6b5e44"></i><i style="background:#f0ece4"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 63 / 69</div></section>
+
+<!-- 64 CAR DEALERSHIP -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">marque-motors.com</span></div>
+<div class="viewport" style="background:#0c0d0f;color:#ededed;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="letter-spacing:.16em;font-weight:700;">MARQUE</div><div class="links" style="color:#9b9ea3;"><span>Showroom</span><span>Sell your car</span><span>Finance</span><span>Visit</span></div><div class="cta" style="background:#d11a2a;color:#fff;font-weight:700;">Browse stock</div></nav>
+<div class="hero split" style="align-items:center;"><div><div class="eyebrow" style="color:#e23d4b;">Prestige &amp; performance cars</div>
+<h2 class="display" style="font-weight:800;margin:12px 0;letter-spacing:-.02em;">The keys to<br>something special.</h2>
+<p class="lede" style="color:#a8abb0;">A hand-picked showroom of prestige marques, fully inspected and warrantied. Flexible finance, nationwide delivery.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#d11a2a;color:#fff;font-weight:700;">View the showroom</span><span class="btn ghost" style="color:#ededed;border:1px solid #2a2c30;">Value my car →</span></div></div>
+<div class="visual" style="background:linear-gradient(135deg,#23262b,#0c0d0f);"><div style="position:absolute;bottom:26px;left:24px;right:24px;height:54px;border-radius:40px 40px 8px 8px;background:linear-gradient(180deg,#3a3d44,#15171a);box-shadow:0 16px 36px rgba(209,26,42,.18);border:1px solid #2a2c30;"></div><span class="pill" style="top:16px;left:16px;color:#a01421;">120-point inspected</span></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">64</span><span class="sector-name">Luxury Car Dealership</span><span class="concept"><b>Sleek &amp; bold</b> — black + signal red, silhouette, finance CTA. Taste: <i>design-md/bmw</i>.</span><span class="swatches"><i style="background:#0c0d0f"></i><i style="background:#d11a2a"></i><i style="background:#23262b"></i><i style="background:#ededed"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 64 / 69</div></section>
+
+<!-- 65 CLEANING -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">sparkleclean.co</span></div>
+<div class="viewport" style="background:#f2fbfd;color:#103a40;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="color:#18b6c9;font-weight:800;">✦ Sparkle</div><div class="links" style="color:#48727a;"><span>Home</span><span>Office</span><span>End of tenancy</span><span>Pricing</span></div><div class="cta" style="background:#18b6c9;color:#fff;">Get a price</div></nav>
+<div class="hero split" style="align-items:center;"><div><div class="eyebrow" style="color:#0f9aab;">Professional home &amp; office cleaning</div>
+<h2 class="display" style="font-weight:800;margin:12px 0;letter-spacing:-.02em;">Come home to<br>spotless.</h2>
+<p class="lede" style="color:#48727a;">Vetted, insured cleaners, flexible slots, and a sparkle guarantee. Book in 60 seconds — weekly, one-off, or end-of-tenancy.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#103a40;color:#fff;">Get an instant price</span><span class="btn ghost" style="color:#103a40;border:1px solid #bfe7ec;">How it works →</span></div></div>
+<div class="visual" style="background:linear-gradient(160deg,#bfeef4,#18b6c9);"><div class="card" style="inset:18px;padding:16px;"><div style="font-size:11px;color:#5a8088;">Your quote</div><div style="font-size:22px;font-weight:800;color:#18b6c9;">£42 <span style="font-size:12px;font-weight:500;color:#7a9aa0;">/ clean</span></div><div style="font-size:10.5px;color:#5a8088;margin:8px 0;">3 bed · weekly · incl. products</div><div style="font-size:11px;background:#18b6c9;color:#fff;border-radius:7px;padding:8px;text-align:center;font-weight:700;">Book this slot</div></div></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">65</span><span class="sector-name">Home Cleaning Service</span><span class="concept"><b>Fresh &amp; instant</b> — bright cyan, instant-quote card, trust badges. Taste: <i>design-md/cal</i> simplicity.</span><span class="swatches"><i style="background:#f2fbfd"></i><i style="background:#18b6c9"></i><i style="background:#bfeef4"></i><i style="background:#103a40"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 65 / 69</div></section>
+
+<!-- 66 HOME SERVICES -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">comfortpro.co.uk</span></div>
+<div class="viewport" style="background:#eef3f8;color:#0e2a47;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="color:#0e2a47;font-weight:800;">⚙ ComfortPro</div><div class="links" style="color:#46607e;"><span>Heating</span><span>Plumbing</span><span>Aircon</span><span>Emergency</span></div><div class="cta" style="background:#ff7a1a;color:#fff;font-weight:700;">Book engineer</div></nav>
+<div class="hero split"><div><div class="eyebrow" style="color:#e06410;">Heating, plumbing &amp; cooling</div>
+<h2 class="display" style="font-weight:800;margin:14px 0;letter-spacing:-.02em;">Sorted today,<br>not next week.</h2>
+<p class="lede" style="color:#46607e;">Gas-Safe engineers for boilers, leaks and aircon — often same day. Upfront pricing, tidy work, 12-month guarantee.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#0e2a47;color:#fff;">Book an engineer</span><span class="btn ghost" style="color:#0e2a47;border:1px solid #c9d6e3;">24/7 emergency →</span></div>
+<div class="stats" style="margin-top:24px;"><div><b style="color:#e06410;">Same day</b><span>Call-outs</span></div><div><b style="color:#e06410;">Gas-Safe</b><span>Registered</span></div><div><b style="color:#e06410;">4.9★</b><span>2,400 jobs</span></div></div></div>
+<div class="visual" style="background:linear-gradient(160deg,#7aa3cc,#0e2a47);"><div class="card" style="top:18px;right:18px;width:160px;padding:14px;"><div style="font-size:11px;color:#5b7088;">Next engineer</div><div style="font-size:17px;font-weight:800;color:#0e2a47;">Today, 14:00</div><div style="font-size:10.5px;background:#fff1e3;color:#e06410;border-radius:6px;padding:6px;text-align:center;font-weight:700;margin-top:8px;">Reserve slot</div></div><span class="pill" style="bottom:18px;left:18px;color:#0e2a47;">⭐ Which? Trusted Trader</span></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">66</span><span class="sector-name">HVAC / Home Services</span><span class="concept"><b>Reliable &amp; reassuring</b> — trust navy + warm orange, same-day booking, accreditations. Taste: <i>design-md/stripe</i>.</span><span class="swatches"><i style="background:#eef3f8"></i><i style="background:#ff7a1a"></i><i style="background:#0e2a47"></i><i style="background:#7aa3cc"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 66 / 69</div></section>
+
+<!-- 67 COSMETICS -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">lushlab.beauty</span></div>
+<div class="viewport" style="background:#fff0f5;color:#2b2030;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="font-weight:800;color:#e84393;">LUSH LAB</div><div class="links" style="color:#7a6070;"><span>Lips</span><span>Eyes</span><span>Skin</span><span>Sets</span></div><div class="cta" style="background:#e84393;color:#fff;">Shop new in</div></nav>
+<div class="hero split" style="align-items:center;"><div><div class="eyebrow" style="color:#e84393;">Cruelty-free colour cosmetics</div>
+<h2 class="display" style="font-weight:800;margin:12px 0;letter-spacing:-.02em;">Pigment that<br>shows up loud.</h2>
+<p class="lede" style="color:#7a6070;">High-impact, skin-loving makeup that lasts all day and night. Vegan, refillable, and tested on humans who love it.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#2b2030;color:#fff;">Shop bestsellers</span><span class="btn ghost" style="color:#2b2030;border:1px solid #f2cbdd;">Take the shade quiz →</span></div></div>
+<div class="visual" style="background:linear-gradient(160deg,#ffd1e3,#e84393);"><div class="card" style="inset:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;"><div style="display:flex;gap:6px;"><span style="width:18px;height:42px;border-radius:9px;background:#e84393;"></span><span style="width:18px;height:42px;border-radius:9px;background:#ff7a1a;"></span><span style="width:18px;height:42px;border-radius:9px;background:#a0408a;"></span></div><div style="font-weight:800;color:#2b2030;">Velvet Matte Lip</div><div style="font-size:12px;color:#8a7080;">12 shades · £16</div></div><span class="pill" style="top:16px;right:16px;color:#c41f73;">♻ Refillable</span></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">67</span><span class="sector-name">Cosmetics / Makeup (DTC)</span><span class="concept"><b>Bold &amp; glam</b> — hot pink + cream, product swatches, shade-quiz CTA. Taste: <i>design-md/revolut</i> vibrancy.</span><span class="swatches"><i style="background:#fff0f5"></i><i style="background:#e84393"></i><i style="background:#ffd1e3"></i><i style="background:#2b2030"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 67 / 69</div></section>
+
+<!-- 68 TELEHEALTH -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">carenow.health</span></div>
+<div class="viewport" style="background:#f3fbfa;color:#0c2e2b;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="color:#14b8a6;font-weight:800;">✚ CareNow</div><div class="links" style="color:#46726c;"><span>How it works</span><span>Conditions</span><span>Pricing</span><span>App</span></div><div class="cta" style="background:#14b8a6;color:#fff;">See a doctor</div></nav>
+<div class="hero split" style="align-items:center;"><div><div class="eyebrow" style="color:#0f9e8f;">See a GP from your sofa</div>
+<h2 class="display" style="font-weight:800;margin:12px 0;letter-spacing:-.02em;">A doctor, online,<br>in minutes.</h2>
+<p class="lede" style="color:#46726c;">Video appointments with UK GPs, prescriptions to your door, and notes you keep. No waiting rooms, day or night.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#0c2e2b;color:#fff;">Book an appointment</span><span class="btn ghost" style="color:#0c2e2b;border:1px solid #bfe6e1;">Get the app →</span></div></div>
+<div class="visual" style="background:linear-gradient(160deg,#14b8a6,#0c2e2b);display:flex;align-items:center;justify-content:center;"><div style="width:150px;height:230px;border-radius:26px;background:#fff;box-shadow:0 22px 50px rgba(20,184,166,.22);padding:12px;display:flex;flex-direction:column;gap:8px;"><div style="height:78px;border-radius:12px;background:linear-gradient(135deg,#bfeae4,#14b8a6);"></div><div style="font-size:11px;font-weight:700;color:#0c2e2b;">Dr. Owen · GP</div><div style="font-size:10px;color:#7a9a95;">🟢 Online now · joins in 2 min</div><div style="font-size:11px;background:#14b8a6;color:#fff;border-radius:8px;padding:8px;text-align:center;font-weight:700;margin-top:auto;">Start video call</div></div></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">68</span><span class="sector-name">Telehealth App</span><span class="concept"><b>Calm &amp; instant care</b> — medical teal, phone mockup, book-now flow. Taste: <i>design-md/intercom</i>.</span><span class="swatches"><i style="background:#f3fbfa"></i><i style="background:#14b8a6"></i><i style="background:#bfeae4"></i><i style="background:#0c2e2b"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 68 / 69</div></section>
+
+<!-- 69 GOLF CLUB -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">heathparkgolf.com</span></div>
+<div class="viewport" style="background:#14331f;color:#eef0e6;font-family:Georgia,serif;">
+<nav class="site"><div class="logo" style="letter-spacing:.1em;font-weight:500;">HEATH PARK</div><div class="links" style="font-family:-apple-system,sans-serif;color:#bcceb4;"><span>The course</span><span>Membership</span><span>Events</span><span>Visit</span></div><div class="cta" style="background:#c9b06a;color:#14331f;font-family:-apple-system,sans-serif;">Book a tee time</div></nav>
+<div class="hero center" style="background:radial-gradient(120% 120% at 50% -20%,#1c4429,#14331f 60%);"><div class="eyebrow" style="color:#c9b06a;font-family:-apple-system,sans-serif;">Championship parkland course · est. 1908</div>
+<h2 class="display" style="font-weight:500;margin:14px 0;max-width:18ch;">Eighteen holes<br>worth the round.</h2>
+<p class="lede" style="font-family:-apple-system,sans-serif;margin:0 auto;color:#cdd9c5;">A storied parkland course, a warm clubhouse, and membership without the wait. Visitors and societies welcome.</p>
+<div class="btnrow" style="justify-content:center;margin-top:20px;font-family:-apple-system,sans-serif;"><span class="btn" style="background:#c9b06a;color:#14331f;">Book a tee time</span><span class="btn ghost" style="color:#eef0e6;border:1px solid #2f5238;">Membership →</span></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">69</span><span class="sector-name">Golf / Country Club</span><span class="concept"><b>Heritage &amp; refined</b> — fairway green + gold serif, tee-time CTA. Taste: editorial members' club.</span><span class="swatches"><i style="background:#14331f"></i><i style="background:#c9b06a"></i><i style="background:#1c4429"></i><i style="background:#eef0e6"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 69 / 69</div></section>
+
+</body></html>
