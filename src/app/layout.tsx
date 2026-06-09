@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Taste-Skill",
-  description: "Next.js app with shadcn/ui",
+  title: "Founder Research Agents",
+  description:
+    "Pitch a startup idea and get a multi-agent market research report: competitors, pricing, funding, gaps, positioning, and a launch plan.",
 };
 
 export default function RootLayout({
