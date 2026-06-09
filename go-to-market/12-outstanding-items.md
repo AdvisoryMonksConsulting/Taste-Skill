@@ -57,3 +57,9 @@ Live site on `veskadesign.com` (About, booking, contact, deposit, legal, 10 desi
 - **Campaign:** renamed "Med Spa UK (Batch 1)", timezone Europe/Belgrade (~UK 9–4), copy tuned to "aesthetics clinics" (UK term). Still PAUSED, 6 inboxes.
 - **Batch 1 list (queued, no spend):** UK/IE aesthetics on builders — `q_organization_keyword_tags`: med spa, medical aesthetics, aesthetics clinic, skin clinic, cosmetic clinic · titles Owner/Founder/Medical Director/Clinic Director · `currently_using_any` wix/squarespace/wordpress_org · UK+IE. (~139 pure med-spa; broaden keywords for ~200.)
 - **Remaining (user toggles):** connect last 2 inboxes → start WARMUP (gate now clear) → identity/signatures → redirect domains. Enrichment+import held until ~1 wk pre-launch.
+
+## ✅ Progress update 2
+- **3 campaigns built & PAUSED** (same safe format, 6 inboxes): Med Spa UK (Batch 1) `d8b5e012`, Ad-spenders (Batch 2) `9addd62b`, SaaS (Batch 3) `dc3d9d31`.
+- **`hello@veskadesign.com`** email set on veskadesign.com (full Google MX + SPF + DKIM + DMARC). Finish DKIM: Admin → Apps → Gmail → Authenticate email → veskadesign.com → Start authentication.
+- **ICP client demos** live: /demos/lumiere (aesthetics), /serene (med spa), /bright-smile (dental). **Sales kit:** `13-sales-kit.md`.
+- Remaining: Razorpay KYC · 2 stuck inboxes (Google lockout) · warmup ~3 wks · then enrich+import+launch.
