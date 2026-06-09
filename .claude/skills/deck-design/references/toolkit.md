@@ -9,7 +9,7 @@ Star counts approximate as of early 2026 (relative standing, not exact).
 
 | Skill / repo | ~Stars | What | Install |
 |---|---|---|---|
-| **anthropics/skills** — official | ~148k | Ready-made `pptx`, `pdf`, `docx`, `xlsx` document skills (Apache-2.0). Generate **editable** Office files, fill PDF forms, build spreadsheets. | `/plugin marketplace add anthropics/skills` → `/plugin install document-skills@anthropic-agent-skills` |
+| **anthropics/skills** — official | ~148k | Ready-made `pptx`, `pdf`, `docx`, `xlsx` document skills + design skills (`frontend-design`, `brand-guidelines`, `canvas-design`, `theme-factory`). Generate **editable** Office files, fill PDF forms, build spreadsheets. **Repo is Apache-2.0 but the skill folders are proprietary / source-available — install via the plugin, do NOT copy them into a repo.** | `/plugin marketplace add anthropics/skills` → `/plugin install document-skills@anthropic-agent-skills` |
 | **travisvn/awesome-claude-skills** | — | Curated index of community Claude Skills | browse repo |
 | **ComposioHQ/awesome-claude-skills** | — | Another curated skills index | browse repo |
 | **VoltAgent/awesome-agent-skills** | — | 1000+ agent skills (Claude Code, Codex, Gemini CLI, Cursor) | browse repo |

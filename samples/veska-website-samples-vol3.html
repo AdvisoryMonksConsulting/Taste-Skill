@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Veska — Website Samples · Volume III</title>
+<style>
+  :root{ --navy:#061C33; --navy2:#0c2b4a; }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  @page{ size:A4 landscape; margin:0; }
+  html,body{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body{ font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif; color:#0b0b0b; }
+  .page{ position:relative; width:297mm; height:210mm; overflow:hidden; page-break-after:always; display:flex; flex-direction:column; background:#eef1f4; }
+  .page:last-child{ page-break-after:auto; }
+  .cover{ background:radial-gradient(120% 120% at 80% 10%, var(--navy2), var(--navy) 60%); color:#fff; justify-content:space-between; padding:22mm 24mm; }
+  .cover .top{ display:flex; justify-content:space-between; align-items:flex-start; }
+  .brandmark{ display:flex; align-items:center; gap:12px; }
+  .brandmark .dot{ width:30px;height:30px;border-radius:8px;background:#fff;position:relative;}
+  .brandmark .dot::after{content:"";position:absolute;inset:8px;border-radius:3px;background:var(--navy);}
+  .brandmark .name{ font-size:24px;font-weight:700;letter-spacing:.16em; }
+  .cover .kicker{ font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:#9bb4cf; }
+  .cover h1{ font-family:Georgia,'Times New Roman',serif;font-weight:500;font-size:68px;line-height:1.04;letter-spacing:-.01em;max-width:21ch; }
+  .cover h1 em{ font-style:italic;color:#cfe0f3; }
+  .cover .sub{ margin-top:18px;font-size:17px;color:#c4d3e4;max-width:64ch;line-height:1.55; }
+  .cover .foot{ display:flex;justify-content:space-between;align-items:flex-end;font-size:12px;color:#8fa8c4; }
+  .chips{ display:flex;gap:8px;flex-wrap:wrap;margin-top:24px;max-width:94%; }
+  .chip{ font-size:11px;letter-spacing:.05em;padding:7px 12px;border:1px solid rgba(255,255,255,.22);border-radius:999px;color:#dbe6f2; }
+  .sample{ padding:11mm 13mm 9mm; }
+  .browser{ flex:1;border-radius:14px;overflow:hidden;box-shadow:0 18px 50px rgba(6,28,51,.20),0 2px 6px rgba(0,0,0,.08);background:#fff;display:flex;flex-direction:column;border:1px solid rgba(6,28,51,.08); }
+  .bar{ height:34px;background:#f3f4f6;border-bottom:1px solid #e6e8ec;display:flex;align-items:center;gap:8px;padding:0 14px;flex:0 0 auto; }
+  .bar i{ width:11px;height:11px;border-radius:50%;display:inline-block; }
+  .bar .r{background:#ff5f57;} .bar .y{background:#febc2e;} .bar .g{background:#28c840;}
+  .bar .url{ margin-left:12px;font-size:11px;color:#7a7f87;background:#fff;border:1px solid #e6e8ec;border-radius:6px;padding:4px 12px;min-width:240px; }
+  .viewport{ flex:1;position:relative;overflow:hidden;display:flex;flex-direction:column; }
+  nav.site{ display:flex;align-items:center;justify-content:space-between;padding:16px 30px;flex:0 0 auto; }
+  nav.site .logo{ font-weight:700;font-size:16px;letter-spacing:.04em; }
+  nav.site .links{ display:flex;gap:22px;font-size:12.5px;opacity:.8; }
+  nav.site .cta{ font-size:12px;padding:9px 16px;border-radius:999px;font-weight:600; }
+  .hero{ flex:1;display:grid;padding:30px;gap:24px;align-content:center; }
+  .hero.split{ grid-template-columns:1.1fr .9fr;align-items:center; }
+  .hero.center{ justify-items:center;text-align:center; }
+  .eyebrow{ font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600; }
+  .display{ font-size:40px;line-height:1.05;letter-spacing:-.01em; }
+  .lede{ font-size:14px;line-height:1.55;opacity:.78;max-width:42ch; }
+  .btnrow{ display:flex;gap:12px;align-items:center;flex-wrap:wrap; }
+  .btn{ font-size:12.5px;font-weight:600;padding:11px 20px;border-radius:10px; }
+  .btn.ghost{ background:transparent; }
+  .visual{ height:100%;min-height:170px;border-radius:14px;position:relative;overflow:hidden; }
+  .stats{ display:flex;gap:26px;margin-top:6px; }
+  .stats div b{ display:block;font-size:24px; } .stats div span{ font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.6; }
+  .pill{ position:absolute;font-size:11px;padding:7px 12px;border-radius:999px;background:#fff;box-shadow:0 8px 22px rgba(0,0,0,.14);font-weight:600; }
+  .card{ position:absolute;background:#fff;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.14); }
+  .meta-strip{ flex:0 0 auto;display:flex;align-items:center;gap:18px;padding:9px 4px 0; }
+  .sector-no{ font-family:Georgia,serif;font-size:13px;color:#061C33;font-weight:700; }
+  .sector-name{ font-size:13px;font-weight:700;color:#0b1726; }
+  .concept{ font-size:11.5px;color:#56606c;flex:1;line-height:1.4; } .concept b{ color:#1c2a3a;font-weight:600; }
+  .swatches{ display:flex;gap:6px; } .swatches i{ width:16px;height:16px;border-radius:4px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);display:inline-block; }
+  .delivery{ font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#061C33;border:1px solid rgba(6,28,51,.18);border-radius:999px;padding:6px 11px;white-space:nowrap; }
+  .pageno{ position:absolute;bottom:5mm;right:13mm;font-size:10px;color:#9aa6b3;letter-spacing:.1em; }
+</style></head><body>
+
+<!-- COVER -->
+<section class="page cover">
+  <div class="top"><div class="brandmark"><span class="dot"></span><span class="name">VESKA</span></div>
+  <div style="text-align:right"><div class="kicker">Design Studio</div><div style="font-size:12px;color:#9bb4cf;margin-top:6px">veskadesign.com</div></div></div>
+  <div>
+    <div class="kicker" style="margin-bottom:18px">Sample Concepts · Volume III · 20 more sectors</div>
+    <h1>Twenty more, built with the same <em>taste.</em></h1>
+    <p class="sub">Generated with our deck-design system — navy cover, browser-framed mockups, design-to-taste per page. From personal brands to private equity: premium, 5-day, you own the code.</p>
+    <div class="chips"><span class="chip">Coach</span><span class="chip">Podcast</span><span class="chip">Brewery</span><span class="chip">Winery</span><span class="chip">Hair Salon</span><span class="chip">Barbershop</span><span class="chip">Tattoo</span><span class="chip">Music</span><span class="chip">Film</span><span class="chip">Esports</span><span class="chip">Insurance</span><span class="chip">Mortgage</span><span class="chip">Solar</span><span class="chip">Landscaping</span><span class="chip">Pet Brand</span><span class="chip">School</span><span class="chip">Museum</span><span class="chip">Furniture</span><span class="chip">Bakery</span><span class="chip">Consulting</span></div>
+  </div>
+  <div class="foot"><div>Powered by Advisory Monks Consulting</div><div>Concept deck · Vol III · 2026</div></div>
+</section>
+
+<!-- 30 COACH -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">withmaya.co</span></div>
+<div class="viewport" style="background:#fdfaf5;color:#1f1b16;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="font-family:Georgia,serif;">Maya Ellis</div><div class="links" style="color:#6b6258;"><span>Coaching</span><span>Speaking</span><span>Podcast</span><span>About</span></div><div class="cta" style="background:#e0734a;color:#fff;">Work with me</div></nav>
+<div class="hero split"><div><div class="eyebrow" style="color:#e0734a;">Leadership &amp; mindset coach</div>
+<h2 class="display" style="font-family:Georgia,serif;font-weight:500;margin:14px 0;">Become the leader<br>your team needs.</h2>
+<p class="lede" style="color:#6b6258;">1:1 coaching and workshops for founders and execs ready to grow without burning out. Booking Q3 cohorts now.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#1f1b16;color:#fff;">Book a discovery call</span><span class="btn ghost" style="color:#1f1b16;border:1px solid #ded3c5;">Listen to the podcast →</span></div></div>
+<div class="visual" style="background:linear-gradient(160deg,#f3d9c8,#e0734a);"><div class="card" style="bottom:18px;left:18px;right:34px;height:62px;display:flex;align-items:center;gap:12px;padding:0 14px;"><div style="width:38px;height:38px;border-radius:50%;background:#e0734a;"></div><div><div style="font-size:12px;font-weight:700;">"Transformational."</div><div style="font-size:10.5px;color:#8a7d72;">— VP Product, Series B startup</div></div></div></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">30</span><span class="sector-name">Personal Brand / Coach</span><span class="concept"><b>Warm personal authority</b> — serif name-mark, terracotta, testimonial-led. Taste: creator-founder editorial.</span><span class="swatches"><i style="background:#fdfaf5"></i><i style="background:#e0734a"></i><i style="background:#f3d9c8"></i><i style="background:#1f1b16"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 30 / 49</div></section>
+
+<!-- 31 PODCAST -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">thesignal.fm</span></div>
+<div class="viewport" style="background:#120f1e;color:#efeaff;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo">🎙 The Signal</div><div class="links" style="color:#a99fce;"><span>Episodes</span><span>Guests</span><span>Newsletter</span></div><div class="cta" style="background:#a78bfa;color:#120f1e;">Subscribe</div></nav>
+<div class="hero split" style="align-items:center;"><div><div class="eyebrow" style="color:#a78bfa;">A weekly tech &amp; culture show</div>
+<h2 class="display" style="font-weight:800;margin:12px 0;letter-spacing:-.03em;">Conversations<br>worth the commute.</h2>
+<p class="lede" style="color:#b8b0d6;">Long-form interviews with the people building what's next. New episode every Thursday — wherever you listen.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#a78bfa;color:#120f1e;">▶ Play latest</span><span class="btn ghost" style="color:#efeaff;border:1px solid #2e2748;">Apple · Spotify · YT</span></div></div>
+<div class="visual" style="background:linear-gradient(150deg,#2a2350,#120f1e);display:flex;align-items:center;justify-content:center;gap:4px;">
+<span style="width:5px;height:30px;background:#a78bfa;border-radius:3px;"></span><span style="width:5px;height:64px;background:#c4b5fd;border-radius:3px;"></span><span style="width:5px;height:44px;background:#a78bfa;border-radius:3px;"></span><span style="width:5px;height:90px;background:#efeaff;border-radius:3px;"></span><span style="width:5px;height:54px;background:#c4b5fd;border-radius:3px;"></span><span style="width:5px;height:74px;background:#a78bfa;border-radius:3px;"></span><span style="width:5px;height:34px;background:#c4b5fd;border-radius:3px;"></span><span style="width:5px;height:60px;background:#a78bfa;border-radius:3px;"></span><span class="pill" style="bottom:18px;left:18px;color:#6d28d9;">Ep. 142 · 58 min</span></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">31</span><span class="sector-name">Podcast</span><span class="concept"><b>Audio-forward dark</b> — violet, waveform motif, big play CTA. Taste: modern show brand.</span><span class="swatches"><i style="background:#120f1e"></i><i style="background:#a78bfa"></i><i style="background:#2a2350"></i><i style="background:#efeaff"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 31 / 49</div></section>
+
+<!-- 32 BREWERY -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">ironcrowbrewing.com</span></div>
+<div class="viewport" style="background:#16110a;color:#f3e7cf;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="font-weight:800;letter-spacing:.04em;">IRONCROW</div><div class="links" style="color:#c9b48a;"><span>Beers</span><span>Taproom</span><span>Events</span><span>Shop</span></div><div class="cta" style="background:#d98a2b;color:#16110a;font-weight:700;">Find us</div></nav>
+<div class="hero split" style="align-items:center;"><div><div class="eyebrow" style="color:#e0a449;">Independent craft brewery</div>
+<h2 class="display" style="font-weight:800;margin:12px 0;letter-spacing:-.02em;">Brewed bold.<br>Poured local.</h2>
+<p class="lede" style="color:#cbbb98;">Small-batch IPAs, lagers and seasonals from our railway-arch taproom. Drink in, take home, or get it delivered cold.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#d98a2b;color:#16110a;font-weight:700;">Shop the beers</span><span class="btn ghost" style="color:#f3e7cf;border:1px solid #3a2f1d;">Book the taproom →</span></div></div>
+<div class="visual" style="background:linear-gradient(160deg,#6b4416,#16110a);"><div class="card" style="inset:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:#f3e7cf;"><div style="width:46px;height:96px;border-radius:6px 6px 4px 4px;background:linear-gradient(#e0a449,#a8641a);"></div><div style="font-weight:800;color:#16110a;">Hazy Crow IPA</div><div style="font-size:12px;color:#7a6a4a;">6.2% · citrus &amp; pine</div></div><span class="pill" style="top:16px;right:16px;color:#a8641a;">🏆 Gold · World Beer Awards</span></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">32</span><span class="sector-name">Craft Brewery / Distillery</span><span class="concept"><b>Rugged &amp; characterful</b> — malt browns + amber, bold sans, product + taproom. Taste: craft beverage brand.</span><span class="swatches"><i style="background:#16110a"></i><i style="background:#d98a2b"></i><i style="background:#6b4416"></i><i style="background:#f3e7cf"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 32 / 49</div></section>
+
+<!-- 33 WINERY -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">maisondelarive.com</span></div>
+<div class="viewport" style="background:#f6f1ea;color:#3a2230;font-family:Georgia,serif;">
+<nav class="site"><div class="logo" style="letter-spacing:.16em;font-weight:500;">DE LA RIVE</div><div class="links" style="font-family:-apple-system,sans-serif;color:#6e5560;"><span>Wines</span><span>Estate</span><span>Visit</span><span>Club</span></div><div class="cta" style="background:#7a2e44;color:#fff;font-family:-apple-system,sans-serif;">Join the club</div></nav>
+<div class="hero center"><div class="eyebrow" style="color:#7a2e44;font-family:-apple-system,sans-serif;">Family estate · since 1924</div>
+<h2 class="display" style="font-weight:500;margin:14px 0;max-width:18ch;">Four generations,<br>one hillside.</h2>
+<p class="lede" style="font-family:-apple-system,sans-serif;margin:0 auto;color:#6e5560;">Hand-harvested wines from a single estate in the Loire. Taste them at the cellar door, or have them shipped to your table.</p>
+<div class="btnrow" style="justify-content:center;margin-top:20px;font-family:-apple-system,sans-serif;"><span class="btn" style="background:#7a2e44;color:#fff;">Shop the cellar</span><span class="btn ghost" style="color:#3a2230;border:1px solid #d9c7cf;">Book a tasting →</span></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">33</span><span class="sector-name">Winery / Vineyard</span><span class="concept"><b>Heritage elegance</b> — bordeaux + parchment, centred serif, estate story. Taste: old-world wine label.</span><span class="swatches"><i style="background:#f6f1ea"></i><i style="background:#7a2e44"></i><i style="background:#d9c7cf"></i><i style="background:#3a2230"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 33 / 49</div></section>
+
+<!-- 34 HAIR SALON -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">studioglow.hair</span></div>
+<div class="viewport" style="background:#fbf4f1;color:#2c2024;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="letter-spacing:.1em;">studio glow</div><div class="links" style="color:#7a6168;"><span>Services</span><span>Stylists</span><span>Gallery</span><span>Prices</span></div><div class="cta" style="background:#c25b7a;color:#fff;">Book now</div></nav>
+<div class="hero split"><div><div class="eyebrow" style="color:#c25b7a;">Hair &amp; colour studio</div>
+<h2 class="display" style="font-weight:700;margin:14px 0;letter-spacing:-.02em;">Great hair days,<br>on repeat.</h2>
+<p class="lede" style="color:#7a6168;">Balayage, cuts and treatments from award-winning stylists. Easy online booking, real before-and-afters, zero pushy upsells.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#2c2024;color:#fff;">Book an appointment</span><span class="btn ghost" style="color:#2c2024;border:1px solid #e6d2d8;">See the gallery →</span></div></div>
+<div class="visual" style="background:none;display:grid;grid-template-columns:1fr 1fr;gap:6px;"><span style="background:linear-gradient(135deg,#e9c6cf,#c25b7a);border-radius:10px;"></span><span style="background:linear-gradient(135deg,#d9b8a0,#9a6f50);border-radius:10px;"></span><span style="background:linear-gradient(135deg,#cdbfe0,#7d63a8);border-radius:10px;"></span><span style="background:linear-gradient(135deg,#f0dcc0,#caa05e);border-radius:10px;"></span></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">34</span><span class="sector-name">Hair &amp; Colour Salon</span><span class="concept"><b>Fresh &amp; pretty</b> — blush rose, clean sans, gallery grid + booking. Taste: modern beauty studio.</span><span class="swatches"><i style="background:#fbf4f1"></i><i style="background:#c25b7a"></i><i style="background:#e9c6cf"></i><i style="background:#2c2024"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 34 / 49</div></section>
+
+<!-- 35 BARBERSHOP -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">forgebarbers.co</span></div>
+<div class="viewport" style="background:#15171a;color:#eceef0;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="font-weight:800;letter-spacing:.08em;">FORGE</div><div class="links" style="color:#9aa1a8;"><span>Cuts</span><span>Barbers</span><span>Shop</span><span>Book</span></div><div class="cta" style="background:#c8a14a;color:#15171a;font-weight:700;">Book a chair</div></nav>
+<div class="hero split" style="align-items:center;"><div><div class="eyebrow" style="color:#c8a14a;">Traditional barbering, sharpened</div>
+<h2 class="display" style="font-weight:800;margin:12px 0;letter-spacing:-.02em;">Look sharp.<br>Feel sharper.</h2>
+<p class="lede" style="color:#aab1b8;">Skin fades, hot-towel shaves and beard work by master barbers. Walk-ins welcome — or lock in your slot in seconds.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#c8a14a;color:#15171a;font-weight:700;">Book online</span><span class="btn ghost" style="color:#eceef0;border:1px solid #2c3036;">View price list →</span></div></div>
+<div class="visual" style="background:linear-gradient(150deg,#23272c,#15171a);"><div style="position:absolute;inset:0;background:repeating-linear-gradient(60deg,transparent,transparent 14px,rgba(200,161,74,.10) 14px,rgba(200,161,74,.10) 16px);"></div><span class="pill" style="top:16px;left:16px;color:#8a6a1e;">⭐ 4.9 · 1,800 reviews</span><div class="card" style="bottom:16px;left:16px;right:16px;padding:12px 14px;background:#1d2025;display:flex;justify-content:space-between;align-items:center;"><div><div style="font-size:10.5px;color:#9aa1a8;">Next chair</div><div style="font-size:14px;font-weight:800;color:#c8a14a;">Today 17:15</div></div><div style="font-size:10px;background:#c8a14a;color:#15171a;border-radius:5px;padding:5px 9px;font-weight:800;">Reserve</div></div></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">35</span><span class="sector-name">Barbershop</span><span class="concept"><b>Masculine &amp; crafted</b> — charcoal + brass, bold type, instant booking. Taste: premium grooming.</span><span class="swatches"><i style="background:#15171a"></i><i style="background:#c8a14a"></i><i style="background:#23272c"></i><i style="background:#eceef0"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 35 / 49</div></section>
+
+<!-- 36 TATTOO -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">blackmothtattoo.com</span></div>
+<div class="viewport" style="background:#0c0c0d;color:#f0eeea;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="font-weight:800;letter-spacing:.06em;">BLACK MOTH</div><div class="links" style="color:#9b9b9b;"><span>Artists</span><span>Portfolio</span><span>Flash</span><span>Booking</span></div><div class="cta" style="background:#d23a3a;color:#fff;">Request a booking</div></nav>
+<div class="hero split" style="align-items:center;"><div><div class="eyebrow" style="color:#d23a3a;">Fine-line &amp; blackwork studio</div>
+<h2 class="display" style="font-family:Georgia,serif;font-weight:500;margin:12px 0;font-style:italic;">Ink that means<br>something.</h2>
+<p class="lede" style="color:#b3b3b3;">Custom designs from resident and guest artists in a private, sterile studio. Tell us your idea — we'll sketch it free.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#d23a3a;color:#fff;">Start a booking</span><span class="btn ghost" style="color:#f0eeea;border:1px solid #2a2a2c;">Browse portfolio →</span></div></div>
+<div class="visual" style="background:none;display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;"><span style="background:#1c1c1e;border-radius:8px;"></span><span style="background:#262626;border-radius:8px;"></span><span style="background:#161617;border-radius:8px;"></span><span style="background:#222;border-radius:8px;"></span><span style="background:#2c2c2e;border-radius:8px;"></span><span style="background:#191919;border-radius:8px;"></span></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">36</span><span class="sector-name">Tattoo Studio</span><span class="concept"><b>Edgy editorial</b> — pure black, blood-red, italic serif, portfolio grid. Taste: artist-led studio.</span><span class="swatches"><i style="background:#0c0c0d"></i><i style="background:#d23a3a"></i><i style="background:#262626"></i><i style="background:#f0eeea"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 36 / 49</div></section>
+
+<!-- 37 MUSIC ARTIST -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">novaember.com</span></div>
+<div class="viewport" style="background:radial-gradient(120% 120% at 70% 0%,#3a1f5c,#0a0712 60%);color:#f3eeff;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="letter-spacing:.18em;font-weight:600;">NOVA EMBER</div><div class="links" style="color:#c4b3e0;"><span>Music</span><span>Tour</span><span>Video</span><span>Store</span></div><div class="cta" style="background:#ff5ca8;color:#0a0712;font-weight:700;">Get tickets</div></nav>
+<div class="hero center"><div class="eyebrow" style="color:#ff8fc4;">New album · out now</div>
+<h2 class="display" style="font-weight:800;font-size:50px;letter-spacing:-.03em;margin:12px 0;background:linear-gradient(90deg,#ffd6ec,#a78bfa);-webkit-background-clip:text;background-clip:text;color:transparent;">"AFTERGLOW"</h2>
+<p class="lede" style="margin:0 auto;color:#cdbfe6;">Twelve tracks. One long night. Stream it everywhere, or catch it live on the 24-city world tour.</p>
+<div class="btnrow" style="justify-content:center;margin-top:18px;"><span class="btn" style="background:#ff5ca8;color:#0a0712;font-weight:700;">▶ Stream now</span><span class="btn ghost" style="color:#f3eeff;border:1px solid #3a2b55;">See tour dates</span></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">37</span><span class="sector-name">Music Artist / Band</span><span class="concept"><b>Electric &amp; expressive</b> — neon gradient on black, big album title, stream + tour CTAs. Taste: artist hub.</span><span class="swatches"><i style="background:#0a0712"></i><i style="background:#ff5ca8"></i><i style="background:#a78bfa"></i><i style="background:#3a1f5c"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 37 / 49</div></section>
+
+<!-- 38 FILM STUDIO -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">tenthframe.studio</span></div>
+<div class="viewport" style="background:#101113;color:#ededed;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="letter-spacing:.1em;">◐ TENTH FRAME</div><div class="links" style="color:#9b9ea3;"><span>Work</span><span>Services</span><span>Studio</span><span>Contact</span></div><div class="cta" style="background:#ededed;color:#101113;">Start a project</div></nav>
+<div class="hero split" style="align-items:center;"><div><div class="eyebrow" style="color:#e23d57;">Film &amp; motion production</div>
+<h2 class="display" style="font-weight:700;margin:12px 0;letter-spacing:-.02em;">Stories that<br>move the needle.</h2>
+<p class="lede" style="color:#a8abb0;">Brand films, ads and documentaries — from script to final grade. Cinematic craft, deadline discipline, measurable results.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#e23d57;color:#fff;">View showreel</span><span class="btn ghost" style="color:#ededed;border:1px solid #2a2c30;">Our services →</span></div></div>
+<div class="visual" style="background:linear-gradient(135deg,#26282d,#101113);display:flex;align-items:center;justify-content:center;"><div style="width:66px;height:66px;border-radius:50%;background:rgba(226,61,87,.16);display:flex;align-items:center;justify-content:center;"><div style="width:0;height:0;border-left:20px solid #e23d57;border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:5px;"></div></div><span style="position:absolute;top:0;left:0;right:0;height:14px;background:repeating-linear-gradient(90deg,#101113,#101113 10px,#26282d 10px,#26282d 20px);"></span><span style="position:absolute;bottom:0;left:0;right:0;height:14px;background:repeating-linear-gradient(90deg,#101113,#101113 10px,#26282d 10px,#26282d 20px);"></span></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">38</span><span class="sector-name">Film / Production Studio</span><span class="concept"><b>Cinematic dark</b> — charcoal, red play motif, film-strip edges, showreel-first. Taste: production house.</span><span class="swatches"><i style="background:#101113"></i><i style="background:#e23d57"></i><i style="background:#26282d"></i><i style="background:#ededed"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 38 / 49</div></section>
+
+<!-- 39 ESPORTS -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">apexlegion.gg</span></div>
+<div class="viewport" style="background:#07101a;color:#e6f6ff;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="font-weight:800;font-style:italic;letter-spacing:-.02em;">APEX LEGION</div><div class="links" style="color:#88b3cf;"><span>Roster</span><span>Schedule</span><span>Merch</span><span>Partners</span></div><div class="cta" style="background:#19e6ff;color:#07101a;font-weight:800;">Join the fans</div></nav>
+<div class="hero split" style="align-items:center;"><div><div class="eyebrow" style="color:#19e6ff;">Pro esports organisation</div>
+<h2 class="display" style="font-weight:800;font-style:italic;margin:10px 0;letter-spacing:-.03em;">WE DON'T<br>PLAY. WE WIN.</h2>
+<p class="lede" style="color:#9cc3da;">Five titles. Three continents. One legion. Follow the squad, shop the drip, and catch every match live.</p>
+<div class="btnrow" style="margin-top:18px;"><span class="btn" style="background:#19e6ff;color:#07101a;font-weight:800;">Watch live</span><span class="btn ghost" style="color:#e6f6ff;border:1px solid #143247;">Shop merch →</span></div></div>
+<div class="visual" style="background:linear-gradient(135deg,#0c2438,#07101a);"><div style="position:absolute;inset:0;background:linear-gradient(135deg,transparent 55%,rgba(25,230,255,.22));"></div><div class="card" style="top:16px;left:16px;right:40px;padding:12px;background:#0e2031;display:flex;justify-content:space-between;align-items:center;"><div style="font-size:12px;font-weight:800;color:#19e6ff;">LIVE · vs Titan9</div><div style="font-size:13px;font-weight:800;color:#e6f6ff;">2 — 1</div></div><span class="pill" style="bottom:16px;right:16px;background:#19e6ff;color:#07101a;">🏆 World Champions '25</span></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">39</span><span class="sector-name">Esports / Gaming</span><span class="concept"><b>High-octane</b> — deep blue + cyan glow, italic display, live-match card. Taste: pro gaming org.</span><span class="swatches"><i style="background:#07101a"></i><i style="background:#19e6ff"></i><i style="background:#0c2438"></i><i style="background:#e6f6ff"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 39 / 49</div></section>
+
+<!-- 40 INSURANCE -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">harborinsure.com</span></div>
+<div class="viewport" style="background:#f3f7f9;color:#0e2a38;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="color:#0e7c86;">⚓ Harbor</div><div class="links" style="color:#42606c;"><span>Home</span><span>Life</span><span>Business</span><span>Claims</span></div><div class="cta" style="background:#0e7c86;color:#fff;">Get a quote</div></nav>
+<div class="hero split"><div><div class="eyebrow" style="color:#0e7c86;">Insurance, made human</div>
+<h2 class="display" style="font-weight:700;margin:14px 0;letter-spacing:-.02em;">Cover you'll<br>actually understand.</h2>
+<p class="lede" style="color:#42606c;">Plain-English policies, fair prices, and claims paid fast by real people. Get covered online in under five minutes.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#0e2a38;color:#fff;">Get my quote</span><span class="btn ghost" style="color:#0e2a38;border:1px solid #c9dce1;">Compare cover →</span></div>
+<div class="stats" style="margin-top:24px;"><div><b style="color:#0e7c86;">98%</b><span>Claims paid</span></div><div><b style="color:#0e7c86;">4.8★</b><span>Trustpilot</span></div><div><b style="color:#0e7c86;">5 min</b><span>To cover</span></div></div></div>
+<div class="visual" style="background:linear-gradient(160deg,#7cc3c9,#0e7c86);"><div class="card" style="inset:18px;padding:16px;"><div style="display:flex;justify-content:space-between;align-items:center;"><div style="font-size:12px;font-weight:700;color:#0e2a38;">Home + Contents</div><span style="font-size:10px;background:#e0f2f1;color:#0e7c86;border-radius:5px;padding:3px 8px;font-weight:700;">Covered</span></div><div style="font-size:22px;font-weight:800;color:#0e7c86;margin-top:10px;">£18.40<span style="font-size:12px;font-weight:500;color:#7a8e96;">/mo</span></div><div style="font-size:11px;background:#0e7c86;color:#fff;border-radius:7px;padding:8px;text-align:center;font-weight:700;margin-top:12px;">Buy now</div></div></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">40</span><span class="sector-name">Insurance</span><span class="concept"><b>Calm &amp; trustworthy</b> — harbour teal, clear quote flow, claims-paid proof. Taste: friendly insurtech.</span><span class="swatches"><i style="background:#f3f7f9"></i><i style="background:#0e7c86"></i><i style="background:#7cc3c9"></i><i style="background:#0e2a38"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 40 / 49</div></section>
+
+<!-- 41 MORTGAGE -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">keystone-mortgages.co.uk</span></div>
+<div class="viewport" style="background:#f5f6f3;color:#1d2b22;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="color:#2f7d4f;">⌂ Keystone</div><div class="links" style="color:#4c6055;"><span>First-time buyers</span><span>Remortgage</span><span>Buy-to-let</span><span>Calculator</span></div><div class="cta" style="background:#2f7d4f;color:#fff;">Check eligibility</div></nav>
+<div class="hero split"><div><div class="eyebrow" style="color:#2f7d4f;">Whole-of-market mortgage brokers</div>
+<h2 class="display" style="font-weight:700;margin:14px 0;letter-spacing:-.02em;">The keys, with<br>less of the stress.</h2>
+<p class="lede" style="color:#4c6055;">We search 90+ lenders to find your best rate, handle the paperwork, and keep you posted at every step. Fee-free advice.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#1d2b22;color:#fff;">See what you can borrow</span><span class="btn ghost" style="color:#1d2b22;border:1px solid #cdd6cd;">Book a callback →</span></div></div>
+<div class="visual" style="background:linear-gradient(160deg,#8fc4a3,#2f7d4f);"><div class="card" style="inset:18px;padding:16px;"><div style="font-size:11px;color:#6a7c70;">Estimated borrowing</div><div style="font-size:24px;font-weight:800;color:#2f7d4f;">£312,000</div><div style="height:8px;border-radius:4px;background:#e6ece6;margin:12px 0;overflow:hidden;"><span style="display:block;width:74%;height:100%;background:#2f7d4f;"></span></div><div style="font-size:11px;color:#6a7c70;">Best rate found · <b style="color:#1d2b22;">4.21% fixed</b></div></div></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">41</span><span class="sector-name">Mortgage Broker</span><span class="concept"><b>Grounded &amp; clear</b> — calm green, calculator-led, fee-free reassurance. Taste: trustworthy fintech advisory.</span><span class="swatches"><i style="background:#f5f6f3"></i><i style="background:#2f7d4f"></i><i style="background:#8fc4a3"></i><i style="background:#1d2b22"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 41 / 49</div></section>
+
+<!-- 42 SOLAR -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">sunpathenergy.com</span></div>
+<div class="viewport" style="background:#0c1a14;color:#eafff4;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="font-weight:800;">☀ Sunpath</div><div class="links" style="color:#9fcbb6;"><span>Solar</span><span>Batteries</span><span>EV chargers</span><span>Quote</span></div><div class="cta" style="background:#f5b300;color:#0c1a14;font-weight:800;">Free quote</div></nav>
+<div class="hero split" style="align-items:center;"><div><div class="eyebrow" style="color:#f5b300;">Home solar &amp; battery storage</div>
+<h2 class="display" style="font-weight:800;margin:12px 0;letter-spacing:-.02em;">Cut your bills.<br>Not your standards.</h2>
+<p class="lede" style="color:#a9d3c0;">Premium panels, expert install, and a system that pays for itself. See your savings in 60 seconds — no salesman required.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#f5b300;color:#0c1a14;font-weight:800;">Estimate my savings</span><span class="btn ghost" style="color:#eafff4;border:1px solid #1f3a2c;">How it works →</span></div></div>
+<div class="visual" style="background:linear-gradient(160deg,#16a35a,#0c1a14);"><div class="card" style="inset:18px;padding:16px;"><div style="font-size:11px;color:#7aa492;">Estimated saving / yr</div><div style="font-size:24px;font-weight:800;color:#16a35a;">£1,240</div><svg viewBox="0 0 200 60" style="width:100%;height:54px;margin-top:8px;"><polyline points="0,50 40,46 80,40 120,30 160,18 200,6" fill="none" stroke="#f5b300" stroke-width="3"/></svg><div style="font-size:10.5px;color:#7aa492;">Payback in ~6.5 years</div></div><span class="pill" style="top:16px;left:16px;color:#0c8f4c;">MCS certified</span></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">42</span><span class="sector-name">Solar / Renewable Energy</span><span class="concept"><b>Clean-tech optimism</b> — deep green + solar yellow, savings calculator, trust badges. Taste: modern energy brand.</span><span class="swatches"><i style="background:#0c1a14"></i><i style="background:#f5b300"></i><i style="background:#16a35a"></i><i style="background:#eafff4"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 42 / 49</div></section>
+
+<!-- 43 LANDSCAPING -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">verduragardens.com</span></div>
+<div class="viewport" style="background:#f4f2e9;color:#28311f;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="font-family:Georgia,serif;letter-spacing:.06em;">Verdura</div><div class="links" style="color:#5a6347;"><span>Design</span><span>Build</span><span>Maintain</span><span>Projects</span></div><div class="cta" style="background:#5b7a3a;color:#fff;">Request a design</div></nav>
+<div class="hero split"><div><div class="eyebrow" style="color:#5b7a3a;">Garden design &amp; landscaping</div>
+<h2 class="display" style="font-family:Georgia,serif;font-weight:500;margin:14px 0;">Gardens that<br>grow with you.</h2>
+<p class="lede" style="color:#5a6347;">Award-winning design and build for outdoor spaces of every size. From first sketch to final planting — and looked after for years.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#28311f;color:#fff;">Book a site visit</span><span class="btn ghost" style="color:#28311f;border:1px solid #cdd0bd;">View projects →</span></div></div>
+<div class="visual" style="background:linear-gradient(160deg,#8aa861,#3f5a26);"><span class="pill" style="top:16px;left:16px;color:#3f5a26;">🌿 RHS Gold medallists</span><div class="card" style="bottom:16px;left:16px;right:16px;padding:12px 14px;font-family:Georgia,serif;"><div style="font-size:13px;font-weight:700;color:#28311f;">Featured · Cotswolds courtyard</div><div style="font-family:-apple-system,sans-serif;font-size:10.5px;color:#7a8268;margin-top:2px;">Design → build → 4.5 weeks</div></div></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">43</span><span class="sector-name">Landscaping / Garden Design</span><span class="concept"><b>Natural &amp; refined</b> — olive &amp; stone, serif, project-led with awards. Taste: premium outdoor design.</span><span class="swatches"><i style="background:#f4f2e9"></i><i style="background:#5b7a3a"></i><i style="background:#8aa861"></i><i style="background:#28311f"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 43 / 49</div></section>
+
+<!-- 44 PET BRAND -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">scout-pet.com</span></div>
+<div class="viewport" style="background:#fff6ee;color:#33271d;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="font-weight:800;color:#ef7d3e;">🐶 Scout</div><div class="links" style="color:#6e5d4c;"><span>Food</span><span>Treats</span><span>Subscribe</span><span>Reviews</span></div><div class="cta" style="background:#ef7d3e;color:#fff;">Build a plan</div></nav>
+<div class="hero split" style="align-items:center;"><div><div class="eyebrow" style="color:#ef7d3e;">Fresh dog food, delivered</div>
+<h2 class="display" style="font-weight:800;margin:12px 0;letter-spacing:-.02em;">Real food for<br>your best friend.</h2>
+<p class="lede" style="color:#6e5d4c;">Vet-formulated meals, portioned for your dog and delivered to your door. Tails up, tummies happy, no nasties.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#33271d;color:#fff;">Build your plan</span><span class="btn ghost" style="color:#33271d;border:1px solid #e6d4c2;">50% off first box →</span></div></div>
+<div class="visual" style="background:linear-gradient(160deg,#ffd9b0,#ef7d3e);"><div class="card" style="inset:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;"><div style="width:74px;height:54px;border-radius:10px;background:linear-gradient(#ef7d3e,#c85e26);"></div><div style="font-weight:800;color:#33271d;">Scout's box</div><div style="font-size:12px;color:#8a7560;">Tailored · from £2.10/day</div></div><span class="pill" style="top:16px;right:16px;color:#c85e26;">⭐ 12k happy dogs</span></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">44</span><span class="sector-name">Pet Brand (DTC)</span><span class="concept"><b>Playful &amp; warm</b> — cream + friendly orange, rounded, subscription box. Taste: joyful DTC pet brand.</span><span class="swatches"><i style="background:#fff6ee"></i><i style="background:#ef7d3e"></i><i style="background:#ffd9b0"></i><i style="background:#33271d"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 44 / 49</div></section>
+
+<!-- 45 SCHOOL -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">oakfield-school.org</span></div>
+<div class="viewport" style="background:#f6f4ef;color:#1c2c4a;font-family:Georgia,serif;">
+<nav class="site"><div class="logo" style="letter-spacing:.06em;">Oakfield</div><div class="links" style="font-family:-apple-system,sans-serif;color:#46587a;"><span>About</span><span>Admissions</span><span>Curriculum</span><span>Visit</span></div><div class="cta" style="background:#9a2a2a;color:#fff;font-family:-apple-system,sans-serif;">Book a tour</div></nav>
+<div class="hero split"><div><div class="eyebrow" style="color:#9a2a2a;font-family:-apple-system,sans-serif;">Independent prep school · 3–11</div>
+<h2 class="display" style="font-weight:500;margin:14px 0;">Where curiosity<br>comes first.</h2>
+<p class="lede" style="font-family:-apple-system,sans-serif;color:#46587a;">A nurturing, academically ambitious school in leafy surroundings. Small classes, big hearts, and children who love to learn.</p>
+<div class="btnrow" style="margin-top:20px;font-family:-apple-system,sans-serif;"><span class="btn" style="background:#1c2c4a;color:#fff;">Book an open morning</span><span class="btn ghost" style="color:#1c2c4a;border:1px solid #cdd5e0;">Admissions →</span></div></div>
+<div class="visual" style="background:linear-gradient(160deg,#a9b8d4,#1c2c4a);"><span class="pill" style="top:16px;left:16px;color:#1c2c4a;font-family:-apple-system,sans-serif;">Ofsted · Outstanding</span><div class="card" style="bottom:16px;left:16px;right:16px;padding:12px 14px;font-family:-apple-system,sans-serif;"><div style="font-size:13px;font-weight:700;color:#1c2c4a;">Open Morning · Sat 14 Jun</div><div style="font-size:10.5px;color:#7a86a0;">Reserve your place</div></div></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">45</span><span class="sector-name">Private School / Nursery</span><span class="concept"><b>Heritage &amp; warm</b> — navy + crest red, serif, tour-booking CTA. Taste: established prep school.</span><span class="swatches"><i style="background:#f6f4ef"></i><i style="background:#1c2c4a"></i><i style="background:#9a2a2a"></i><i style="background:#a9b8d4"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 45 / 49</div></section>
+
+<!-- 46 MUSEUM -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">themeridiangallery.org</span></div>
+<div class="viewport" style="background:#1a1a1a;color:#f2f0eb;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="font-family:Georgia,serif;letter-spacing:.04em;">Meridian</div><div class="links" style="color:#a9a6a0;"><span>What's on</span><span>Collection</span><span>Visit</span><span>Membership</span></div><div class="cta" style="background:#e8542a;color:#fff;">Book tickets</div></nav>
+<div class="hero split" style="align-items:center;"><div><div class="eyebrow" style="color:#e8542a;">Now showing · until 30 Sept</div>
+<h2 class="display" style="font-family:Georgia,serif;font-weight:500;margin:12px 0;">Light &amp; Form:<br>a century of design.</h2>
+<p class="lede" style="color:#bcb9b2;">A landmark exhibition of modern design and art. Open late Thursdays. Members go free, every day.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#e8542a;color:#fff;">Book your visit</span><span class="btn ghost" style="color:#f2f0eb;border:1px solid #3a3a3a;">Become a member →</span></div></div>
+<div class="visual" style="background:none;display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:6px;"><span style="grid-row:1/3;background:linear-gradient(135deg,#e8542a,#7a2a14);border-radius:8px;"></span><span style="background:#2e2e2e;border-radius:8px;"></span><span style="background:#3a3a3a;border-radius:8px;"></span></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">46</span><span class="sector-name">Museum / Gallery / Cultural</span><span class="concept"><b>Gallery-bold</b> — black + vermilion, serif titling, exhibition-led, ticketing. Taste: contemporary arts institution.</span><span class="swatches"><i style="background:#1a1a1a"></i><i style="background:#e8542a"></i><i style="background:#2e2e2e"></i><i style="background:#f2f0eb"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 46 / 49</div></section>
+
+<!-- 47 FURNITURE -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">formandgrain.com</span></div>
+<div class="viewport" style="background:#efe9e0;color:#2c281f;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="letter-spacing:.08em;font-weight:600;">FORM &amp; GRAIN</div><div class="links" style="color:#6a6354;"><span>Sofas</span><span>Tables</span><span>Storage</span><span>Trade</span></div><div class="cta" style="background:#2c281f;color:#efe9e0;">Shop all</div></nav>
+<div class="hero split" style="align-items:center;"><div><div class="eyebrow" style="color:#a9662e;">Handcrafted furniture</div>
+<h2 class="display" style="font-family:Georgia,serif;font-weight:500;margin:14px 0;">Built once.<br>Loved for life.</h2>
+<p class="lede" style="color:#6a6354;">Solid-wood furniture made to order by our own makers. Timeless designs, sustainable timber, delivered &amp; assembled.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#a9662e;color:#fff;">Shop the collection</span><span class="btn ghost" style="color:#2c281f;border:1px solid #cfc6b6;">Book a showroom visit →</span></div></div>
+<div class="visual" style="background:linear-gradient(160deg,#cdb592,#8a6a3e;);"><div class="card" style="bottom:16px;left:16px;right:16px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;"><div><div style="font-size:10.5px;color:#8a7d62;">Bestseller</div><div style="font-size:14px;font-weight:700;color:#2c281f;font-family:Georgia,serif;">The Linden Sofa</div></div><div style="font-size:15px;font-weight:800;color:#2c281f;">£1,890</div></div><span class="pill" style="top:16px;left:16px;color:#8a6a3e;">FSC-certified oak</span></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">47</span><span class="sector-name">Furniture / Homeware</span><span class="concept"><b>Crafted &amp; tactile</b> — oat &amp; walnut, serif + clean sans, product hero. Taste: premium maker brand.</span><span class="swatches"><i style="background:#efe9e0"></i><i style="background:#a9662e"></i><i style="background:#cdb592"></i><i style="background:#2c281f"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 47 / 49</div></section>
+
+<!-- 48 BAKERY -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">flourandfern.bakery</span></div>
+<div class="viewport" style="background:#fdf6ee;color:#3a2a1c;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="font-family:Georgia,serif;letter-spacing:.04em;">Flour &amp; Fern</div><div class="links" style="color:#7a6450;"><span>Menu</span><span>Order</span><span>Wholesale</span><span>Find us</span></div><div class="cta" style="background:#c9472f;color:#fff;">Order online</div></nav>
+<div class="hero split" style="align-items:center;"><div><div class="eyebrow" style="color:#c9472f;">Artisan bakery &amp; patisserie</div>
+<h2 class="display" style="font-family:Georgia,serif;font-weight:500;margin:14px 0;">Baked fresh,<br>before sunrise.</h2>
+<p class="lede" style="color:#7a6450;">Sourdough, viennoiserie and showstopping cakes from our little corner bakery. Order ahead — the good stuff sells out by ten.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#c9472f;color:#fff;">Order for collection</span><span class="btn ghost" style="color:#3a2a1c;border:1px solid #e7d4c2;">See the menu →</span></div></div>
+<div class="visual" style="background:linear-gradient(160deg,#f0c98a,#c9472f);"><div class="card" style="inset:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;"><div style="width:70px;height:70px;border-radius:50%;background:linear-gradient(#e8b96a,#b4863a);"></div><div style="font-weight:700;color:#3a2a1c;font-family:Georgia,serif;">Sea-salt croissant</div><div style="font-size:12px;color:#8a7560;">Fresh daily · £3.80</div></div><span class="pill" style="top:16px;right:16px;color:#a8351f;">🥐 Baked on-site</span></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">48</span><span class="sector-name">Bakery / Patisserie</span><span class="concept"><b>Cosy &amp; appetising</b> — cream + bake-orange, serif charm, order-ahead CTA. Taste: neighbourhood artisan.</span><span class="swatches"><i style="background:#fdf6ee"></i><i style="background:#c9472f"></i><i style="background:#f0c98a"></i><i style="background:#3a2a1c"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 48 / 49</div></section>
+
+<!-- 49 CONSULTING -->
+<section class="page sample"><div class="browser"><div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">northpeak-consulting.com</span></div>
+<div class="viewport" style="background:#0f1620;color:#eef3f8;font-family:-apple-system,sans-serif;">
+<nav class="site"><div class="logo" style="letter-spacing:.06em;font-weight:700;">NORTHPEAK</div><div class="links" style="color:#9fb0c2;"><span>Services</span><span>Industries</span><span>Insights</span><span>Careers</span></div><div class="cta" style="background:#3da5e0;color:#0f1620;font-weight:700;">Talk to us</div></nav>
+<div class="hero split"><div><div class="eyebrow" style="color:#3da5e0;">Management &amp; strategy consulting</div>
+<h2 class="display" style="font-weight:700;margin:14px 0;letter-spacing:-.02em;">Strategy that<br>survives contact<br>with reality.</h2>
+<p class="lede" style="color:#aebccb;">We help leadership teams make the hard calls and actually execute them. Senior people, no juniors learning on your dime.</p>
+<div class="btnrow" style="margin-top:20px;"><span class="btn" style="background:#3da5e0;color:#0f1620;font-weight:700;">Book an intro call</span><span class="btn ghost" style="color:#eef3f8;border:1px solid #25303d;">Read our insights →</span></div></div>
+<div class="visual" style="background:linear-gradient(160deg,#16314a,#0f1620);"><div class="card" style="inset:18px;padding:16px;"><div style="font-size:11px;color:#7e8ea0;">Engagement impact</div><div style="font-size:20px;font-weight:800;color:#0f1620;">+24% margin</div><div style="display:flex;gap:6px;align-items:flex-end;height:56px;margin-top:10px;"><span style="flex:1;height:42%;background:#cfe2f0;border-radius:3px;"></span><span style="flex:1;height:58%;background:#9ec7e6;border-radius:3px;"></span><span style="flex:1;height:74%;background:#3da5e0;border-radius:3px;"></span><span style="flex:1;height:100%;background:#16314a;border-radius:3px;"></span></div></div></div></div></div></div>
+<div class="meta-strip"><span class="sector-no">49</span><span class="sector-name">Management Consulting</span><span class="concept"><b>Sharp &amp; senior</b> — slate navy + sky blue, results-led, confident copy. Taste: boutique strategy firm.</span><span class="swatches"><i style="background:#0f1620"></i><i style="background:#3da5e0"></i><i style="background:#16314a"></i><i style="background:#eef3f8"></i></span><span class="delivery">5-day build</span></div><div class="pageno">Veska · 49 / 49</div></section>
+
+</body></html>

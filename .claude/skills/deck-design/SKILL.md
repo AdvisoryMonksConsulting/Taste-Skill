@@ -52,7 +52,9 @@ fully-controlled PDFs.
 
 ## Pulling the Anthropic document skills (native pptx/pdf/docx/xlsx)
 
-For editable Office output, install the official skills (148k★, Apache-2.0):
+For editable Office output, install the official skills (148k★ repo; the
+pptx/pdf/docx/xlsx skill folders are proprietary / source-available — install
+via the plugin, don't vendor them into a repo):
 
 ```bash
 /plugin marketplace add anthropics/skills
