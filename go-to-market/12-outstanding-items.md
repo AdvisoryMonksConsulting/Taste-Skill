@@ -49,3 +49,11 @@ Do ~1 week before warmup finishes: Apollo search → site-finder (worst PageSpee
 
 ## ✅ DONE (reference)
 Live site on `veskadesign.com` (About, booking, contact, deposit, legal, 10 designs) · Cal.com + Formspree wired · Razorpay button wired · campaign created & paused (safe `{{firstName}}`/`{{companyName}}` sequence, unsubscribe header on) · 6/8 inboxes connected · Tier-1 lists + allocation + all go-to-market docs.
+
+---
+
+## ✅ Progress update
+- **SPF/DMARC fixed → mail-tester 10/10 on both domains.** (Removed GoDaddy duplicate SPF + DMARC.)
+- **Campaign:** renamed "Med Spa UK (Batch 1)", timezone Europe/Belgrade (~UK 9–4), copy tuned to "aesthetics clinics" (UK term). Still PAUSED, 6 inboxes.
+- **Batch 1 list (queued, no spend):** UK/IE aesthetics on builders — `q_organization_keyword_tags`: med spa, medical aesthetics, aesthetics clinic, skin clinic, cosmetic clinic · titles Owner/Founder/Medical Director/Clinic Director · `currently_using_any` wix/squarespace/wordpress_org · UK+IE. (~139 pure med-spa; broaden keywords for ~200.)
+- **Remaining (user toggles):** connect last 2 inboxes → start WARMUP (gate now clear) → identity/signatures → redirect domains. Enrichment+import held until ~1 wk pre-launch.

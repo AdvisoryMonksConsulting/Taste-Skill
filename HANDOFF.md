@@ -45,8 +45,8 @@ This repo holds **(a)** the live Veska marketing site (Next.js static) and **(b)
 ## 6. Cold-outreach infrastructure
 - **Sending domains (separate from brand domain):** `getveskadesign.com`, `tryveskadesign.com` (GoDaddy reg, GoDaddy DNS). Each has Google Workspace inboxes: `hello@ shamik@ akash@ design@`.
 - **Instantly:** **6 of 8** inboxes connected (all 4 getveskadesign + design@/akash@ tryveskadesign). The 2 left: `hello@` + `shamik@tryveskadesign.com` (Google rate-limited — reconnect later, then add to campaign).
-- **Instantly campaign (PAUSED):** id `d8b5e012-ca81-496c-ae25-5941565e1740` — "Veska — Med Spa (Batch 1)". 4-step **safe** sequence (only `{{firstName}}`/`{{companyName}}`, no custom fields = no broken-variable risk), **link-free** (link goes in the reply), **unsubscribe header on**, stop-on-reply, no open/click tracking, Mon–Fri 09:00–16:00. **Timezone still America/Chicago — needs setting to the batch's target region.**
-- **mail-tester:** last score 7/10 — failing **only SPF** because each sending domain has **duplicate SPF + duplicate DMARC** records (GoDaddy auto-added its own). Fix in `go-to-market/12-outstanding-items.md` (delete the `*_spfm*` SPF and the `onsecureserver.net` DMARC on both domains; keep the `_spf.google.com` SPF + the `p=none` DMARC). Re-test → expect ~9–10.
+- **Instantly campaign (PAUSED):** id `d8b5e012-ca81-496c-ae25-5941565e1740` — "Veska — Med Spa (Batch 1)". 4-step **safe** sequence (only `{{firstName}}`/`{{companyName}}`, no custom fields = no broken-variable risk), **link-free** (link goes in the reply), **unsubscribe header on**, stop-on-reply, no open/click tracking, Mon–Fri 09:00–16:00. **Timezone set Europe/Belgrade (~UK); Batch 1 = UK aesthetics clinics (pool ~139 med-spa / broaden to skin+cosmetic clinics); copy UK-tuned.**
+- **mail-tester: 10/10 on both sending domains ✅** (SPF/DMARC duplicate records removed).
 
 ## 7. Apollo (lead data)
 - Account: Shamik Ukil, ~**1,813 lead credits**. **Searches are free; enrichment spends credits.**
