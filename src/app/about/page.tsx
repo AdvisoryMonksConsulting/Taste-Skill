@@ -37,8 +37,8 @@ export default function About() {
       <SiteNav />
 
       <section className="mx-auto max-w-3xl px-6 pt-16 pb-10">
-        <p className={"text-sm font-semibold uppercase tracking-wide " + NAVY}>About</p>
-        <h1 className={"mt-3 text-4xl font-semibold tracking-tight sm:text-5xl " + NAVY}>
+        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#b08a3e]">About</p>
+        <h1 className="mt-3 font-serif text-4xl font-medium tracking-[-0.018em] text-[#061C33] sm:text-5xl">
           A design studio for brands that want to look like the leader.
         </h1>
         <p className="mt-6 text-lg text-neutral-600">

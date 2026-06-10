@@ -17,7 +17,7 @@ export default function StartPage() {
     <main className="bg-white text-neutral-800">
       <SiteNav />
       <section className="mx-auto max-w-3xl px-6 py-16">
-        <h1 className={"text-4xl font-semibold tracking-tight " + NAVY}>Start a project</h1>
+        <h1 className="font-serif text-4xl font-medium tracking-[-0.018em] text-[#061C33] sm:text-5xl">Start a project</h1>
         <p className="mt-4 text-lg text-neutral-600">Two steps and we&apos;re building. Most projects start the same week.</p>
 
         <ol className="mt-10 space-y-8">

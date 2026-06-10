@@ -16,7 +16,7 @@ export default function ContactPage() {
       <SiteNav />
       <section className="mx-auto grid max-w-5xl gap-12 px-6 py-16 lg:grid-cols-2">
         <div>
-          <h1 className={"text-4xl font-semibold tracking-tight " + NAVY}>Let&apos;s talk</h1>
+          <h1 className="font-serif text-4xl font-medium tracking-[-0.018em] text-[#061C33] sm:text-5xl">Let&apos;s talk</h1>
           <p className="mt-4 text-lg text-neutral-600">Tell us about your product and what you need. We reply within one business day — usually with a free spec-demo of your page.</p>
           <div className="mt-8 space-y-3 text-neutral-700">
             <p>Email: <a href={`mailto:${site.email}`} className={"font-medium " + NAVY}>{site.email}</a></p>
