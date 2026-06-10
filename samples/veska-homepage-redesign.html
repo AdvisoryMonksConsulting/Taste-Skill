@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Veska — redesign preview</title>
+<style>
+  :root{
+    --navy:#061C33; --navy2:#0c2b4a; --paper:#f6f8fa; --ink:#0b1726;
+    --muted:#566472; --line:#e4e9ef; --gold:#c9a96a; --sky:#cfe0f3; --kicker:#9bb4cf;
+    --serif:Georgia,'Times New Roman',serif; --sans:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body{ font-family:var(--sans); color:var(--ink); background:var(--navy); width:1440px; }
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 40px; }
+  .eyebrow{ font-size:12px; letter-spacing:.28em; text-transform:uppercase; font-weight:600; }
+  .btn{ display:inline-block; font-size:14px; font-weight:600; padding:14px 26px; border-radius:11px; text-decoration:none; }
+  h2.sec{ font-family:var(--serif); font-weight:500; font-size:46px; letter-spacing:-.015em; line-height:1.06; }
+
+  /* HERO (navy) */
+  .hero{ background:radial-gradient(110% 120% at 82% 8%, var(--navy2), var(--navy) 58%); color:#fff; }
+  nav{ display:flex; align-items:center; justify-content:space-between; padding:26px 0; }
+  .brand{ display:flex; align-items:center; gap:12px; }
+  .brand .dot{ width:30px;height:30px;border-radius:8px;background:#fff;position:relative; }
+  .brand .dot::after{ content:"";position:absolute;inset:8px;border-radius:3px;background:var(--navy); }
+  .brand .name{ font-size:20px;font-weight:700;letter-spacing:.16em; }
+  .brand .by{ font-size:10px;color:var(--kicker);letter-spacing:.04em;margin-top:2px; }
+  .navlinks{ display:flex; gap:30px; font-size:14px; color:#c4d3e4; }
+  .hero-inner{ display:grid; grid-template-columns:1.06fr .94fr; gap:48px; align-items:center; padding:54px 0 80px; }
+  .hero h1{ font-family:var(--serif); font-weight:500; font-size:62px; line-height:1.04; letter-spacing:-.018em; margin:20px 0 22px; }
+  .hero h1 em{ font-style:italic; color:var(--sky); }
+  .hero p.lede{ font-size:18px; line-height:1.6; color:#c4d3e4; max-width:46ch; }
+  .hero .cta-row{ display:flex; gap:14px; margin-top:30px; align-items:center; }
+  .btn-white{ background:#fff; color:var(--navy); }
+  .btn-ghost{ background:transparent; color:#fff; border:1px solid rgba(255,255,255,.28); }
+  .hero .trust{ margin-top:30px; font-size:13px; color:#8fa8c4; letter-spacing:.02em; }
+  /* hero mockup */
+  .mock{ border-radius:14px; overflow:hidden; box-shadow:0 30px 70px rgba(0,0,0,.4); border:1px solid rgba(255,255,255,.1); }
+  .mock .bar{ height:32px;background:#10243c;display:flex;align-items:center;gap:7px;padding:0 13px; }
+  .mock .bar i{ width:10px;height:10px;border-radius:50%;display:inline-block; }
+  .mock .vp{ background:#fbfaf7; padding:22px; color:#2e2620; }
+  .mock .vp .mn{ display:flex;justify-content:space-between;align-items:center;font-size:11px; }
+  .mock .vp h3{ font-family:var(--serif); font-size:30px; font-weight:500; line-height:1.06; margin:18px 0 10px; }
+  .mock .vp .sub2{ font-size:11.5px; color:#8a7d72; line-height:1.5; max-width:34ch; }
+  .mock .vp .b{ margin-top:14px; display:inline-block; background:#b76e54; color:#fff; font-size:11px; font-weight:600; padding:9px 16px; border-radius:8px; }
+
+  /* TRUST STRIP */
+  .strip{ background:#04111f; color:#7f99b5; padding:20px 0; }
+  .strip .wrap{ display:flex; align-items:center; justify-content:space-between; }
+  .strip .tline{ font-size:13px; letter-spacing:.04em; }
+  .logos{ display:flex; gap:30px; align-items:center; opacity:.7; }
+  .logos span{ font-size:15px; font-weight:700; letter-spacing:.04em; color:#b9c8da; }
+
+  /* WORK (light) */
+  .work{ background:var(--paper); padding:84px 0; }
+  .sec-head{ text-align:center; max-width:60ch; margin:0 auto 44px; }
+  .sec-head .eyebrow{ color:var(--gold); }
+  .sec-head h2{ color:var(--ink); margin:14px 0 12px; }
+  .sec-head p{ font-size:16px; color:var(--muted); line-height:1.6; }
+  .grid3{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  .wcard{ background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:0 6px 20px rgba(6,28,51,.05); }
+  .wcard .pv{ height:148px; position:relative; overflow:hidden; padding:14px 16px; display:flex; flex-direction:column; justify-content:space-between; }
+  .wcard .pv .top{ display:flex; justify-content:space-between; align-items:center; font-size:10px; }
+  .wcard .pv .hl{ font-family:var(--serif); font-size:19px; line-height:1.1; }
+  .wcard .pv .pb{ font-size:9px; font-weight:700; padding:5px 10px; border-radius:6px; width:max-content; }
+  .wcard .cap{ display:flex; justify-content:space-between; align-items:center; padding:14px 16px; }
+  .wcard .cap .nm{ font-size:15px; font-weight:700; color:var(--ink); }
+  .wcard .cap .sx{ font-size:11.5px; color:var(--muted); }
+  .wcard .cap .vl{ font-size:11px; color:var(--gold); font-weight:600; white-space:nowrap; }
+  .more{ display:flex; gap:10px; justify-content:center; margin-top:24px; flex-wrap:wrap; }
+  .more span{ font-size:12.5px; color:var(--muted); border:1px solid var(--line); background:#fff; border-radius:999px; padding:9px 16px; }
+
+  /* PROCESS (navy) */
+  .proc{ background:var(--navy); color:#fff; padding:84px 0; }
+  .proc .sec-head .eyebrow{ color:var(--sky); }
+  .proc .sec-head h2{ color:#fff; }
+  .steps{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:12px; }
+  .step{ border-top:2px solid rgba(255,255,255,.16); padding-top:18px; }
+  .step .n{ font-family:var(--serif); font-size:34px; color:var(--gold); }
+  .step h4{ font-size:16px; margin:10px 0 8px; }
+  .step p{ font-size:13px; color:#9fb4cf; line-height:1.55; }
+
+  /* PRICING (light) */
+  .price{ background:var(--paper); padding:84px 0; }
+  .price .sec-head .eyebrow{ color:var(--gold); }
+  .price .sec-head h2{ color:var(--ink); }
+  .tiers{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; align-items:stretch; }
+  .tier{ background:#fff; border:1px solid var(--line); border-radius:16px; padding:26px 22px; display:flex; flex-direction:column; }
+  .tier.feat{ border:2px solid var(--navy); box-shadow:0 18px 40px rgba(6,28,51,.12); position:relative; }
+  .tier.feat .badge{ position:absolute; top:-11px; left:22px; background:var(--navy); color:#fff; font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; padding:5px 11px; border-radius:999px; }
+  .tier .tn{ font-size:13px; font-weight:700; color:var(--ink); letter-spacing:.04em; display:flex; justify-content:space-between; }
+  .tier .tn span{ color:var(--muted); font-weight:500; font-size:11px; }
+  .tier .pr{ font-family:var(--serif); font-size:34px; color:var(--ink); margin:14px 0 4px; }
+  .tier ul{ list-style:none; margin:16px 0 20px; display:flex; flex-direction:column; gap:9px; }
+  .tier li{ font-size:12.5px; color:var(--muted); padding-left:18px; position:relative; line-height:1.4; }
+  .tier li::before{ content:"✓"; position:absolute; left:0; color:var(--gold); font-weight:700; }
+  .tier .ta{ margin-top:auto; text-align:center; font-size:13px; font-weight:600; padding:11px; border-radius:9px; }
+  .tier .ta.dark{ background:var(--navy); color:#fff; } .tier .ta.light{ background:#eef2f6; color:var(--navy); }
+
+  /* TESTIMONIALS (white) */
+  .test{ background:#fff; padding:80px 0; }
+  .test .sec-head h2{ color:var(--ink); } .test .sec-head .eyebrow{ color:var(--gold); }
+  .quotes{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .q{ background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:24px; }
+  .q .mark{ font-family:var(--serif); font-size:40px; color:var(--gold); line-height:.6; }
+  .q p{ font-size:14.5px; color:var(--ink); line-height:1.6; margin:10px 0 16px; font-family:var(--serif); }
+  .q .who b{ display:block; font-size:13px; color:var(--ink); } .q .who span{ font-size:11.5px; color:var(--muted); }
+
+  /* CTA (navy) */
+  .final{ background:radial-gradient(120% 130% at 50% -20%, var(--navy2), var(--navy) 60%); color:#fff; padding:96px 0; text-align:center; }
+  .final h2{ font-family:var(--serif); font-weight:500; font-size:54px; letter-spacing:-.02em; line-height:1.05; }
+  .final p{ font-size:17px; color:#c4d3e4; margin:18px auto 0; max-width:54ch; line-height:1.6; }
+  .final .cta-row{ display:flex; gap:14px; justify-content:center; margin-top:32px; }
+
+  /* FOOTER */
+  footer{ background:#04111f; color:#8fa8c4; padding:46px 0 30px; }
+  footer .top{ display:flex; justify-content:space-between; align-items:flex-start; padding-bottom:26px; border-bottom:1px solid rgba(255,255,255,.08); }
+  footer .fl{ display:flex; gap:30px; font-size:13px; }
+  footer .bot{ display:flex; justify-content:space-between; margin-top:22px; font-size:12px; color:#5f7790; }
+</style></head><body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <nav>
+      <div class="brand"><span class="dot"></span><div><div class="name">VESKA</div><div class="by">by Advisory Monks Consulting</div></div></div>
+      <div class="navlinks"><span>Work</span><span>Process</span><span>Pricing</span><span>About</span><span>FAQ</span></div>
+      <a class="btn btn-white" style="padding:11px 20px;font-size:13px;">Book a call</a>
+    </nav>
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow" style="color:var(--kicker);">Productized design studio · 5-day delivery</div>
+        <h1>Stripe-grade landing pages,<br>shipped in <em>five days.</em></h1>
+        <p class="lede">Veska designs, writes, and builds high-converting pages for software and D2C brands — fixed scope, fixed price, no open-ended invoices.</p>
+        <div class="cta-row">
+          <a class="btn btn-white">Book a 15-min call</a>
+          <a class="btn btn-ghost">See our work →</a>
+        </div>
+        <div class="trust">Fixed price · 5-day delivery · Built in Next.js, yours to keep</div>
+      </div>
+      <div class="mock">
+        <div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+        <div class="vp">
+          <div class="mn"><b style="letter-spacing:.16em;font-weight:600;">LUMÉ</b><span style="color:#b76e54;background:#f6e7df;border-radius:6px;padding:4px 9px;font-weight:600;">Book now</span></div>
+          <h3>Skin, considered.</h3>
+          <div class="sub2">Clinically-proven botanicals in refillable glass. Built for the brand, never templated.</div>
+          <span class="b">Shop the ritual →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="strip"><div class="wrap">
+  <div class="tline">Trusted by founders across the UK · US · Singapore · Gulf</div>
+  <div class="logos"><span>Acme</span><span>Globex</span><span>Initech</span><span>Umbrella</span><span>Soylent</span></div>
+</div></section>
+
+<!-- WORK -->
+<section class="work"><div class="wrap">
+  <div class="sec-head">
+    <div class="eyebrow">Selected work</div>
+    <h2 class="sec">Designed for the brand, never templated.</h2>
+    <p>A glimpse of the range — every project is built bespoke, from a blank canvas.</p>
+  </div>
+  <div class="grid3">
+    <div class="wcard"><div class="pv" style="background:linear-gradient(150deg,#0f2235,#0a3f55);color:#dff3ee;"><div class="top"><b style="letter-spacing:.1em;">NORTHWIND</b><span style="opacity:.7;">●●●</span></div><div class="hl">Reconciliation,<br>reconciled.</div><span class="pb" style="background:#13a98c;color:#062019;">Fintech</span></div><div class="cap"><div><div class="nm">Northwind</div><div class="sx">Fintech · Reconciliation</div></div><div class="vl">View live →</div></div></div>
+    <div class="wcard"><div class="pv" style="background:radial-gradient(120% 120% at 80% 0,#241d4a,#0c0a1a);color:#e7e3ff;"><div class="top"><b style="letter-spacing:.1em;">CORTEX</b><span style="opacity:.7;">✦</span></div><div class="hl">Your team's<br>second brain.</div><span class="pb" style="background:#7c6cff;color:#0c0a1a;">AI · Knowledge</span></div><div class="cap"><div><div class="nm">Cortex</div><div class="sx">AI · Knowledge</div></div><div class="vl">View live →</div></div></div>
+    <div class="wcard"><div class="pv" style="background:#0b1410;color:#cdf5cd;font-family:ui-monospace,Menlo,monospace;"><div class="top"><b>FORGE</b><span style="color:#3dff3d;">$_</span></div><div class="hl" style="font-family:var(--serif);">Ship green,<br>every time.</div><span class="pb" style="background:#1f5a1f;color:#cdf5cd;">Dev tools · CI/CD</span></div><div class="cap"><div><div class="nm">Forge</div><div class="sx">Developer tools · CI/CD</div></div><div class="vl">View live →</div></div></div>
+    <div class="wcard"><div class="pv" style="background:linear-gradient(150deg,#f0dccd,#cf9f86);color:#3a2820;"><div class="top"><b style="letter-spacing:.12em;font-family:var(--serif);">LUMÉ</b><span style="opacity:.6;">○</span></div><div class="hl" style="font-family:var(--serif);">Skin,<br>considered.</div><span class="pb" style="background:#b76e54;color:#fff;">D2C · Skincare</span></div><div class="cap"><div><div class="nm">Lumé</div><div class="sx">D2C · Skincare</div></div><div class="vl">View live →</div></div></div>
+    <div class="wcard"><div class="pv" style="background:linear-gradient(150deg,#0aa1a8,#063d40);color:#e7fbfb;"><div class="top"><b style="letter-spacing:.1em;">PULSE</b><span style="opacity:.7;">+</span></div><div class="hl">Care, minutes<br>away.</div><span class="pb" style="background:#d6f3f3;color:#063d40;">Healthcare</span></div><div class="cap"><div><div class="nm">Pulse</div><div class="sx">Healthcare · Telehealth</div></div><div class="vl">View live →</div></div></div>
+    <div class="wcard"><div class="pv" style="background:radial-gradient(120% 120% at 80% 0,#16243c,#070d18);color:#dceaf8;"><div class="top"><b style="letter-spacing:.1em;">SIGNAL</b><span style="color:#4da3ff;">▲</span></div><div class="hl">See what your<br>product does.</div><span class="pb" style="background:#4da3ff;color:#070d18;">SaaS · Analytics</span></div><div class="cap"><div><div class="nm">Signal</div><div class="sx">SaaS · Product analytics</div></div><div class="vl">View live →</div></div></div>
+  </div>
+  <div class="more"><span>Acre · PropTech</span><span>Ledger · Crypto</span><span>Scholar · EdTech</span><span>Sojourn · Travel</span><span style="color:var(--gold);border-color:var(--gold);">View all 10 →</span></div>
+</div></section>
+
+<!-- PROCESS -->
+<section class="proc"><div class="wrap">
+  <div class="sec-head">
+    <div class="eyebrow">How it works</div>
+    <h2 class="sec">From call to live in a week.</h2>
+  </div>
+  <div class="steps">
+    <div class="step"><div class="n">01</div><h4>Book a call</h4><p>A 15-minute call to understand your product, audience, and goal.</p></div>
+    <div class="step"><div class="n">02</div><h4>Brief &amp; design</h4><p>We write the copy and craft a custom design system for your brand.</p></div>
+    <div class="step"><div class="n">03</div><h4>Build in Next.js</h4><p>Developed clean and deployed to a live preview you review.</p></div>
+    <div class="step"><div class="n">04</div><h4>Ship in 5 days</h4><p>Launched and handed over — the code is yours to keep.</p></div>
+  </div>
+</div></section>
+
+<!-- PRICING -->
+<section class="price"><div class="wrap">
+  <div class="sec-head">
+    <div class="eyebrow">Pricing</div>
+    <h2 class="sec">Fixed scope. Fixed price.</h2>
+    <p>Or a tailored quote for anything bigger — see the Custom option.</p>
+  </div>
+  <div class="tiers">
+    <div class="tier"><div class="tn">Launch <span>5 days</span></div><div class="pr">$4,950</div><div style="font-size:11.5px;color:var(--muted);">One high-converting landing page.</div><ul><li>Conversion copywriting</li><li>Custom design system</li><li>Next.js + deployed</li><li>1 revision round</li></ul><div class="ta light">Get started</div></div>
+    <div class="tier feat"><div class="badge">Most popular</div><div class="tn">Site <span>10 days</span></div><div class="pr">$11,500</div><div style="font-size:11.5px;color:var(--muted);">A full marketing site for your brand.</div><ul><li>Up to 5 pages</li><li>Bespoke component system</li><li>Light CMS wiring</li><li>2 revision rounds</li></ul><div class="ta dark">Get started</div></div>
+    <div class="tier"><div class="tn">Growth <span>ongoing</span></div><div class="pr">$6–9k<span style="font-size:13px;color:var(--muted);">/mo</span></div><div style="font-size:11.5px;color:var(--muted);">Design + CRO on retainer.</div><ul><li>2–4 pages / month</li><li>A/B testing &amp; CRO</li><li>48h turnaround</li><li>Auto-pay, cancel anytime</li></ul><div class="ta light">Get started</div></div>
+    <div class="tier"><div class="tn">Custom <span>bespoke</span></div><div class="pr">Let's talk</div><div style="font-size:11.5px;color:var(--muted);">Bigger or unusual scope.</div><ul><li>Scoped to your goals</li><li>Web apps &amp; multi-page</li><li>Flexible engagement</li><li>Tailored quote</li></ul><div class="ta light">Discuss pricing</div></div>
+  </div>
+</div></section>
+
+<!-- TESTIMONIALS -->
+<section class="test"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow">Teams ship faster with Veska</div><h2 class="sec">Premium, on a deadline.</h2></div>
+  <div class="quotes">
+    <div class="q"><div class="mark">"</div><p>The new page lifted our demo sign-ups noticeably in the first month — it finally feels premium.</p><div class="who"><b>Founder</b><span>B2B SaaS · seed-stage</span></div></div>
+    <div class="q"><div class="mark">"</div><p>Fastest turnaround I've had from any studio, and the quality was genuinely elite.</p><div class="who"><b>Head of Growth</b><span>Fintech</span></div></div>
+    <div class="q"><div class="mark">"</div><p>It finally looks like the category leader we're trying to become.</p><div class="who"><b>Founder</b><span>D2C skincare</span></div></div>
+  </div>
+</div></section>
+
+<!-- FINAL CTA -->
+<section class="final"><div class="wrap">
+  <div class="eyebrow" style="color:var(--kicker);">A studio, not an agency</div>
+  <h2 style="margin-top:16px;">Let's build yours.</h2>
+  <p>Tell us about your product. We'll send back a clear idea of your new page — fixed scope, fixed price, live in five days.</p>
+  <div class="cta-row"><a class="btn btn-white">Book a 15-min call</a><a class="btn btn-ghost">Request a USD invoice</a></div>
+</div></section>
+
+<!-- FOOTER -->
+<footer><div class="wrap">
+  <div class="top">
+    <div class="brand"><span class="dot"></span><div><div class="name" style="font-size:18px;">VESKA</div><div class="by">by Advisory Monks Consulting</div></div></div>
+    <div class="fl"><span>Work</span><span>Process</span><span>Pricing</span><span>About</span><span>Contact</span><span>Terms</span><span>Privacy</span></div>
+  </div>
+  <div class="bot"><span>hello@veskadesign.com · veskadesign.com</span><span>© 2026 Veska — a brand of Advisory Monks Consulting</span></div>
+</div></footer>
+
+</body></html>
