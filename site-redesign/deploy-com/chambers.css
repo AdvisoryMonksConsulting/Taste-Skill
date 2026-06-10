@@ -1,0 +1,419 @@
+/* ============================================================
+   CHAMBERS THEME — Advisory Monks Consulting
+   Navy · ivory · gold · Lora / Instrument Sans / IBM Plex Mono
+   Loaded LAST; redefines design tokens and re-skins shared components.
+   ============================================================ */
+
+/* Real typefaces (web fonts were never loading — Google Fonts blocked) */
+@font-face{font-family:'Lora';src:url('fonts/Lora-Regular.ttf');font-weight:400;font-display:swap}
+@font-face{font-family:'Lora';src:url('fonts/Lora-Bold.ttf');font-weight:700;font-display:swap}
+@font-face{font-family:'Lora';src:url('fonts/Lora-Italic.ttf');font-style:italic;font-display:swap}
+@font-face{font-family:'Instrument Sans';src:url('fonts/InstrumentSans-Regular.ttf');font-weight:400;font-display:swap}
+@font-face{font-family:'Instrument Sans';src:url('fonts/InstrumentSans-Bold.ttf');font-weight:600 700;font-display:swap}
+@font-face{font-family:'Instrument Sans';src:url('fonts/InstrumentSans-Italic.ttf');font-style:italic;font-display:swap}
+@font-face{font-family:'IBM Plex Mono';src:url('fonts/IBMPlexMono-Regular.ttf');font-weight:400;font-display:swap}
+@font-face{font-family:'IBM Plex Mono';src:url('fonts/IBMPlexMono-Bold.ttf');font-weight:500 700;font-display:swap}
+/* Aliases so any hard-coded original family names also resolve to the new type */
+@font-face{font-family:'Source Serif 4';src:url('fonts/Lora-Regular.ttf');font-weight:400}
+@font-face{font-family:'Source Serif 4';src:url('fonts/Lora-Bold.ttf');font-weight:700}
+@font-face{font-family:'Source Serif Pro';src:url('fonts/Lora-Regular.ttf')}
+@font-face{font-family:'Inter';src:url('fonts/InstrumentSans-Regular.ttf');font-weight:400}
+@font-face{font-family:'Inter';src:url('fonts/InstrumentSans-Bold.ttf');font-weight:500 700}
+@font-face{font-family:'JetBrains Mono';src:url('fonts/IBMPlexMono-Regular.ttf')}
+
+:root{
+  --paper:#FBF9F3; --paper-dim:#F3EEE3; --paper-deeper:#E9E2D2;
+  --ink:#16243C; --ink-dim:#1E3050;
+  --text-strong:#16243C; --text-mid:#585345; --text-faint:#9A9281;
+  --text-line:#E4DDCD; --text-line-strong:#CFC6B1;
+  --text-paper-strong:#F4F0E7; --text-paper-mid:#AAB1BF; --text-paper-faint:#7B8497;
+  --text-paper-line:rgba(244,240,231,.16);
+  --pos:#2C7A57; --neg:#B0492C;
+  --blue:#16243C; --blue-deep:#0F1B30; --blue-soft:#3D5374; --blue-tint:#F1EDE4; --blue-veil:#E7E0D2;
+  --gold:#A9863F; --gold-tint:#F6EFDC;
+  --display:'Lora',Georgia,'Times New Roman',serif;
+  --body:'Instrument Sans',system-ui,-apple-system,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+
+/* ---- Chambers character ------------------------------------ */
+/* Gold hairline at the very top of the page */
+.rail{ box-shadow: inset 0 3px 0 var(--gold); }
+
+/* Eyebrows / kickers / small labels → gold */
+.hero-eyebrow,.section-num,.pv-eyebrow,.eyebrow,.scenario-label,
+.cta-section .section-num,.crumb .current,.ins-eyebrow{
+  color:var(--gold) !important;
+}
+
+/* Serif display gets a touch more weight/letterspacing for Lora */
+h1,.s-display,.section-title,.hero h1,.pv-lead + *,.team-name{ letter-spacing:-.01em; }
+.hero-eyebrow,.section-num,.eyebrow,.pv-eyebrow,.scenario-label{ letter-spacing:.16em; }
+
+/* Footer headings in gold; brass divider already navy via --ink */
+.footer-col h4,.foot-col h4,.footer h4{ color:var(--gold); }
+
+/* Active / hover accents lean gold rather than blue */
+.rail-c a.active,.rail-c a:hover{ color:var(--gold) !important; }
+.rail-c a.active::after{ background:var(--gold) !important; }
+a.pv-back:hover,.cta-btn-secondary:hover{ border-color:var(--gold); }
+
+/* Section rule accents */
+.section-rule{ background:var(--text-line); }
+.section-rule::before{ background:var(--gold) !important; }
+
+/* ---- Honest credibility pillars (replaces fabricated quotes) */
+.principles{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:8px; }
+.principle{ padding-top:22px; border-top:2px solid var(--ink); }
+.principle .p-k{ font-family:var(--mono); font-size:12px; letter-spacing:.14em; color:var(--gold); }
+.principle h3{ font-family:var(--display); font-weight:700; font-size:22px; color:var(--text-strong); margin:14px 0 8px; letter-spacing:-.01em; }
+.principle p{ font-size:14.5px; line-height:1.6; color:var(--text-mid); }
+@media (max-width:820px){ .principles{ grid-template-columns:1fr; gap:0; } .principle{ margin-bottom:4px; } }
+
+/* Practice "what we do" — scannable, formatted (replaces text wall) */
+#what > p{ max-width:74ch; font-size:16px; line-height:1.75; color:var(--text-mid); margin:0 0 1em; text-wrap:pretty; }
+#what > p:first-of-type{ font-family:var(--display); font-weight:400; font-size:clamp(19px,1.9vw,22px); line-height:1.55; color:var(--text-strong); max-width:60ch; margin-bottom:26px; }
+#what h3{ font-family:var(--display); font-weight:700; font-size:19px; color:var(--text-strong); letter-spacing:-.01em; margin:30px 0 6px; }
+#what .what-list{ list-style:none; padding:0; margin:6px 0 18px; max-width:80ch; }
+#what .what-list li{ position:relative; padding:12px 0 12px 28px; border-top:1px solid var(--text-line); font-size:15px; line-height:1.6; color:var(--text-mid); }
+#what .what-list li:last-child{ border-bottom:1px solid var(--text-line); }
+#what .what-list li::before{ content:""; position:absolute; left:4px; top:19px; width:7px; height:7px; background:var(--gold); transform:rotate(45deg); }
+#what .what-list li strong{ color:var(--text-strong); font-weight:600; }
+#what .what-note{ font-size:13.5px; color:var(--text-faint); max-width:74ch; margin-top:14px; line-height:1.6; }
+#what .what-note strong{ color:var(--text-mid); }
+.section-title,.s-display,.hero h1{ text-wrap:balance; }
+
+/* ============================================================
+   Round-2 fixes: spacing, team, insights, hero cards, logo
+   ============================================================ */
+/* Tightened vertical rhythm (industry-standard) */
+.section{ padding-top:clamp(30px,3.6vw,52px); padding-bottom:clamp(30px,3.6vw,52px); }
+.hero{ padding-top:clamp(40px,5vw,72px); padding-bottom:clamp(26px,3.2vw,44px); }
+.page-view{ padding-top:clamp(26px,3.2vw,46px) !important; }
+.cta-section{ padding-top:clamp(48px,6vw,84px); padding-bottom:clamp(48px,6vw,84px); }
+
+/* Team: compact horizontal cards with small photos */
+.team-grid{ grid-template-columns:1fr !important; gap:18px; }
+.team-card{ flex-direction:row; align-items:stretch; }
+.team-portrait{ aspect-ratio:auto; flex:0 0 184px; width:184px; border-bottom:none; border-right:1px solid var(--text-line); }
+.team-portrait img{ height:100%; }
+.team-body{ padding:24px 28px 26px; gap:12px; }
+@media(max-width:640px){ .team-card{ flex-direction:column; } .team-portrait{ width:100%; flex:0 0 auto; aspect-ratio:3/2; max-height:230px; border-right:none; border-bottom:1px solid var(--text-line); } }
+
+/* Insights list — proper cards (were unstyled & bunched) */
+.ins-list{ display:grid; gap:18px; margin-top:30px; }
+@media(min-width:768px){ .ins-list{ grid-template-columns:1fr 1fr; } }
+.page-view a.ins-card{ display:block; padding:24px 26px; border:1px solid var(--text-line) !important; border-radius:14px; background:var(--paper); transition:border-color .2s, transform .2s; }
+.page-view a.ins-card:hover{ border-color:var(--gold) !important; transform:translateY(-2px); }
+.ins-card-meta{ display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; margin-bottom:12px; }
+.ins-card-tag{ font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); }
+.ins-card-date{ font-family:var(--mono); font-size:11px; color:var(--text-faint); }
+.ins-card-h{ font-family:var(--display); font-weight:700; font-size:21px; line-height:1.25; letter-spacing:-.01em; color:var(--text-strong); margin:0 0 10px; }
+.ins-card-deck{ font-size:14.5px; line-height:1.6; color:var(--text-mid); margin:0 0 14px; }
+.ins-card-cta{ font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-mid); }
+.ins-card:hover .ins-card-cta{ color:var(--gold); }
+
+/* Homepage footer logo keeps brand colours (no harsh invert) */
+.foot img{ filter:none !important; }
+
+/* Hero engagement briefs — make it obvious these are cards */
+.brief-card{ flex-basis:76% !important; border:1px solid var(--text-line); border-radius:14px; background:var(--paper); padding:18px 18px 8px; box-shadow:0 1px 2px rgba(0,0,0,.04); }
+.brief-nav{ display:grid !important; place-items:center; width:32px; height:32px; border-radius:50%; border:1px solid var(--text-line-strong); background:var(--paper); color:var(--text-strong); box-shadow:0 4px 14px rgba(0,0,0,.10); }
+.brief-counter{ font-family:var(--mono); font-size:11px; color:var(--text-mid); }
+
+/* Team cards without photos */
+.team-card{ flex-direction:column; }
+.team-body{ padding:28px 30px 30px; }
+.team-link{ display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--gold); border:1px solid var(--text-line-strong); padding:9px 16px; border-radius:3px; align-self:flex-start; transition:.2s; }
+.team-link:hover{ border-color:var(--gold); background:var(--gold-tint); }
+
+/* Pillar article table + related practices + floating WhatsApp */
+.map-table{ width:100%; border-collapse:collapse; margin:18px 0; font-size:14px; }
+.map-table th{ text-align:left; font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-faint); border-bottom:2px solid var(--ink); padding:10px 12px; }
+.map-table td{ padding:12px; border-bottom:1px solid var(--text-line); vertical-align:top; color:var(--text-mid); }
+.map-table td.f{ font-family:var(--mono); color:var(--gold); white-space:nowrap; font-size:12px; }
+.map-table tr:hover td{ background:var(--paper-dim); }
+.ins-related{ margin:34px 0 10px; padding-top:22px; border-top:1px solid var(--text-line); }
+.ins-related-k{ font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); }
+.ins-related-links{ display:flex; flex-wrap:wrap; gap:10px 20px; margin-top:12px; }
+.ins-related-links a{ font-family:var(--display); font-size:17px; color:var(--text-strong) !important; border-bottom:1px solid var(--text-line-strong) !important; padding-bottom:2px; }
+.ins-related-links a:hover{ color:var(--gold) !important; border-bottom-color:var(--gold) !important; }
+.wa-fab{ position:fixed; right:18px; bottom:18px; z-index:70; width:54px; height:54px; border-radius:50%; background:#25D366; display:grid; place-items:center; box-shadow:0 10px 26px rgba(0,0,0,.24); transition:transform .2s; }
+.wa-fab:hover{ transform:scale(1.07); }
+.wa-fab svg{ width:30px; height:30px; fill:#fff; }
+@media print{ .wa-fab{ display:none; } }
+
+/* Representative outcomes + credentials strip */
+.outcomes{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:8px; }
+@media(max-width:820px){ .outcomes{ grid-template-columns:1fr; } }
+.outcome{ border:1px solid var(--text-line); border-radius:14px; padding:26px 24px; background:var(--paper); }
+.outcome .o-metric{ font-family:var(--display); font-weight:700; font-size:34px; color:var(--text-strong); letter-spacing:-.01em; line-height:1; }
+.outcome p{ font-size:14.5px; line-height:1.6; color:var(--text-mid); margin:12px 0 14px; }
+.outcome .o-tag{ font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); }
+.cred-strip{ display:flex; flex-wrap:wrap; gap:10px 14px; margin-top:30px; padding-top:24px; border-top:1px solid var(--text-line); }
+.cred-strip span{ font-family:var(--mono); font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--text-mid); border:1px solid var(--text-line-strong); border-radius:999px; padding:7px 14px; }
+
+/* Client testimonials */
+.tgrid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:8px; }
+@media(max-width:980px){ .tgrid{ grid-template-columns:1fr 1fr; } }
+@media(max-width:640px){ .tgrid{ grid-template-columns:1fr; } }
+.tcard{ background:var(--paper); border:1px solid var(--text-line); border-radius:14px; padding:24px 24px 22px; display:flex; flex-direction:column; }
+.tcard blockquote{ font-family:var(--display); font-size:16.5px; line-height:1.5; color:var(--text-strong); margin:0 0 16px; letter-spacing:-.005em; }
+.tcard figcaption{ margin-top:auto; padding-top:14px; border-top:1px solid var(--text-line); }
+.tcard .t-name{ display:block; font-weight:600; font-size:14px; color:var(--text-strong); }
+.tcard .t-role{ display:block; font-family:var(--mono); font-size:10.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--text-faint); margin-top:4px; }
+.t-more{ display:inline-block; margin-top:22px; font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); border-bottom:1px solid var(--text-line-strong); padding-bottom:2px; }
+.t-more:hover{ border-color:var(--gold); }
+
+/* Per-practice client testimonial */
+.prac-quote-sec{ }
+.prac-quote{ max-width:760px; margin:0 auto; text-align:center; }
+.prac-quote blockquote{ font-family:var(--display); font-weight:400; font-size:clamp(20px,2.3vw,26px); line-height:1.45; letter-spacing:-.01em; color:var(--text-strong); margin:0 0 20px; }
+.prac-quote figcaption{ display:inline-flex; flex-direction:column; gap:4px; padding-top:16px; border-top:2px solid var(--gold); }
+.prac-quote .pq-name{ font-weight:600; font-size:14px; color:var(--text-strong); }
+.prac-quote .pq-role{ font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--text-faint); }
+
+/* Unify footer navy across all pages (match homepage) */
+.footer{ background:var(--ink) !important; }
+
+/* Engagement briefs: transform slider (robust, no native scroll) */
+.brief-track{ overflow:hidden !important; scroll-snap-type:none !important; display:block !important; }
+.brief-rail{ display:flex; gap:16px; transition:transform .45s cubic-bezier(.4,0,.2,1); will-change:transform; }
+.brief-card{ scroll-snap-align:none !important; }
+
+/* Round-3: contact + legal spacing, Global Desk */
+#contact{ padding-top:clamp(24px,3vw,40px); }
+#contact .s-head{ margin-bottom:clamp(22px,3vw,34px); align-items:start; }
+#contact .contact-cta{ margin:18px 0 0; }
+.page-view .pv-lead{ margin-bottom:clamp(22px,3vw,32px) !important; }
+.page-view h2{ margin:clamp(26px,3vw,34px) 0 12px !important; }
+.page-view .pv-meta{ margin-bottom:24px !important; }
+#aud-global .aud-title{ display:inline-block; }
+#aud-global .prac-tag-global{ }
+
+/* ============================================================
+   Long-form reading measure — consistent, aligned text column
+   (body paragraphs were running full-width ~150 chars/line)
+   ============================================================ */
+.page-view > p, .page-view > ul, .page-view > ol,
+.page-view > h2, .page-view > h3, .page-view > .pv-lead,
+.page-view > blockquote{
+  max-width: 72ch;
+}
+/* keep wide elements wide */
+.page-view > .pv-meta, .page-view > .ins-list, .page-view > .map-table,
+.page-view > .ins-related, .page-view > .team-grid, .page-view > .team-foot,
+.page-view > .calc, .page-view > table{ max-width: none; }
+.map-table{ max-width: 100%; }
+
+/* Practice "what we do" — unify measures so left & right edges align */
+#what > p, #what > p:first-of-type, #what .what-list, #what .what-note, #what h3{ max-width: 74ch; }
+
+/* Fixed reading measure (px) so all long-form text shares the same edges */
+.page-view > p, .page-view > ul, .page-view > ol,
+.page-view > h2, .page-view > h3, .page-view > .pv-lead, .page-view > blockquote{
+  max-width: 680px !important;
+}
+#what > p, #what > p:first-of-type, #what h3, #what .what-list, #what .what-note{
+  max-width: 720px !important;
+}
+
+/* Justified long-form body paragraphs (with hyphenation to avoid rivers) */
+.page-view > p, .page-view > .pv-lead, #what > p, #what .what-note{
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+/* Justify remaining long-form prose: scenarios, FAQ answers, team bios */
+.scenario-body, .faq-a, .team-bio{
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+/* Tighter inter-section spacing (was ~104px between sections) */
+.section{ padding-top:clamp(18px,2.2vw,34px) !important; padding-bottom:clamp(18px,2.2vw,34px) !important; }
+.cta-section{ padding-top:clamp(40px,4.6vw,60px) !important; padding-bottom:clamp(40px,4.6vw,60px) !important; }
+.hero{ padding-bottom:clamp(22px,2.6vw,38px) !important; }
+/* trim the big gap under section headings on the homepage */
+.s-head{ margin-bottom:clamp(22px,3vw,40px) !important; }
+
+/* Reliability: never hide content behind scroll-reveal (caused empty bands) */
+.reveal{ opacity:1 !important; transform:none !important; }
+
+/* ============================================================
+   PREMIUM CRAFT LAYER (shared across all palette previews)
+   Editorial serif headlines + sans body; accent reserved for
+   hairlines/marks only; ink buttons, hairline cards, no shadows,
+   no gradients, no candy pills. CSS-only.
+   ============================================================ */
+:root{
+  --display:'Lora',Georgia,'Times New Roman',serif;
+  --body:'Instrument Sans',system-ui,-apple-system,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+body{ -webkit-font-smoothing:antialiased; font-feature-settings:"liga","kern"; }
+::selection{ background:var(--accent-tint); color:var(--ink); }
+:focus-visible{ outline:2px solid var(--accent)!important; outline-offset:2px; }
+
+/* Headlines — editorial serif, restrained scale, tight tracking */
+.hero-display,.hero h1,.s-display,.section-title,.page-view h1,.page-view h2,
+.cta-section h2,.price-name,.team-name,.prac-title,.ins-card-h,.sp-title,
+.who-card-title,.scenario-title,.p-title,.work-item-title,.price-custom-h{
+  font-family:var(--display)!important; font-weight:600!important; letter-spacing:-.015em!important;
+}
+.hero-display,.hero h1{ font-size:clamp(38px,4.4vw,58px)!important; line-height:1.07!important; }
+.s-display,.section-title{ font-size:clamp(28px,3.2vw,44px)!important; line-height:1.1!important; }
+.hero-display em,.s-display em,.price-custom-h em,.hero h1 em{ font-style:italic; color:var(--accent); }
+.hero-deck,.hero-lede,.s-deck{ font-family:var(--body)!important; font-style:normal!important; line-height:1.6; }
+
+/* Kickers/eyebrows — mono small-caps, accent */
+.eyebrow,.hero-eyebrow,.section-num,.pv-eyebrow,.ins-eyebrow,.scenario-label,
+.sp-eyebrow,.price-custom-eyebrow{
+  font-family:var(--mono)!important; font-size:11px!important; letter-spacing:.2em!important;
+  text-transform:uppercase; color:var(--accent)!important; font-weight:500!important;
+}
+.section-rule::before,.eyebrow::before,.hero-eyebrow::before{ background:var(--accent)!important; }
+.trust-item .dot,.p-num,.prac-num,.hero-num,.ins-card-tag,.map-table td.f{ color:var(--accent)!important; }
+
+/* Buttons — ink primary (small radius) + hairline ghost. No pills, no fills in accent. */
+.btn,.btn-primary,.btn-ghost,.cta-btn-primary,.cta-btn-secondary,.btn-consult,
+.team-link,.pv-actions .btn,.consent-btn{
+  border-radius:4px!important; font-family:var(--body)!important; font-weight:600!important;
+  transition:background .18s,color .18s,border-color .18s;
+}
+.btn-primary,.cta-btn-primary,.btn-consult,.consent-btn-primary{
+  background:var(--ink)!important; color:var(--paper)!important; border:1px solid var(--ink)!important;
+}
+.btn-primary:hover,.cta-btn-primary:hover,.btn-consult:hover{ background:transparent!important; color:var(--ink)!important; }
+.btn-primary .arr{ color:inherit!important; }
+.btn-ghost,.cta-btn-secondary{ background:transparent!important; border:1px solid var(--text-line-strong)!important; color:var(--ink)!important; }
+.btn-ghost:hover,.cta-btn-secondary:hover{ border-color:var(--ink)!important; }
+
+/* Cards — hairline border, near-zero radius, no shadow */
+.prac-card,.sp-card,.price-card,.tm-card,.contact-card,.quote-card,.who-card,
+.outcome,.tcard,.page-view a.ins-card,.about-stat,.eng-model,.team-card,.brief-card{
+  background:var(--paper)!important; border:1px solid var(--text-line)!important;
+  border-radius:6px!important; box-shadow:none!important;
+}
+.prac-card:hover,.sp-card:hover,.tm-card:hover,.who-card:hover,
+.page-view a.ins-card:hover,.team-card:hover{ border-color:var(--accent)!important; transform:none!important; }
+.prac-tag{ border-radius:3px!important; }
+
+/* Numerals — serif, tabular */
+.o-metric,.about-stat-val,.price-amt,.rating-num{
+  font-family:var(--display)!important; font-weight:600!important; font-variant-numeric:tabular-nums lining-nums;
+}
+
+/* Featured tier — dark band, accent hairline crown */
+.price-card.featured{ background:var(--ink)!important; border-color:var(--ink)!important; box-shadow:inset 0 2px 0 var(--accent)!important; }
+.price-card.featured .price-name,.price-card.featured .price-amt{ color:var(--paper)!important; }
+.price-card.featured .price-amt .per,.price-card.featured .price-amt .rs,
+.price-card.featured .price-desc,.price-card.featured .price-feat li{ color:var(--text-paper-mid)!important; }
+.price-card.featured .price-feat li::before{ color:var(--accent)!important; }
+.price-card.featured .price-badge,.price-card.featured .price-foot{ color:var(--accent)!important; }
+
+/* Trust strip — quiet tint band */
+.trust{ background:var(--paper-dim)!important; border-top:1px solid var(--text-line)!important; border-bottom:1px solid var(--text-line)!important; }
+.trust-item{ color:var(--text-mid)!important; }
+
+/* Rail — clean hairline; ink CTA */
+.rail{ background:rgba(255,255,255,.9)!important; -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); border-bottom:1px solid var(--text-line)!important; box-shadow:none!important; }
+.rail-c a.active,.rail-c a:hover,.rail-l a:hover{ color:var(--accent)!important; }
+.rail-c a.active::after{ background:var(--accent)!important; }
+.rail a.nav-cta,.rail-r .cta{ background:var(--ink)!important; color:var(--paper)!important; border:none!important; border-radius:4px!important; }
+
+/* Hero — light editorial paper */
+.hero{ background:var(--paper)!important; }
+
+/* CTA + footer — deep dark band, accent filament */
+.cta-section{ background:var(--ink)!important; box-shadow:inset 0 2px 0 var(--accent); }
+.cta-section h2{ color:var(--paper)!important; }
+.cta-section p{ color:var(--text-paper-mid)!important; }
+.cta-section .section-num,.cta-section .eyebrow{ color:var(--accent)!important; }
+.foot,.footer{ background:var(--ink)!important; box-shadow:inset 0 2px 0 var(--accent)!important; }
+.foot-col h4,.footer-col h4,.footer h4{ color:var(--accent)!important; }
+.foot-col a,.footer-col a{ color:var(--text-paper-mid)!important; }
+.foot-col a:hover,.footer-col a:hover{ color:var(--paper)!important; }
+.foot-brand p,.foot-bottom,.foot-legal{ color:var(--text-paper-faint)!important; }
+.foot img{ filter:brightness(0) invert(1)!important; opacity:.9; }
+
+/* Forms */
+.field input,.field select,.field textarea{ border-radius:4px!important; border:1px solid var(--text-line-strong)!important; background:var(--paper)!important; }
+.field input:focus,.field select:focus,.field textarea:focus{ border-color:var(--accent)!important; box-shadow:none!important; outline:none; }
+
+/* Body links + long-form left-align (kill justified look) */
+.page-view a:not(.btn):not(.pv-back){ color:var(--accent)!important; }
+.page-view > p,.page-view > .pv-lead,#what > p,#what .what-note,.scenario-body,.faq-a,.team-bio{ text-align:left!important; hyphens:manual; }
+.tm-quote,.quote-card blockquote,.tcard blockquote,.prac-quote blockquote,.testimonial-quote{ font-family:var(--display)!important; font-weight:400; }
+.tm-quote::before{ color:var(--accent)!important; }
+/* INK & BRASS on WHITE — cool neutral canvas, no warm parchment */
+:root{
+  --paper:#FFFFFF; --paper-dim:#F6F7F8; --paper-deeper:#EEF0F2; --ivory:#FFFFFF;
+  --ink:#16223A; --ink-dim:#1D2C49; --blue:#16223A; --blue-deep:#101A2D;
+  --blue-tint:#F6F7F8; --blue-veil:#EEF0F2;
+  --text-strong:#14181F; --text-mid:#525861; --text-faint:#8A9099;
+  --text-line:#E6E8EC; --text-line-strong:#CFD3D9;
+  --text-paper-strong:#FFFFFF; --text-paper-mid:#AEB6C2; --text-paper-faint:#7E8696;
+  --accent:#8C6D33; --accent-tint:#F2EAD8; --gold:#8C6D33; --gold-tint:#F2EAD8;
+}
+html,body{ background:#FFFFFF!important; }
+/* Dark ink hero band — magazine-cover authority */
+.hero{ background:var(--ink)!important; }
+.hero .eyebrow,.hero-eyebrow{ color:var(--accent)!important; }
+.hero .hero-display,.hero h1{ color:var(--text-paper-strong)!important; }
+.hero .hero-display em,.hero h1 em{ color:var(--accent)!important; }
+.hero .hero-deck,.hero-lede{ color:var(--text-paper-mid)!important; }
+.hero .hero-deck strong{ color:var(--text-paper-strong)!important; }
+.hero .specs,.hero .spec{ border-color:var(--text-paper-line)!important; }
+.hero .spec-key{ color:var(--text-paper-faint)!important; }
+.hero .spec-val{ color:var(--text-paper-strong)!important; }
+.hero .spec-val span{ color:var(--text-paper-faint)!important; }
+.hero .cta-meta{ color:var(--text-paper-faint)!important; }
+.hero .btn-primary{ background:var(--paper)!important; color:var(--ink)!important; border-color:var(--paper)!important; }
+.hero .btn-primary:hover{ background:transparent!important; color:var(--text-paper-strong)!important; border-color:var(--text-paper-mid)!important; }
+.hero .btn-ghost{ border-color:var(--text-paper-line)!important; color:var(--text-paper-strong)!important; }
+.hero .btn-ghost:hover{ border-color:var(--text-paper-strong)!important; }
+.hero .art-head,.hero .art-head span,.hero .brief-counter{ color:var(--text-paper-mid)!important; }
+.hero .brief-counter #brief-current{ color:var(--accent)!important; }
+.hero{ padding-top:clamp(108px,10vw,140px)!important; }
+/* ============================================================
+   MOTION — subtle: interaction-based only (no scroll reveals).
+   Pure CSS; respects prefers-reduced-motion.
+   ============================================================ */
+@media (prefers-reduced-motion:no-preference){
+  /* Gentle one-time hero fade (opacity only, no movement) */
+  .hero-l, .hero-r{ animation:amc-fade .6s ease both; }
+  .hero-r{ animation-delay:.1s; }
+
+  /* Hover micro-interactions */
+  .prac-card,.sp-card,.who-card,.team-card,.page-view a.ins-card,.outcome,.tcard{
+    transition:transform .26s cubic-bezier(.22,.61,.36,1),border-color .26s,box-shadow .26s;
+  }
+  .prac-card:hover,.sp-card:hover,.who-card:hover,.team-card:hover,
+  .page-view a.ins-card:hover,.outcome:hover,.tcard:hover{
+    transform:translateY(-4px);
+    box-shadow:0 22px 48px -28px rgba(20,24,31,.40);
+    border-color:var(--accent)!important;
+  }
+  .btn,.btn-primary,.btn-ghost,.cta-btn-primary,.cta-btn-secondary{
+    transition:transform .16s ease,background .18s,color .18s,border-color .18s;
+  }
+  .btn-primary:hover,.cta-btn-primary:hover{ transform:translateY(-1px); }
+  .btn-primary .arr{ transition:transform .2s ease; }
+  .btn-primary:hover .arr{ transform:translateX(3px); }
+
+  /* Nav underline grows from the left */
+  .rail-c a{ position:relative; }
+  .rail-c a::after{
+    content:""; position:absolute; left:0; right:0; bottom:-5px; height:2px;
+    background:var(--accent); transform:scaleX(0); transform-origin:left;
+    transition:transform .26s cubic-bezier(.22,.61,.36,1);
+  }
+  .rail-c a:hover::after,.rail-c a.active::after{ transform:scaleX(1); }
+
+  @keyframes amc-fade{ from{opacity:0;} to{opacity:1;} }
+}
