@@ -11,6 +11,10 @@ name: Desktop installers
 
 on:
   push:
+    # Building on branch pushes lets releases ship from environments that
+    # can't push tags or dispatch workflows (e.g. Claude Code's git proxy).
+    branches:
+      - "claude/blissful-fermi-fj2d7g"
     tags:
       - "v*"
   workflow_dispatch:
