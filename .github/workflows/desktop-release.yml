@@ -1,10 +1,11 @@
 # Builds Founder Research desktop installers for Windows, macOS, and Linux.
 #
 # How to get installers (no local setup needed):
-#   1. Push a tag like v1.0.0  (git tag v1.0.0 && git push origin v1.0.0), or
-#   2. Run this workflow manually from the GitHub "Actions" tab.
-# The installers appear as downloadable artifacts on the workflow run
-# (and can be attached to a GitHub Release from there).
+#   1. Push a tag like v1.0.0  (git tag v1.0.0 && git push origin v1.0.0).
+#      A GitHub Release is created automatically with all installers attached
+#      — download them from the repo's "Releases" page.
+#   2. Or run this workflow manually from the GitHub "Actions" tab
+#      (installers appear as artifacts on the run).
 
 name: Desktop installers
 
@@ -59,3 +60,36 @@ jobs:
           name: founder-research-${{ matrix.target }}
           path: ${{ matrix.artifact }}
           if-no-files-found: error
+
+  # On tag pushes, gather all installers into one downloadable Release.
+  release:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: installers
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: installers/**/*
+          generate_release_notes: true
+          body: |
+            ## Founder Research — download for your computer
+
+            | Your computer | Download this file |
+            |---|---|
+            | **Windows** | the file ending in `.exe` |
+            | **Mac** | the file ending in `.dmg` |
+            | **Linux** | the file ending in `.AppImage` (or `.deb`) |
+
+            Double-click the downloaded file to install, open the app, and
+            follow the welcome screen (it walks you through the one-time
+            setup).
+
+            > Note: the app is not yet code-signed, so Windows/macOS may show
+            > a security prompt on first open (Windows: "More info" → "Run
+            > anyway"; Mac: right-click the app → "Open").
