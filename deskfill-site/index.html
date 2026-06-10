@@ -10,136 +10,149 @@
 <meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --ink:#0c1322; --muted:#5b6478; --line:#e6e9f0; --bg:#ffffff;
-    --soft:#f6f8fa; --brand:#10b981; --brand-ink:#059669; --accent:#10b981;
-    --radius:16px; --maxw:1080px;
+    --ink:#0a1020; --ink-soft:#1a2236; --muted:#5a6377; --line:#e8ebf1; --bg:#ffffff;
+    --soft:#f7f9fc; --brand:#10b981; --brand-ink:#059669; --brand-deep:#047857;
+    --radius:18px; --maxw:1100px;
     --sans:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
     --display:'Space Grotesk','Inter',sans-serif;
+    --shadow:0 1px 2px rgba(10,16,32,.04),0 12px 28px -12px rgba(10,16,32,.12);
+    --shadow-lg:0 30px 60px -24px rgba(10,16,32,.35);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-  h1,h2,h3{font-family:var(--display);line-height:1.12;letter-spacing:-0.02em}
-  h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:700}
-  h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;margin-bottom:14px}
-  p{color:var(--muted);font-size:1.05rem}
-  .btn{display:inline-block;background:var(--brand);color:#fff;font-weight:700;padding:15px 28px;border-radius:12px;text-decoration:none;font-size:1.05rem;transition:transform .15s ease, background .15s ease;box-shadow:0 6px 18px rgba(16,185,129,.25)}
-  .btn:hover{background:var(--brand-ink);transform:translateY(-1px)}
-  .btn-lg{padding:18px 34px;font-size:1.15rem}
-  .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line);box-shadow:none}
-  .btn-ghost:hover{background:var(--soft);border-color:var(--muted)}
+  h1,h2,h3{font-family:var(--display);line-height:1.08;letter-spacing:-0.025em}
+  h1{font-size:clamp(2.3rem,5.6vw,4rem);font-weight:700}
+  h2{font-size:clamp(1.6rem,3.2vw,2.5rem);font-weight:700;margin-bottom:14px}
+  p{color:var(--muted);font-size:1.06rem}
+  .eyebrow-tag{font-family:var(--display);font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-ink)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#fff;font-weight:700;padding:15px 28px;border-radius:12px;text-decoration:none;font-size:1.02rem;transition:transform .15s ease, box-shadow .15s ease, background .15s ease;box-shadow:0 8px 22px -6px rgba(16,185,129,.5)}
+  .btn:hover{background:var(--brand-ink);transform:translateY(-2px);box-shadow:0 14px 30px -8px rgba(16,185,129,.55)}
+  .btn-lg{padding:18px 36px;font-size:1.12rem}
+  .btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line);box-shadow:none}
+  .btn-ghost:hover{background:var(--soft);border-color:#c9d0de;box-shadow:none}
 
-  nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--line)}
-  .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .logo{display:flex;align-items:center;gap:9px;font-family:var(--display);font-weight:700;font-size:1.3rem;letter-spacing:-0.03em;color:var(--ink)}
+  nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.8);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .logo{display:flex;align-items:center;gap:9px;font-family:var(--display);font-weight:700;font-size:1.32rem;letter-spacing:-0.03em;color:var(--ink)}
   .logo b{color:var(--brand);font-weight:700}
-  .nav-cta{font-size:.95rem;padding:10px 20px}
+  .nav-cta{font-size:.95rem;padding:10px 20px;box-shadow:none}
 
-  .hero{padding:70px 0 30px;text-align:center}
-  .eyebrow{display:inline-block;background:#e9faf3;border:1px solid #c5efdd;color:var(--brand-ink);font-weight:600;font-size:.85rem;padding:6px 14px;border-radius:999px;margin-bottom:22px}
-  .hero p.sub{max-width:680px;margin:20px auto 28px;font-size:1.2rem}
-  .hero .micro{margin-top:14px;font-size:.92rem;color:var(--muted)}
-  .gbadge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #c5efdd;color:var(--brand-ink);font-weight:600;font-size:.86rem;padding:8px 14px;border-radius:999px;margin-bottom:22px;box-shadow:0 3px 10px rgba(16,185,129,.12)}
-  .trust{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:center;margin-top:30px;color:var(--muted);font-size:.9rem;font-weight:600}
-  .trust span{display:inline-flex;align-items:center;gap:7px}
-  .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block}
+  /* HERO with aurora */
+  .hero{position:relative;text-align:center;padding:84px 0 40px;overflow:hidden;
+    background:
+      radial-gradient(60% 50% at 50% -8%, rgba(16,185,129,.16), transparent 70%),
+      radial-gradient(40% 40% at 12% 8%, rgba(16,185,129,.10), transparent 70%),
+      radial-gradient(46% 46% at 88% 6%, rgba(59,130,246,.08), transparent 70%);
+  }
+  .badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #c9efdd;color:var(--brand-ink);font-weight:600;font-size:.86rem;padding:8px 16px;border-radius:999px;margin-bottom:26px;box-shadow:0 6px 18px -8px rgba(16,185,129,.4)}
+  .hero h1{max-width:14ch;margin:0 auto}
+  .hero h1 .hl{color:var(--brand-ink)}
+  .hero p.sub{max-width:600px;margin:22px auto 30px;font-size:1.22rem;color:var(--ink-soft)}
+  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .micro{margin-top:16px;font-size:.9rem;color:var(--muted)}
+  .trustrow{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:center;margin-top:34px;color:var(--muted);font-size:.88rem;font-weight:600}
+  .trustrow span{display:inline-flex;align-items:center;gap:7px}
+  .ic-check{color:var(--brand)}
 
-  /* PRODUCT SHOT */
-  .shotwrap{max-width:980px;margin:38px auto 0;padding:0 24px}
-  .shotframe{border:1px solid var(--line);border-radius:18px;box-shadow:0 30px 60px -24px rgba(12,19,34,.35);overflow:hidden;background:#fff}
-  .shotbar{display:flex;align-items:center;gap:7px;padding:11px 16px;background:var(--soft);border-bottom:1px solid var(--line)}
+  .shotwrap{max-width:1000px;margin:46px auto 0;padding:0 24px}
+  .shotframe{border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow-lg);overflow:hidden;background:#fff}
+  .shotbar{display:flex;align-items:center;gap:7px;padding:12px 16px;background:var(--soft);border-bottom:1px solid var(--line)}
   .shotbar i{width:11px;height:11px;border-radius:50%;background:#d7dbe6;display:inline-block}
-  .shotbar span{margin-left:10px;font-size:.78rem;color:var(--muted)}
+  .shotbar span{margin-left:12px;font-size:.78rem;color:var(--muted)}
   .shotframe img{display:block;width:100%}
-  .shotcap{text-align:center;color:var(--muted);font-size:.9rem;margin-top:14px}
+  .shotcap{text-align:center;color:var(--muted);font-size:.92rem;margin-top:16px}
 
-  section{padding:58px 0;border-top:1px solid var(--line)}
-  .lead{max-width:720px;margin:0 auto 8px;text-align:center}
-  .lead p{font-size:1.12rem}
+  section{padding:64px 0;border-top:1px solid var(--line)}
+  section.alt{background:var(--soft)}
+  .lead{max-width:730px;margin:0 auto 8px;text-align:center}
+  .lead p{font-size:1.14rem}
+  .lead .eyebrow-tag{display:block;margin-bottom:12px}
 
-  /* STAT BAND */
-  .statband{background:var(--ink);color:#fff;border:none}
-  .statband .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;text-align:center}
-  .stat .num{font-family:var(--display);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:#34d399;letter-spacing:-.02em}
-  .stat .lbl{color:#c3ccd9;font-size:.98rem;margin-top:6px}
-  .statsrc{max-width:var(--maxw);margin:22px auto 0;padding:0 24px;text-align:center;color:#8b94a6;font-size:.76rem}
-
-  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:38px}
-  .card{background:var(--soft);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
-  .card h3{font-size:1.15rem;margin-bottom:8px;font-weight:600}
+  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:42px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);transition:transform .18s ease, box-shadow .18s ease}
+  .card:hover{transform:translateY(-3px);box-shadow:0 24px 44px -20px rgba(10,16,32,.22)}
+  .iconbox{width:46px;height:46px;border-radius:12px;background:#e9faf3;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .card h3{font-size:1.18rem;margin-bottom:8px;font-weight:600}
   .card p{font-size:.98rem}
 
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:38px;counter-reset:s}
-  .step{position:relative;padding:24px;border:1px solid var(--line);border-radius:var(--radius)}
-  .step::before{counter-increment:s;content:counter(s);display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--brand);color:#fff;font-family:var(--display);font-weight:700;margin-bottom:12px}
-  .step h3{font-size:1.02rem;margin-bottom:6px;font-weight:600}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:42px;counter-reset:s}
+  .step{position:relative;padding:26px 22px;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+  .step::before{counter-increment:s;content:counter(s);display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;font-family:var(--display);font-weight:700;margin-bottom:14px}
+  .step h3{font-size:1.04rem;margin-bottom:6px;font-weight:600}
   .step p{font-size:.92rem}
 
-  .incl{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 28px;max-width:760px;margin:34px auto 0}
-  .incl li{list-style:none;display:flex;gap:10px;align-items:flex-start;font-size:1rem;color:var(--ink)}
-  .check{color:var(--accent);font-weight:800;flex-shrink:0}
+  .incl{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 30px;max-width:780px;margin:38px auto 0}
+  .incl li{list-style:none;display:flex;gap:12px;align-items:flex-start;font-size:1.02rem;color:var(--ink);font-weight:500}
+  .incl .ic-check{flex-shrink:0;margin-top:2px}
 
-  /* COMPARE */
-  .compare{max-width:920px;margin:34px auto 0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .statband{background:var(--ink);color:#fff;border:none;position:relative;overflow:hidden}
+  .statband::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 60% at 50% 0%, rgba(16,185,129,.22), transparent 70%)}
+  .statband .wrap{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:30px;text-align:center}
+  .stat .num{font-family:var(--display);font-size:clamp(2rem,4.4vw,3rem);font-weight:700;color:#34d399;letter-spacing:-.03em}
+  .stat .lbl{color:#aeb8c8;font-size:.98rem;margin-top:8px}
+  .stat .lbl b{color:#fff}
+  .statsrc{position:relative;max-width:var(--maxw);margin:26px auto 0;padding:0 24px;text-align:center;color:#7b859a;font-size:.76rem}
+
+  .compare{max-width:940px;margin:42px auto 0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
   .compare table{width:100%;border-collapse:collapse;font-size:.95rem}
-  .compare th,.compare td{padding:15px 16px;text-align:left;border-bottom:1px solid var(--line)}
+  .compare th,.compare td{padding:16px;text-align:left;border-bottom:1px solid var(--line)}
   .compare thead th{background:var(--soft);font-family:var(--display);font-weight:600;font-size:.92rem}
-  .compare th.us{background:#e9faf3;color:var(--brand-ink)}
-  .compare td.us{background:#f3fcf8;font-weight:600;color:var(--ink)}
+  .compare th.us{background:var(--brand);color:#fff}
+  .compare td.us{background:#f1fcf7;font-weight:600;color:var(--ink)}
   .compare tr:last-child td{border-bottom:none}
   .compare td:first-child{color:var(--muted);font-weight:600}
-  .yes{color:var(--brand-ink);font-weight:700}.no{color:#b6bccb}
+  .yes{color:var(--brand-ink);font-weight:700}.no{color:#aab1c0}
 
-  /* GUARANTEE */
-  .guarantee{background:linear-gradient(135deg,#0c1322,#10342a);color:#fff;text-align:center}
-  .guarantee h2{color:#fff}
-  .guarantee p{color:#c3d2cb;max-width:640px;margin:14px auto 26px;font-size:1.1rem}
-  .gbig{font-family:var(--display);font-size:clamp(1.4rem,3.2vw,2rem);font-weight:700;letter-spacing:-0.02em;margin-bottom:10px}
-  .guarantee .btn{background:var(--brand)}.guarantee .btn:hover{background:var(--brand-ink)}
+  .guarantee{background:linear-gradient(135deg,#0a1020,#0c3a2c);color:#fff;text-align:center;position:relative;overflow:hidden}
+  .guarantee::before{content:"";position:absolute;inset:0;background:radial-gradient(40% 60% at 50% 120%, rgba(16,185,129,.3), transparent 70%)}
+  .guarantee .wrap{position:relative}
+  .gshield{font-size:2.4rem;margin-bottom:6px}
+  .gbig{font-family:var(--display);font-size:clamp(1.5rem,3.4vw,2.2rem);font-weight:700;letter-spacing:-0.02em;margin-bottom:12px}
+  .guarantee p{color:#bfe9d8;max-width:640px;margin:0 auto 28px;font-size:1.1rem}
 
-  /* PRICING */
-  .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:38px;align-items:stretch}
-  .tier{border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;background:#fff;display:flex;flex-direction:column}
-  .tier.feat{border:2px solid var(--brand);box-shadow:0 20px 40px -22px rgba(16,185,129,.4);position:relative}
-  .tier .tag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--brand);color:#fff;font-size:.74rem;font-weight:700;padding:4px 12px;border-radius:999px;letter-spacing:.03em}
-  .tier h3{font-size:1.2rem;font-weight:600}
-  .tier .price{font-family:var(--display);font-size:2.1rem;font-weight:700;margin:8px 0 2px}
+  .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:42px;align-items:stretch}
+  .tier{border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;background:#fff;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+  .tier.feat{border:2px solid var(--brand);box-shadow:0 30px 60px -26px rgba(16,185,129,.5);position:relative;transform:translateY(-6px)}
+  .tier .tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--brand);color:#fff;font-size:.72rem;font-weight:700;padding:5px 14px;border-radius:999px;letter-spacing:.06em}
+  .tier h3{font-size:1.24rem;font-weight:600}
+  .tier .price{font-family:var(--display);font-size:2.3rem;font-weight:700;margin:10px 0 2px}
   .tier .price span{font-size:.95rem;color:var(--muted);font-weight:500}
-  .tier .setup{font-size:.86rem;color:var(--muted);margin-bottom:16px}
-  .tier ul{list-style:none;margin:0 0 22px;flex:1}
-  .tier li{font-size:.94rem;padding:7px 0;display:flex;gap:9px;align-items:flex-start;border-bottom:1px solid var(--line)}
+  .tier .setup{font-size:.86rem;color:var(--muted);margin-bottom:18px}
+  .tier ul{list-style:none;margin:0 0 24px;flex:1}
+  .tier li{font-size:.95rem;padding:9px 0;display:flex;gap:10px;align-items:flex-start;border-bottom:1px solid var(--line);color:var(--ink)}
   .tier li:last-child{border-bottom:none}
-  .tier .target{font-weight:700;color:var(--ink)}
-  .pricnote{text-align:center;color:var(--muted);font-size:.9rem;margin-top:18px}
+  .tier .target{font-weight:700}
+  .pricnote{text-align:center;color:var(--muted);font-size:.92rem;margin-top:20px}
 
-  .fit{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:34px}
-  .fit .card h3{display:flex;align-items:center;gap:8px}
-  .fit ul{margin-top:10px}
-  .fit li{list-style:none;font-size:.98rem;padding:6px 0;color:var(--ink)}
+  .fit{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:38px}
+  .fit ul{margin-top:12px}
+  .fit li{list-style:none;font-size:.99rem;padding:7px 0;color:var(--ink)}
 
-  details{border:1px solid var(--line);border-radius:12px;padding:4px 20px;margin-bottom:12px;background:#fff}
-  summary{cursor:pointer;font-weight:600;padding:16px 0;list-style:none;display:flex;justify-content:space-between;align-items:center;font-family:var(--display)}
+  details{border:1px solid var(--line);border-radius:14px;padding:4px 22px;margin-bottom:12px;background:#fff;box-shadow:var(--shadow)}
+  summary{cursor:pointer;font-weight:600;padding:18px 0;list-style:none;display:flex;justify-content:space-between;align-items:center;font-family:var(--display)}
   summary::-webkit-details-marker{display:none}
-  summary::after{content:"+";font-size:1.4rem;color:var(--brand);font-weight:400}
+  summary::after{content:"+";font-size:1.5rem;color:var(--brand);font-weight:400}
   details[open] summary::after{content:"–"}
-  details p{padding:0 0 16px;font-size:.98rem}
+  details p{padding:0 0 18px;font-size:.99rem}
 
-  .final{text-align:center;background:var(--soft)}
-  .final p{max-width:560px;margin:14px auto 26px;font-size:1.12rem}
+  .final{text-align:center;position:relative;overflow:hidden;background:
+      radial-gradient(50% 80% at 50% 120%, rgba(16,185,129,.14), transparent 70%), var(--soft)}
+  .final p{max-width:560px;margin:14px auto 28px;font-size:1.14rem}
 
-  footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:.86rem;text-align:center}
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-size:.86rem;text-align:center}
   footer a{color:var(--muted)}
   .fill{background:#fff7d6;color:#7a5b00;padding:0 4px;border-radius:3px}
 
-  @media(max-width:860px){
+  @media(max-width:880px){
     .cols,.steps,.fit,.pricing,.statband .wrap{grid-template-columns:1fr}
     .incl{grid-template-columns:1fr}
     .steps{grid-template-columns:1fr 1fr}
-    .statband .wrap{gap:26px}
+    .tier.feat{transform:none}
   }
   @media(max-width:520px){.steps{grid-template-columns:1fr}}
 </style>
@@ -149,7 +162,7 @@
 <nav>
   <div class="wrap nav-in">
     <div class="logo">
-      <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="7" fill="#10b981"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg width="27" height="27" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="7" fill="#10b981"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Desk<b>Fill</b>
     </div>
     <a href="#book" class="btn nav-cta">Book a call</a>
@@ -158,26 +171,34 @@
 
 <header class="hero">
   <div class="wrap">
-    <span class="gbadge">✓ 15 meetings in 90 days — or we work free</span>
-    <h1>More client meetings for your<br/>recruitment desk. Booked.</h1>
-    <p class="sub">We run done-for-you cold outreach that books qualified discovery calls with hiring companies that actually need to fill roles — so your consultants spend time closing, not prospecting.</p>
-    <a href="#book" class="btn btn-lg">Book a 15-min call →</a>
-    <p class="micro">No 12-month lock-ins. 3-month minimum, cancel anytime after.</p>
+    <span class="badge"><svg width="15" height="15" viewBox="0 0 24 24" class="ic-check"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> 15 meetings in 90 days — or we work free</span>
+    <h1>More client meetings for your <span class="hl">recruitment desk.</span> Booked.</h1>
+    <p class="sub">Done-for-you cold outreach that books qualified discovery calls with hiring companies — so your consultants close instead of prospect.</p>
+    <div class="cta-row">
+      <a href="#book" class="btn btn-lg">Book a 15-min call →</a>
+      <a href="#pricing" class="btn btn-lg btn-ghost">See pricing</a>
+    </div>
+    <p class="micro">No 12-month lock-ins · 3-month minimum, cancel anytime after</p>
+    <div class="trustrow">
+      <span><svg width="15" height="15" viewBox="0 0 24 24" class="ic-check"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> You own your domains</span>
+      <span><svg width="15" height="15" viewBox="0 0 24 24" class="ic-check"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Live reporting dashboard</span>
+      <span><svg width="15" height="15" viewBox="0 0 24 24" class="ic-check"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Qualified, not padded</span>
+    </div>
   </div>
   <div class="shotwrap">
     <div class="shotframe">
       <div class="shotbar"><i></i><i></i><i></i><span>app.deskfill.com/dashboard</span></div>
       <img src="dashboard.png" alt="DeskFill live client dashboard showing meetings booked, reply rate, and pace to guarantee" />
     </div>
-    <p class="shotcap">Your live dashboard — every email, reply, and booking, in real time. No black box.</p>
+    <p class="shotcap">Your live dashboard — every email, reply, and booking in real time. No black box.</p>
   </div>
 </header>
 
 <section class="statband">
   <div class="wrap">
-    <div class="stat"><div class="num">≈$430</div><div class="lbl">cost per qualified meeting, outsourced — vs <b style="color:#fff">$820+</b> to build it in-house</div></div>
+    <div class="stat"><div class="num">≈$430</div><div class="lbl">cost per qualified meeting, outsourced — vs <b>$820+</b> to build it in-house</div></div>
     <div class="stat"><div class="num">1–3%</div><div class="lbl">of contacts become booked meetings with strong cold outreach — we run the volume to hit it</div></div>
-    <div class="stat"><div class="num">100%</div><div class="lbl">of domains &amp; data owned by you — never held hostage</div></div>
+    <div class="stat"><div class="num">100%</div><div class="lbl">of domains &amp; data owned by <b>you</b> — never held hostage</div></div>
   </div>
   <p class="statsrc">Industry benchmarks (B2B appointment-setting &amp; cold-email, 2025). Your results depend on your offer and ICP.</p>
 </section>
@@ -185,26 +206,36 @@
 <section>
   <div class="wrap">
     <div class="lead">
+      <span class="eyebrow-tag">The problem</span>
       <h2>Your billings are capped by one thing: new client conversations.</h2>
       <p>Great recruiters don't have a delivery problem — they have a pipeline problem. You tried a lead-gen agency: paid the retainer, got a monthly PDF, had no idea what was happening, the leads weren't your ICP, the meetings didn't show. We built DeskFill to be the opposite of that.</p>
     </div>
   </div>
 </section>
 
-<section>
+<section class="alt">
   <div class="wrap">
-    <div class="lead"><h2>Qualified hiring-company calls on your calendar — and you see exactly how.</h2></div>
+    <div class="lead"><span class="eyebrow-tag">How we're different</span><h2>Qualified calls on your calendar — and you see exactly how.</h2></div>
     <div class="cols">
-      <div class="card"><h3>Qualified, not padded</h3><p>Every meeting matches the ICP you signed off on — or it doesn't count toward your number.</p></div>
-      <div class="card"><h3>Total visibility</h3><p>A live dashboard shows every email sent, every reply, and every booking, 24/7. No black box.</p></div>
-      <div class="card"><h3>You own everything</h3><p>Your domains, your data, your infrastructure — set up under your control and never held hostage.</p></div>
+      <div class="card">
+        <div class="iconbox"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+        <h3>Qualified, not padded</h3><p>Every meeting matches the ICP you signed off on — or it doesn't count toward your number.</p>
+      </div>
+      <div class="card">
+        <div class="iconbox"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/></svg></div>
+        <h3>Total visibility</h3><p>A live dashboard shows every email, reply, and booking, 24/7. No monthly-PDF black box.</p>
+      </div>
+      <div class="card">
+        <div class="iconbox"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>You own everything</h3><p>Your domains, your data, your infrastructure — set up under your control, never held hostage.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="lead"><h2>Live in days, not weeks.</h2></div>
+    <div class="lead"><span class="eyebrow-tag">The process</span><h2>Live in days, not weeks.</h2></div>
     <div class="steps">
       <div class="step"><h3>Discovery</h3><p>We map your ideal client: sectors, company size, the roles you fill.</p></div>
       <div class="step"><h3>Setup</h3><p>We provision and warm your sending infrastructure — which you own — and build verified lists.</p></div>
@@ -214,9 +245,23 @@
   </div>
 </section>
 
+<section class="alt">
+  <div class="wrap">
+    <div class="lead"><span class="eyebrow-tag">What you get</span><h2>Everything done for you.</h2></div>
+    <ul class="incl">
+      <li><svg width="20" height="20" viewBox="0 0 24 24" class="ic-check"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Dedicated sending infrastructure — you own it</li>
+      <li><svg width="20" height="20" viewBox="0 0 24 24" class="ic-check"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Ideal-client targeting + verified lead lists</li>
+      <li><svg width="20" height="20" viewBox="0 0 24 24" class="ic-check"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Cold email copywriting &amp; A/B testing</li>
+      <li><svg width="20" height="20" viewBox="0 0 24 24" class="ic-check"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Daily inbox management — we reply, qualify, book</li>
+      <li><svg width="20" height="20" viewBox="0 0 24 24" class="ic-check"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Live reporting dashboard</li>
+      <li><svg width="20" height="20" viewBox="0 0 24 24" class="ic-check"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Proactive weekly updates — we come to you</li>
+    </ul>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
-    <div class="lead"><h2>Why not just do it yourself — or use an AI tool?</h2><p>Because in 2024–25, deliverability got hard. Misconfigured domains get throttled or blacklisted, and AI senders book meetings at or below human rates while your reputation burns. We own the hard part.</p></div>
+    <div class="lead"><span class="eyebrow-tag">Why not DIY or AI</span><h2>Why not just do it yourself — or use an AI tool?</h2><p>Because in 2024–25, deliverability got hard. Misconfigured domains get throttled or blacklisted, and AI senders book meetings at or below human rates while your reputation burns. We own the hard part.</p></div>
     <div class="compare">
       <table>
         <thead><tr><th>&nbsp;</th><th class="us">DeskFill</th><th>DIY tools</th><th>Typical agency</th></tr></thead>
@@ -234,25 +279,26 @@
 
 <section class="guarantee">
   <div class="wrap">
+    <div class="gshield">🛡️</div>
     <div class="gbig">15 qualified meetings in 90 days —<br/>or we work free until you get them.</div>
     <p>We don't hide behind a monthly report. If we don't book you 15 qualified meetings in your first 90 days, we keep working at no additional cost until we do. Your risk is close to zero.</p>
     <a href="#book" class="btn btn-lg">See if you qualify →</a>
   </div>
 </section>
 
-<section>
+<section id="pricing">
   <div class="wrap">
-    <div class="lead"><h2>Simple, transparent pricing.</h2><p>No hidden minimums. No mystery retainer. Pick a tier, own your infrastructure, cancel after 3 months if it's not working.</p></div>
+    <div class="lead"><span class="eyebrow-tag">Pricing</span><h2>Simple, transparent pricing.</h2><p>No hidden minimums. No mystery retainer. Pick a tier, own your infrastructure, cancel after 3 months if it's not working.</p></div>
     <div class="pricing">
       <div class="tier">
         <h3>Pilot</h3>
         <div class="price">$2,500<span>/mo</span></div>
         <div class="setup">+ $1,000 one-time setup</div>
         <ul>
-          <li><span class="check">✓</span> ~10 sending inboxes</li>
-          <li><span class="check">✓</span> ~3,000 outreach / month</li>
-          <li><span class="check">✓</span> Live dashboard + weekly reporting</li>
-          <li><span class="target">🎯 5–8 meetings / month</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" class="ic-check"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> ~10 sending inboxes</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" class="ic-check"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> ~3,000 outreach / month</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" class="ic-check"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Live dashboard + weekly reporting</li>
+          <li class="target">🎯 5–8 meetings / month</li>
         </ul>
         <a href="#book" class="btn btn-ghost">Start with Pilot</a>
       </div>
@@ -262,10 +308,10 @@
         <div class="price">$4,000<span>/mo</span></div>
         <div class="setup">+ $1,500 one-time setup</div>
         <ul>
-          <li><span class="check">✓</span> ~20 sending inboxes</li>
-          <li><span class="check">✓</span> ~6,000 outreach / month</li>
-          <li><span class="check">✓</span> Dedicated Slack / WhatsApp line</li>
-          <li><span class="target">🎯 10–16 meetings / month</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" class="ic-check"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> ~20 sending inboxes</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" class="ic-check"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> ~6,000 outreach / month</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" class="ic-check"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Dedicated Slack / WhatsApp line</li>
+          <li class="target">🎯 10–16 meetings / month</li>
         </ul>
         <a href="#book" class="btn">Choose Growth</a>
       </div>
@@ -274,10 +320,10 @@
         <div class="price">$6,000<span>/mo</span></div>
         <div class="setup">+ $1,500 one-time setup</div>
         <ul>
-          <li><span class="check">✓</span> ~30 inboxes + LinkedIn</li>
-          <li><span class="check">✓</span> ~10,000 multichannel / month</li>
-          <li><span class="check">✓</span> Priority optimisation</li>
-          <li><span class="target">🎯 20–30 meetings / month</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" class="ic-check"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> ~30 inboxes + LinkedIn</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" class="ic-check"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> ~10,000 multichannel / month</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" class="ic-check"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Priority optimisation</li>
+          <li class="target">🎯 20–30 meetings / month</li>
         </ul>
         <a href="#book" class="btn btn-ghost">Scale up</a>
       </div>
@@ -286,9 +332,9 @@
   </div>
 </section>
 
-<section>
+<section class="alt">
   <div class="wrap">
-    <div class="lead"><h2>Built for firms that want to grow billings.</h2></div>
+    <div class="lead"><span class="eyebrow-tag">Fit check</span><h2>Built for firms that want to grow billings.</h2></div>
     <div class="fit">
       <div class="card"><h3>✅ A fit if you…</h3>
         <ul>
@@ -309,8 +355,8 @@
 </section>
 
 <section>
-  <div class="wrap" style="max-width:760px">
-    <div class="lead"><h2>Questions, answered.</h2></div>
+  <div class="wrap" style="max-width:780px">
+    <div class="lead"><span class="eyebrow-tag">FAQ</span><h2>Questions, answered.</h2></div>
     <details><summary>Will this hurt my email reputation or domain?</summary><p>No. We send from dedicated, separately warmed domains — never your main brand domain. Your reputation is protected.</p></details>
     <details><summary>How fast do we start?</summary><p>Setup and warmup run in parallel with list-building, so first sends typically go out within days of onboarding.</p></details>
     <details><summary>Do I own the domains and data?</summary><p>Yes — completely. Everything is set up under your control. If you ever leave, you keep it all.</p></details>
