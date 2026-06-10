@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Veska — Skill Ecosystem Catalog</title>
+<style>
+  :root{ --navy:#061C33; --navy2:#0c2b4a; --gold:#c9a96a; }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  @page{ size:A4 landscape; margin:0; }
+  html,body{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body{ font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif; color:#13202e; }
+  .page{ position:relative; width:297mm; height:210mm; overflow:hidden; page-break-after:always; display:flex; flex-direction:column; background:#f4f6f8; padding:14mm 16mm 12mm; }
+  .page:last-child{ page-break-after:auto; }
+  .cover{ background:radial-gradient(120% 120% at 80% 10%, var(--navy2), var(--navy) 60%); color:#fff; justify-content:space-between; padding:22mm 24mm; }
+  .brandmark{ display:flex; align-items:center; gap:12px; }
+  .brandmark .dot{ width:30px;height:30px;border-radius:8px;background:#fff;position:relative;}
+  .brandmark .dot::after{content:"";position:absolute;inset:8px;border-radius:3px;background:var(--navy);}
+  .brandmark .name{ font-size:24px;font-weight:700;letter-spacing:.16em; }
+  .kicker{ font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:#9bb4cf; }
+  .cover h1{ font-family:Georgia,serif;font-weight:500;font-size:64px;line-height:1.06;letter-spacing:-.01em;max-width:22ch; }
+  .cover h1 em{ font-style:italic;color:#cfe0f3; }
+  .cover .sub{ margin-top:18px;font-size:16.5px;color:#c4d3e4;max-width:66ch;line-height:1.55; }
+  .cover .foot{ display:flex;justify-content:space-between;align-items:flex-end;font-size:12px;color:#8fa8c4; }
+  /* content pages */
+  .ph{ display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--navy);padding-bottom:10px;margin-bottom:18px; }
+  .ph h2{ font-family:Georgia,serif;font-weight:500;font-size:30px;color:var(--navy); }
+  .ph .tag{ font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#7a8a9a; }
+  .grid{ display:grid;gap:12px; }
+  .g2{ grid-template-columns:1fr 1fr; } .g3{ grid-template-columns:1fr 1fr 1fr; }
+  .cardx{ background:#fff;border:1px solid #dfe5ea;border-radius:12px;padding:14px 16px;box-shadow:0 4px 14px rgba(6,28,51,.06); }
+  .cardx h3{ font-size:14px;color:var(--navy);margin-bottom:5px;display:flex;align-items:center;gap:8px; }
+  .cardx h3 .n{ font-family:Georgia,serif;font-size:12px;color:#8a734a; }
+  .cardx p{ font-size:11px;line-height:1.5;color:#4c5a68; }
+  .cardx .tagline{ font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#8a96a2;margin-bottom:6px; }
+  .cardx code{ font-family:ui-monospace,Menlo,monospace;font-size:10px;background:#eef2f5;border-radius:4px;padding:1px 5px;color:#0c3a5e; }
+  table.cat{ width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 14px rgba(6,28,51,.06);font-size:11px; }
+  table.cat th{ text-align:left;background:var(--navy);color:#fff;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:9px 14px; }
+  table.cat td{ padding:9px 14px;border-bottom:1px solid #eef1f4;color:#3c4a58;line-height:1.45;vertical-align:top; }
+  table.cat td b{ color:var(--navy); }
+  table.cat tr:last-child td{ border-bottom:none; }
+  .footer{ position:absolute;bottom:6mm;left:16mm;right:16mm;display:flex;justify-content:space-between;font-size:9.5px;color:#9aa6b3;letter-spacing:.08em; }
+  .status{ display:inline-block;font-size:9px;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:3px 9px;font-weight:700; }
+  .s-live{ background:#e0f2e9;color:#13734a; } .s-cmd{ background:#e8eef8;color:#23508e; } .s-auth{ background:#fdf0dc;color:#9a6a1e; } .s-idx{ background:#efeaf8;color:#5e3e9e; }
+  .note{ background:#fff;border-left:4px solid var(--gold);border-radius:0 10px 10px 0;padding:12px 16px;font-size:11.5px;line-height:1.55;color:#4c5a68;box-shadow:0 4px 14px rgba(6,28,51,.06); }
+  .check{ color:#13734a;font-weight:700; }
+</style></head><body>
+
+<!-- COVER -->
+<section class="page cover">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;"><div class="brandmark"><span class="dot"></span><span class="name">VESKA</span></div>
+  <div style="text-align:right"><div class="kicker">Design Studio</div><div style="font-size:12px;color:#9bb4cf;margin-top:6px">veskadesign.com</div></div></div>
+  <div>
+    <div class="kicker" style="margin-bottom:18px">Skill Ecosystem · Complete Catalog · Final Sweep</div>
+    <h1>Every skill for building websites, <em>in one place.</em></h1>
+    <p class="sub">The full map after a comprehensive sweep: nine in-repo skills that fire automatically, the sanctioned external installs, six newly-swept categories, and the marketplaces that index everything else. Nothing on this topic left unsearched — coverage confirmed on the last page.</p>
+  </div>
+  <div class="foot"><div>Powered by Advisory Monks Consulting</div><div>Catalog · 10 June 2026</div></div>
+</section>
+
+<!-- PAGE 2: IN-REPO SUITE -->
+<section class="page">
+  <div class="ph"><h2>The in-repo suite — 9 skills, auto-invoked</h2><span class="tag">Layer 1 · Permanent</span></div>
+  <div class="grid g3">
+    <div class="cardx"><div class="tagline">Taste</div><h3><span class="n">01</span> design-taste <span class="status s-live">Live</span></h3><p>Apply any of 54 brand design languages (Stripe, Linear, Apple, Claude…) from <code>design-md/</code> — palette, type, spacing, motion cues.</p></div>
+    <div class="cardx"><div class="tagline">Identity</div><h3><span class="n">02</span> brand-kit <span class="status s-live">Live</span></h3><p>Client brand system: color roles, type pairing, logo direction, tone of voice, do/don'ts — buildable straight into code.</p></div>
+    <div class="cardx"><div class="tagline">Build</div><h3><span class="n">03</span> client-website <span class="status s-live">Live</span></h3><p>The site itself — shadcn/ui + Tailark, Magic UI, Aceternity, React Bits, Origin UI; ranked catalog with install commands.</p></div>
+    <div class="cardx"><div class="tagline">Templates</div><h3><span class="n">04</span> lndev-pages <span class="status s-live">Live</span></h3><p>Full-page layouts from lndev (bk.lndev.me/pages, Square UI) via the shadcn registry — high-taste starting points.</p></div>
+    <div class="cardx"><div class="tagline">Words</div><h3><span class="n">05</span> landing-copy <span class="status s-live">Live</span></h3><p>Conversion copy — benefit-led headlines, section-by-section structure, CTAs, objection handling. Honesty guardrails built in.</p></div>
+    <div class="cardx"><div class="tagline">Ship</div><h3><span class="n">06</span> web-launch <span class="status s-live">Live</span></h3><p>Core Web Vitals, SEO meta, Open Graph images, accessibility, responsive QA, deploy — the pre-flight checklist.</p></div>
+    <div class="cardx"><div class="tagline">Present</div><h3><span class="n">07</span> deck-design <span class="status s-live">Live</span></h3><p>Premium PDF decks and one-pagers — the navy template behind the 89-sector sample library; engine selection guide.</p></div>
+    <div class="cardx"><div class="tagline">Audit</div><h3><span class="n">08</span> site-teardown <span class="status s-live">Live</span></h3><p>UX + CRO teardown of any existing site — Nielsen's 10 + conversion checklist → five prioritized quick wins. The redesign-pitch engine.</p></div>
+    <div class="cardx"><div class="tagline">Polish</div><h3><span class="n">09</span> motion-design <span class="status s-live">Live</span></h3><p>Tasteful animation — restraint rules, duration/easing standards, Motion/GSAP/Lenis recipes, reduced-motion, "too much?" review.</p></div>
+  </div>
+  <div class="note" style="margin-top:14px;">Supporting data in the repo: <b>design-md/</b> (54 brand specs) · <b>samples/</b> (89-sector concept library, Vols I–V, + the reusable deck template). Hub: <code>.claude/skills/README.md</code>, referenced from CLAUDE.md so it loads every session.</div>
+  <div class="footer"><span>VESKA · SKILL ECOSYSTEM CATALOG</span><span>02 / 06</span></div>
+</section>
+
+<!-- PAGE 3: EXTERNAL SANCTIONED + MIT -->
+<section class="page">
+  <div class="ph"><h2>External skills — sanctioned installs</h2><span class="tag">Layer 2 · One command away</span></div>
+  <div class="grid g2">
+    <div class="cardx"><div class="tagline">Official · proprietary, install via plugin</div><h3>anthropics/skills <span class="status s-cmd">2 commands</span></h3>
+    <p><b>pptx · docx · xlsx · pdf</b> — native, editable Office files &amp; PDF ops. Plus <b>frontend-design</b> (anti-"AI-slop" UI), <b>brand-guidelines</b>, <b>theme-factory</b>, <b>canvas-design</b>. ~148k★. Skill folders are proprietary/source-available — never vendored, installed cleanly:<br><br><code>/plugin marketplace add anthropics/skills</code><br><code>/plugin install document-skills@anthropic-agent-skills</code></p></div>
+    <div class="cardx"><div class="tagline">Community flagship · MIT · needs your go-ahead</div><h3>UI/UX Pro Max <span class="status s-auth">Authorize</span></h3>
+    <p>The most popular community design skill (~88k★): <b>67 UI styles, 161 palettes, 57 font pairings, 99 UX guidelines, 25 chart types</b>, searchable via bundled Python (inspected: pure-stdlib, no network/exec). Ships executable scripts → explicit owner authorization required to vendor. Or run its installer yourself:<br><br><code>npm i -g uipro-cli &amp;&amp; uipro init --ai claude</code></p></div>
+    <div class="cardx"><div class="tagline">Taste expansion · MIT · pure Markdown</div><h3>awesome-claude-design <span class="status s-auth">On request</span></h3>
+    <p>28+ DESIGN.md files in <b>9 aesthetic families</b> (Editorial Minimalism, Terminal-Core, Warm Editorial, Data-Dense Pro, Cinematic Dark, Playful Color, Glass, Neon Brutalist, Cult/Indie) + remix recipes + anti-slop kit. No code — safe to vendor into <code>design-md/</code> on request.</p></div>
+    <div class="cardx"><div class="tagline">Cross-platform standard</div><h3>openai/skills (Codex catalog) <span class="status s-idx">Compatible</span></h3>
+    <p>Curated catalog on the same SKILL.md standard — notably <b>frontend-skill</b> (high-level art direction, restrained composition, anti-generic patterns) and <b>figma-implement-design</b>. The open Agent Skills format installs across 14+ tools, including Claude Code.</p></div>
+  </div>
+  <div class="footer"><span>VESKA · SKILL ECOSYSTEM CATALOG</span><span>03 / 06</span></div>
+</section>
+
+<!-- PAGE 4: FINAL SWEEP CATEGORIES -->
+<section class="page">
+  <div class="ph"><h2>Final-sweep finds — six adjacent categories</h2><span class="tag">Layer 3 · Vetted, install on demand</span></div>
+  <table class="cat">
+    <tr><th style="width:18%;">Category</th><th>Best-of finds (GitHub)</th><th style="width:30%;">Relation to our suite</th></tr>
+    <tr><td><b>Accessibility audit</b></td><td><b>airowe/claude-a11y-skill</b> — axe-core + jsx-a11y, WCAG 2.1 AA · <b>Community-Access/accessibility-agents</b> — 11 WCAG 2.2 AA specialist agents</td><td>Deepens the a11y step of <b>web-launch</b> with automated scanning</td></tr>
+    <tr><td><b>Design audit</b></td><td><b>Ashutos1997/claude-design-auditor-skill</b> — 19 professional design rules + separate accessibility score, severity-ranked</td><td>Overlaps <b>site-teardown</b>; useful second opinion</td></tr>
+    <tr><td><b>Figma → code</b></td><td><b>nafiurrahmanniloy/figma-skill</b> — tokens → 7 frameworks, theme.extend output · <b>figma-design-system-to-design-md</b> — Figma tokens → design.md · <b>lifesized/figma-design-sync</b> — code↔Figma</td><td>New capability: when a client hands over Figma files</td></tr>
+    <tr><td><b>Logo &amp; SVG assets</b></td><td><b>neonwatty/logo-designer-skill</b> — iterative SVG logo flow, pure Markdown (no code — lowest risk) · <b>op7418/logo-generator-skill</b> — 6+ variants, showcase images</td><td>Extends <b>brand-kit</b>'s logo direction into actual SVG marks</td></tr>
+    <tr><td><b>SEO &amp; marketing</b></td><td><b>coreyhaines31/marketingskills</b> — CRO, copywriting, SEO, growth · <b>aaron-he-zhu/seo-geo-claude-skills</b> — 20 skills incl. GEO/AI-search · <b>AgriciDaniel/claude-seo</b> — 25 sub-skills · <b>OpenClaudia</b> — 34 marketing skills</td><td>Depth behind <b>landing-copy</b> + <b>web-launch</b> SEO; GEO (AI-search optimization) is genuinely new</td></tr>
+    <tr><td><b>Mega-collections</b></td><td><b>onewave-ai/claude-skills</b> — 172 production skills across sales/marketing/design/engineering · <b>boraoztunc/skills</b> — copywriting/SEO/design set</td><td>Browse when a one-off need appears</td></tr>
+  </table>
+  <div class="note" style="margin-top:14px;"><b>Supply-chain rule (unchanged):</b> pure-Markdown skills are low-risk; anything shipping executable scripts gets inspected and needs the repo owner's explicit go-ahead before entering the auto-invoked <code>.claude/skills/</code>.</div>
+  <div class="footer"><span>VESKA · SKILL ECOSYSTEM CATALOG</span><span>04 / 06</span></div>
+</section>
+
+<!-- PAGE 5: MARKETPLACES -->
+<section class="page">
+  <div class="ph"><h2>The discovery layer — where anything new appears</h2><span class="tag">Layer 4 · Meta</span></div>
+  <div class="grid g3">
+    <div class="cardx"><h3>claudemarketplaces.com</h3><p>Largest Claude Code directory — 20,300+ skills browsable by category (frontend, testing, security…).</p></div>
+    <div class="cardx"><h3>skillsmp.com</h3><p>800k+ skills auto-indexed from public GitHub (≥2★ filter) — Claude Code, Codex &amp; ChatGPT compatible. Biggest raw catalog.</p></div>
+    <div class="cardx"><h3>claudeskills.info</h3><p>658+ curated free skills incl. the official Anthropic set — community-vetted, no paid tier.</p></div>
+    <div class="cardx"><h3>smithery.ai/skills</h3><p>Skills + MCP registry; strong on artifact-building (React/Tailwind/shadcn) tooling.</p></div>
+    <div class="cardx"><h3>skills.sh · awesomeskills.dev</h3><p>Further cross-tool directories on the open Agent Skills standard (14+ tools).</p></div>
+    <div class="cardx"><h3>Awesome lists (GitHub)</h3><p>travisvn · ComposioHQ · BehiSecc · heilcheng <i>awesome-claude-skills</i> — and <b>VoltAgent/awesome-agent-skills</b> (1,000+ curated).</p></div>
+  </div>
+  <div class="note" style="margin-top:14px;">These six entries are the <b>meta-layer</b>: every new website-design skill that ships lands in one of them. Checking these periodically (or asking Claude to) keeps this catalog current without re-running a full sweep.</div>
+  <div class="footer"><span>VESKA · SKILL ECOSYSTEM CATALOG</span><span>05 / 06</span></div>
+</section>
+
+<!-- PAGE 6: COVERAGE CONFIRMATION -->
+<section class="page">
+  <div class="ph"><h2>Sweep coverage — confirmation</h2><span class="tag">Signed off · 10 June 2026</span></div>
+  <div class="grid g2">
+    <table class="cat">
+      <tr><th>Axis searched</th><th style="width:14%;">Status</th></tr>
+      <tr><td>UI component libraries &amp; shadcn registries</td><td class="check">✓ Swept</td></tr>
+      <tr><td>Page/section template collections (Tailark, lndev…)</td><td class="check">✓ Swept</td></tr>
+      <tr><td>Design-language specs (design-md, aesthetic families)</td><td class="check">✓ Swept</td></tr>
+      <tr><td>Official Anthropic skills (docs + design)</td><td class="check">✓ Swept</td></tr>
+      <tr><td>Community skill mega-packs (UI/UX Pro Max…)</td><td class="check">✓ Swept</td></tr>
+      <tr><td>Skill marketplaces &amp; directories (6 indexed)</td><td class="check">✓ Swept</td></tr>
+      <tr><td>Accessibility / design-audit skills</td><td class="check">✓ Swept</td></tr>
+      <tr><td>Figma-to-code &amp; design-token skills</td><td class="check">✓ Swept</td></tr>
+    </table>
+    <table class="cat">
+      <tr><th>Axis searched</th><th style="width:14%;">Status</th></tr>
+      <tr><td>Logo / SVG / icon generation skills</td><td class="check">✓ Swept</td></tr>
+      <tr><td>SEO / GEO / marketing / copywriting skills</td><td class="check">✓ Swept</td></tr>
+      <tr><td>OpenAI/Codex curated cross-platform catalog</td><td class="check">✓ Swept</td></tr>
+      <tr><td>Presentation/deck frameworks (Slidev, reveal.js…)</td><td class="check">✓ Swept</td></tr>
+      <tr><td>HTML→PDF engines (Chromium, WeasyPrint, Typst…)</td><td class="check">✓ Swept</td></tr>
+      <tr><td>Animation libraries (Motion, GSAP, Lenis, Three…)</td><td class="check">✓ Swept</td></tr>
+      <tr><td>Awesome-lists &amp; agent-skill indexes</td><td class="check">✓ Swept</td></tr>
+      <tr><td>Pitch-deck templates &amp; references</td><td class="check">✓ Swept</td></tr>
+    </table>
+  </div>
+  <div class="note" style="margin-top:14px;"><b>Confirmation:</b> all 16 axes relevant to website design, build, launch, and presentation have been searched and catalogued — nothing identified remains unsearched. <b>Honest limits:</b> the 800k-item auto-indexes can't be enumerated item-by-item (their best entries surface via the category searches above); new skills ship weekly, so "complete" means complete as of 10 June 2026; the meta-layer on page 5 is the refresh mechanism.</div>
+  <div class="footer"><span>VESKA · SKILL ECOSYSTEM CATALOG · POWERED BY ADVISORY MONKS CONSULTING</span><span>06 / 06</span></div>
+</section>
+
+</body></html>

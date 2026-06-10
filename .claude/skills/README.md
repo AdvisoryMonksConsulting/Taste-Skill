@@ -95,11 +95,30 @@ Glass/Soft-Futurism, Neon Brutalist, Cult/Indie) plus remix recipes and an
 anti-slop kit. Pure Markdown (no code), complements `design-md/`; safe to
 vendor on request.
 
-Discovery / more skills (community indexes):
+### Final-sweep finds (2026-06-10) — adjacent skills by category
+
+All vetted as relevant; install/vendor only with explicit go-ahead (same
+supply-chain rule as above). Pure-Markdown skills are low-risk; anything with
+scripts needs review first.
+
+| Category | Best finds |
+|---|---|
+| **Accessibility audit** | `airowe/claude-a11y-skill` (axe-core + jsx-a11y, WCAG 2.1 AA) · `Community-Access/accessibility-agents` (11 WCAG 2.2 agents) |
+| **Design audit** | `Ashutos1997/claude-design-auditor-skill` (19 design rules + a11y score) — overlaps our `site-teardown` |
+| **Figma → code** | `nafiurrahmanniloy/figma-skill` (tokens → 7 frameworks) · `albertzhangz10/figma-design-system-to-design-md` (Figma → design.md) · `lifesized/figma-design-sync` |
+| **Logo / SVG assets** | `neonwatty/logo-designer-skill` (pure Markdown, no code — safe) · `op7418/logo-generator-skill` |
+| **SEO / marketing** | `coreyhaines31/marketingskills` (CRO, copy, SEO, growth) · `aaron-he-zhu/seo-geo-claude-skills` (20 skills) · `AgriciDaniel/claude-seo` (25 sub-skills) · `OpenClaudia/openclaudia-skills` (34) — overlap our `landing-copy`/`web-launch`; useful for depth |
+| **Cross-platform curated** | `openai/skills` — Codex catalog incl. `frontend-skill` (art-direction, anti-generic) and `figma-implement-design`; same SKILL.md standard, works here |
+
+Marketplaces / directories (the meta-layer — search these for anything new):
+- **claudemarketplaces.com** (20k+ skills directory) · **skillsmp.com** (800k+
+  indexed from GitHub) · **claudeskills.info** (658+ curated free) ·
+  **smithery.ai/skills** · **skills.sh** · **awesomeskills.dev**
 - `github.com/travisvn/awesome-claude-skills`
 - `github.com/ComposioHQ/awesome-claude-skills`
 - `github.com/VoltAgent/awesome-agent-skills` (1000+)
 - `github.com/BehiSecc/awesome-claude-skills`
+- `github.com/heilcheng/awesome-agent-skills`
 
 ## So you don't look anywhere else
 
