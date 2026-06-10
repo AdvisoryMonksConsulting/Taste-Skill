@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Veska — The Design Range</title>
+<style>
+  :root{ --navy:#061C33; --navy2:#0c2b4a; }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  @page{ size:A4 landscape; margin:0; }
+  html,body{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body{ font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif; color:#101820; }
+  .page{ position:relative; width:297mm; height:210mm; overflow:hidden; page-break-after:always; display:flex; flex-direction:column; background:#eef1f4; }
+  .page:last-child{ page-break-after:auto; }
+  .cover{ background:radial-gradient(120% 120% at 80% 10%, var(--navy2), var(--navy) 60%); color:#fff; justify-content:space-between; padding:22mm 24mm; }
+  .brandmark{ display:flex; align-items:center; gap:12px; }
+  .brandmark .dot{ width:30px;height:30px;border-radius:8px;background:#fff;position:relative;}
+  .brandmark .dot::after{content:"";position:absolute;inset:8px;border-radius:3px;background:var(--navy);}
+  .brandmark .name{ font-size:24px;font-weight:700;letter-spacing:.16em; }
+  .kicker{ font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:#9bb4cf; }
+  .cover h1{ font-family:Georgia,serif;font-weight:500;font-size:66px;line-height:1.05;letter-spacing:-.01em;max-width:22ch; }
+  .cover h1 em{ font-style:italic;color:#cfe0f3; }
+  .cover .sub{ margin-top:18px;font-size:16.5px;color:#c4d3e4;max-width:64ch;line-height:1.55; }
+  .cover .foot{ display:flex;justify-content:space-between;align-items:flex-end;font-size:12px;color:#8fa8c4; }
+  .canvas{ flex:1; margin:10mm 12mm 7mm; border-radius:14px; overflow:hidden; box-shadow:0 18px 50px rgba(6,28,51,.18); position:relative; }
+  .strip{ flex:0 0 auto; display:flex; align-items:center; gap:16px; padding:0 12mm 7mm; }
+  .strip .no{ font-family:Georgia,serif;font-size:13px;color:#061C33;font-weight:700; }
+  .strip .nm{ font-size:13px;font-weight:700;color:#0b1726;white-space:nowrap; }
+  .strip .ds{ font-size:11px;color:#56606c;flex:1;line-height:1.4; } .strip .ds b{color:#1c2a3a;}
+  .strip .pt{ font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:#061C33;border-radius:999px;padding:6px 12px;white-space:nowrap; }
+  .strip .pt.b{ background:#7a5ca8; }
+</style></head><body>
+
+<!-- COVER -->
+<section class="page cover">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;"><div class="brandmark"><span class="dot"></span><span class="name">VESKA</span></div>
+  <div style="text-align:right"><div class="kicker">Design Studio</div><div style="font-size:12px;color:#9bb4cf;margin-top:6px">veskadesign.com</div></div></div>
+  <div>
+    <div class="kicker" style="margin-bottom:18px">The Design Range · deliverables × aesthetics</div>
+    <h1>Everything we can put <em>in front of you.</em></h1>
+    <p class="sub">Part one: eight kinds of deliverable — websites, dashboards, apps, brand kits, decks, social kits, posters, email. Part two: eight aesthetic languages we design them in. Every page rendered, not described.</p>
+  </div>
+  <div class="foot"><div>Powered by Advisory Monks Consulting</div><div>Capability deck · 2026</div></div>
+</section>
+
+<!-- A1 · WEBSITE -->
+<section class="page">
+  <div class="canvas" style="background:#101316;display:flex;flex-direction:column;">
+    <div style="height:30px;background:#1a1e23;display:flex;align-items:center;gap:7px;padding:0 14px;"><span style="width:10px;height:10px;border-radius:50%;background:#ff5f57;"></span><span style="width:10px;height:10px;border-radius:50%;background:#febc2e;"></span><span style="width:10px;height:10px;border-radius:50%;background:#28c840;"></span><span style="margin-left:10px;font-size:10px;color:#7a838c;background:#101316;border-radius:5px;padding:3px 12px;">atelier-noir.com</span></div>
+    <div style="flex:1;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;padding:34px 44px;color:#f0ece4;">
+      <div><div style="font-size:11px;letter-spacing:.26em;color:#c9a96a;">ATELIER NOIR · MAISON DE COUTURE</div>
+      <div style="font-family:Georgia,serif;font-size:52px;line-height:1.04;margin:18px 0;font-weight:500;">Made once.<br>Made for you.</div>
+      <div style="font-size:14px;color:#b8b0a0;max-width:40ch;line-height:1.6;">Bespoke tailoring from a single Paris atelier. Two fittings, forty hours of handwork, one garment that fits like a memory.</div>
+      <div style="display:flex;gap:12px;margin-top:24px;"><span style="background:#c9a96a;color:#101316;font-size:12px;font-weight:700;padding:12px 22px;border-radius:2px;">Book an appointment</span><span style="border:1px solid #3a352a;color:#f0ece4;font-size:12px;padding:12px 22px;border-radius:2px;">The process →</span></div></div>
+      <div style="height:82%;border-radius:4px;background:linear-gradient(160deg,#2c2820,#15130e);position:relative;"><span style="position:absolute;inset:14px;border:1px solid rgba(201,169,106,.35);"></span><span style="position:absolute;bottom:26px;left:0;right:0;text-align:center;font-family:Georgia,serif;font-size:13px;color:#c9a96a;letter-spacing:.2em;">COLLECTION Nº9</span></div>
+    </div>
+  </div>
+  <div class="strip"><span class="no">A1</span><span class="nm">Websites &amp; Landing Pages</span><span class="ds"><b>The core deliverable</b> — full marketing sites and landing pages, designed to a brand language and built in Next.js + Tailwind + shadcn/ui. 89 sector concepts already in the library.</span><span class="pt">Deliverable</span></div>
+</section>
+
+<!-- A2 · DASHBOARD -->
+<section class="page">
+  <div class="canvas" style="background:#f6f7f9;display:flex;">
+    <div style="width:170px;background:#0e1726;color:#aab6c8;padding:18px 14px;display:flex;flex-direction:column;gap:4px;">
+      <div style="color:#fff;font-weight:800;font-size:14px;margin-bottom:14px;">◮ Northstar</div>
+      <span style="font-size:11px;background:#1b2a42;color:#fff;border-radius:7px;padding:8px 10px;">▦ Overview</span>
+      <span style="font-size:11px;padding:8px 10px;">📈 Revenue</span><span style="font-size:11px;padding:8px 10px;">👥 Customers</span><span style="font-size:11px;padding:8px 10px;">🧾 Invoices</span><span style="font-size:11px;padding:8px 10px;">⚙ Settings</span>
+      <div style="margin-top:auto;font-size:10px;color:#5a6b80;">v4.2 · Veska UI</div>
+    </div>
+    <div style="flex:1;padding:20px 24px;display:flex;flex-direction:column;gap:14px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;"><div style="font-size:17px;font-weight:800;color:#0e1726;">Good morning, Aria</div><span style="font-size:11px;background:#0e1726;color:#fff;border-radius:8px;padding:8px 14px;font-weight:600;">+ New report</span></div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
+        <div style="background:#fff;border:1px solid #e7eaef;border-radius:12px;padding:14px;"><div style="font-size:10px;color:#7a8696;">MRR</div><div style="font-size:21px;font-weight:800;color:#0e1726;">$84.2k</div><div style="font-size:10px;color:#13a06b;">▲ 12.4%</div></div>
+        <div style="background:#fff;border:1px solid #e7eaef;border-radius:12px;padding:14px;"><div style="font-size:10px;color:#7a8696;">Active users</div><div style="font-size:21px;font-weight:800;color:#0e1726;">12,480</div><div style="font-size:10px;color:#13a06b;">▲ 3.1%</div></div>
+        <div style="background:#fff;border:1px solid #e7eaef;border-radius:12px;padding:14px;"><div style="font-size:10px;color:#7a8696;">Churn</div><div style="font-size:21px;font-weight:800;color:#0e1726;">1.8%</div><div style="font-size:10px;color:#c2452e;">▼ 0.3%</div></div>
+        <div style="background:#0e1726;border-radius:12px;padding:14px;color:#fff;"><div style="font-size:10px;color:#8ea2bc;">Forecast Q3</div><div style="font-size:21px;font-weight:800;">$1.04M</div><div style="font-size:10px;color:#5ad6a0;">on track</div></div>
+      </div>
+      <div style="flex:1;display:grid;grid-template-columns:1.5fr 1fr;gap:12px;">
+        <div style="background:#fff;border:1px solid #e7eaef;border-radius:12px;padding:16px;display:flex;flex-direction:column;"><div style="font-size:12px;font-weight:700;color:#0e1726;">Revenue · last 12 months</div>
+        <svg viewBox="0 0 400 120" style="flex:1;width:100%;margin-top:8px;"><polyline points="0,100 36,92 72,96 108,80 144,84 180,66 216,70 252,52 288,56 324,38 360,30 400,18" fill="none" stroke="#2563eb" stroke-width="3"/><polyline points="0,100 36,92 72,96 108,80 144,84 180,66 216,70 252,52 288,56 324,38 360,30 400,18 400,120 0,120" fill="rgba(37,99,235,.08)"/></svg></div>
+        <div style="background:#fff;border:1px solid #e7eaef;border-radius:12px;padding:16px;"><div style="font-size:12px;font-weight:700;color:#0e1726;margin-bottom:10px;">Top plans</div>
+          <div style="font-size:11px;color:#54616e;display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #eef1f4;"><span>Scale · $299</span><b style="color:#0e1726;">41%</b></div>
+          <div style="font-size:11px;color:#54616e;display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #eef1f4;"><span>Growth · $99</span><b style="color:#0e1726;">35%</b></div>
+          <div style="font-size:11px;color:#54616e;display:flex;justify-content:space-between;padding:7px 0;"><span>Starter · $29</span><b style="color:#0e1726;">24%</b></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="strip"><span class="no">A2</span><span class="nm">Dashboards &amp; App UI</span><span class="ds"><b>Product interfaces</b> — admin panels, SaaS dashboards, internal tools. shadcn/ui + Square UI layouts, real data viz, designed for daily use.</span><span class="pt">Deliverable</span></div>
+</section>
+
+<!-- A3 · MOBILE -->
+<section class="page">
+  <div class="canvas" style="background:linear-gradient(140deg,#e8ecf2,#d4dbe6);display:flex;align-items:center;justify-content:center;gap:36px;">
+    <div style="width:148px;height:300px;border-radius:26px;background:#0d1117;padding:10px;box-shadow:0 24px 48px rgba(6,28,51,.28);"><div style="height:100%;border-radius:18px;background:#fff;overflow:hidden;display:flex;flex-direction:column;"><div style="background:#16a34a;color:#fff;padding:14px 12px;"><div style="font-size:9px;opacity:.8;">Balance</div><div style="font-size:19px;font-weight:800;">£2,408.10</div></div><div style="flex:1;padding:10px;display:flex;flex-direction:column;gap:7px;"><span style="font-size:9.5px;color:#5a6b60;display:flex;justify-content:space-between;"><span>☕ Kiosk Coffee</span><b>-£3.80</b></span><span style="font-size:9.5px;color:#5a6b60;display:flex;justify-content:space-between;"><span>🛒 Wholefoods</span><b>-£24.60</b></span><span style="font-size:9.5px;color:#5a6b60;display:flex;justify-content:space-between;"><span>💸 Salary</span><b style="color:#16a34a;">+£3,200</b></span><div style="margin-top:auto;background:#16a34a;color:#fff;border-radius:9px;text-align:center;font-size:10px;font-weight:700;padding:9px;">Send money</div></div></div></div>
+    <div style="width:148px;height:300px;border-radius:26px;background:#0d1117;padding:10px;box-shadow:0 24px 48px rgba(6,28,51,.28);transform:translateY(-16px);"><div style="height:100%;border-radius:18px;background:#101014;overflow:hidden;display:flex;flex-direction:column;color:#fff;"><div style="padding:14px 12px;"><div style="font-size:9px;color:#8a8a94;">Now playing</div><div style="font-size:13px;font-weight:800;">Midnight Drive</div><div style="font-size:9px;color:#8a8a94;">Nova Ember</div></div><div style="margin:4px 12px;flex:1;border-radius:12px;background:linear-gradient(140deg,#7c3aed,#db2777);"></div><div style="padding:12px;display:flex;justify-content:center;gap:18px;align-items:center;"><span style="font-size:12px;color:#8a8a94;">⏮</span><span style="width:30px;height:30px;border-radius:50%;background:#fff;color:#101014;display:flex;align-items:center;justify-content:center;font-size:11px;">▶</span><span style="font-size:12px;color:#8a8a94;">⏭</span></div></div></div>
+    <div style="width:148px;height:300px;border-radius:26px;background:#0d1117;padding:10px;box-shadow:0 24px 48px rgba(6,28,51,.28);"><div style="height:100%;border-radius:18px;background:#fdf8f2;overflow:hidden;display:flex;flex-direction:column;"><div style="padding:14px 12px;"><div style="font-size:13px;font-weight:800;color:#3a2a1c;">Today's ritual</div><div style="font-size:9px;color:#8a7560;">3 of 5 complete</div></div><div style="padding:0 12px;display:flex;flex-direction:column;gap:6px;"><span style="font-size:10px;background:#efe5d8;border-radius:8px;padding:8px;color:#3a2a1c;">✅ Morning pages</span><span style="font-size:10px;background:#efe5d8;border-radius:8px;padding:8px;color:#3a2a1c;">✅ 20-min walk</span><span style="font-size:10px;background:#fff;border:1px dashed #d4c2ac;border-radius:8px;padding:8px;color:#8a7560;">○ Read 10 pages</span></div><div style="margin:auto 12px 12px;background:#b0764a;color:#fff;border-radius:9px;text-align:center;font-size:10px;font-weight:700;padding:9px;">Keep streak · day 41</div></div></div>
+  </div>
+  <div class="strip"><span class="no">A3</span><span class="nm">Mobile App UI</span><span class="ds"><b>App screens &amp; design systems</b> — fintech, media, lifestyle. Token-driven so the same system ships to web and native (React Native / SwiftUI-ready specs).</span><span class="pt">Deliverable</span></div>
+</section>
+
+<!-- A4 · BRAND KIT -->
+<section class="page">
+  <div class="canvas" style="background:#fff;padding:26px 34px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;">
+    <div>
+      <div style="font-size:10px;letter-spacing:.3em;color:#8a96a2;">BRAND SHEET · 01</div>
+      <div style="font-family:Georgia,serif;font-size:40px;color:#1d2b3a;margin:10px 0 4px;">Solstice<span style="color:#d97742;">.</span></div>
+      <div style="font-size:12px;color:#5a6a78;">Wellness retreats · warm, grounded, quietly premium</div>
+      <div style="display:flex;gap:0;margin-top:22px;border-radius:12px;overflow:hidden;height:74px;box-shadow:0 8px 22px rgba(6,28,51,.10);">
+        <span style="flex:1.6;background:#faf6f0;position:relative;"><i style="position:absolute;bottom:6px;left:8px;font-style:normal;font-size:8.5px;color:#8a7d6e;">#FAF6F0 · Canvas</i></span>
+        <span style="flex:1;background:#d97742;position:relative;"><i style="position:absolute;bottom:6px;left:8px;font-style:normal;font-size:8.5px;color:#fff;">#D97742 · Ember</i></span>
+        <span style="flex:1;background:#7d9b6f;position:relative;"><i style="position:absolute;bottom:6px;left:8px;font-style:normal;font-size:8.5px;color:#fff;">#7D9B6F · Sage</i></span>
+        <span style="flex:1;background:#2e2a24;position:relative;"><i style="position:absolute;bottom:6px;left:8px;font-style:normal;font-size:8.5px;color:#cfc9bd;">#2E2A24 · Ink</i></span>
+      </div>
+      <div style="margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div><div style="font-size:9.5px;letter-spacing:.18em;color:#8a96a2;margin-bottom:6px;">HEADLINES</div><div style="font-family:Georgia,serif;font-size:22px;color:#1d2b3a;">Georgia Serif</div><div style="font-size:10px;color:#7a8694;">Display · 1.1 line-height · -1% tracking</div></div>
+        <div><div style="font-size:9.5px;letter-spacing:.18em;color:#8a96a2;margin-bottom:6px;">BODY &amp; UI</div><div style="font-size:20px;font-weight:600;color:#1d2b3a;">System Sans</div><div style="font-size:10px;color:#7a8694;">400/600 · 1.55 line-height</div></div>
+      </div>
+      <div style="margin-top:22px;"><div style="font-size:9.5px;letter-spacing:.18em;color:#8a96a2;margin-bottom:8px;">VOICE</div>
+      <div style="font-size:11.5px;color:#46566a;line-height:1.6;">Warm · unhurried · specific. We sound like a wise friend, never like a brochure. <i>"Come as you are. Leave lighter."</i></div></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="flex:1.2;border-radius:14px;background:#faf6f0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;border:1px solid #eee4d6;"><div style="width:52px;height:52px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#e89a6a,#d97742);"></div><div style="font-family:Georgia,serif;font-size:18px;color:#2e2a24;letter-spacing:.14em;">SOLSTICE</div><div style="font-size:8.5px;letter-spacing:.3em;color:#8a7d6e;">RETREATS</div></div>
+      <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div style="border-radius:14px;background:#2e2a24;display:flex;align-items:center;justify-content:center;"><div style="font-family:Georgia,serif;color:#faf6f0;font-size:13px;letter-spacing:.14em;">SOLSTICE</div></div>
+        <div style="border-radius:14px;background:#d97742;display:flex;align-items:center;justify-content:center;"><div style="width:30px;height:30px;border-radius:50%;background:#faf6f0;"></div></div>
+      </div>
+      <div style="font-size:9px;color:#9aa6b2;text-align:center;">Logo suite · primary, reversed, mark-only · clear-space = 1× mark height</div>
+    </div>
+  </div>
+  <div class="strip"><span class="no">A4</span><span class="nm">Brand Identity Kits</span><span class="ds"><b>The brand-kit skill, rendered</b> — palette with roles, type pairing, logo suite, voice. One sheet a client signs off, then everything stays consistent.</span><span class="pt">Deliverable</span></div>
+</section>
+
+<!-- A5 · DECKS -->
+<section class="page">
+  <div class="canvas" style="background:linear-gradient(140deg,#dfe5ec,#cdd6e0);display:flex;align-items:center;justify-content:center;gap:22px;padding:30px;">
+    <div style="width:300px;aspect-ratio:297/210;border-radius:10px;background:radial-gradient(120% 120% at 80% 10%,#0c2b4a,#061C33 60%);box-shadow:0 18px 40px rgba(6,28,51,.30);padding:22px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;transform:rotate(-2deg);">
+      <div style="display:flex;align-items:center;gap:7px;"><span style="width:14px;height:14px;border-radius:4px;background:#fff;"></span><span style="font-size:10px;font-weight:700;letter-spacing:.16em;">VESKA</span></div>
+      <div><div style="font-size:7px;letter-spacing:.3em;color:#9bb4cf;">PROPOSAL · SERENITY SPA</div><div style="font-family:Georgia,serif;font-size:21px;line-height:1.1;margin-top:6px;">A website that books while <i style="color:#cfe0f3;">you sleep.</i></div></div>
+      <div style="font-size:7px;color:#8fa8c4;">Fixed price · 5 days · you own the code</div>
+    </div>
+    <div style="width:300px;aspect-ratio:297/210;border-radius:10px;background:#fff;box-shadow:0 18px 40px rgba(6,28,51,.22);padding:20px;display:flex;flex-direction:column;transform:rotate(1.5deg);">
+      <div style="font-size:8px;letter-spacing:.22em;color:#7a8a9a;border-bottom:2px solid #061C33;padding-bottom:6px;">INVESTMENT &amp; TIMELINE</div>
+      <div style="flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px;">
+        <div style="border:1px solid #e2e8ee;border-radius:8px;padding:10px;"><div style="font-size:7px;color:#7a8a9a;">LAUNCH</div><div style="font-size:15px;font-weight:800;color:#061C33;">$4,950</div><div style="font-size:6.5px;color:#7a8a9a;">Landing page · 5 days</div></div>
+        <div style="border:2px solid #061C33;border-radius:8px;padding:10px;background:#f5f8fb;"><div style="font-size:7px;color:#7a8a9a;">SITE</div><div style="font-size:15px;font-weight:800;color:#061C33;">$11,500</div><div style="font-size:6.5px;color:#7a8a9a;">Full site · 2 weeks</div></div>
+        <div style="border:1px solid #e2e8ee;border-radius:8px;padding:10px;"><div style="font-size:7px;color:#7a8a9a;">RETAINER</div><div style="font-size:15px;font-weight:800;color:#061C33;">$6–9k</div><div style="font-size:6.5px;color:#7a8a9a;">Monthly growth</div></div>
+      </div>
+      <div style="font-size:7px;color:#9aa6b3;">Day 1 brief → Day 3 preview → Day 5 live</div>
+    </div>
+    <div style="width:170px;aspect-ratio:210/297;border-radius:10px;background:#fff;box-shadow:0 18px 40px rgba(6,28,51,.22);padding:16px;display:flex;flex-direction:column;transform:rotate(3deg);">
+      <div style="width:22px;height:22px;border-radius:6px;background:#061C33;"></div>
+      <div style="font-family:Georgia,serif;font-size:14px;color:#061C33;margin-top:10px;line-height:1.2;">One page.<br>Every answer.</div>
+      <div style="margin-top:10px;display:flex;flex-direction:column;gap:5px;"><span style="height:5px;border-radius:3px;background:#e8edf2;"></span><span style="height:5px;border-radius:3px;background:#e8edf2;width:85%;"></span><span style="height:5px;border-radius:3px;background:#e8edf2;width:70%;"></span><span style="height:5px;border-radius:3px;background:#e8edf2;width:90%;"></span></div>
+      <div style="margin-top:auto;background:#061C33;color:#fff;border-radius:7px;text-align:center;font-size:8px;font-weight:700;padding:8px;">Book a 15-min call</div>
+    </div>
+  </div>
+  <div class="strip"><span class="no">A5</span><span class="nm">Decks, Proposals &amp; One-pagers</span><span class="ds"><b>The deck-design skill</b> — pitch decks, sample decks (5 volumes shipped), proposals and leave-behind one-pagers. Print-perfect PDF via the navy system.</span><span class="pt">Deliverable</span></div>
+</section>
+
+<!-- A6 · SOCIAL KIT -->
+<section class="page">
+  <div class="canvas" style="background:#14161a;display:flex;align-items:center;justify-content:center;gap:20px;padding:26px;">
+    <div style="width:190px;height:190px;border-radius:12px;background:linear-gradient(140deg,#7c3aed,#db2777);padding:18px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;box-shadow:0 16px 36px rgba(0,0,0,.4);">
+      <div style="font-size:9px;letter-spacing:.2em;opacity:.8;">FLOWSTATE · LAUNCH</div>
+      <div style="font-size:22px;font-weight:800;line-height:1.05;letter-spacing:-.02em;">Ship work,<br>not status<br>updates.</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-size:9px;opacity:.8;">flowstate.app</span><span style="font-size:9px;background:#fff;color:#7c3aed;border-radius:999px;padding:4px 10px;font-weight:800;">Try free</span></div>
+    </div>
+    <div style="width:118px;height:210px;border-radius:14px;background:linear-gradient(180deg,#061C33,#0c2b4a);padding:14px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;box-shadow:0 16px 36px rgba(0,0,0,.4);">
+      <div style="font-size:8px;letter-spacing:.2em;color:#9bb4cf;">STORY · 9:16</div>
+      <div><div style="font-family:Georgia,serif;font-size:16px;line-height:1.15;">5 days.<br>One premium<br>website.</div><div style="margin-top:8px;font-size:7.5px;color:#9bb4cf;">Swipe up to see the work ↑</div></div>
+      <div style="font-size:8px;font-weight:700;letter-spacing:.14em;">VESKA</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:18px;">
+      <div style="width:300px;height:75px;border-radius:10px;background:linear-gradient(90deg,#0e1726,#1d3a5f);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;color:#fff;box-shadow:0 16px 36px rgba(0,0,0,.4);">
+        <div><div style="font-size:7.5px;letter-spacing:.22em;color:#8fb4d9;">LINKEDIN BANNER · 4:1</div><div style="font-size:13px;font-weight:800;margin-top:3px;">Websites that win the first 5 seconds.</div></div>
+        <span style="font-size:8.5px;background:#fff;color:#0e1726;border-radius:999px;padding:5px 11px;font-weight:800;white-space:nowrap;">Book a call</span>
+      </div>
+      <div style="width:300px;height:118px;border-radius:10px;background:#101014;position:relative;overflow:hidden;box-shadow:0 16px 36px rgba(0,0,0,.4);">
+        <span style="position:absolute;inset:0;background:linear-gradient(120deg,rgba(219,39,119,.5),transparent 55%);"></span>
+        <div style="position:absolute;left:14px;top:14px;font-size:7.5px;letter-spacing:.22em;color:#d9a8c4;">YOUTUBE · 16:9</div>
+        <div style="position:absolute;left:14px;bottom:14px;color:#fff;"><div style="font-size:17px;font-weight:800;letter-spacing:-.02em;">REDESIGN TEARDOWN №12</div><div style="font-size:8.5px;color:#bdb3c4;">Med-spa site · before → after</div></div>
+        <span style="position:absolute;right:14px;bottom:14px;width:30px;height:30px;border-radius:50%;background:#fff;color:#101014;display:flex;align-items:center;justify-content:center;font-size:11px;">▶</span>
+      </div>
+    </div>
+  </div>
+  <div class="strip"><span class="no">A6</span><span class="nm">Social &amp; Ad Creative Kits</span><span class="ds"><b>Every platform shape</b> — IG posts &amp; stories, LinkedIn banners, YouTube thumbnails, display ads. One brand system, all aspect ratios.</span><span class="pt">Deliverable</span></div>
+</section>
+
+<!-- A7 · POSTER -->
+<section class="page">
+  <div class="canvas" style="background:#dcd8d0;display:flex;align-items:center;justify-content:center;gap:34px;">
+    <div style="width:215px;aspect-ratio:210/297;background:#f2efe8;box-shadow:0 22px 46px rgba(0,0,0,.28);padding:20px;display:flex;flex-direction:column;">
+      <div style="font-size:8px;letter-spacing:.3em;color:#8a8276;">THE FOUNDRY PRESENTS</div>
+      <div style="font-family:Georgia,serif;font-size:44px;line-height:.98;color:#1d1a16;margin-top:14px;">JAZZ<br>ON THE<br>ROOF<span style="color:#c2452e;">.</span></div>
+      <div style="flex:1;display:flex;align-items:center;justify-content:center;"><span style="width:110px;height:110px;border-radius:50%;background:#c2452e;position:relative;"><i style="position:absolute;inset:30px;border-radius:50%;border:2px solid #f2efe8;"></i></span></div>
+      <div style="display:flex;justify-content:space-between;font-size:8.5px;color:#5a5248;"><span>EVERY FRIDAY · JULY</span><span>DOORS 19:00 · FREE</span></div>
+    </div>
+    <div style="width:215px;aspect-ratio:210/297;background:#0c0c0e;box-shadow:0 22px 46px rgba(0,0,0,.35);padding:20px;display:flex;flex-direction:column;color:#f0f0f2;">
+      <div style="font-size:8px;letter-spacing:.3em;color:#7a7a85;">VESKA STUDIO TALKS · №4</div>
+      <div style="font-size:38px;font-weight:800;line-height:.96;letter-spacing:-.03em;margin-top:14px;">TASTE<br>IS A<br>SKILL<span style="color:#d6ff3f;">_</span></div>
+      <div style="flex:1;display:flex;align-items:flex-end;"><div style="width:100%;height:60%;background:repeating-linear-gradient(0deg,transparent,transparent 7px,#1d1d22 7px,#1d1d22 8px);border-radius:6px;position:relative;"><span style="position:absolute;left:14px;bottom:14px;font-size:8px;color:#d6ff3f;letter-spacing:.16em;">DESIGN · CODE · SHIP</span></div></div>
+      <div style="display:flex;justify-content:space-between;font-size:8.5px;color:#8a8a94;margin-top:12px;"><span>THU 12 JUN · ONLINE</span><span>veskadesign.com/talks</span></div>
+    </div>
+  </div>
+  <div class="strip"><span class="no">A7</span><span class="nm">Posters &amp; Print</span><span class="ds"><b>Typographic print pieces</b> — event posters, talk cards, window displays. Editorial or brutalist, A-series exact, print-ready PDF.</span><span class="pt">Deliverable</span></div>
+</section>
+
+<!-- A8 · EMAIL -->
+<section class="page">
+  <div class="canvas" style="background:#e9edf1;display:flex;align-items:center;justify-content:center;gap:30px;">
+    <div style="width:280px;background:#fff;border-radius:12px;box-shadow:0 18px 40px rgba(6,28,51,.18);overflow:hidden;">
+      <div style="background:#061C33;color:#fff;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;"><span style="font-size:11px;font-weight:700;letter-spacing:.14em;">VESKA</span><span style="font-size:8px;color:#9bb4cf;">View in browser</span></div>
+      <div style="padding:18px;">
+        <div style="font-family:Georgia,serif;font-size:18px;color:#061C33;line-height:1.2;">Your preview is ready.</div>
+        <div style="font-size:10.5px;color:#5a6a78;line-height:1.6;margin-top:8px;">Hi Maria — your new homepage is live on our preview link. Two things to look at before we ship: the hero copy and your team photos.</div>
+        <div style="margin:14px 0;border-radius:9px;height:90px;background:linear-gradient(140deg,#cfe0f3,#9ec4e8);position:relative;"><span style="position:absolute;bottom:8px;left:10px;font-size:8px;color:#1d4a73;background:#fff;border-radius:5px;padding:3px 8px;font-weight:700;">preview.veskadesign.com/lumiere</span></div>
+        <div style="background:#061C33;color:#fff;border-radius:8px;text-align:center;font-size:11px;font-weight:700;padding:11px;">Review your site →</div>
+        <div style="font-size:8.5px;color:#9aa6b3;margin-top:14px;line-height:1.5;">Veska · a brand of Advisory Monks Consulting<br>Unsubscribe · Preferences</div>
+      </div>
+    </div>
+    <div style="width:280px;background:#faf6f0;border-radius:12px;box-shadow:0 18px 40px rgba(6,28,51,.18);overflow:hidden;">
+      <div style="padding:18px;border-bottom:1px solid #eee2d2;"><span style="font-family:Georgia,serif;font-size:13px;letter-spacing:.18em;color:#2e2a24;">SOLSTICE</span></div>
+      <div style="padding:18px;">
+        <div style="font-size:8.5px;letter-spacing:.24em;color:#b0764a;">THE SUNDAY LETTER · №31</div>
+        <div style="font-family:Georgia,serif;font-size:17px;color:#2e2a24;line-height:1.25;margin-top:8px;">On doing less,<br>on purpose.</div>
+        <div style="font-size:10px;color:#7a6c5e;line-height:1.65;margin-top:8px;">This week: why your calendar needs white space, a 4-minute breath practice, and the autumn retreat dates (they go fast).</div>
+        <div style="display:flex;gap:8px;margin-top:14px;"><span style="flex:1;background:#d97742;color:#fff;border-radius:7px;text-align:center;font-size:9.5px;font-weight:700;padding:9px;">Read the letter</span><span style="flex:1;border:1px solid #ddc9b4;color:#2e2a24;border-radius:7px;text-align:center;font-size:9.5px;padding:9px;">Retreat dates</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="strip"><span class="no">A8</span><span class="nm">Email Templates</span><span class="ds"><b>Transactional &amp; newsletter design</b> — on-brand, table-safe layouts with unsubscribe baked in. Pairs with landing-copy for the words.</span><span class="pt">Deliverable</span></div>
+</section>
+
+<!-- B1 · EDITORIAL MINIMALISM -->
+<section class="page">
+  <div class="canvas" style="background:#fcfcfb;display:flex;flex-direction:column;justify-content:center;padding:40px 56px;">
+    <div style="font-size:10px;letter-spacing:.34em;color:#a0a0a0;">B1 · EDITORIAL MINIMALISM</div>
+    <div style="font-family:Georgia,serif;font-size:74px;font-weight:400;color:#111;line-height:1.02;letter-spacing:-.015em;margin:22px 0;">Whitespace is<br>a design decision.</div>
+    <div style="width:54px;height:2px;background:#111;"></div>
+    <div style="margin-top:22px;font-size:14px;color:#666;max-width:54ch;line-height:1.7;">One serif, one accent, and the discipline to leave the rest out. For brands whose confidence doesn't need decoration — galleries, studios, publications, considered products.</div>
+    <div style="position:absolute;right:56px;bottom:44px;font-size:10px;color:#a0a0a0;letter-spacing:.2em;">STRIPE · LINEAR · APPLE LINEAGE</div>
+  </div>
+  <div class="strip"><span class="no">B1</span><span class="nm">Editorial Minimalism</span><span class="ds"><b>Near-white canvas, big serif, one hairline rule.</b> Best for: studios, galleries, premium services, publications.</span><span class="pt b">Aesthetic</span></div>
+</section>
+
+<!-- B2 · WARM EDITORIAL -->
+<section class="page">
+  <div class="canvas" style="background:#f5f4ed;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;padding:36px 50px;gap:36px;">
+    <div><div style="font-size:10px;letter-spacing:.3em;color:#87867f;">B2 · WARM EDITORIAL</div>
+    <div style="font-family:Georgia,serif;font-size:56px;color:#141413;line-height:1.08;margin:18px 0;">Paper-warm,<br>human-first.</div>
+    <div style="font-size:13.5px;color:#5e5d59;max-width:44ch;line-height:1.7;">Parchment canvas, terracotta accent, neutrals with a yellow-brown undertone — nothing cold anywhere. The language of thoughtful companions: wellness, education, books, AI with manners.</div>
+    <div style="display:flex;gap:10px;margin-top:22px;"><span style="background:#c96442;color:#fff;font-size:11px;font-weight:600;padding:10px 18px;border-radius:9px;">Primary action</span><span style="border:1px solid #e8e6dc;background:#fff;color:#141413;font-size:11px;padding:10px 18px;border-radius:9px;">Secondary</span></div></div>
+    <div style="height:78%;border-radius:16px;background:#faf9f5;border:1px solid #f0eee6;box-shadow:0 1px 0 1px #f0eee6;padding:22px;display:flex;flex-direction:column;gap:12px;">
+      <span style="width:46px;height:46px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#d97757,#c96442);"></span>
+      <div style="font-family:Georgia,serif;font-size:17px;color:#141413;">"It reads like an essay, not a pitch."</div>
+      <div style="font-size:10.5px;color:#87867f;">Warm neutrals · ring shadows · serif cadence</div>
+      <div style="margin-top:auto;display:flex;gap:6px;"><span style="flex:1;height:8px;border-radius:4px;background:#f0eee6;"></span><span style="flex:1;height:8px;border-radius:4px;background:#e8e6dc;"></span><span style="flex:1;height:8px;border-radius:4px;background:#c96442;"></span></div>
+    </div>
+  </div>
+  <div class="strip"><span class="no">B2</span><span class="nm">Warm Editorial</span><span class="ds"><b>Parchment + terracotta, all-warm neutrals.</b> Best for: wellness, coaching, books, hospitality, humane tech. (Lineage: design-md/claude.)</span><span class="pt b">Aesthetic</span></div>
+</section>
+
+<!-- B3 · LUXURY NOIR -->
+<section class="page">
+  <div class="canvas" style="background:radial-gradient(120% 120% at 50% -10%,#1d1812,#0e0c0a 60%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#f3ead9;">
+    <div style="font-size:10px;letter-spacing:.4em;color:#8a734a;">B3 · LUXURY NOIR</div>
+    <div style="font-family:Georgia,serif;font-size:62px;font-weight:500;line-height:1.06;margin:20px 0;max-width:18ch;">Scarcity, set in<br><em style="color:#c9a96a;">champagne gold.</em></div>
+    <div style="width:40px;height:1px;background:#c9a96a;margin:4px auto 18px;"></div>
+    <div style="font-size:13px;color:#b8a888;max-width:52ch;line-height:1.7;">Near-black, gold leaf, centred serif reverence. The grammar of jewellery houses, private clubs, tasting menus and anything by-appointment-only.</div>
+    <div style="margin-top:26px;display:flex;gap:14px;"><span style="background:#c9a96a;color:#0e0c0a;font-size:11px;font-weight:700;letter-spacing:.08em;padding:12px 26px;">RESERVE</span><span style="border:1px solid #3a3225;color:#f3ead9;font-size:11px;letter-spacing:.08em;padding:12px 26px;">DISCOVER</span></div>
+  </div>
+  <div class="strip"><span class="no">B3</span><span class="nm">Luxury Noir</span><span class="ds"><b>Black + gold, centred serif, by-appointment energy.</b> Best for: jewellery, fine dining, members' clubs, couture, prestige property.</span><span class="pt b">Aesthetic</span></div>
+</section>
+
+<!-- B4 · GLASSMORPHISM -->
+<section class="page">
+  <div class="canvas" style="background:linear-gradient(130deg,#5b7cfa,#9333ea 55%,#db2777);display:flex;align-items:center;justify-content:center;gap:24px;">
+    <div style="position:absolute;top:-40px;left:18%;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.18);filter:blur(2px);"></div>
+    <div style="position:absolute;bottom:-60px;right:14%;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.12);"></div>
+    <div style="width:320px;border-radius:20px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);backdrop-filter:blur(10px);padding:26px;color:#fff;box-shadow:0 20px 50px rgba(30,20,80,.3);">
+      <div style="font-size:10px;letter-spacing:.3em;opacity:.85;">B4 · GLASSMORPHISM</div>
+      <div style="font-size:30px;font-weight:800;line-height:1.1;letter-spacing:-.02em;margin:14px 0;">Layers of light,<br>floating UI.</div>
+      <div style="font-size:12px;opacity:.85;line-height:1.6;">Frosted panels over saturated gradients. Depth without shadows-on-grey. The look of consumer apps, fintech cards and anything that wants to feel like the future's lock screen.</div>
+      <div style="margin-top:18px;display:flex;gap:10px;"><span style="background:#fff;color:#7c3aed;border-radius:10px;font-size:11px;font-weight:800;padding:10px 18px;">Get started</span><span style="border:1px solid rgba(255,255,255,.5);border-radius:10px;font-size:11px;padding:10px 18px;">Live demo</span></div>
+    </div>
+    <div style="width:180px;border-radius:18px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);padding:18px;color:#fff;transform:translateY(26px);">
+      <div style="font-size:9px;opacity:.8;">Balance</div><div style="font-size:22px;font-weight:800;">$12,840</div>
+      <div style="margin-top:12px;height:54px;border-radius:10px;background:rgba(255,255,255,.2);"></div>
+      <div style="margin-top:10px;font-size:9px;opacity:.8;">**** 4421 · 12/28</div>
+    </div>
+  </div>
+  <div class="strip"><span class="no">B4</span><span class="nm">Glassmorphism</span><span class="ds"><b>Frosted glass over vivid gradients.</b> Best for: consumer apps, fintech cards, AI products, anything aimed under-35.</span><span class="pt b">Aesthetic</span></div>
+</section>
+
+<!-- B5 · DARK CINEMATIC -->
+<section class="page">
+  <div class="canvas" style="background:radial-gradient(120% 140% at 70% -20%,#16243c,#070b12 55%);display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:36px 50px;color:#e8eef6;">
+    <div><div style="font-size:10px;letter-spacing:.3em;color:#4da3ff;">B5 · DARK CINEMATIC</div>
+    <div style="font-size:54px;font-weight:800;letter-spacing:-.03em;line-height:1.02;margin:18px 0;background:linear-gradient(90deg,#fff,#7fb3e8);-webkit-background-clip:text;background-clip:text;color:transparent;">Glow where<br>it matters.</div>
+    <div style="font-size:13px;color:#9fb4cf;max-width:42ch;line-height:1.65;">Near-black canvas, one luminous accent, gradient type. The default language of serious software — dev tools, security, AI platforms — because focus reads as power.</div>
+    <div style="margin-top:22px;display:flex;gap:10px;"><span style="background:#4da3ff;color:#070b12;font-size:11px;font-weight:800;padding:11px 20px;border-radius:9px;box-shadow:0 0 30px rgba(77,163,255,.5);">Start free</span><span style="border:1px solid #1d3050;font-size:11px;padding:11px 20px;border-radius:9px;color:#e8eef6;">Docs →</span></div></div>
+    <div style="height:74%;border-radius:14px;background:#0b1220;border:1px solid #1a2942;position:relative;overflow:hidden;padding:18px;font-family:ui-monospace,Menlo,monospace;">
+      <span style="position:absolute;top:-50px;right:-50px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(77,163,255,.35),transparent 70%);"></span>
+      <div style="font-size:10px;color:#5a7396;">$ veska deploy --prod</div>
+      <div style="font-size:10px;color:#7fb3e8;margin-top:8px;">▲ building… 412ms</div>
+      <div style="font-size:10px;color:#4ad6a0;margin-top:4px;">✓ live · veskadesign.com</div>
+      <div style="margin-top:14px;height:60px;border-radius:8px;background:linear-gradient(120deg,#10203a,#0b1220);border:1px solid #1a2942;"></div>
+    </div>
+  </div>
+  <div class="strip"><span class="no">B5</span><span class="nm">Dark Cinematic</span><span class="ds"><b>Near-black + one glowing accent + gradient display type.</b> Best for: dev tools, AI, security, EV/automotive, esports.</span><span class="pt b">Aesthetic</span></div>
+</section>
+
+<!-- B6 · TERMINAL-CORE -->
+<section class="page">
+  <div class="canvas" style="background:#0a0e0a;display:flex;flex-direction:column;justify-content:center;padding:40px 56px;font-family:ui-monospace,Menlo,monospace;color:#c8f5c8;">
+    <div style="font-size:10px;letter-spacing:.3em;color:#4a8a4a;">B6 · TERMINAL-CORE</div>
+    <div style="font-size:13px;color:#5aa05a;margin-top:22px;">user@veska:~$ make website --premium</div>
+    <div style="font-size:44px;font-weight:700;color:#d8ffd8;line-height:1.1;margin:16px 0;letter-spacing:-.02em;">EVERYTHING IS<br>A COMMAND<span style="color:#3dff3d;">_</span></div>
+    <div style="font-size:12px;color:#7ac07a;max-width:56ch;line-height:1.7;">Monospace everything, scanline restraint, green-on-black heritage. For dev-first brands, CLIs, infra companies and anyone whose customers live in a terminal.</div>
+    <div style="margin-top:24px;display:flex;gap:18px;font-size:11px;">
+      <span style="border:1px solid #2a5a2a;padding:10px 18px;color:#d8ffd8;">[ npm i taste ]</span>
+      <span style="background:#3dff3d;color:#0a0e0a;font-weight:700;padding:10px 18px;">$ deploy --now</span>
+    </div>
+    <div style="position:absolute;right:56px;bottom:40px;font-size:10px;color:#3a6a3a;">// zero JS required to look this fast</div>
+  </div>
+  <div class="strip"><span class="no">B6</span><span class="nm">Terminal-core</span><span class="ds"><b>Monospace, green-on-black, CLI grammar.</b> Best for: dev tools, infra, hacker-adjacent brands, technical blogs.</span><span class="pt b">Aesthetic</span></div>
+</section>
+
+<!-- B7 · NEO-BRUTALISM -->
+<section class="page">
+  <div class="canvas" style="background:#f5e642;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;padding:36px 48px;gap:30px;">
+    <div><div style="font-size:11px;letter-spacing:.26em;color:#111;font-weight:800;">B7 · NEO-BRUTALISM</div>
+    <div style="font-size:62px;font-weight:900;color:#111;line-height:.95;letter-spacing:-.03em;margin:16px 0;text-transform:uppercase;">Loud.<br>Honest.<br>Unpolished*</div>
+    <div style="font-size:13px;color:#222;max-width:40ch;line-height:1.6;font-weight:500;">Hard borders, raw shadows, system colors at full volume. Zero gradients, zero apology. For brands that win by refusing to blend in.</div>
+    <div style="margin-top:20px;display:flex;gap:12px;"><span style="background:#111;color:#f5e642;font-size:12px;font-weight:900;padding:12px 22px;border:3px solid #111;box-shadow:5px 5px 0 #111;">SHOP THE DROP</span><span style="background:#fff;color:#111;font-size:12px;font-weight:900;padding:12px 22px;border:3px solid #111;box-shadow:5px 5px 0 #111;">LOOKBOOK</span></div>
+    <div style="font-size:9px;color:#444;margin-top:14px;">*polished where it counts: the checkout.</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <div style="background:#ff5c8a;border:3px solid #111;box-shadow:6px 6px 0 #111;height:110px;display:flex;align-items:center;justify-content:center;font-size:30px;">★</div>
+      <div style="background:#3dc9ff;border:3px solid #111;box-shadow:6px 6px 0 #111;height:110px;display:flex;align-items:center;justify-content:center;font-size:30px;">→</div>
+      <div style="background:#fff;border:3px solid #111;box-shadow:6px 6px 0 #111;height:110px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px;">99¢</div>
+      <div style="background:#111;border:3px solid #111;box-shadow:6px 6px 0 #555;height:110px;display:flex;align-items:center;justify-content:center;color:#f5e642;font-weight:900;font-size:15px;">NEW</div>
+    </div>
+  </div>
+  <div class="strip"><span class="no">B7</span><span class="nm">Neo-Brutalism</span><span class="ds"><b>Hard borders, offset shadows, full-volume color.</b> Best for: streetwear, creator brands, events, anything fighting for attention.</span><span class="pt b">Aesthetic</span></div>
+</section>
+
+<!-- B8 · PLAYFUL COLOR -->
+<section class="page">
+  <div class="canvas" style="background:#fff7ed;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:36px 48px;gap:30px;">
+    <div><div style="font-size:10px;letter-spacing:.28em;color:#f59e0b;font-weight:700;">B8 · PLAYFUL COLOR</div>
+    <div style="font-size:52px;font-weight:800;color:#292524;line-height:1.04;letter-spacing:-.025em;margin:16px 0;">Serious product.<br>Friendly face.</div>
+    <div style="font-size:13px;color:#78716c;max-width:42ch;line-height:1.65;">Rounded everything, candy accents, generous bounce. Warmth that lowers the barrier — for education, kids, community products and brands that lead with delight.</div>
+    <div style="margin-top:20px;display:flex;gap:10px;"><span style="background:#f97316;color:#fff;font-size:12px;font-weight:800;padding:12px 22px;border-radius:999px;box-shadow:0 6px 0 #c2410c;">Start free 🎉</span><span style="background:#fff;color:#292524;font-size:12px;font-weight:700;padding:12px 22px;border-radius:999px;border:2px solid #e7e5e4;">See how it works</span></div></div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:16px;">
+      <span style="width:84px;height:84px;border-radius:26px;background:#f97316;transform:rotate(-8deg);display:flex;align-items:center;justify-content:center;font-size:30px;">🚀</span>
+      <span style="width:104px;height:104px;border-radius:32px;background:#22c55e;transform:rotate(5deg);display:flex;align-items:center;justify-content:center;font-size:38px;">✨</span>
+      <span style="width:84px;height:84px;border-radius:26px;background:#3b82f6;transform:rotate(-4deg);display:flex;align-items:center;justify-content:center;font-size:30px;">🎈</span>
+    </div>
+  </div>
+  <div class="strip"><span class="no">B8</span><span class="nm">Playful Color</span><span class="ds"><b>Rounded shapes, candy palette, soft 3D buttons.</b> Best for: ed-tech, kids &amp; family, community apps, friendly SaaS.</span><span class="pt b">Aesthetic</span></div>
+</section>
+
+<!-- CLOSER -->
+<section class="page cover" style="justify-content:center;text-align:left;">
+  <div>
+    <div class="kicker" style="margin-bottom:18px">The range, in one line</div>
+    <h1 style="font-size:54px;">8 deliverables × 8 languages ×<br>54 brand references = <em>your design,</em><br>never a template.</h1>
+    <p class="sub">Every piece in this deck was generated by the same system that builds client work: design-taste picks the language, brand-kit sets the identity, the build skills make it real, deck-design prints it. Brief us with one line — get this quality back in days.</p>
+    <div style="margin-top:30px;display:flex;gap:14px;"><span style="background:#fff;color:#061C33;font-size:13px;font-weight:700;padding:13px 26px;border-radius:10px;">hello@veskadesign.com</span><span style="border:1px solid rgba(255,255,255,.3);color:#fff;font-size:13px;padding:13px 26px;border-radius:10px;">veskadesign.com</span></div>
+  </div>
+</section>
+
+</body></html>
