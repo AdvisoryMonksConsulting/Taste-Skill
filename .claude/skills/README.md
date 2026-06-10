@@ -49,10 +49,12 @@ your request matches; you don't call them by hand.
 | **landing-copy** | Conversion copy — headlines, sections, CTAs, objection handling |
 | **web-launch** | Ship it — Core Web Vitals, SEO, Open Graph, accessibility, deploy |
 | **deck-design** | Premium decks / pitch decks / PDF one-pagers (the navy template + sample library) |
+| **site-teardown** | Audit/critique an existing site — UX + CRO teardown (Nielsen 10 + conversion checklist) with prioritized quick wins; the redesign-pitch asset |
+| **motion-design** | Tasteful animation — micro-interactions, scroll effects, Motion/GSAP/Lenis recipes, plus an "is this too much?" review mode |
 
 Supporting assets in the repo:
 - **`design-md/`** — 54 brand design-language specs (the taste data).
-- **`samples/`** — the 49-sector website concept library (Vol I–III) + the
+- **`samples/`** — the 69-sector website concept library (Vol I–IV) + the
   reusable deck template behind it.
 
 ## External skills — install via the sanctioned channel (don't vendor)
@@ -74,10 +76,30 @@ Highly relevant ones in that marketplace:
 - **`frontend-design`** — distinctive, anti-"AI-slop" UI (complements `client-website`).
 - **`brand-guidelines` / `theme-factory` / `canvas-design`** — theming & visual art.
 
+### MIT community skills (vendorable, but need your explicit go-ahead)
+
+**UI/UX Pro Max** (`github.com/nextlevelbuilder/ui-ux-pro-max-skill`, ~88k★,
+MIT) — the most popular community design skill: 67 UI styles, 161 color
+palettes, 57 font pairings, 99 UX guidelines, 25 chart types, searchable via
+bundled Python scripts (statically inspected: pure-stdlib local BM25 search, no
+network/exec calls). Because it ships **executable scripts that would live in
+the auto-invoked `.claude/skills/`**, adding it requires the repo owner's
+explicit authorization. To adopt: run its official installer yourself
+(`npm i -g uipro-cli && uipro init --ai claude`), or explicitly tell Claude
+"vendor ui-ux-pro-max into this repo" in a session.
+
+**awesome-claude-design** (`github.com/rohitg00/awesome-claude-design`, MIT) —
+28+ DESIGN.md files organized into 9 aesthetic families (Editorial Minimalism,
+Terminal-Core, Warm Editorial, Data-Dense Pro, Cinematic Dark, Playful Color,
+Glass/Soft-Futurism, Neon Brutalist, Cult/Indie) plus remix recipes and an
+anti-slop kit. Pure Markdown (no code), complements `design-md/`; safe to
+vendor on request.
+
 Discovery / more skills (community indexes):
 - `github.com/travisvn/awesome-claude-skills`
 - `github.com/ComposioHQ/awesome-claude-skills`
 - `github.com/VoltAgent/awesome-agent-skills` (1000+)
+- `github.com/BehiSecc/awesome-claude-skills`
 
 ## So you don't look anywhere else
 
