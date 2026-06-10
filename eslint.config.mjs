@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // The desktop app is a separate workspace package with its own tooling.
+    "desktop/**",
   ]),
 ]);
 

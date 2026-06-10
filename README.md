@@ -3,6 +3,14 @@
 Pitch a startup idea and a team of six specialist AI agents does the founder's
 desk research for you — automatically, with live web search.
 
+Two ways to run it:
+
+- **Web app** (this directory) — Next.js, documented below.
+- **Desktop app** (`desktop/`) — installable Windows/macOS/Linux app for
+  non-technical users: paste-your-key onboarding, automatic report library
+  with offline reading, and PDF/HTML/Markdown export. See
+  [`desktop/README.md`](desktop/README.md).
+
 The agents run as a pipeline, each building on the last:
 
 1. **Competitor Research** — maps direct and indirect players

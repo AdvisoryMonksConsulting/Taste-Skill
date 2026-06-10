@@ -1,0 +1,40 @@
+{
+  "name": "founder-research-desktop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Desktop app: multi-agent startup market research powered by Claude",
+  "main": "./out/main/index.js",
+  "author": "Advisory Monks Consulting",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "typecheck": "tsc -p tsconfig.node.json --noEmit && tsc -p tsconfig.web.json --noEmit",
+    "start": "electron-vite preview",
+    "dist": "electron-vite build && electron-builder",
+    "dist:dir": "electron-vite build && electron-builder --dir",
+    "dist:win": "electron-vite build && electron-builder --win",
+    "dist:mac": "electron-vite build && electron-builder --mac",
+    "dist:linux": "electron-vite build && electron-builder --linux"
+  },
+  "devDependencies": {
+    "@anthropic-ai/sdk": "^0.102.0",
+    "@tailwindcss/vite": "^4.3.0",
+    "@types/node": "^20.19.37",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.2",
+    "electron": "^42.4.0",
+    "electron-builder": "^26.15.2",
+    "electron-vite": "^5.0.0",
+    "lucide-react": "^0.577.0",
+    "marked": "^18.0.5",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "tailwindcss": "^4.2.2",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.16"
+  },
+  "homepage": "https://github.com/AdvisoryMonksConsulting/Taste-Skill"
+}

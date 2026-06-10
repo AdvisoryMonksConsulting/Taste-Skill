@@ -1,0 +1,44 @@
+appId: com.advisorymonks.founder-research
+productName: Founder Research
+copyright: Copyright © 2026 Advisory Monks Consulting
+
+directories:
+  output: release
+  buildResources: build
+
+# All JS dependencies are bundled into out/ by electron-vite, so the package
+# only needs the build output — no node_modules (the workspace root's modules
+# must not leak in).
+files:
+  - out/**/*
+  - package.json
+  - "!node_modules"
+  - "!**/node_modules/**"
+
+asar: true
+npmRebuild: false
+electronLanguages:
+  - en-US
+
+win:
+  target:
+    - nsis
+nsis:
+  # One-click installer: double-click, done. Friendliest for non-technical users.
+  oneClick: true
+  perMachine: false
+  deleteAppDataOnUninstall: false
+  shortcutName: Founder Research
+
+mac:
+  target:
+    - dmg
+  category: public.app-category.business
+
+linux:
+  target:
+    - AppImage
+    - deb
+  category: Office
+  maintainer: Advisory Monks Consulting
+  synopsis: AI market research for startup ideas

@@ -1,3 +1,10 @@
+packages:
+  - "desktop"
+
 ignoredBuiltDependencies:
   - sharp
   - unrs-resolver
+
+onlyBuiltDependencies:
+  - electron
+  - esbuild

@@ -1,0 +1,61 @@
+# Builds Founder Research desktop installers for Windows, macOS, and Linux.
+#
+# How to get installers (no local setup needed):
+#   1. Push a tag like v1.0.0  (git tag v1.0.0 && git push origin v1.0.0), or
+#   2. Run this workflow manually from the GitHub "Actions" tab.
+# The installers appear as downloadable artifacts on the workflow run
+# (and can be attached to a GitHub Release from there).
+
+name: Desktop installers
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            target: win
+            artifact: "desktop/release/*.exe"
+          - os: macos-latest
+            target: mac
+            artifact: "desktop/release/*.dmg"
+          - os: ubuntu-latest
+            target: linux
+            artifact: |
+              desktop/release/*.AppImage
+              desktop/release/*.deb
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build installer
+        working-directory: desktop
+        run: pnpm dist:${{ matrix.target }}
+        env:
+          # macOS code signing is skipped unless certificates are configured.
+          CSC_IDENTITY_AUTO_DISCOVERY: "false"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: founder-research-${{ matrix.target }}
+          path: ${{ matrix.artifact }}
+          if-no-files-found: error
