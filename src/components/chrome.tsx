@@ -1,63 +1,55 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
 
-/** Veska wordmark with square mark + "by Advisory Monks Consulting".
- *  `light` renders for dark (navy) backgrounds. */
-export function Logo({ light = false }: { light?: boolean }) {
-  const word = light ? "text-white" : "text-[#061C33]";
-  const by = light ? "text-[#9bb4cf]" : "text-neutral-400";
-  const markBg = light ? "bg-white" : "bg-[#061C33]";
-  const markInner = light ? "bg-[#061C33]" : "bg-white";
+/** Veska wordmark — outlined square mark + tracked wordmark, editorial register. */
+export function Logo() {
   return (
-    <span className="block leading-tight">
-      <span className="flex items-center gap-2.5">
-        <span className={"relative inline-block h-7 w-7 rounded-lg " + markBg}>
-          <span className={"absolute inset-2 rounded-[3px] " + markInner} />
-        </span>
-        <span className={"block text-lg font-bold tracking-[0.16em] " + word}>{site.name.toUpperCase()}</span>
+    <span className="flex items-center gap-2.5">
+      <span className="relative inline-block h-6 w-6 rounded-[7px] border border-[#16243a]/25">
+        <span className="absolute inset-[6px] rounded-[2px] bg-[#16243a]" />
       </span>
-      <span className={"mt-1 block pl-[38px] text-[10px] tracking-wide " + by}>by {site.legalEntity}</span>
+      <span className="text-[15px] font-semibold tracking-[0.22em] text-[#16243a]">{site.name.toUpperCase()}</span>
     </span>
   );
 }
 
-/** Shared navy top nav for interior (Veska-branded) pages. */
+/** Shared light top nav for interior (Veska-branded) pages. */
 export function SiteNav() {
   return (
-    <header className="bg-[#061C33] text-white">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-        <Link href="/"><Logo light /></Link>
-        <div className="hidden items-center gap-8 text-sm text-[#c4d3e4] md:flex">
-          <Link href="/#work" className="transition-colors hover:text-white">Work</Link>
-          <Link href="/#pricing" className="transition-colors hover:text-white">Pricing</Link>
-          <Link href="/about" className="transition-colors hover:text-white">About</Link>
-          <Link href="/contact" className="transition-colors hover:text-white">Contact</Link>
+    <header className="border-b border-[#e6ebf1] bg-white/85 backdrop-blur">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-8 py-6">
+        <Link href="/"><Logo /></Link>
+        <div className="hidden items-center gap-9 text-[13px] text-[#54657a] md:flex">
+          <Link href="/#work" className="transition-colors hover:text-[#16243a]">Work</Link>
+          <Link href="/#pricing" className="transition-colors hover:text-[#16243a]">Pricing</Link>
+          <Link href="/about" className="transition-colors hover:text-[#16243a]">About</Link>
+          <Link href="/contact" className="transition-colors hover:text-[#16243a]">Contact</Link>
         </div>
-        <a href={site.calLink} target="_blank" rel="noopener" className="rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-[#061C33] transition-colors hover:bg-neutral-100">Book a call</a>
+        <a href={site.calLink} target="_blank" rel="noopener" className="rounded-lg bg-[#0b1f33] px-5 py-2.5 text-[13px] font-medium text-white transition-colors hover:bg-[#13304d]">Book a call</a>
       </nav>
     </header>
   );
 }
 
-/** Shared navy footer. */
+/** Shared light editorial footer. */
 export function SiteFooter() {
   return (
-    <footer className="bg-[#04111f] py-12 text-[#8fa8c4]">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="flex flex-col gap-6 border-b border-white/10 pb-7 sm:flex-row sm:items-start sm:justify-between">
-          <Link href="/"><Logo light /></Link>
-          <nav className="flex flex-wrap gap-x-7 gap-y-2 text-sm">
-            <Link href="/about" className="hover:text-white">About</Link>
-            <Link href="/start" className="hover:text-white">Start a project</Link>
-            <Link href="/contact" className="hover:text-white">Contact</Link>
-            <Link href="/terms" className="hover:text-white">Terms</Link>
-            <Link href="/privacy" className="hover:text-white">Privacy</Link>
-            <Link href="/refund" className="hover:text-white">Refunds</Link>
+    <footer className="border-t border-[#e6ebf1] bg-white py-14">
+      <div className="mx-auto max-w-6xl px-8">
+        <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
+          <Link href="/"><Logo /></Link>
+          <nav className="flex flex-wrap gap-x-8 gap-y-2 text-[13px] text-[#5a6b7e]">
+            <Link href="/about" className="hover:text-[#16243a]">About</Link>
+            <Link href="/start" className="hover:text-[#16243a]">Start a project</Link>
+            <Link href="/contact" className="hover:text-[#16243a]">Contact</Link>
+            <Link href="/terms" className="hover:text-[#16243a]">Terms</Link>
+            <Link href="/privacy" className="hover:text-[#16243a]">Privacy</Link>
+            <Link href="/refund" className="hover:text-[#16243a]">Refunds</Link>
           </nav>
         </div>
-        <div className="mt-6 flex flex-col gap-2 text-xs text-[#5f7790] sm:flex-row sm:justify-between">
-          <span>{site.email} · {site.domain}</span>
-          <span>© {new Date().getFullYear()} {site.name} — a brand of {site.legalEntity}</span>
+        <div className="mt-10 flex flex-col gap-2 text-[10px] uppercase tracking-[0.26em] text-[#9aa8ba] sm:flex-row sm:justify-between">
+          <span>Powered by {site.legalEntity}</span>
+          <span className="text-[#b6c1ce]">{site.email} · © {new Date().getFullYear()}</span>
         </div>
       </div>
     </footer>
@@ -77,21 +69,21 @@ export function LegalPage({
   sections: { h: string; p: string }[];
 }) {
   return (
-    <main className="bg-white text-neutral-800">
+    <main className="bg-white text-[#54657a]">
       <SiteNav />
-      <article className="mx-auto max-w-3xl px-6 py-16">
-        <h1 className="font-serif text-4xl font-medium tracking-[-0.015em] text-[#0b1726]">{title}</h1>
-        <p className="mt-2 text-sm text-neutral-400">Last updated: {updated}</p>
-        {intro && <p className="mt-6 text-neutral-600">{intro}</p>}
+      <article className="mx-auto max-w-3xl px-8 py-16">
+        <h1 className="font-serif text-4xl font-medium tracking-[-0.02em] text-[#16243a]">{title}</h1>
+        <p className="mt-3 text-[11px] uppercase tracking-[0.2em] text-[#9aa8ba]">Last updated · {updated}</p>
+        {intro && <p className="mt-6 text-[#5a6b7e]">{intro}</p>}
         <div className="mt-8 space-y-8">
           {sections.map((s) => (
             <section key={s.h}>
-              <h2 className="text-lg font-semibold text-[#0b1726]">{s.h}</h2>
-              <p className="mt-2 whitespace-pre-line text-neutral-600">{s.p}</p>
+              <h2 className="text-[17px] font-semibold text-[#16243a]">{s.h}</h2>
+              <p className="mt-2 whitespace-pre-line leading-relaxed text-[#5a6b7e]">{s.p}</p>
             </section>
           ))}
         </div>
-        <p className="mt-12 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800">
+        <p className="mt-12 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800">
           This is a starting template, not legal advice. Have a professional review it before relying on it.
         </p>
       </article>
