@@ -2,7 +2,7 @@
    ADVISORY MONKS CONSULTING — "QUIET AUTHORITY"
    Design system v3 · single stylesheet for all pages
    Editorial serif (Fraunces) · Inter · Spline Sans Mono
-   Paper neutrals · ink charcoal-navy · steel-blue accent
+   Warm paper neutrals · warm ink charcoal · steel-blue accent
    ============================================================ */
 
 /* ---- Fonts (self-hosted, variable, latin) ------------------ */
@@ -13,40 +13,40 @@
 
 /* ---- Tokens ------------------------------------------------- */
 :root{
-  /* canvas */
-  --paper:#FBFBF8;
-  --paper-dim:#F3F3EE;
-  --paper-deep:#EBEBE4;
-  /* ink (dark bands) — charcoal with a whisper of blue */
-  --band:#0E141D;
-  --band-2:#121A26;
-  /* text */
-  --text:#171D26;
-  --mid:#4E5763;
-  --faint:#878F9A;
+  /* canvas — warm ivory, zero blue channel bias */
+  --paper:#FBFAF6;
+  --paper-dim:#F4F2EB;
+  --paper-deep:#ECE9E0;
+  /* ink (dark bands) — warm charcoal, no blue cast */
+  --band:#14120E;
+  --band-2:#1B1812;
+  /* text — warm-neutral grays (blue lives only in the accent) */
+  --text:#201D17;
+  --mid:#5B564C;
+  --faint:#908A7D;
   /* lines */
-  --line:#E4E4DD;
-  --line-strong:#CDCDC4;
+  --line:#E5E1D6;
+  --line-strong:#CFCABD;
   /* accent — professional steel blue, used sparingly */
   --accent:#30577F;
   --accent-deep:#264563;
-  --accent-tint:#EDF2F7;
+  --accent-tint:#F1EEE5;
   /* on dark */
-  --d-text:#F0F1EE;
-  --d-mid:#9CA8B4;
-  --d-faint:#67737F;
-  --d-line:rgba(240,241,238,.13);
+  --d-text:#F2F0E9;
+  --d-mid:#A8A296;
+  --d-faint:#757064;
+  --d-line:rgba(242,240,233,.13);
   --d-accent:#93B2D0;
   /* type */
   --serif:'Fraunces',Georgia,'Times New Roman',serif;
   --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
   --mono:'Spline Sans Mono',ui-monospace,'SF Mono',monospace;
   /* legacy aliases (old inline styles on a few pages) */
-  --text-line:#E4E4DD; --text-line-strong:#CDCDC4;
-  --text-strong:#171D26; --text-mid:#4E5763; --text-faint:#878F9A;
-  --paper-deeper:#EBEBE4; --ivory:#FBFBF8;
+  --text-line:#E5E1D6; --text-line-strong:#CFCABD;
+  --text-strong:#201D17; --text-mid:#5B564C; --text-faint:#908A7D;
+  --paper-deeper:#ECE9E0; --ivory:#FBFAF6;
   --blue:#30577F; --blue-deep:#264563; --blue-soft:#5B7A9C;
-  --gold:#30577F; --gold-tint:#EDF2F7; --blue-tint:#EDF2F7;
+  --gold:#30577F; --gold-tint:#F1EEE5; --blue-tint:#F1EEE5;
   /* misc */
   --ease:cubic-bezier(.22,.61,.36,1);
   --rad:3px;
