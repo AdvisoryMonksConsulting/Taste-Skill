@@ -27,16 +27,16 @@
   /* lines */
   --line:#E6E6E8;
   --line-strong:#CFCFD2;
-  /* accent — lighter steel blue, the brand colour */
-  --accent:#3D6FA6;
-  --accent-deep:#2E5685;
+  /* accent — light steel blue, the brand colour */
+  --accent:#4678AF;
+  --accent-deep:#38618F;
   --accent-tint:#EDF2F7;
   /* on dark (navy band) */
   --d-text:#EEF0F3;
   --d-mid:#9BA6B4;
   --d-faint:#6A7480;
   --d-line:rgba(238,240,243,.13);
-  --d-accent:#A6C6E2;
+  --d-accent:#B6D2EA;
   /* type */
   /* display + body now share one clean grotesque (Inter); serif retired */
   --serif:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
@@ -46,8 +46,8 @@
   --text-line:#E6E6E8; --text-line-strong:#CFCFD2;
   --text-strong:#1A1B1E; --text-mid:#585A5F; --text-faint:#8B8D92;
   --paper-deeper:#E7E7E9; --ivory:#FAFAFA;
-  --blue:#3D6FA6; --blue-deep:#2E5685; --blue-soft:#5B7A9C;
-  --gold:#3D6FA6; --gold-tint:#EDF2F7; --blue-tint:#EDF2F7;
+  --blue:#4678AF; --blue-deep:#38618F; --blue-soft:#6E8DB0;
+  --gold:#4678AF; --gold-tint:#EDF2F7; --blue-tint:#EDF2F7;
   /* misc */
   --ease:cubic-bezier(.22,.61,.36,1);
   --rad:3px;
