@@ -17,9 +17,9 @@
   --paper:#FAFAFA;
   --paper-dim:#F1F1F2;
   --paper-deep:#E7E7E9;
-  /* ink (dark bands) — deep blue-charcoal (navy) */
-  --band:#0E141D;
-  --band-2:#131C2A;
+  /* ink (dark bands) — deep navy blue (reads blue, not black) */
+  --band:#101826;
+  --band-2:#1B2C46;
   /* text — neutral grays */
   --text:#1A1B1E;
   --mid:#585A5F;
@@ -27,16 +27,16 @@
   /* lines */
   --line:#E6E6E8;
   --line-strong:#CFCFD2;
-  /* accent — professional steel blue, the brand colour */
-  --accent:#30577F;
-  --accent-deep:#264563;
+  /* accent — lighter steel blue, the brand colour */
+  --accent:#3D6FA6;
+  --accent-deep:#2E5685;
   --accent-tint:#EDF2F7;
   /* on dark (navy band) */
   --d-text:#EEF0F3;
   --d-mid:#9BA6B4;
   --d-faint:#6A7480;
   --d-line:rgba(238,240,243,.13);
-  --d-accent:#93B2D0;
+  --d-accent:#A6C6E2;
   /* type */
   /* display + body now share one clean grotesque (Inter); serif retired */
   --serif:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
@@ -46,8 +46,8 @@
   --text-line:#E6E6E8; --text-line-strong:#CFCFD2;
   --text-strong:#1A1B1E; --text-mid:#585A5F; --text-faint:#8B8D92;
   --paper-deeper:#E7E7E9; --ivory:#FAFAFA;
-  --blue:#30577F; --blue-deep:#264563; --blue-soft:#5B7A9C;
-  --gold:#30577F; --gold-tint:#EDF2F7; --blue-tint:#EDF2F7;
+  --blue:#3D6FA6; --blue-deep:#2E5685; --blue-soft:#5B7A9C;
+  --gold:#3D6FA6; --gold-tint:#EDF2F7; --blue-tint:#EDF2F7;
   /* misc */
   --ease:cubic-bezier(.22,.61,.36,1);
   --rad:3px;
