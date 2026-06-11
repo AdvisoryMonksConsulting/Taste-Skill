@@ -1,0 +1,13 @@
+/* TEAM */
+Founders & Senior Consultants: Akash Ukil and Shamik Ukil
+Contact: shamik [at] advisorymonks.io
+Location: Noida, India
+
+/* SITE */
+Last update: 2026-05-12
+Standards: HTML5, CSS3, schema.org JSON-LD
+Components: Inter, Source Serif 4, JetBrains Mono (Google Fonts)
+Software: Hand-crafted HTML
+
+/* THANKS */
+Advisory Monks Consulting is grateful to its clients and partners across India, the US, the UK, Singapore, and the UAE.

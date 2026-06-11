@@ -1,0 +1,31 @@
+# Cloudflare Pages redirects — advisorymonks.com (canonical host)
+
+# Removed page (Client Portal)
+/portal            /            301
+/portal/*          /            301
+
+# .io -> .com (consolidate onto the aged domain)
+https://www.advisorymonks.io/*   https://www.advisorymonks.com/:splat   301
+https://advisorymonks.io/*       https://www.advisorymonks.com/:splat   301
+
+# Force www as canonical on .com (apex -> www)
+https://advisorymonks.com/*      https://www.advisorymonks.com/:splat   301
+
+# --- Legacy .com (Webflow) URLs -> new pages : preserve SEO authority ---
+/services/corporate-tax-advisory-and-compliance-services   /practices/virtual-cfo      301
+/services/corporate-law-and-secretarial-support            /practices/startup-legal    301
+/services/fundraising-services                             /practices/startup-legal    301
+/services/india-entry-strategy-and-transfer-pricing        /practices/india-entry      301
+/services/merger-and-acquisitions                          /practices/ma-advisory      301
+/services/virtual-cfo-services                             /practices/virtual-cfo      301
+/services                                                  /practices                  301
+# Blog: specific matches first, then catch-all to the insights hub
+/blog/angel-tax                                            /insights/income-tax-act-2025   301
+/blog/virtual-cfo-services-startups                        /practices/virtual-cfo      301
+/blog/*                                                    /insights                   301
+# Core pages
+/about                                                     /team                       301
+/contact                                                   /#contact                   301
+/privacy-policy                                            /privacy                    301
+/terms-and-conditions                                      /terms                      301
+/refund-and-cancellation-policy                            /terms                      301

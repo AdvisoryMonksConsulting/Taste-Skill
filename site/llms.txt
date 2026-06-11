@@ -1,0 +1,32 @@
+# Advisory Monks Consulting
+
+> An independent multi-disciplinary advisory firm. CAs, CSs, advocates, lawyers, investment banking specialists, and transaction advisors. Based in Noida, India. Founded 2021.
+
+Advisory Monks Consulting advises Indian founders, foreign companies, NRIs, institutional investors, and incubators across thirteen practice areas spanning legal, tax, regulatory, and financial advisory.
+
+## Contact
+
+- Email: shamik@advisorymonks.io
+- WhatsApp: +91 85951 16297
+- LinkedIn: https://www.linkedin.com/company/advisory-monks-consulting/
+- Location: Noida, Uttar Pradesh, India
+
+## Practices
+
+- [India Entry & Foreign Co.](https://www.advisorymonks.com/practices/india-entry): Market entry, WOS/LLP/Branch Office setup, FDI and FEMA compliance, GST registration, transfer pricing.
+- [Startup Legal & Fundraising](https://www.advisorymonks.com/practices/startup-legal): Incorporation, DPIIT recognition, Section 80-IAC, ESOP design, SHA/SSA drafting, Rule 11UA valuations.
+- [VC & Investor Advisory](https://www.advisorymonks.com/practices/vc-advisory): Two-year legal and financial due diligence, investment agreement drafting, CP/CS tracking, portfolio compliance.
+- [Incubator Institutional](https://www.advisorymonks.com/practices/incubator): Section 8 company frameworks, grant utilisation, portfolio equity templates, embedded legal counsel.
+- [Pravasi Desk · Diaspora](https://www.advisorymonks.com/practices/pravasi-desk): For NRIs and OCI. Form 13 LDC, RNOR planning, USD 1M repatriation, DTAA/FTC, estate planning.
+- [Cross-Border Tax & Structuring](https://www.advisorymonks.com/practices/cross-border-tax): DTAA analysis across 90+ treaties, Form 15CA/15CB, Outward Direct Investment, PFIC/GILTI for US persons.
+- [Virtual CFO Services](https://www.advisorymonks.com/practices/virtual-cfo): MIS reporting, 13-week cash flow forecasting, compliance calendar, financial modelling, board pack delivery.
+- [M&A Advisory](https://www.advisorymonks.com/practices/ma-advisory): Buy and sell-side diligence, Rule 11UA valuation, SPA drafting, NCLT schemes, CCI clearance, FC-TRS.
+- [GCC India Advisory](https://www.advisorymonks.com/practices/gcc-india): Global Capability Centre setup, transfer pricing, FEMA, multi-state GST, statutory audit.
+- [Valuation Advisory](https://www.advisorymonks.com/practices/valuation-advisory): Rule 11UA/11UAA, ESOP Black-Scholes, M&A DCF, IBC/NCLT valuations, Ind AS 113, fairness opinions, PPA.
+- [Flip Structuring](https://www.advisorymonks.com/practices/flip-structuring): Indian startups going offshore. Delaware, Singapore, Cayman, IFSC GIFT City, UAE structuring.
+- [Founders Tax Desk](https://www.advisorymonks.com/practices/founders-tax-desk): Personal tax for founders and UHNI. ESOP/RSU exercise, capital gains, ITR, HUF and Private Trust.
+- [Global Accounting & Tax Preparation](https://www.advisorymonks.com/practices/global-accounting): Monthly close and partner-signed tax returns for US, UK, Singapore, UAE.
+
+## Optional
+
+- [Sitemap](https://www.advisorymonks.com/sitemap.xml)
