@@ -24,7 +24,7 @@ https://advisorymonks.com/*      https://www.advisorymonks.com/:splat   301
 /blog/virtual-cfo-services-startups                        /practices/virtual-cfo      301
 /blog/*                                                    /insights                   301
 # Core pages
-/about                                                     /team                       301
+/about                                                     /#about                     301
 /contact                                                   /#contact                   301
 /privacy-policy                                            /privacy                    301
 /terms-and-conditions                                      /terms                      301

@@ -155,7 +155,7 @@
     var status = document.getElementById('form-status');
     if (!form) return;
     var FORM_ENDPOINT = '';                       /* e.g. 'https://formspree.io/f/abc123' */
-    var FALLBACK_EMAIL = 'shamik@advisorymonks.io';
+    var FALLBACK_EMAIL = 'info@advisorymonks.com';
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var data = new FormData(form);

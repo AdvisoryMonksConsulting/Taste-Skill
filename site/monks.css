@@ -38,7 +38,8 @@
   --d-line:rgba(242,240,233,.13);
   --d-accent:#93B2D0;
   /* type */
-  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  /* display + body now share one clean grotesque (Inter); serif retired */
+  --serif:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
   --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
   --mono:'Spline Sans Mono',ui-monospace,'SF Mono',monospace;
   /* legacy aliases (old inline styles on a few pages) */
@@ -799,3 +800,44 @@ html.js .reveal.in{opacity:1;transform:none;transition:opacity .75s ease,transfo
 }
 @keyframes amc-fade{from{opacity:0}to{opacity:1}}
 @keyframes amc-rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+/* ============================================================
+   v4 — INTER DISPLAY + CONSISTENT BLUE + BRAND LOGO
+   Retire the serif/italic editorial treatment; tune Inter as a
+   display face (heavier weights, tighter tracking) and carry the
+   steel-blue accent across primary actions and emphasis.
+   ============================================================ */
+
+/* --- Display weights tuned for Inter (heavier than the old serif) --- */
+.serif-display{font-weight:660;letter-spacing:-.028em}
+.s-display,.section-title{font-weight:660;letter-spacing:-.028em;line-height:1.05}
+.hero-home h1{font-weight:680;letter-spacing:-.032em;line-height:1.03}
+.band-q{font-weight:480;font-style:normal;letter-spacing:-.018em}
+.idx-name{font-weight:600}
+.sp-title{font-weight:600;letter-spacing:-.016em}
+.principle h3{font-weight:600}
+.o-metric{font-weight:680;letter-spacing:-.03em}
+.stat-v{font-weight:660}
+.ledger-v{font-weight:660}
+.tcard blockquote{font-weight:460;letter-spacing:-.005em}
+.about-stat-val,.price-name,.price-amt,.pv-title,.hero h1,.page-view h1{font-weight:660;letter-spacing:-.024em}
+
+/* Emphasis = upright brand blue, never italic (kills the AI-serif tell) */
+em.tilt,.serif-display em,h1 em,h2 em,.s-display em,.band-q em{font-style:normal;font-weight:inherit;color:var(--accent)}
+.hero-home h1 em{font-style:normal;font-weight:inherit;color:var(--d-accent)}
+
+/* --- Brand logo (header + footer) --- */
+.rail-l a{align-items:center}
+.brand-logo{height:40px;width:auto;display:block}
+@media(max-width:960px){.brand-logo{height:34px}}
+.footer-logo{height:48px;width:auto;display:block;margin-bottom:16px}
+
+/* --- Blue carried through the primary actions --- */
+.btn-primary,.cta-btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn-primary:hover,.cta-btn-primary:hover{background:var(--accent-deep);border-color:var(--accent-deep);color:#fff}
+.rail-r .cta,a.nav-cta{background:var(--accent);border-color:var(--accent);color:#fff}
+.rail-r .cta:hover,a.nav-cta:hover{background:var(--accent-deep);border-color:var(--accent-deep);color:#fff}
+.hero-home .btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.hero-home .btn-primary:hover{background:#fff;border-color:#fff;color:var(--band)}
+.cta-section .cta-btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.cta-section .cta-btn-primary:hover{background:#fff;border-color:#fff;color:var(--band)}
