@@ -16,7 +16,7 @@
   /* Accents: black core + one professional blue, used sparingly */
   --terracotta:#000000; --terracotta-hover:#262626;
   --terracotta-light:rgba(0,0,0,0.045); --terracotta-glow:rgba(0,0,0,0.07);
-  --blu:#2456D6; --blu-soft:rgba(36,86,214,0.08); --blu-ring:rgba(147,197,253,0.5);
+  --blu:#1E3A6E; --blu-soft:rgba(22,34,58,0.07); --blu-ring:rgba(110,140,200,0.45);
   --forest:#4E4E4E; --forest-light:rgba(0,0,0,0.05); --forest-dark:#262626;
   --gold:#777169; --gold-light:rgba(119,113,105,0.10); --navy:#000000;
   /* Type */
@@ -72,7 +72,7 @@ h1 em, h2 em, .hero h1 em, .lp-hero-h1 em{ font-style:normal !important; color:v
 /* eyebrows: quiet, blue */
 .section-label, .lp-eyebrow{
   font-weight:500 !important; letter-spacing:0.08em !important;
-  color:var(--blu) !important; border-color:rgba(36,86,214,0.18) !important;
+  color:var(--blu) !important; border-color:rgba(11,27,69,0.22) !important;
 }
 .section-label-line{ background:var(--blu) !important; }
 .hero-tag{ color:var(--blu) !important; }
@@ -148,7 +148,7 @@ h1 em, h2 em, .hero h1 em, .lp-hero-h1 em{ font-style:normal !important; color:v
 .hero-section::before, .lp-hero-bg{
   background:radial-gradient(ellipse 70% 55% at 75% 0%, rgba(0,0,0,0.03), transparent 65%) !important;
 }
-.hero-section::after{ background:radial-gradient(ellipse, rgba(36,86,214,0.04), transparent 60%) !important; }
+.hero-section::after{ background:radial-gradient(ellipse, rgba(22,34,58,0.04), transparent 60%) !important; }
 .hero-visual{ opacity:1 !important; }
 .hero-card{
   background:linear-gradient(155deg,#F5F2EF 0%,#FAFAF8 100%) !important;
@@ -216,17 +216,11 @@ h1 em, h2 em, .hero h1 em, .lp-hero-h1 em{ font-style:normal !important; color:v
 .newsletter-input{ background:#FFFFFF !important; border:1px solid rgba(0,0,0,0.12) !important;
   color:#000 !important; border-radius:9999px !important; }
 .newsletter-input::placeholder{ color:#A8A39B !important; }
-.footer svg [fill="#FAF5ED"], .footer svg [fill="#FFFFFF"], .footer svg [fill="#ffffff"]{ fill:#000; }
-.footer svg [fill="#DEC680"]{ fill:#777169; }
-.footer svg [fill="#B45A3C"]{ fill:#777169; }
 /* logo fills in nav (presentation attrs lose to CSS) */
-.logo svg [fill="#B45A3C"], .lp-navbar svg [fill="#B45A3C"]{ fill:#777169; }
-.logo svg [fill="#DEC680"], .lp-navbar svg [fill="#DEC680"]{ fill:#A8A39B; }
-.logo svg [fill="#051B32"], .lp-navbar svg [fill="#051B32"]{ fill:#000; }
 
 /* ── LEAK FIXES: kill every terracotta/gold/green remnant ────── */
 .lp-cta-primary{ box-shadow:none !important; }
-.lp-eyebrow{ border:1px solid rgba(36,86,214,0.18) !important; }
+.lp-eyebrow{ border:1px solid rgba(11,27,69,0.22) !important; }
 .lp-steps::before, .engagement-step:not(:last-child)::after{
   background:linear-gradient(90deg,#000,rgba(0,0,0,0.08)) !important; }
 .lp-step-num, .step-circle{ box-shadow:var(--shadow-sm) !important; }
@@ -268,7 +262,7 @@ h1 em, h2 em, .hero h1 em, .lp-hero-h1 em{ font-style:normal !important; color:v
 }
 /* inline links get the blue */
 .article-body a, .legal-content a, .faq-answer a, p a:not(.btn){ color:var(--blu); }
-.article-body a:hover, p a:not(.btn):hover{ color:#163FA3; }
+.article-body a:hover, p a:not(.btn):hover{ color:#16223A; }
 
 /* ── ARTICLES: readable body, not muted ──────────────────────── */
 .article-body p, .article-body li{
@@ -282,10 +276,10 @@ h1 em, h2 em, .hero h1 em, .lp-hero-h1 em{ font-style:normal !important; color:v
 
 /* ── PORTAL: retoken the post-eleven style block ─────────────── */
 #amc-portal, #portal-login, .pdash-main{ background:#F5F5F5 !important; background-image:none !important; font-family:var(--font-body) !important; }
-.plog-top, .pdash-sidebar, .portal-mobile-bar{ background:#000 !important; }
+.plog-top, .pdash-sidebar, .portal-mobile-bar{ background:#0B1B33 !important; }
 .plog-logo-mark, .plog-btn, .pdash-logo-mark, .pdash-avatar, .pmsg-avatar,
-.ptb-btn.primary, .pni-badge, .ptb-notif-dot, .pchart-bar.current, .pmsg-unread{ background:#000 !important; }
-.plog-btn:hover, .ptb-btn.primary:hover{ background:#262626 !important; }
+.ptb-btn.primary, .pni-badge, .ptb-notif-dot, .pchart-bar.current, .pmsg-unread{ background:#16223A !important; }
+.plog-btn:hover, .ptb-btn.primary:hover{ background:#0B1B33 !important; }
 .plog-btn, .ptb-btn{ border-radius:9999px !important; }
 .plog-headline em{ font-style:normal !important; color:#A8A39B !important; }
 .pdash-client-plan{ background:rgba(255,255,255,0.12) !important; color:#fff !important; }
@@ -337,3 +331,69 @@ html, body{ overflow-x:hidden; }
 .hero-proof{ display:grid !important; grid-template-columns:repeat(4,auto) !important;
   gap:20px 28px !important; justify-content:start; }
 @media (max-width:640px){ .hero-proof{ grid-template-columns:repeat(2,auto) !important; } }
+
+/* ════════════════════════════════════════════════════════════
+   COLOR PASS — white canvas, blue gradient moments
+   ════════════════════════════════════════════════════════════ */
+
+/* Hero: soft blue dawn wash on white */
+.hero-section{ position:relative; }
+.hero-section::before{
+  background:
+    radial-gradient(ellipse 60% 50% at 78% -8%, rgba(22,34,58,0.10), transparent 62%),
+    radial-gradient(ellipse 45% 40% at 12% 8%, rgba(30,58,110,0.06), transparent 60%) !important;
+}
+.hero-section::after{
+  background:radial-gradient(ellipse 50% 45% at 85% 95%, rgba(22,34,58,0.05), transparent 65%) !important;
+}
+
+/* Headline accent word: blue gradient text */
+.hero h1 em, .lp-hero-h1 em{
+  background:linear-gradient(120deg,#16223A 0%,#4A6CA8 100%);
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:#1E3A6E !important;
+}
+.section-heading em, .cta-content h2 em{
+  background:linear-gradient(120deg,#16223A 0%,#3E5A8C 100%);
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:#1E3A6E !important;
+}
+
+/* Hero card: cool porcelain gradient instead of warm stone */
+.hero-card{
+  background:linear-gradient(155deg,#EDF1F8 0%,#FBFCFE 60%,#F1F5FA 100%) !important;
+  border:1px solid rgba(22,34,58,0.10) !important;
+}
+.hcard-service{ border:1px solid rgba(22,34,58,0.06) !important; }
+
+/* Light bands pick up a breath of blue */
+.why-section{ background:linear-gradient(180deg,#F3F6FA 0%,#F7F9FC 100%) !important; }
+.trust-bar, .lp-trust-bar{ background:#F3F6FA !important; }
+
+/* CTA bands: the gradient moment */
+.cta-box, .lp-cta-band, .article-cta, .svc-pricing-cta{
+  background:linear-gradient(135deg,#ECF1F8 0%,#F8FAFD 55%,#E8EEF7 100%) !important;
+  border:1px solid rgba(22,34,58,0.10) !important;
+}
+.lp-cta-band{ border-left:none !important; border-right:none !important; border-radius:0 !important; }
+
+/* Featured pricing: black with a deep-blue undertone */
+.pricing-card.featured{
+  background:linear-gradient(160deg,#06080F 0%,#11264E 130%) !important;
+  box-shadow:rgba(11,27,69,0.22) 0px 12px 40px -12px, var(--shadow-lg) !important;
+}
+
+/* Footer: whisper of blue at the seam */
+.footer{ background:linear-gradient(180deg,#F3F6FA 0%,#F5F5F5 30%) !important; }
+
+/* Buttons stay black (ElevenLabs), but primary hover warms blue */
+.btn-accent:hover, .btn-primary:hover, .lp-cta-primary:hover{
+  background:#0B1B33 !important;
+}
+
+/* Logo image */
+.logo img, .footer-logo-wrap img, .lp-navbar-logo img{ height:40px; width:auto; display:block; }
+.footer-logo-wrap img{ height:44px; }
+/* Enterprise (Custom) card: ensure readable on white */
+.pricing-card.enterprise .pricing-price, .pricing-card.enterprise .pricing-price *{ color:#000 !important; }
+.pricing-card.enterprise .pricing-features, .pricing-card.enterprise .pricing-feature{ color:#4E4E4E !important; }

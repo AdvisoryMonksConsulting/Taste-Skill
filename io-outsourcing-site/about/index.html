@@ -815,14 +815,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
 <!-- ===== NAVBAR ===== -->
 <nav class="navbar" id="main-nav">
   <div class="navbar-inner">
-    <div class="logo" data-go="home">
-      <!-- Advisory Monks Consulting Logo (color on light bg) -->
-      <svg width="210" height="38" viewBox="0 0 870 190" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M104.033 40.0518L111.464 57.2256L119.226 75.06L123.024 83.6469L134.583 110.068L137.225 116.013L146.142 136.324H177.848L166.288 110.068L154.729 83.6469L153.078 79.6837L143.335 57.2256L135.078 38.7308L131.776 30.9695L120.216 4.54832L119.886 3.72266L119.556 4.54832L107.997 30.9695L104.033 40.0518Z" fill="#DEC680"/>
-        <path d="M-5.76214e-05 135.334L0.495333 136.325H63.7412L62.7504 134.178V134.013L52.347 110.068H42.9344L47.5582 99.3348L47.7233 99.0046L54.4937 83.6472L56.4753 79.1886L58.2918 83.6472L69.8511 110.068L71.6675 114.032L81.4104 136.325L86.8597 148.875L92.9696 162.746L104.529 189.002H105.189L116.749 162.746L120.712 153.663L113.116 136.325L102.712 112.545L101.557 110.068L90.1624 83.6472L87.5203 77.7024L78.6031 57.226L72.3281 42.8595L67.0438 30.9699L56.4753 6.53027L45.7417 30.9699L40.4575 42.8595L34.1824 57.226L31.8705 62.6754L31.7054 63.0056L22.6231 83.6472L11.229 110.068L-5.76214e-05 135.334Z" fill="#051B32"/>
-        <text x="205" y="115" font-family="'Fraunces', Georgia, serif" font-size="72" font-weight="500" fill="#051B32">Advisory Monks</text>
-        <text x="205" y="175" font-family="'Albert Sans', sans-serif" font-size="42" font-weight="600" letter-spacing="12" fill="#B45A3C">CONSULTING</text>
-      </svg>
+    <div class="logo" data-go="home"><img src="/logo.svg" alt="Advisory Monks Consulting" style="height:40px;width:auto;display:block;" decoding="async">
     </div>
     <div class="nav-menu">
       <a href="/" data-page="home" >Home</a>
@@ -957,39 +950,16 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
       <h2 class="section-heading">Meet the <em>people behind</em> your numbers</h2>
       <p class="section-sub">Our team of US-certified CPAs and finance professionals is dedicated to US tax law and accounting excellence.</p>
     </div>
-    <div class="team-grid">
-      <div class="team-card reveal reveal-d1">
-        <div class="team-photo">AR</div>
-        <div class="team-info">
-          <div class="team-name">Ashish Rawat</div>
-          <div class="team-title">Founder &amp; Managing Partner</div>
-          <div class="team-bio">CPA with 12+ years in US tax and corporate advisory. Former Big-4 associate. Leads US strategy and key client relationships.</div>
+    <div class="team-grid" style="grid-template-columns:repeat(2,minmax(0,380px));justify-content:center;">
+  <div class="team-card reveal reveal-d1"><div class="team-photo">SU</div><div class="team-info"><div class="team-name">Shamik Ukil</div><div class="team-title">Founder &amp; Managing Partner</div><div class="team-bio">Leads US engagements end to end — tax strategy, structuring, and client relationships across our American business clients.</div></div></div>
+  <div class="team-card reveal reveal-d2"><div class="team-photo">AU</div><div class="team-info"><div class="team-name">Akash Ukil</div><div class="team-title">Partner</div><div class="team-bio">Leads accounting operations, virtual CFO delivery, and valuation work — keeping every client&rsquo;s books accurate and decision-ready.</div></div></div>
+</div>
+</div>
         </div>
       </div>
-      <div class="team-card reveal reveal-d2">
-        <div class="team-photo">SC</div>
-        <div class="team-info">
-          <div class="team-name">Sunita Chauhan</div>
-          <div class="team-title">Head of Tax Practice</div>
-          <div class="team-bio">EA (IRS Enrolled Agent) and CPA. Specializes in business tax, multi-state compliance, and S-Corp/LLC structuring.</div>
-        </div>
-      </div>
-      <div class="team-card reveal reveal-d3">
-        <div class="team-photo">RK</div>
-        <div class="team-info">
-          <div class="team-name">Rahul Kapoor</div>
-          <div class="team-title">Senior CFO Advisor</div>
-          <div class="team-bio">MBA (Finance) + CFA. Specializes in financial modeling, Series A/B preparation, and virtual CFO engagements.</div>
-        </div>
-      </div>
-      <div class="team-card reveal reveal-d4">
-        <div class="team-photo">PM</div>
-        <div class="team-info">
-          <div class="team-name">Pooja Mishra</div>
-          <div class="team-title">International Tax Specialist</div>
-          <div class="team-bio">Expert in FBAR, FATCA, India-US tax treaty, and cross-border structuring. Trusted by 50+ India-origin US companies.</div>
-        </div>
-      </div>
+      
+      
+      
     </div>
 
     <!-- CERTIFICATIONS -->
@@ -1124,13 +1094,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="footer-logo-wrap">
-          <svg width="220" height="42" viewBox="0 0 870 190" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M104.033 40.0518L111.464 57.2256L119.226 75.06L123.024 83.6469L134.583 110.068L137.225 116.013L146.142 136.324H177.848L166.288 110.068L154.729 83.6469L153.078 79.6837L143.335 57.2256L135.078 38.7308L131.776 30.9695L120.216 4.54832L119.886 3.72266L119.556 4.54832L107.997 30.9695L104.033 40.0518Z" fill="#DEC680"/>
-            <path d="M-5.76214e-05 135.334L0.495333 136.325H63.7412L62.7504 134.178V134.013L52.347 110.068H42.9344L47.5582 99.3348L47.7233 99.0046L54.4937 83.6472L56.4753 79.1886L58.2918 83.6472L69.8511 110.068L71.6675 114.032L81.4104 136.325L86.8597 148.875L92.9696 162.746L104.529 189.002H105.189L116.749 162.746L120.712 153.663L113.116 136.325L102.712 112.545L101.557 110.068L90.1624 83.6472L87.5203 77.7024L78.6031 57.226L72.3281 42.8595L67.0438 30.9699L56.4753 6.53027L45.7417 30.9699L40.4575 42.8595L34.1824 57.226L31.8705 62.6754L31.7054 63.0056L22.6231 83.6472L11.229 110.068L-5.76214e-05 135.334Z" fill="white"/>
-            <text x="205" y="115" font-family="'Fraunces', Georgia, serif" font-size="72" font-weight="500" fill="white">Advisory Monks</text>
-            <text x="205" y="175" font-family="'Albert Sans', sans-serif" font-size="42" font-weight="600" letter-spacing="12" fill="#DEC680">CONSULTING</text>
-          </svg>
+        <div class="footer-logo-wrap"><img src="/logo.svg" alt="Advisory Monks Consulting" style="height:44px;width:auto;display:block;" decoding="async">
         </div>
         <p>Expert US tax preparation, bookkeeping, payroll, and virtual CFO services for growing American businesses — delivered with warmth, transparency, and precision.</p>
         <div class="footer-global">
@@ -1339,10 +1303,10 @@ function go(page) {
       document.head.appendChild(articleSchema);
     }
     const ARTICLE_META = {
-      'article-llc-scorp':            { headline:'LLC vs. S-Corp: Which Structure Saves You More in 2026?', datePublished:'2026-04-01', author:'Sunita Chauhan', image:'https://www.advisorymonks.io/images/llc-vs-scorp.jpg' },
+      'article-llc-scorp':            { headline:'LLC vs. S-Corp: Which Structure Saves You More in 2026?', datePublished:'2026-04-01', author:'Akash Ukil', image:'https://www.advisorymonks.io/images/llc-vs-scorp.jpg' },
       'article-bookkeeping-mistakes': { headline:'7 Bookkeeping Mistakes That Are Costing Your Business Money', datePublished:'2026-03-15', author:'Priya Nair', image:'https://www.advisorymonks.io/images/bookkeeping-mistakes.jpg' },
       'article-india-us-tax':         { headline:'The Complete India-US Cross-Border Tax Guide for 2026', datePublished:'2026-02-20', author:'Arjun Mehta', image:'https://www.advisorymonks.io/images/india-us-tax.jpg' },
-      'article-tax-calendar':         { headline:'2026 US Tax Deadline Calendar — Never Miss a Filing Date', datePublished:'2026-01-10', author:'Sunita Chauhan', image:'https://www.advisorymonks.io/images/tax-calendar.jpg' },
+      'article-tax-calendar':         { headline:'2026 US Tax Deadline Calendar — Never Miss a Filing Date', datePublished:'2026-01-10', author:'Akash Ukil', image:'https://www.advisorymonks.io/images/tax-calendar.jpg' },
       'article-series-a-data-room':   { headline:'What Investors Actually Want in Your Series A Data Room', datePublished:'2026-03-01', author:'Vikram Shah', image:'https://www.advisorymonks.io/images/series-a-data-room.jpg' },
       'article-ecommerce-tax':        { headline:'E-Commerce Tax Compliance: Sales Tax Nexus in All 50 States', datePublished:'2026-02-05', author:'Priya Nair', image:'https://www.advisorymonks.io/images/ecommerce-tax.jpg' },
     };
@@ -2318,7 +2282,7 @@ updateBreadcrumbSchema('home');
                     <div class="pchart-bar-wrap"><div class="pchart-bar" style="height:56px;" title="Mar W1: $127K"></div><div class="pchart-label">M1</div></div>
                     <div class="pchart-bar-wrap"><div class="pchart-bar current" style="height:63px;" title="Mar W2: $142K (this week)"></div><div class="pchart-label" style="color:#B45A3C;font-weight:700;">M2</div></div>
                   </div>
-                  <div style="font-size:0.74rem;color:#8B7D6B;margin-top:10px;font-style:italic;">Prepared by Sunita Chauhan · Advisory Monks Consulting · Every Monday 9am IST</div>
+                  <div style="font-size:0.74rem;color:#8B7D6B;margin-top:10px;font-style:italic;">Prepared by Akash Ukil · Advisory Monks Consulting · Every Monday 9am ET</div>
                 </div>
               </div>
 
@@ -2435,7 +2399,7 @@ updateBreadcrumbSchema('home');
                   <div class="pmsg-item">
                     <div class="pmsg-avatar">SC</div>
                     <div style="flex:1;min-width:0;">
-                      <div class="pmsg-from">Sunita Chauhan</div>
+                      <div class="pmsg-from">Akash Ukil</div>
                       <div class="pmsg-preview">Your February pack is ready! Revenue up 14% — full commentary inside...</div>
                     </div>
                     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
@@ -2591,7 +2555,7 @@ updateBreadcrumbSchema('home');
               <div class="pcard-body" style="padding:12px;">
                 <div class="pmsg-item" style="background:#FAF5ED;border-radius:8px;padding:10px;margin-bottom:4px;border-bottom:none;" onclick="this.style.background='#F0E9DD'">
                   <div class="pmsg-avatar">SC</div>
-                  <div style="flex:1;min-width:0;"><div class="pmsg-from">Sunita Chauhan · CPA</div><div class="pmsg-preview">Your February pack is ready! Revenue up 14%...</div><div style="font-size:0.68rem;color:#B5A999;margin-top:3px;">Today 9:02am</div></div>
+                  <div style="flex:1;min-width:0;"><div class="pmsg-from">Akash Ukil · Partner</div><div class="pmsg-preview">Your February pack is ready! Revenue up 14%...</div><div style="font-size:0.68rem;color:#B5A999;margin-top:3px;">Today 9:02am</div></div>
                   <div class="pmsg-unread"></div>
                 </div>
                 <div class="pmsg-item" style="padding:10px;margin-bottom:4px;border-bottom:none;">
@@ -2609,7 +2573,7 @@ updateBreadcrumbSchema('home');
               <div class="pcard-head">
                 <div style="display:flex;align-items:center;gap:10px;">
                   <div class="pdash-avatar" style="width:32px;height:32px;font-size:0.72rem;">SC</div>
-                  <div><div class="pcard-title">Sunita Chauhan</div><div style="font-size:0.7rem;color:#3D7A4A;">● Online · Your dedicated CPA</div></div>
+                  <div><div class="pcard-title">Akash Ukil</div><div style="font-size:0.7rem;color:#3D7A4A;">● Online · Your dedicated CPA</div></div>
                 </div>
               </div>
               <div style="flex:1;padding:20px;overflow-y:auto;display:flex;flex-direction:column;gap:14px;">
@@ -2623,7 +2587,7 @@ updateBreadcrumbSchema('home');
                 <div style="display:flex;gap:10px;align-items:flex-end;flex-direction:row-reverse;">
                   <div class="pdash-avatar" style="width:32px;height:32px;font-size:0.72rem;flex-shrink:0;background:#3D7A4A;" id="portal-user-avatar2">SC</div>
                   <div style="background:#2C2419;border-radius:12px 12px 4px 12px;padding:12px 16px;max-width:75%;">
-                    <div style="font-size:0.82rem;color:#FAF5ED;line-height:1.55;">Thanks Sunita! That's great news. Yes, let's do a quick walkthrough — I'll send a calendar invite for Thursday morning if that works.</div>
+                    <div style="font-size:0.82rem;color:#FAF5ED;line-height:1.55;">Thanks Akash! That's great news. Yes, let's do a quick walkthrough — I'll send a calendar invite for Thursday morning if that works.</div>
                     <div style="font-size:0.65rem;color:rgba(250,245,237,0.35);margin-top:6px;">Today · 9:18am</div>
                   </div>
                 </div>
