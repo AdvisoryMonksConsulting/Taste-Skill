@@ -867,3 +867,9 @@ em.tilt,.serif-display em,h1 em,h2 em,.s-display em,.band-q em{font-style:normal
 
 /* Primary nav links — bold */
 .rail-c a{font-weight:700}
+
+/* Mobile: tables scroll within their box instead of widening the page */
+@media(max-width:700px){
+  main table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .map-table td.f{white-space:normal}
+}
