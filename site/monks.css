@@ -864,3 +864,6 @@ em.tilt,.serif-display em,h1 em,h2 em,.s-display em,.band-q em{font-style:normal
 .brand-logo{width:131px;height:40px}
 @media(max-width:960px){.brand-logo{width:111px;height:34px}}
 .footer-logo{width:157px;height:48px}
+
+/* Primary nav links — bold */
+.rail-c a{font-weight:700}
