@@ -1,0 +1,3 @@
+# advisorymonks.io — canonical www
+https://advisorymonks.io/*   https://www.advisorymonks.io/:splat   301
+/services                    /                                      301

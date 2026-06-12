@@ -1,0 +1,106 @@
+/* ============================================================
+   ELEVEN — Advisory Monks Global Outsourcing (.io)
+   ElevenLabs design language: near-white canvas, whisper-light
+   display type, pill buttons, multi-layer sub-0.1 shadows,
+   warm-stone accents. Loaded last; retokens the base theme.
+   ============================================================ */
+
+:root{
+  /* Canvas: white with warm-stone undertones (was cream/parchment) */
+  --cream:#FFFFFF; --cream-dark:#F5F5F5; --parchment:#F5F2EF;
+  --white:#FFFFFF;
+  /* Text: black + warm grays (was brown) */
+  --brown:#000000; --brown-light:#1A1A19; --brown-medium:#4E4E4E;
+  --brown-muted:#777169; --brown-faint:#A8A39B;
+  /* Accent: achromatic black (was terracotta) */
+  --terracotta:#000000; --terracotta-hover:#262626;
+  --terracotta-light:rgba(0,0,0,0.045); --terracotta-glow:rgba(0,0,0,0.08);
+  --forest:#3D7A4A; --forest-light:rgba(61,122,74,0.08); --forest-dark:#2D5C37;
+  --gold:#777169; --gold-light:rgba(119,113,105,0.10);
+  --navy:#000000;
+  /* Type: light grotesk display, airy body */
+  --font-display:'Inter','Helvetica Neue',-apple-system,system-ui,sans-serif;
+  --font-body:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  /* Radius: generous cards, pill buttons */
+  --radius-sm:8px; --radius-md:16px; --radius-lg:20px; --radius-xl:24px; --radius-full:9999px;
+  /* Shadows: ElevenLabs multi-layer stacks, sub-0.1 opacity, warm-tinted */
+  --shadow-xs:rgba(0,0,0,0.075) 0px 0px 0px 0.5px inset, rgba(0,0,0,0.04) 0px 1px 2px;
+  --shadow-sm:rgba(0,0,0,0.06) 0px 0px 0px 1px, rgba(0,0,0,0.04) 0px 1px 2px, rgba(0,0,0,0.04) 0px 2px 4px;
+  --shadow-md:rgba(0,0,0,0.06) 0px 0px 0px 1px, rgba(0,0,0,0.04) 0px 4px 4px, rgba(78,50,23,0.04) 0px 6px 16px;
+  --shadow-lg:rgba(0,0,0,0.4) 0px 0px 1px, rgba(0,0,0,0.04) 0px 4px 4px, rgba(78,50,23,0.05) 0px 10px 24px;
+  --shadow-xl:rgba(0,0,0,0.4) 0px 0px 1px, rgba(78,50,23,0.06) 0px 16px 40px;
+  --shadow-glow:rgba(78,50,23,0.06) 0px 6px 16px;
+}
+
+html,body{ background:#FFFFFF; }
+body{ -webkit-font-smoothing:antialiased; }
+::selection{ background:#F5F2EF; color:#000; }
+:focus-visible{ outline:2px solid rgba(147,197,253,.9) !important; outline-offset:2px; }
+
+/* ---- Typography: lightness is the brand ---------------------- */
+h1,h2{ font-family:var(--font-display) !important; font-weight:300 !important; letter-spacing:-0.02em !important; }
+h1{ line-height:1.08 !important; }
+h2{ line-height:1.17 !important; }
+h3{ font-family:var(--font-display) !important; font-weight:400 !important; letter-spacing:-0.01em; }
+h1 em, h2 em{ font-style:normal; color:#777169; }
+p, li{ letter-spacing:0.01em; }
+strong{ font-weight:600; }
+
+/* ---- Buttons: pills ------------------------------------------ */
+.btn{ border-radius:9999px !important; font-family:var(--font-body) !important;
+      font-weight:500 !important; letter-spacing:0.01em;
+      transition:transform .16s ease, box-shadow .2s ease, background .2s ease; }
+.btn-accent, .btn-primary, .lp-cta-primary, .lp-navbar-cta{
+  background:#000 !important; color:#fff !important; border:none !important;
+  border-radius:9999px !important;
+}
+.btn-accent:hover, .btn-primary:hover, .lp-cta-primary:hover{
+  background:#262626 !important; transform:translateY(-1px);
+  box-shadow:rgba(0,0,0,0.4) 0px 0px 1px, rgba(0,0,0,0.06) 0px 4px 8px;
+}
+.btn-outline, .btn-ghost, .lp-cta-secondary{
+  background:rgba(245,242,239,0.8) !important; color:#000 !important;
+  border:none !important; border-radius:9999px !important;
+  box-shadow:rgba(78,50,23,0.04) 0px 6px 16px, rgba(0,0,0,0.075) 0px 0px 0px 0.5px inset !important;
+}
+.btn-outline:hover, .btn-ghost:hover, .lp-cta-secondary:hover{
+  background:rgba(237,233,228,0.9) !important; transform:translateY(-1px);
+}
+.btn-white{
+  background:#fff !important; color:#000 !important; border:none !important;
+  border-radius:9999px !important;
+  box-shadow:rgba(0,0,0,0.4) 0px 0px 1px, rgba(0,0,0,0.04) 0px 4px 4px !important;
+}
+.btn-white:hover{ transform:translateY(-1px); }
+
+/* ---- Navigation: clean white sticky -------------------------- */
+.navbar, .lp-navbar{
+  background:rgba(255,255,255,0.85) !important;
+  -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(0,0,0,0.05) !important;
+  box-shadow:none !important;
+}
+.nav-menu a{ font-weight:500; }
+.nav-menu a:hover, .nav-menu a.active{ color:#000 !important; }
+
+/* ---- Motion restraint ----------------------------------------- */
+@media (prefers-reduced-motion:reduce){
+  .btn, .btn-accent, .btn-outline{ transition:none !important; transform:none !important; }
+}
+
+/* ---- Reliability: never trap content at opacity 0 ------------- */
+.hero-visual{ opacity:1 !important; }
+@media (prefers-reduced-motion:reduce){
+  .reveal, [class*="fade"], .hero-visual, .hero-content{ opacity:1 !important; transform:none !important; animation:none !important; }
+}
+/* ---- Hero card: warm-stone surface, ring-shadow definition ---- */
+.hero-card{
+  background:linear-gradient(155deg,#F5F2EF 0%,#FAFAF8 100%) !important;
+  border:1px solid rgba(0,0,0,0.05) !important;
+  box-shadow:rgba(0,0,0,0.4) 0px 0px 1px, rgba(78,50,23,0.06) 0px 16px 40px !important;
+  border-radius:24px !important;
+}
+.hcard-service{ background:#FFFFFF !important; border:1px solid rgba(0,0,0,0.04) !important;
+  box-shadow:rgba(0,0,0,0.075) 0px 0px 0px 0.5px inset !important; }
+/* No italics in the ElevenLabs voice */
+h1 em, h2 em, .hero h1 em, .lp-hero-h1 em{ font-style:normal !important; color:#777169; }
