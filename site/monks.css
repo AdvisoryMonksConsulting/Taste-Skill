@@ -17,9 +17,9 @@
   --paper:#FAFAFA;
   --paper-dim:#F1F1F2;
   --paper-deep:#E7E7E9;
-  /* ink (dark bands) — deep navy blue (reads blue, not black) */
-  --band:#101826;
-  --band-2:#1B2C46;
+  /* ink (dark bands) — brand navy #061C33 (same blue as the CTA) */
+  --band:#061C33;
+  --band-2:#0B2A4A;
   /* text — neutral grays */
   --text:#1A1B1E;
   --mid:#585A5F;
@@ -27,9 +27,9 @@
   /* lines */
   --line:#E6E6E8;
   --line-strong:#CFCFD2;
-  /* accent — light steel blue, the brand colour */
-  --accent:#4678AF;
-  --accent-deep:#38618F;
+  /* brand blue — deep navy (Pantone-spec #061C33), matches the logo + footer */
+  --accent:#061C33;
+  --accent-deep:#123A63;
   --accent-tint:#EDF2F7;
   /* on dark (navy band) */
   --d-text:#EEF0F3;
@@ -46,8 +46,8 @@
   --text-line:#E6E6E8; --text-line-strong:#CFCFD2;
   --text-strong:#1A1B1E; --text-mid:#585A5F; --text-faint:#8B8D92;
   --paper-deeper:#E7E7E9; --ivory:#FAFAFA;
-  --blue:#4678AF; --blue-deep:#38618F; --blue-soft:#6E8DB0;
-  --gold:#4678AF; --gold-tint:#EDF2F7; --blue-tint:#EDF2F7;
+  --blue:#061C33; --blue-deep:#123A63; --blue-soft:#6E8DB0;
+  --gold:#061C33; --gold-tint:#EDF2F7; --blue-tint:#EDF2F7;
   /* misc */
   --ease:cubic-bezier(.22,.61,.36,1);
   --rad:3px;
@@ -837,7 +837,30 @@ em.tilt,.serif-display em,h1 em,h2 em,.s-display em,.band-q em{font-style:normal
 .btn-primary:hover,.cta-btn-primary:hover{background:var(--accent-deep);border-color:var(--accent-deep);color:#fff}
 .rail-r .cta,a.nav-cta{background:var(--accent);border-color:var(--accent);color:#fff}
 .rail-r .cta:hover,a.nav-cta:hover{background:var(--accent-deep);border-color:var(--accent-deep);color:#fff}
-.hero-home .btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}
-.hero-home .btn-primary:hover{background:#fff;border-color:#fff;color:var(--band)}
-.cta-section .cta-btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}
-.cta-section .cta-btn-primary:hover{background:#fff;border-color:#fff;color:var(--band)}
+/* On the navy bands the brand-blue button would vanish — use white there */
+.hero-home .btn-primary{background:#fff;border-color:#fff;color:var(--band)}
+.hero-home .btn-primary:hover{background:var(--d-accent);border-color:var(--d-accent);color:var(--band)}
+.cta-section .cta-btn-primary{background:#fff;border-color:#fff;color:var(--band)}
+.cta-section .cta-btn-primary:hover{background:var(--d-accent);border-color:var(--d-accent);color:var(--band)}
+
+/* ============================================================
+   v8 — DEEPER BLUE TUNING · TIGHTER CARD GAPS · JUSTIFIED PROSE
+   ============================================================ */
+
+/* Reduce inter-card spacing ~40% (grids of cards) */
+.outcomes{gap:11px}
+.tgrid{gap:11px}
+.price-grid{gap:11px}
+.principles{gap:clamp(14px,2.1vw,26px)}
+.who-grid{gap:10px}
+.scenarios{gap:10px}
+
+/* Justify long-form prose paragraphs (not short UI/card labels) */
+.hero-deck,.hero-lede,.pv-lead,.about-body p,.faq-a,.price-custom p,.page-view p{
+  text-align:justify;-webkit-hyphens:auto;hyphens:auto;
+}
+
+/* Inline logo SVG: lock intrinsic width so it always lays out fully */
+.brand-logo{width:131px;height:40px}
+@media(max-width:960px){.brand-logo{width:111px;height:34px}}
+.footer-logo{width:157px;height:48px}
