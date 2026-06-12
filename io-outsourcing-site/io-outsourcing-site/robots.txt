@@ -1,0 +1,5 @@
+# advisorymonks.io — Global Outsourcing
+User-agent: *
+Allow: /
+Disallow: /portal
+Sitemap: https://www.advisorymonks.io/sitemap.xml

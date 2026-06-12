@@ -1,0 +1,15 @@
+# advisorymonks.io — canonical www
+https://advisorymonks.io/*   https://www.advisorymonks.io/:splat   301
+/services                    /                                      301
+
+# Removed pages (US-outsourcing focus)
+/services/international-tax  /contact   301
+/services/tax-planning       /pricing   301
+/india-us-tax                /start     301
+
+# Legacy advisory-site URLs on .io → their pages on .com (consolidation)
+/practices/*   https://www.advisorymonks.com/practices/:splat   301
+/insights/*    https://www.advisorymonks.com/insights/:splat    301
+/guides/*      https://www.advisorymonks.com/guides/:splat      301
+/tools/*       https://www.advisorymonks.com/tools/:splat       301
+/team          https://www.advisorymonks.com/team               301
