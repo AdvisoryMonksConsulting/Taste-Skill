@@ -616,7 +616,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
 
 /* ============================================================
    LANDING PAGES — Minimal chrome, maximum conversion
-   /start · /india-us-tax · /free-consultation
+   /start · /free-consultation
    ============================================================ */
 .lp-navbar{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,4vw,56px);background:var(--white);border-bottom:1px solid rgba(44,36,25,0.06);box-shadow:0 2px 20px rgba(44,36,25,0.05);}
 .lp-navbar-logo{display:flex;align-items:center;gap:10px;cursor:pointer;}
@@ -771,7 +771,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
 <!-- ===== COOKIE CONSENT BANNER ===== -->
 <!-- GRANULAR COOKIE CONSENT (GDPR/CCPA) -->
 <div class="cookie-banner-v2" id="cookieBanner" role="dialog" aria-label="Cookie preferences" aria-live="polite">
-  <div class="cookie-v2-title">🍪 Your Privacy Choices</div>
+  <div class="cookie-v2-title">Your Privacy Choices</div>
   <p class="cookie-v2-desc">We use cookies to improve your experience. Choose which cookies you allow below. <a href="#" onclick="closeAndGo('privacy')">Cookie Policy</a></p>
   <div class="cookie-categories" role="group" aria-label="Cookie categories">
     <div class="cookie-cat">
@@ -834,8 +834,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
           <a href="/services/payroll" >Payroll Management</a>
           <a href="/services/virtual-cfo" >Virtual CFO</a>
           <a href="/services/entity-formation" >Entity Formation</a>
-          <a href="/services/international-tax" >International Tax</a>
-          <a href="/services/tax-planning"  style="opacity:0.5;pointer-events:none;">Tax Planning <span style="font-size:0.68rem;background:var(--gold-light);color:var(--gold);padding:2px 6px;border-radius:4px;margin-left:4px;">Soon</span></a>
+          <a href="/pricing"  style="opacity:0.5;pointer-events:none;">Tax Planning <span style="font-size:0.68rem;background:var(--gold-light);color:var(--gold);padding:2px 6px;border-radius:4px;margin-left:4px;">Soon</span></a>
         </div>
       </div>
       <a href="/pricing" data-page="pricing" >Pricing</a>
@@ -856,11 +855,11 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
       <div class="nav-dropdown">
         <a href="#" class="btn btn-accent btn-sm" style="display:flex;align-items:center;gap:6px;">Get Started ▾</a>
         <div class="nav-dropdown-menu" style="right:0;left:auto;min-width:220px;">
-          <a href="/start"  style="display:flex;align-items:center;gap:8px;"><span>🚀</span><span><strong style="display:block;font-size:0.82rem;">Start Here</strong><span style="font-size:0.72rem;color:var(--brown-faint);font-weight:400;">New to Advisory Monks</span></span></a>
-          <a href="/india-us-tax"  style="display:flex;align-items:center;gap:8px;"><span>🇮🇳🇺🇸</span><span><strong style="display:block;font-size:0.82rem;">India-US Taxes</strong><span style="font-size:0.72rem;color:var(--brown-faint);font-weight:400;">FBAR, FATCA, DTAA, Form 5472</span></span></a>
-          <a href="/free-consultation"  style="display:flex;align-items:center;gap:8px;"><span>📅</span><span><strong style="display:block;font-size:0.82rem;">Free Consultation</strong><span style="font-size:0.72rem;color:var(--brown-faint);font-weight:400;">30-min call, no commitment</span></span></a>
+          <a href="/start"  style="display:flex;align-items:center;gap:8px;"><span><strong style="display:block;font-size:0.82rem;">Start Here</strong><span style="font-size:0.72rem;color:var(--brown-faint);font-weight:400;">New to Advisory Monks</span></span></a>
+          <a href="/start"  style="display:flex;align-items:center;gap:8px;"><span></span><span><strong style="display:block;font-size:0.82rem;">India-US Taxes</strong><span style="font-size:0.72rem;color:var(--brown-faint);font-weight:400;">FBAR, FATCA, DTAA, Form 5472</span></span></a>
+          <a href="/free-consultation"  style="display:flex;align-items:center;gap:8px;"><span><strong style="display:block;font-size:0.82rem;">Free Consultation</strong><span style="font-size:0.72rem;color:var(--brown-faint);font-weight:400;">30-min call, no commitment</span></span></a>
           <div style="border-top:1px solid rgba(44,36,25,0.06);margin:6px 0;"></div>
-          <a href="#" onclick="openCalendly()" style="color:var(--terracotta);font-weight:700;text-align:center;justify-content:center;">📞 Book Free Call →</a>
+          <a href="#" onclick="openCalendly()" style="color:var(--terracotta);font-weight:700;text-align:center;justify-content:center;">Book Free Call →</a>
         </div>
       </div>
     </div>
@@ -877,16 +876,14 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
   <a href="/services/payroll"  class="sub">↳ Payroll</a>
   <a href="/services/virtual-cfo"  class="sub">↳ Virtual CFO</a>
   <a href="/services/entity-formation"  class="sub">↳ Entity Formation</a>
-  <a href="/services/international-tax"  class="sub">↳ International Tax</a>
   <a href="/pricing" >Pricing</a>
   <a href="/about" >Our Story</a>
   <a href="#" onclick="openPortal();toggleMobile()">Client Portal</a>
   <a href="/contact" >Contact</a>
   <div style="border-top:1px solid rgba(44,36,25,0.08);margin:8px 0 4px;"></div>
-  <a href="/start"  style="font-weight:700;">🚀 Get Started — New Clients</a>
-  <a href="/india-us-tax"  style="font-weight:700;">🇮🇳🇺🇸 India-US Tax Services</a>
-  <a href="/free-consultation"  style="font-weight:700;">📅 Book Free Consultation</a>
-  <a href="#" onclick="openCalendly();toggleMobile()" style="color:var(--terracotta);font-weight:700;">📞 Book Free Call →</a>
+  <a href="/start"  style="font-weight:700;">Get Started — New Clients</a>
+  <a href="/free-consultation"  style="font-weight:700;">Book Free Consultation</a>
+  <a href="#" onclick="openCalendly();toggleMobile()" style="color:var(--terracotta);font-weight:700;">Book Free Call →</a>
 </div>
 
 
@@ -1095,12 +1092,12 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
         </div>
         <p>Expert US tax preparation, bookkeeping, payroll, and virtual CFO services for growing American businesses — delivered with warmth, transparency, and precision.</p>
         <div class="footer-global">
-          <span class="footer-country">🇺🇸 US</span>
-          <span class="footer-country">🇬🇧 UK</span>
-          <span class="footer-country">🇨🇦 CA</span>
-          <span class="footer-country">🇦🇺 AU</span>
-          <span class="footer-country">🇸🇬 SG</span>
-          <span class="footer-country">🇪🇺 EU</span>
+          <span class="footer-country"> US</span>
+          <span class="footer-country"> UK</span>
+          <span class="footer-country"> CA</span>
+          <span class="footer-country"> AU</span>
+          <span class="footer-country"> SG</span>
+          <span class="footer-country"> EU</span>
         </div>
       </div>
       <div class="footer-col">
@@ -1111,7 +1108,6 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
           <a href="/services/payroll" >Payroll Management</a>
           <a href="/services/virtual-cfo" >Virtual CFO</a>
           <a href="/services/entity-formation" >Entity Formation</a>
-          <a href="/services/international-tax" >International Tax</a>
           <a href="#" onclick="return false;" style="opacity:0.5;cursor:default;">Tax Planning <span style="font-size:0.65rem;background:rgba(196,163,90,0.15);color:#C4A35A;padding:1px 5px;border-radius:3px;margin-left:3px;">Soon</span></a>
         </div>
       </div>
@@ -1129,9 +1125,8 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
         <div style="margin-top:20px;">
           <h4 style="margin-bottom:12px;">Get Started</h4>
           <div class="footer-links">
-            <a href="/start"  style="color:rgba(250,245,237,0.75);">🚀 Start Here (/start)</a>
-            <a href="/india-us-tax"  style="color:rgba(250,245,237,0.75);">🇮🇳🇺🇸 India-US Taxes</a>
-            <a href="/free-consultation"  style="color:rgba(250,245,237,0.75);">📅 Free Consultation</a>
+            <a href="/start"  style="color:rgba(250,245,237,0.75);">Start Here</a>
+            <a href="/free-consultation"  style="color:rgba(250,245,237,0.75);">Free Consultation</a>
           </div>
         </div>
       </div>
@@ -1143,10 +1138,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
           <a href="/refund" >Refund &amp; Cancellation</a>
           <a href="/sitemap" >Sitemap</a>
         </div>
-        <div style="margin-top:24px;">
-          <h4>Hosted On</h4>
-          <div style="font-size:0.82rem;color:rgba(250,245,237,0.4);margin-top:8px;">www.advisorymonks.io</div>
-        </div>
+        
       </div>
       <div class="footer-newsletter">
         <h4>Stay Informed</h4>
@@ -1175,7 +1167,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
       </div>
       <div class="footer-socials">
         <a href="https://www.linkedin.com/company/advisory-monks-consulting/" target="_blank" class="footer-social" title="LinkedIn — Advisory Monks Consulting" aria-label="LinkedIn">in</a>
-        <a href="https://www.advisorymonks.com" target="_blank" class="footer-social" title="India Practice — advisorymonks.com" aria-label="India website">🌐</a>
+        <a href="https://www.advisorymonks.com" target="_blank" class="footer-social" title="India Practice — advisorymonks.com" aria-label="India website">↗</a>
       </div>
     </div>
     <!-- Circular 230 Disclaimer -->
@@ -1199,7 +1191,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
     </div>
     <!-- Calendly inline widget — replace CALENDLY_URL with actual link -->
     <div style="padding:28px;text-align:center;min-height:380px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;">
-      <div style="width:64px;height:64px;border-radius:50%;background:var(--terracotta-light);display:flex;align-items:center;justify-content:center;font-size:2rem;">📅</div>
+      <div style="width:64px;height:64px;border-radius:50%;background:var(--terracotta-light);display:flex;align-items:center;justify-content:center;font-size:2rem;"></div>
       <div>
         <div style="font-family:var(--font-display);font-size:1.2rem;font-weight:600;margin-bottom:8px;">Ready to get started?</div>
         <p style="color:var(--brown-muted);font-size:0.9rem;line-height:1.7;max-width:380px;">Click the button below to schedule your free 30-minute consultation with a senior CPA from Advisory Monks Consulting.</p>
@@ -1232,8 +1224,6 @@ const PAGE_META = {
   'svc-payroll': { title: 'Payroll Management Services — Advisory Monks Consulting', desc: 'Full-service US payroll processing, tax withholdings, W-2s, 1099s, and direct deposit across all 50 states. Multi-state payroll expertise.', url: '/services/payroll' },
   'svc-cfo':     { title: 'Virtual CFO Services — Advisory Monks Consulting', desc: 'On-demand CFO expertise for growing US businesses. Cash flow forecasting, investor reporting, board decks, and strategic financial leadership.', url: '/services/virtual-cfo' },
   'svc-entity':  { title: 'Entity Formation Services — Advisory Monks Consulting', desc: 'LLC, S-Corp, and C-Corp formation with EIN registration, operating agreements, and state compliance. Expert guidance for US and foreign founders.', url: '/services/entity-formation' },
-  'svc-intl':    { title: 'International Tax Services — Advisory Monks Consulting', desc: 'Cross-border tax planning for India-US businesses. FBAR, FATCA, Form 5472, transfer pricing, and DTAA treaty optimization by specialist CPAs.', url: '/services/international-tax' },
-  'svc-planning':{ title: 'Tax Planning Services — Advisory Monks Consulting', desc: 'Proactive US tax planning to minimize your tax burden legally. S-Corp elections, QBI deductions, retirement plans, and year-round strategy sessions.', url: '/services/tax-planning' },
   'company':     { title: 'About Advisory Monks Consulting — Our Story & Team', desc: 'Learn about Advisory Monks Consulting — an India-based CPA firm serving US small businesses with expert tax, bookkeeping, and CFO services.', url: '/about' },
   'team':        { title: 'Our Team — Advisory Monks Consulting', desc: 'Meet our team of CPAs, EAs, and CFAs serving US businesses with expertise in tax preparation, bookkeeping, payroll, and international tax.', url: '/about/team' },
   'resources':   { title: 'Resources & Tax Insights — Advisory Monks Consulting', desc: 'Free guides, tax deadline calendars, and expert articles on US tax, bookkeeping, and financial strategy for small businesses.', url: '/resources' },
@@ -1246,7 +1236,6 @@ const PAGE_META = {
   'accessibility':{ title: 'Accessibility Statement — Advisory Monks Consulting', desc: 'Advisory Monks Consulting is committed to WCAG 2.1 AA accessibility. Learn about our accessibility features and how to report issues.', url: '/accessibility' },
   '404':         { title: 'Page Not Found — Advisory Monks Consulting', desc: 'The page you are looking for could not be found.', url: '/404' },
   'lp-start':    { title: 'Get Started — Advisory Monks Consulting', desc: 'Stop worrying about US taxes. Expert CPAs handle your federal and state returns, monthly bookkeeping, payroll, and CFO services from $2,500/month.', url: '/start' },
-  'lp-india-us': { title: 'India-US Tax Specialists — Advisory Monks Consulting', desc: 'FBAR, FATCA, Form 5472, India-US DTAA treaty planning, transfer pricing, and cross-border compliance for Indian founders with US entities.', url: '/india-us-tax' },
   'lp-consultation': { title: 'Book a Free Consultation — Advisory Monks Consulting', desc: 'Book a free 30-minute call with a senior CPA. No commitment, no sales pitch. Get honest advice on your US tax and accounting situation.', url: '/free-consultation' },
   'article-llc-scorp':               { title: 'LLC vs S-Corp — Advisory Monks Consulting', desc: 'Should you elect S-Corp status? A practical guide to the LLC vs S-Corp decision for US small business owners.', url: '/resources/llc-vs-scorp' },
   'article-bookkeeping-mistakes':    { title: '7 Bookkeeping Mistakes — Advisory Monks Consulting', desc: 'The 7 most common bookkeeping mistakes small business owners make and how to avoid them.', url: '/resources/bookkeeping-mistakes' },
@@ -1721,7 +1710,7 @@ updateBreadcrumbSchema('home');
   <div style="background:var(--white);border-radius:var(--radius-xl);width:min(520px,95vw);overflow:hidden;position:relative;box-shadow:var(--shadow-xl);">
     <div style="background:var(--brown);padding:28px 32px;position:relative;">
       <button onclick="closeDownloadGate()" style="position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:1rem;color:rgba(250,245,237,0.6);cursor:pointer;border:none;">✕</button>
-      <div style="font-size:2rem;margin-bottom:10px;">📥</div>
+      <div style="font-size:2rem;margin-bottom:10px;"></div>
       <div style="font-family:var(--font-display);font-size:1.2rem;font-weight:600;color:white;margin-bottom:6px;">Download Free Guide</div>
       <div id="downloadGuideName" style="font-size:0.88rem;color:rgba(250,245,237,0.55);"></div>
     </div>
@@ -1741,7 +1730,7 @@ updateBreadcrumbSchema('home');
       </div>
     </div>
     <div id="downloadGateSuccess" style="display:none;padding:40px 32px;text-align:center;flex-direction:column;align-items:center;gap:16px;">
-      <div style="width:64px;height:64px;border-radius:50%;background:var(--forest-light);display:flex;align-items:center;justify-content:center;font-size:2rem;">✅</div>
+      <div style="width:64px;height:64px;border-radius:50%;background:var(--forest-light);display:flex;align-items:center;justify-content:center;font-size:2rem;"></div>
       <div style="font-family:var(--font-display);font-size:1.3rem;font-weight:600;">Check your inbox!</div>
       <p style="font-size:0.9rem;color:var(--brown-muted);line-height:1.7;max-width:360px;">We've sent the guide to your email. While you're here — want to talk through how this applies to your business?</p>
       <a href="#" class="btn btn-accent" onclick="closeDownloadGate();openCalendly()">Book a Free 30-Min Call →</a>
@@ -2167,21 +2156,21 @@ updateBreadcrumbSchema('home');
         </a>
         <div class="pdash-nav-section">Financials</div>
         <a class="pdash-nav-item" onclick="showPortalPanel('reports')" href="#">
-          <span class="pni-icon">📊</span> Reports <span class="pni-badge">3</span>
+          <span class="pni-icon"></span> Reports <span class="pni-badge">3</span>
         </a>
         <a class="pdash-nav-item" onclick="showPortalPanel('invoices')" href="#">
-          <span class="pni-icon">💳</span> Invoices
+          <span class="pni-icon"></span> Invoices
         </a>
         <div class="pdash-nav-section">Documents</div>
         <a class="pdash-nav-item" onclick="showPortalPanel('documents')" href="#">
-          <span class="pni-icon">📁</span> Documents
+          <span class="pni-icon"></span> Documents
         </a>
         <a class="pdash-nav-item" onclick="showPortalPanel('deadlines')" href="#">
-          <span class="pni-icon">📅</span> Deadlines
+          <span class="pni-icon"></span> Deadlines
         </a>
         <div class="pdash-nav-section">Communication</div>
         <a class="pdash-nav-item" onclick="showPortalPanel('messages')" href="#">
-          <span class="pni-icon">💬</span> Messages <span class="pni-badge">2</span>
+          <span class="pni-icon"></span> Messages <span class="pni-badge">2</span>
         </a>
       </nav>
       <div class="pdash-footer">
@@ -2204,8 +2193,8 @@ updateBreadcrumbSchema('home');
           <div class="pdash-topbar-greeting" id="portal-greeting">Good morning, Sarah · Monday, 2 March 2026</div>
         </div>
         <div class="pdash-topbar-actions">
-          <button class="ptb-notif" title="Notifications">🔔<div class="ptb-notif-dot"></div></button>
-          <a href="#" class="ptb-btn ghost" onclick="showPortalPanel('documents')">📤 Upload</a>
+          <button class="ptb-notif" title="Notifications"><div class="ptb-notif-dot"></div></button>
+          <a href="#" class="ptb-btn ghost" onclick="showPortalPanel('documents')"> Upload</a>
           <a href="#" class="ptb-btn primary" onclick="showPortalPanel('messages')">Message CPA</a>
         </div>
       </header>
@@ -2244,7 +2233,7 @@ updateBreadcrumbSchema('home');
               <!-- Weekly Cash Report -->
               <div class="pcard">
                 <div class="pcard-head">
-                  <div class="pcard-title">📋 Weekly Cash Report</div>
+                  <div class="pcard-title"> Weekly Cash Report</div>
                   <span style="font-size:0.72rem;color:#3D7A4A;font-weight:700;background:#E8F5EC;padding:3px 10px;border-radius:20px;">● Live · March 2, 2026</span>
                 </div>
                 <div class="pcard-body">
@@ -2294,12 +2283,12 @@ updateBreadcrumbSchema('home');
               <!-- Recent Reports -->
               <div class="pcard">
                 <div class="pcard-head">
-                  <div class="pcard-title">📊 Recent Reports</div>
+                  <div class="pcard-title">Recent Reports</div>
                   <a class="pcard-action" onclick="showPortalPanel('reports')">View all →</a>
                 </div>
                 <div class="pcard-body">
                   <div class="preport-row">
-                    <div class="preport-icon green">📄</div>
+                    <div class="preport-icon green"></div>
                     <div style="flex:1">
                       <div class="preport-name">February 2026 Financial Pack</div>
                       <div class="preport-date">P&L · Balance Sheet · Cash Flow · Owner Dashboard</div>
@@ -2308,7 +2297,7 @@ updateBreadcrumbSchema('home');
                     <span class="preport-dl">⬇</span>
                   </div>
                   <div class="preport-row">
-                    <div class="preport-icon gold">📊</div>
+                    <div class="preport-icon gold"></div>
                     <div style="flex:1">
                       <div class="preport-name">Q4 2025 Board Pack</div>
                       <div class="preport-date">CFO Narrative · KPI Dashboard · 13-Week Forecast</div>
@@ -2317,7 +2306,7 @@ updateBreadcrumbSchema('home');
                     <span class="preport-dl">⬇</span>
                   </div>
                   <div class="preport-row">
-                    <div class="preport-icon green">📄</div>
+                    <div class="preport-icon green"></div>
                     <div style="flex:1">
                       <div class="preport-name">January 2026 Financial Pack</div>
                       <div class="preport-date">Delivered Feb 10, 2026</div>
@@ -2326,7 +2315,7 @@ updateBreadcrumbSchema('home');
                     <span class="preport-dl">⬇</span>
                   </div>
                   <div class="preport-row">
-                    <div class="preport-icon terracotta">⚠️</div>
+                    <div class="preport-icon terracotta"></div>
                     <div style="flex:1">
                       <div class="preport-name">Payroll Summary — Q4 2025</div>
                       <div class="preport-date">W-2 & 941 reconciliation</div>
@@ -2343,7 +2332,7 @@ updateBreadcrumbSchema('home');
               <!-- Deadlines -->
               <div class="pcard">
                 <div class="pcard-head">
-                  <div class="pcard-title">📅 Upcoming Deadlines</div>
+                  <div class="pcard-title">Upcoming Deadlines</div>
                   <a class="pcard-action" onclick="showPortalPanel('deadlines')">All →</a>
                 </div>
                 <div class="pcard-body">
@@ -2397,7 +2386,7 @@ updateBreadcrumbSchema('home');
               <!-- Messages -->
               <div class="pcard">
                 <div class="pcard-head">
-                  <div class="pcard-title">💬 CPA Messages</div>
+                  <div class="pcard-title"> CPA Messages</div>
                   <a class="pcard-action" onclick="showPortalPanel('messages')">All →</a>
                 </div>
                 <div class="pcard-body">
@@ -2459,13 +2448,13 @@ updateBreadcrumbSchema('home');
             </div>
             <div class="pcard-body">
               <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#8B7D6B;margin-bottom:12px;">2026</div>
-              <div class="preport-row"><div class="preport-icon green">📄</div><div style="flex:1"><div class="preport-name">February 2026 Financial Pack</div><div class="preport-date">Delivered March 2, 2026 · P&L · Balance Sheet · Cash Flow · Dashboard</div></div><span class="preport-badge new">New</span><span class="preport-dl">⬇</span></div>
-              <div class="preport-row"><div class="preport-icon gold">📊</div><div style="flex:1"><div class="preport-name">Q4 2025 Board & Investor Pack</div><div class="preport-date">Delivered January 5, 2026 · CFO Narrative · KPIs · 13-Week Forecast</div></div><span class="preport-badge ready">Ready</span><span class="preport-dl">⬇</span></div>
-              <div class="preport-row"><div class="preport-icon green">📄</div><div style="flex:1"><div class="preport-name">January 2026 Financial Pack</div><div class="preport-date">Delivered February 10, 2026</div></div><span class="preport-badge ready">Ready</span><span class="preport-dl">⬇</span></div>
+              <div class="preport-row"><div class="preport-icon green"></div><div style="flex:1"><div class="preport-name">February 2026 Financial Pack</div><div class="preport-date">Delivered March 2, 2026 · P&L · Balance Sheet · Cash Flow · Dashboard</div></div><span class="preport-badge new">New</span><span class="preport-dl">⬇</span></div>
+              <div class="preport-row"><div class="preport-icon gold"></div><div style="flex:1"><div class="preport-name">Q4 2025 Board & Investor Pack</div><div class="preport-date">Delivered January 5, 2026 · CFO Narrative · KPIs · 13-Week Forecast</div></div><span class="preport-badge ready">Ready</span><span class="preport-dl">⬇</span></div>
+              <div class="preport-row"><div class="preport-icon green"></div><div style="flex:1"><div class="preport-name">January 2026 Financial Pack</div><div class="preport-date">Delivered February 10, 2026</div></div><span class="preport-badge ready">Ready</span><span class="preport-dl">⬇</span></div>
               <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#8B7D6B;margin:20px 0 12px;">2025</div>
-              <div class="preport-row"><div class="preport-icon green">📄</div><div style="flex:1"><div class="preport-name">December 2025 Financial Pack</div><div class="preport-date">Delivered January 10, 2026</div></div><span class="preport-badge ready">Ready</span><span class="preport-dl">⬇</span></div>
-              <div class="preport-row"><div class="preport-icon green">📄</div><div style="flex:1"><div class="preport-name">November 2025 Financial Pack</div><div class="preport-date">Delivered December 10, 2025</div></div><span class="preport-badge ready">Ready</span><span class="preport-dl">⬇</span></div>
-              <div class="preport-row"><div class="preport-icon gold">📊</div><div style="flex:1"><div class="preport-name">Q3 2025 Board & Investor Pack</div><div class="preport-date">Delivered October 5, 2025</div></div><span class="preport-badge ready">Ready</span><span class="preport-dl">⬇</span></div>
+              <div class="preport-row"><div class="preport-icon green"></div><div style="flex:1"><div class="preport-name">December 2025 Financial Pack</div><div class="preport-date">Delivered January 10, 2026</div></div><span class="preport-badge ready">Ready</span><span class="preport-dl">⬇</span></div>
+              <div class="preport-row"><div class="preport-icon green"></div><div style="flex:1"><div class="preport-name">November 2025 Financial Pack</div><div class="preport-date">Delivered December 10, 2025</div></div><span class="preport-badge ready">Ready</span><span class="preport-dl">⬇</span></div>
+              <div class="preport-row"><div class="preport-icon gold"></div><div style="flex:1"><div class="preport-name">Q3 2025 Board & Investor Pack</div><div class="preport-date">Delivered October 5, 2025</div></div><span class="preport-badge ready">Ready</span><span class="preport-dl">⬇</span></div>
             </div>
           </div>
         </div>
@@ -2508,10 +2497,10 @@ updateBreadcrumbSchema('home');
         <div class="portal-panel" id="panel-documents">
           <div style="display:flex;gap:20px;flex-direction:column;">
             <div class="pcard">
-              <div class="pcard-head"><div class="pcard-title">📤 Upload Document</div></div>
+              <div class="pcard-head"><div class="pcard-title"> Upload Document</div></div>
               <div class="pcard-body">
                 <div class="pupload-zone" onclick="alert('In the live portal, this opens a secure file picker. Documents are encrypted with AES-256.')">
-                  <div style="font-size:2rem;margin-bottom:8px;">📂</div>
+                  <div style="font-size:2rem;margin-bottom:8px;"></div>
                   <div style="font-size:0.85rem;font-weight:600;color:#5C5347;">Click to upload or drag & drop</div>
                   <p>PDF, Excel, CSV, images up to 50MB · AES-256 encrypted</p>
                 </div>
@@ -2521,12 +2510,12 @@ updateBreadcrumbSchema('home');
               <div class="pcard-head"><div class="pcard-title">All Documents</div><span style="font-size:0.75rem;color:#8B7D6B;">14 files</span></div>
               <div class="pcard-body">
                 <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#8B7D6B;margin-bottom:10px;">TAX DOCUMENTS</div>
-                <div class="preport-row"><div class="preport-icon green">📄</div><div style="flex:1"><div class="preport-name">2024 Form 1120S — Federal Return</div><div class="preport-date">Filed April 15, 2025 · PDF · 24 pages</div></div><span class="preport-dl">⬇</span></div>
-                <div class="preport-row"><div class="preport-icon green">📄</div><div style="flex:1"><div class="preport-name">2024 CA Form 100S — State Return</div><div class="preport-date">Filed April 15, 2025 · PDF · 18 pages</div></div><span class="preport-dl">⬇</span></div>
-                <div class="preport-row"><div class="preport-icon gold">📊</div><div style="flex:1"><div class="preport-name">2024 W-2 Pack — All Employees</div><div class="preport-date">Issued January 31, 2025</div></div><span class="preport-dl">⬇</span></div>
+                <div class="preport-row"><div class="preport-icon green"></div><div style="flex:1"><div class="preport-name">2024 Form 1120S — Federal Return</div><div class="preport-date">Filed April 15, 2025 · PDF · 24 pages</div></div><span class="preport-dl">⬇</span></div>
+                <div class="preport-row"><div class="preport-icon green"></div><div style="flex:1"><div class="preport-name">2024 CA Form 100S — State Return</div><div class="preport-date">Filed April 15, 2025 · PDF · 18 pages</div></div><span class="preport-dl">⬇</span></div>
+                <div class="preport-row"><div class="preport-icon gold"></div><div style="flex:1"><div class="preport-name">2024 W-2 Pack — All Employees</div><div class="preport-date">Issued January 31, 2025</div></div><span class="preport-dl">⬇</span></div>
                 <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#8B7D6B;margin:16px 0 10px;">COMPANY DOCUMENTS</div>
-                <div class="preport-row"><div class="preport-icon terracotta">📋</div><div style="flex:1"><div class="preport-name">Advisory Monks Consulting SOW 2025</div><div class="preport-date">Signed October 15, 2024 · DocuSign</div></div><span class="preport-dl">⬇</span></div>
-                <div class="preport-row"><div class="preport-icon terracotta">📋</div><div style="flex:1"><div class="preport-name">Certificate of Formation — Meridian Tech LLC</div><div class="preport-date">Delaware · March 2022</div></div><span class="preport-dl">⬇</span></div>
+                <div class="preport-row"><div class="preport-icon terracotta"></div><div style="flex:1"><div class="preport-name">Advisory Monks Consulting SOW 2025</div><div class="preport-date">Signed October 15, 2024 · DocuSign</div></div><span class="preport-dl">⬇</span></div>
+                <div class="preport-row"><div class="preport-icon terracotta"></div><div style="flex:1"><div class="preport-name">Certificate of Formation — Meridian Tech LLC</div><div class="preport-date">Delaware · March 2022</div></div><span class="preport-dl">⬇</span></div>
               </div>
             </div>
           </div>
@@ -2535,7 +2524,7 @@ updateBreadcrumbSchema('home');
         <!-- ── DEADLINES PANEL ───────────────────────────────────────── -->
         <div class="portal-panel" id="panel-deadlines">
           <div class="pcard">
-            <div class="pcard-head"><div class="pcard-title">📅 Full Compliance Calendar — 2026</div></div>
+            <div class="pcard-head"><div class="pcard-title">Full Compliance Calendar — 2026</div></div>
             <div class="pcard-body">
               <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#8B7D6B;margin-bottom:12px;">MARCH 2026</div>
               <div class="pdl-item"><div class="pdl-date-box urgent"><div class="pdl-date-month">Mar</div><div class="pdl-date-day">15</div></div><div style="flex:1"><div class="pdl-title">Form 941 — Q4 2025</div><div class="pdl-sub">Federal payroll tax return · IRS</div></div><span class="pdl-tag urgent-tag">13 days</span></div>
@@ -2636,13 +2625,13 @@ updateBreadcrumbSchema('home');
 
 <!-- Mobile Sticky CTA Bar -->
 <div id="mobileStickyBar" role="complementary" aria-label="Book consultation">
-  <a href="#" onclick="openCalendly()" aria-label="Book a free consultation call">📞 Book Free Consultation →</a>
+  <a href="#" onclick="openCalendly()" aria-label="Book a free consultation call"> Book Free Consultation →</a>
 </div>
 
 
 <script>
 (function(){
-  var U = {"home": "/", "pricing": "/pricing", "svc-tax": "/services/tax-preparation", "svc-bookkeeping": "/services/bookkeeping", "svc-payroll": "/services/payroll", "svc-cfo": "/services/virtual-cfo", "svc-entity": "/services/entity-formation", "svc-intl": "/services/international-tax", "svc-planning": "/services/tax-planning", "company": "/about", "team": "/about/team", "resources": "/resources", "faq": "/faq", "contact": "/contact", "portal": "/portal", "privacy": "/privacy", "terms": "/terms", "refund": "/refund", "accessibility": "/accessibility", "404": "/404", "lp-start": "/start", "lp-india-us": "/india-us-tax", "lp-consultation": "/free-consultation", "article-llc-scorp": "/resources/llc-vs-scorp", "article-bookkeeping-mistakes": "/resources/bookkeeping-mistakes", "article-india-us-tax": "/resources/india-us-tax-guide", "article-tax-calendar": "/resources/tax-calendar-2026", "article-series-a-data-room": "/resources/series-a-data-room", "article-ecommerce-tax": "/resources/ecommerce-tax-guide", "sitemap": "/sitemap"};
+  var U = {"home": "/", "pricing": "/pricing", "svc-tax": "/services/tax-preparation", "svc-bookkeeping": "/services/bookkeeping", "svc-payroll": "/services/payroll", "svc-cfo": "/services/virtual-cfo", "svc-entity": "/services/entity-formation", "company": "/about", "team": "/about/team", "resources": "/resources", "faq": "/faq", "contact": "/contact", "portal": "/portal", "privacy": "/privacy", "terms": "/terms", "refund": "/refund", "accessibility": "/accessibility", "404": "/404", "lp-start": "/start", "lp-consultation": "/free-consultation", "article-llc-scorp": "/resources/llc-vs-scorp", "article-bookkeeping-mistakes": "/resources/bookkeeping-mistakes", "article-india-us-tax": "/resources/india-us-tax-guide", "article-tax-calendar": "/resources/tax-calendar-2026", "article-series-a-data-room": "/resources/series-a-data-room", "article-ecommerce-tax": "/resources/ecommerce-tax-guide", "sitemap": "/sitemap"};
   window.go = function(p){ var u = U[p]||'/'; if(location.pathname !== u){ location.href = u; } };
   document.addEventListener('click', function(e){
     var el = e.target.closest('[data-go]');
