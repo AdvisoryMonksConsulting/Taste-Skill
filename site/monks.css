@@ -898,3 +898,12 @@ em.tilt,.serif-display em,h1 em,h2 em,.s-display em,.band-q em{font-style:normal
 }
 .fm-callout-cta:hover{background:var(--accent-deep);border-color:var(--accent-deep);transform:translateY(-1px)}
 .fm-callout-cta svg{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* Founder Math — coming-soon state */
+.fm-soon-badge{
+  display:inline-block;margin-left:8px;font-family:var(--mono);font-size:9.5px;font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--accent);
+  background:#fff;border:1px solid var(--line-strong);border-radius:999px;padding:3px 9px;vertical-align:middle;
+}
+.fm-callout-cta.fm-soon{background:transparent;color:var(--mid);border-color:var(--line-strong);cursor:default;pointer-events:none}
+.fm-callout-cta.fm-soon:hover{background:transparent;border-color:var(--line-strong);transform:none}
