@@ -1786,12 +1786,15 @@ function submitContactForm(btn){
 function newsletterSignup(btn){
   var WEB3FORMS_KEY='56c535f1-d263-4a94-a2b5-7dbe91733a0d';
   var wrap=btn.closest('.newsletter-form')||btn.parentElement;
-  var inp=wrap.querySelector('input[type="email"]'); var email=inp?(''+inp.value).trim():'';
-  if(!email||email.indexOf('@')<1){ alert('Please enter a valid email.'); return; }
-  if(WEB3FORMS_KEY.indexOf('YOUR_')===0){ alert('Thanks! Email info@advisorymonks.io to subscribe.'); if(inp) inp.value=''; return; }
+  var inp=wrap.querySelector('input[type="email"]');
+  var email=inp?(''+inp.value).trim():'';
+  if(!email||email.indexOf('@')<1){ if(inp){inp.focus();inp.style.borderColor='#C0392B';} return; }
+  btn.disabled=true; var orig=btn.textContent; btn.textContent='…';
+  function ok(){ wrap.innerHTML='<div style="color:#1D459C;font-weight:600;font-size:0.9rem;line-height:1.5;">Thanks — you’re subscribed. We’ll be in touch.</div>'; }
+  function fail(){ btn.disabled=false; btn.textContent=orig; alert('Please email info@advisorymonks.io to subscribe.'); }
   fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
-    body:JSON.stringify({access_key:WEB3FORMS_KEY,subject:'Newsletter signup — advisorymonks.io',email:email,from_name:'Newsletter'})})
-    .then(function(){ if(inp) inp.value=''; btn.textContent='✓'; setTimeout(function(){btn.textContent='→';},2000); }).catch(function(){ alert('Please email info@advisorymonks.io to subscribe.'); });
+    body:JSON.stringify({access_key:WEB3FORMS_KEY,subject:'Newsletter signup — advisorymonks.io',email:email,from_name:'Newsletter subscriber'})})
+    .then(function(r){return r.json();}).then(function(d){ d&&d.success?ok():fail(); }).catch(fail);
 }
 
 // ── Download Gate — Loading State (Point 21) ─────────────────────────────
