@@ -1160,12 +1160,12 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
       </div>
       <!-- 
         INTEGRATION NOTE: Replace the button href below with your actual Calendly link:
-        e.g. href="https://calendly.com/advisorymonks/30min"
+        e.g. href="https://cal.com/shamik/us-discovery-call"
         For full inline embed, use: 
-        <div class="calendly-inline-widget" data-url="https://calendly.com/advisorymonks/30min" style="min-width:320px;height:630px;"></div>
+        <div class="calendly-inline-widget" data-url="https://cal.com/shamik/us-discovery-call" style="min-width:320px;height:630px;"></div>
         <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
       -->
-      <a href="https://calendly.com/advisorymonks" target="_blank" class="btn btn-accent btn-lg" onclick="closeCalendly()">
+      <a href="https://cal.com/shamik/us-discovery-call" target="_blank" class="btn btn-accent btn-lg" onclick="closeCalendly()">
         Open Scheduling Calendar →
       </a>
       <p style="font-size:0.75rem;color:var(--brown-faint);">You'll be redirected to Calendly to pick a time that works for you.</p>
@@ -1334,7 +1334,7 @@ function updateBreadcrumbSchema(page) {
 // ── Scroll Navbar + Back-to-Top visibility ────────────────────────────────
 window.addEventListener('scroll', () => {
   const y = window.scrollY;
-  document.getElementById('navbar').classList.toggle('scrolled', y > 50);
+  var _nav=document.getElementById('navbar')||document.getElementById('main-nav'); if(_nav) _nav.classList.toggle('scrolled', y > 50);
   const btn = document.getElementById('backToTop');
   if (btn) btn.classList.toggle('visible', y > 400);
 });
@@ -1427,11 +1427,7 @@ function togglePricing(btn, mode) {
 }
 
 // ── Calendly Modal ────────────────────────────────────────────────────────
-function openCalendly() {
-  const overlay = document.getElementById('calendlyOverlay');
-  overlay.style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-}
+function openCalendly(){ window.open('https://cal.com/shamik/us-discovery-call','_blank','noopener'); }
 function closeCalendly() {
   const overlay = document.getElementById('calendlyOverlay');
   overlay.style.display = 'none';
@@ -1487,7 +1483,7 @@ function declineCookies() { rejectAllCookies(); }
 
 // ── Contact Form — Loading State (Point 21) ───────────────────────────────
 function submitContactForm(btn){
-  var WEB3FORMS_KEY='YOUR_WEB3FORMS_ACCESS_KEY';
+  var WEB3FORMS_KEY='56c535f1-d263-4a94-a2b5-7dbe91733a0d';
   var card=btn.closest('.contact-form-card')||btn.parentElement;
   function v(n){var e=card.querySelector('[name="'+n+'"]');return e?(''+e.value).trim():'';}
   var fname=v('first_name'), email=v('email'), msg=v('message');
@@ -1512,14 +1508,14 @@ function submitContactForm(btn){
     .then(function(r){return r.json();}).then(function(d){done(!!d.success);}).catch(function(){done(false);});
 }
 function newsletterSignup(btn){
-  var WEB3FORMS_KEY='YOUR_WEB3FORMS_ACCESS_KEY';
+  var WEB3FORMS_KEY='56c535f1-d263-4a94-a2b5-7dbe91733a0d';
   var wrap=btn.closest('.newsletter-form')||btn.parentElement;
   var inp=wrap.querySelector('input[type="email"]'); var email=inp?(''+inp.value).trim():'';
   if(!email||email.indexOf('@')<1){ alert('Please enter a valid email.'); return; }
   if(WEB3FORMS_KEY.indexOf('YOUR_')===0){ alert('Thanks! Email info@advisorymonks.io to subscribe.'); if(inp) inp.value=''; return; }
   fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
     body:JSON.stringify({access_key:WEB3FORMS_KEY,subject:'Newsletter signup — advisorymonks.io',email:email,from_name:'Newsletter'})})
-    .then(function(){ if(inp) inp.value=''; btn.textContent='✓'; setTimeout(function(){btn.textContent='→';},2000); });
+    .then(function(){ if(inp) inp.value=''; btn.textContent='✓'; setTimeout(function(){btn.textContent='→';},2000); }).catch(function(){ alert('Please email info@advisorymonks.io to subscribe.'); });
 }
 
 // ── Download Gate — Loading State (Point 21) ─────────────────────────────
@@ -2582,7 +2578,7 @@ updateBreadcrumbSchema('home');
 
 <!-- WhatsApp Widget -->
 <a id="whatsappBtn"
-   href="https://wa.me/918595116297?text=Hi%20Advisory%20Monks%2C%20I%27d%20like%20to%20enquire%20about%20your%20US%20tax%20%26%20accounting%20services."
+   href="https://wa.me/918595116297?text=Hi%20Shamik%2C%20I%27d%20like%20to%20enquire%20about%20your%20US%20tax%20%26%20accounting%20services."
    target="_blank"
    rel="noopener noreferrer"
    aria-label="Chat with Advisory Monks Consulting on WhatsApp"

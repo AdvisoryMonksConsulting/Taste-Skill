@@ -401,6 +401,11 @@ html, body{ overflow-x:hidden; }
 /* ── Portal fully disabled (demo removed) ────────────────────── */
 #amc-portal, #portal-login, .amc-portal-overlay{ display:none !important; }
 
-/* ── Team photos ─────────────────────────────────────────────── */
-.team-photo{ overflow:hidden; }
-.team-photo img{ width:100%; height:100%; object-fit:cover; display:block; border-radius:inherit; }
+/* ── Team photos: portrait-friendly frame, faces centered ────── */
+.team-photo{ overflow:hidden; height:300px !important;
+  background:linear-gradient(155deg,#EDF1F8,#FBFCFE) !important; color:#16223A !important; }
+.team-photo img{ width:100%; height:100%; object-fit:cover; object-position:center 28%;
+  display:block; border-radius:inherit; }
+.team-grid{ grid-template-columns:repeat(2,minmax(0,360px)) !important; gap:28px !important; }
+.team-title{ color:#1E3A6E !important; font-weight:600; }
+@media (max-width:640px){ .team-photo{ height:340px !important; } }
