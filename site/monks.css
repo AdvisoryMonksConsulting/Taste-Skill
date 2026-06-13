@@ -873,3 +873,28 @@ em.tilt,.serif-display em,h1 em,h2 em,.s-display em,.band-q em{font-style:normal
   main table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
   .map-table td.f{white-space:normal}
 }
+
+/* ============================================================
+   FOUNDER MATH CALLOUT  (startup-legal · founders-tax-desk · valuation)
+   Previously had no rules — the arrow SVG blew up to viewport width.
+   ============================================================ */
+.fm-callout{padding:clamp(32px,4vw,54px) var(--gut)}
+.fm-callout-inner{
+  max-width:var(--wrap);margin-inline:auto;
+  display:grid;grid-template-columns:1.6fr auto;gap:clamp(24px,4vw,48px);align-items:center;
+  background:var(--accent-tint);border:1px solid var(--line-strong);border-radius:var(--rad-lg);
+  padding:clamp(26px,3vw,40px);
+}
+@media(max-width:760px){.fm-callout-inner{grid-template-columns:1fr;padding:24px;gap:20px}}
+.fm-callout-eyebrow{font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.fm-callout-title{font-weight:660;font-size:clamp(19px,2.2vw,26px);letter-spacing:-.02em;line-height:1.15;color:var(--text);margin-bottom:10px}
+.fm-callout-desc{font-size:14px;line-height:1.7;color:var(--mid);max-width:64ch;text-align:justify;-webkit-hyphens:auto;hyphens:auto}
+.fm-callout-meta{margin-top:12px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--faint)}
+.fm-callout-cta{
+  display:inline-flex;align-items:center;gap:10px;white-space:nowrap;align-self:center;
+  background:var(--accent);color:#fff;border:1px solid var(--accent);
+  font-weight:600;font-size:14px;padding:14px 24px;border-radius:var(--rad);
+  transition:background .22s,border-color .22s,transform .18s;
+}
+.fm-callout-cta:hover{background:var(--accent-deep);border-color:var(--accent-deep);transform:translateY(-1px)}
+.fm-callout-cta svg{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
