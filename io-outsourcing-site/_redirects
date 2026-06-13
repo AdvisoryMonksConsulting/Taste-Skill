@@ -13,3 +13,7 @@ https://advisorymonks.io/*   https://www.advisorymonks.io/:splat   301
 /guides/*      https://www.advisorymonks.com/guides/:splat      301
 /tools/*       https://www.advisorymonks.com/tools/:splat       301
 /team          https://www.advisorymonks.com/team               301
+
+# Portal removed
+/portal   /contact   301
+/portal/* /contact   301

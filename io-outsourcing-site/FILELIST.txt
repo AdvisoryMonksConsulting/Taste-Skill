@@ -11,7 +11,6 @@ free-consultation.html
 index.html
 logo.png
 logo.svg
-portal.html
 pricing.html
 privacy.html
 refund.html

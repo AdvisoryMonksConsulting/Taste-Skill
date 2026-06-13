@@ -840,11 +840,9 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
           <a href="/faq" >FAQ</a>
         </div>
       </div>
-      <a href="#" data-page="portal" onclick="openPortal()">Client Portal</a>
       <a href="/contact" data-page="contact" >Contact</a>
     </div>
     <div class="nav-actions">
-      <a href="#" class="btn btn-ghost" onclick="openPortal()">Sign In</a>
       <div class="nav-dropdown">
         <a href="#" class="btn btn-accent btn-sm" style="display:flex;align-items:center;gap:6px;">Get Started ▾</a>
         <div class="nav-dropdown-menu" style="right:0;left:auto;min-width:220px;">
@@ -871,7 +869,6 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
   <a href="/services/entity-formation"  class="sub">↳ Entity Formation</a>
   <a href="/pricing" >Pricing</a>
   <a href="/about" >Our Story</a>
-  <a href="#" onclick="openPortal();toggleMobile()">Client Portal</a>
   <a href="/contact" >Contact</a>
   <div style="border-top:1px solid rgba(44,36,25,0.08);margin:8px 0 4px;"></div>
   <a href="/start"  style="font-weight:700;">Get Started — New Clients</a>
@@ -967,7 +964,6 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
         <div class="sitemap-list">
           <a href="/" >Home</a>
           <a href="/pricing" >Pricing</a>
-          <a href="#" onclick="openPortal()">Client Portal</a>
           <a href="/contact" >Contact Us</a>
         </div>
       </div>
@@ -1124,7 +1120,6 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
           <a href="/pricing" >Pricing</a>
           <a href="/resources" >Resources &amp; Blog</a>
           <a href="/faq" >FAQ</a>
-          <a href="#" onclick="openPortal()">Client Portal</a>
           <a href="/contact" >Contact Us</a>
         </div>
         <div style="margin-top:20px;">
@@ -1150,7 +1145,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
         <p>US tax updates, deadlines, and practical financial tips — monthly, no spam.</p>
         <div class="newsletter-form">
           <input type="email" class="newsletter-input" placeholder="your@email.com">
-          <button class="btn btn-accent btn-sm" onclick="alert('Subscribed! Thank you.')">→</button>
+          <button class="btn btn-accent btn-sm" onclick="newsletterSignup(this)">→</button>
         </div>
         <div style="margin-top:20px;">
           <h4>Book a Free Call</h4>
@@ -1529,29 +1524,40 @@ function declineCookies() { rejectAllCookies(); }
 })();
 
 // ── Contact Form — Loading State (Point 21) ───────────────────────────────
-function submitContactForm(btn) {
-  // Validate — collect required fields
-  const nameEl = btn.closest('form, div').querySelector('input[placeholder*="Name"], input[type="text"]');
-  const emailEl = btn.closest('form, div').querySelector('input[type="email"], input[placeholder*="email"]');
-  // Add loading state
-  btn.classList.add('btn-loading');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-  // Simulate async submission (replace with actual fetch in production)
-  setTimeout(() => {
-    btn.classList.remove('btn-loading');
-    btn.disabled = false;
-    // Show success state
-    const form = btn.parentElement;
-    btn.insertAdjacentHTML('afterend',
-      '<div style="background:var(--forest-light);border:1px solid rgba(61,122,74,0.2);border-radius:var(--radius-md);padding:20px;text-align:center;margin-top:12px;">' +
-      '<div style="font-size:1.5rem;margin-bottom:8px;" aria-hidden="true">✓</div>' +
-      '<div style="font-weight:700;color:var(--forest);margin-bottom:4px;">Message sent!</div>' +
-      '<div style="font-size:0.85rem;color:var(--brown-muted);">We\'ll respond within 4 business hours. Or <a href="#" onclick="openCalendly()" style="color:var(--terracotta);font-weight:600;">book a call now →</a></div>' +
-      '</div>'
-    );
-    btn.style.display = 'none';
-  }, 1800);
+function submitContactForm(btn){
+  var WEB3FORMS_KEY='YOUR_WEB3FORMS_ACCESS_KEY';
+  var card=btn.closest('.contact-form-card')||btn.parentElement;
+  function v(n){var e=card.querySelector('[name="'+n+'"]');return e?(''+e.value).trim():'';}
+  var fname=v('first_name'), email=v('email'), msg=v('message');
+  if(!fname||!email||email.indexOf('@')<1){ alert('Please enter your name and a valid email address.'); return; }
+  var orig=btn.textContent; btn.disabled=true; btn.textContent='Sending…';
+  function done(ok){
+    btn.disabled=false; btn.textContent=orig;
+    var b=document.createElement('div');
+    b.style.cssText='border-radius:12px;padding:18px;text-align:center;margin-top:14px;font-size:0.95rem;line-height:1.5;';
+    if(ok){ b.style.background='#EDF1F8'; b.style.color='#16223A';
+      b.innerHTML='Thank you — your message has been sent. We’ll reply within one business day.'; }
+    else { b.style.background='#F5F2EF'; b.style.color='#16223A';
+      b.innerHTML='Please email us directly at <a href="mailto:info@advisorymonks.io" style="color:#1E3A6E;font-weight:600;">info@advisorymonks.io</a> and we’ll get right back to you.'; }
+    var ex=card.querySelector('.amc-form-result'); if(ex) ex.remove();
+    b.className='amc-form-result'; btn.insertAdjacentElement('afterend', b);
+  }
+  if(WEB3FORMS_KEY.indexOf('YOUR_')===0){ done(false); return; }
+  var payload={access_key:WEB3FORMS_KEY,subject:'New enquiry — advisorymonks.io',from_name:fname,
+    first_name:fname,last_name:v('last_name'),email:email,company:v('company'),
+    service:v('service'),country:v('country'),message:msg};
+  fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(payload)})
+    .then(function(r){return r.json();}).then(function(d){done(!!d.success);}).catch(function(){done(false);});
+}
+function newsletterSignup(btn){
+  var WEB3FORMS_KEY='YOUR_WEB3FORMS_ACCESS_KEY';
+  var wrap=btn.closest('.newsletter-form')||btn.parentElement;
+  var inp=wrap.querySelector('input[type="email"]'); var email=inp?(''+inp.value).trim():'';
+  if(!email||email.indexOf('@')<1){ alert('Please enter a valid email.'); return; }
+  if(WEB3FORMS_KEY.indexOf('YOUR_')===0){ alert('Thanks! Email info@advisorymonks.io to subscribe.'); if(inp) inp.value=''; return; }
+  fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+    body:JSON.stringify({access_key:WEB3FORMS_KEY,subject:'Newsletter signup — advisorymonks.io',email:email,from_name:'Newsletter'})})
+    .then(function(){ if(inp) inp.value=''; btn.textContent='✓'; setTimeout(function(){btn.textContent='→';},2000); });
 }
 
 // ── Download Gate — Loading State (Point 21) ─────────────────────────────
@@ -1591,7 +1597,8 @@ document.getElementById('downloadGateOverlay')?.addEventListener('click', functi
 });
 
 // ── Full Client Portal ────────────────────────────────────────────────────
-function openPortal() {
+function openPortal(){ window.location.href='/contact'; }
+var _amc_dead_openPortal=function(){
   const portal = document.getElementById('amc-portal');
   portal.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -2123,7 +2130,7 @@ updateBreadcrumbSchema('home');
         <div class="plog-divider"></div>
         <div class="plog-alt">
           Not a client yet? <a href="#" onclick="closePortal();openCalendly()">Book a free consultation →</a><br>
-          <span style="font-size:0.76rem;color:#B5A999;">Trouble signing in? Email <a href="mailto:support@advisorymonks.io">support@advisorymonks.io</a></span>
+          <span style="font-size:0.76rem;color:#B5A999;">Trouble signing in? Email <a href="mailto:info@advisorymonks.io">info@advisorymonks.io</a></span>
         </div>
       </div>
     </div>
@@ -2636,7 +2643,7 @@ updateBreadcrumbSchema('home');
 
 <script>
 (function(){
-  var U = {"home": "/", "pricing": "/pricing", "svc-tax": "/services/tax-preparation", "svc-bookkeeping": "/services/bookkeeping", "svc-payroll": "/services/payroll", "svc-cfo": "/services/virtual-cfo", "svc-entity": "/services/entity-formation", "company": "/about", "team": "/about/team", "resources": "/resources", "faq": "/faq", "contact": "/contact", "portal": "/portal", "privacy": "/privacy", "terms": "/terms", "refund": "/refund", "accessibility": "/accessibility", "404": "/404", "lp-start": "/start", "lp-consultation": "/free-consultation", "article-llc-scorp": "/resources/llc-vs-scorp", "article-bookkeeping-mistakes": "/resources/bookkeeping-mistakes", "article-india-us-tax": "/resources/india-us-tax-guide", "article-tax-calendar": "/resources/tax-calendar-2026", "article-series-a-data-room": "/resources/series-a-data-room", "article-ecommerce-tax": "/resources/ecommerce-tax-guide", "sitemap": "/sitemap"};
+  var U = {"home": "/", "pricing": "/pricing", "svc-tax": "/services/tax-preparation", "svc-bookkeeping": "/services/bookkeeping", "svc-payroll": "/services/payroll", "svc-cfo": "/services/virtual-cfo", "svc-entity": "/services/entity-formation", "company": "/about", "team": "/about/team", "resources": "/resources", "faq": "/faq", "contact": "/contact", "privacy": "/privacy", "terms": "/terms", "refund": "/refund", "accessibility": "/accessibility", "404": "/404", "lp-start": "/start", "lp-consultation": "/free-consultation", "article-llc-scorp": "/resources/llc-vs-scorp", "article-bookkeeping-mistakes": "/resources/bookkeeping-mistakes", "article-india-us-tax": "/resources/india-us-tax-guide", "article-tax-calendar": "/resources/tax-calendar-2026", "article-series-a-data-room": "/resources/series-a-data-room", "article-ecommerce-tax": "/resources/ecommerce-tax-guide", "sitemap": "/sitemap"};
   window.go = function(p){ var u = U[p]||'/'; if(location.pathname !== u){ location.href = u; } };
   document.addEventListener('click', function(e){
     var el = e.target.closest('[data-go]');
