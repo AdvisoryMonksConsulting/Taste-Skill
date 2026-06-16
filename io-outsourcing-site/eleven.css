@@ -392,8 +392,9 @@ html, body{ overflow-x:hidden; }
 }
 
 /* Logo image */
-.logo img, .footer-logo-wrap img, .lp-navbar-logo img{ height:40px; width:auto; display:block; }
-.footer-logo-wrap img{ height:44px; }
+.logo img, .lp-navbar-logo img{ height:54px; width:auto; display:block; }
+.footer-logo-wrap img{ height:50px; width:auto; display:block; }
+
 /* Enterprise (Custom) card: ensure readable on white */
 .pricing-card.enterprise .pricing-price, .pricing-card.enterprise .pricing-price *{ color:#000 !important; }
 .pricing-card.enterprise .pricing-features, .pricing-card.enterprise .pricing-feature{ color:#4E4E4E !important; }
@@ -409,3 +410,7 @@ html, body{ overflow-x:hidden; }
 .team-grid{ grid-template-columns:repeat(2,minmax(0,360px)) !important; gap:22px !important; }
 .team-title{ color:#1D459C !important; font-weight:600; }
 @media (max-width:640px){ .team-photo{ height:340px !important; } }
+
+/* Logo prominence */
+.navbar-inner, .lp-navbar{ min-height:76px; }
+.logo, .lp-navbar-logo{ display:flex; align-items:center; }
