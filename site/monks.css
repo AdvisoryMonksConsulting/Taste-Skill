@@ -89,7 +89,7 @@ em.tilt,.serif-display em,h1 em,h2 em{font-style:italic;font-weight:400;color:va
    NAV RAIL
    ============================================================ */
 .rail{
-  position:fixed;inset:0 0 auto;z-index:90;height:72px;
+  position:fixed;inset:0 0 auto;z-index:90;height:84px;
   display:flex;align-items:center;justify-content:space-between;
   padding-inline:var(--gut);
   background:color-mix(in srgb,var(--paper) 86%,transparent);
@@ -129,9 +129,9 @@ em.tilt,.serif-display em,h1 em,h2 em{font-style:italic;font-weight:400;color:va
 .nav-toggle{display:none;width:40px;height:40px;place-items:center;color:var(--text);cursor:pointer}
 .nav-toggle svg{width:22px;height:22px}
 @media(max-width:960px){
-  .rail{height:62px}
+  .rail{height:70px}
   .rail-c{
-    position:fixed;inset:62px 0 auto;flex-direction:column;align-items:stretch;gap:0;
+    position:fixed;inset:70px 0 auto;flex-direction:column;align-items:stretch;gap:0;
     background:var(--paper);border-bottom:1px solid var(--line);
     padding:8px 0 14px;display:none;box-shadow:0 30px 60px -30px rgba(23,29,38,.25);
   }
@@ -193,7 +193,7 @@ em.tilt,.serif-display em,h1 em,h2 em{font-style:italic;font-weight:400;color:va
    ============================================================ */
 .hero-home{
   position:relative;background:linear-gradient(168deg,var(--band) 0%,var(--band-2) 100%);
-  color:var(--d-text);padding:calc(72px + clamp(32px,4.5vw,60px)) 0 0;overflow:hidden;
+  color:var(--d-text);padding:calc(84px + clamp(32px,4.5vw,60px)) 0 0;overflow:hidden;
 }
 .hero-home::before{ /* faint radial light, top-right */
   content:"";position:absolute;inset:0;pointer-events:none;
@@ -552,7 +552,7 @@ main{display:block}
 .crumb .current{color:var(--mid)}
 
 /* practice hero — light editorial */
-.hero{padding:calc(72px + clamp(20px,3vw,36px)) 0 clamp(20px,2.5vw,30px)}
+.hero{padding:calc(84px + clamp(20px,3vw,36px)) 0 clamp(20px,2.5vw,30px)}
 .hero,.section,.cta-section,.pn-nav{display:block}
 .hero-num{
   font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--faint);
@@ -644,7 +644,7 @@ main{display:block}
 /* ---- page-view (team / insights hub / legal / articles) ----- */
 .page-view{
   max-width:var(--wrap);margin-inline:auto;
-  padding:calc(72px + clamp(20px,3vw,36px)) var(--gut) clamp(28px,3.5vw,46px);
+  padding:calc(84px + clamp(20px,3vw,36px)) var(--gut) clamp(28px,3.5vw,46px);
 }
 .page-view h1{
   font-family:var(--serif);font-weight:340;font-size:clamp(34px,4.4vw,58px);
@@ -828,9 +828,9 @@ em.tilt,.serif-display em,h1 em,h2 em,.s-display em,.band-q em{font-style:normal
 
 /* --- Brand logo (header + footer) --- */
 .rail-l a{align-items:center}
-.brand-logo{height:40px;width:auto;display:block}
-@media(max-width:960px){.brand-logo{height:34px}}
-.footer-logo{height:48px;width:auto;display:block;margin-bottom:16px}
+.brand-logo{height:56px;width:auto;display:block}
+@media(max-width:960px){.brand-logo{height:46px}}
+.footer-logo{height:58px;width:auto;display:block;margin-bottom:16px}
 
 /* --- Blue carried through the primary actions --- */
 .btn-primary,.cta-btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}
@@ -861,9 +861,9 @@ em.tilt,.serif-display em,h1 em,h2 em,.s-display em,.band-q em{font-style:normal
 }
 
 /* Inline logo SVG: lock intrinsic width so it always lays out fully */
-.brand-logo{width:131px;height:40px}
-@media(max-width:960px){.brand-logo{width:111px;height:34px}}
-.footer-logo{width:157px;height:48px}
+.brand-logo{width:183px;height:56px}
+@media(max-width:960px){.brand-logo{width:150px;height:46px}}
+.footer-logo{width:190px;height:58px}
 
 /* Primary nav links — bold */
 .rail-c a{font-weight:700}
