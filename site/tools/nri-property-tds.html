@@ -76,7 +76,7 @@
       <div class="calc-row"><span class="k">Default TDS withheld (Sec 195)</span><span class="v" id="r-tds">—</span></div>
       <div class="calc-row"><span class="k">Estimated tax actually due on gain</span><span class="v" id="r-tax">—</span></div>
       <div class="calc-row"><span class="k">Capital gain</span><span class="v" id="r-gain">—</span></div>
-      <p class="calc-note">Indicative only. Long-term TDS modelled at 20.8% of the full consideration and LTCG tax at 12.5% + cess on the gain; short-term at 31.2% of consideration. Excludes surcharge, Section 54/54EC reliefs and Section 50C stamp-duty adjustments. Not tax advice.</p>
+      <p class="calc-note">Indicative only. Long-term TDS modelled at 12.5% + cess (about 13%) of the full consideration and LTCG tax at 12.5% + cess on the gain; short-term at 31.2% of consideration. Excludes surcharge, Section 54/54EC reliefs and Section 50C stamp-duty adjustments. Not tax advice.</p>
     </div>
   </div>
 
@@ -94,7 +94,7 @@
   function calc(){
     var sp=+document.getElementById('sp').value||0, cp=+document.getElementById('cp').value||0, ht=document.getElementById('ht').value;
     var gain=Math.max(sp-cp,0);
-    var tds = ht==='long' ? sp*0.208 : sp*0.312;
+    var tds = ht==='long' ? sp*0.13 : sp*0.312;
     var tax = ht==='long' ? gain*0.125*1.04 : gain*0.30*1.04;
     var saving=Math.max(tds-tax,0);
     document.getElementById('r-tds').textContent=f(tds);
