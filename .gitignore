@@ -36,6 +36,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# outbound pipeline scratch data (contains contact PII — keep out of git)
+.cpa_targets.json
+.cpa_leads.json
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
