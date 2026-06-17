@@ -24,7 +24,7 @@
   "name": "Advisory Monks Consulting",
   "url": "https://www.advisorymonks.io",
   "description": "Expert US tax preparation, bookkeeping, payroll, and virtual CFO services for American businesses.",
-  "areaServed": ["US","GB","CA","AU","SG","EU"],
+  "areaServed": "US",
   "serviceType": ["Tax Preparation","Bookkeeping","Payroll","Virtual CFO","Entity Formation","International Tax"],
   "contactPoint": {"@type": "ContactPoint", "contactType": "customer support", "email": "info@advisorymonks.io"}
 }
@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <!-- Calendly Widget -->
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+
 
 <style>
 /* ================================================================
@@ -1159,9 +1159,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
       </div>
     </div>
     <!-- Circular 230 Disclaimer -->
-    <div class="circular-230" role="note" aria-label="IRS Circular 230 Disclosure">
-      <strong style="color:rgba(250,245,237,0.4);">IRS Circular 230 Disclosure:</strong> To ensure compliance with requirements imposed by the IRS, we inform you that any U.S. federal tax advice contained in this website and associated materials is not intended or written to be used, and cannot be used, for the purpose of (i) avoiding penalties under the Internal Revenue Code or (ii) promoting, marketing, or recommending to another party any transaction or tax-related matter addressed herein. Advisory Monks Consulting provides this website for general informational purposes only; nothing herein constitutes legal, tax, or accounting advice specific to your situation. Please consult a qualified tax professional before taking any action.
-    </div>
+    <div class="circular-230" role="note" aria-label="IRS Circular 230 Disclosure"><strong style="color:rgba(250,245,237,0.4);">Important disclosure:</strong> Advisory Monks Consulting is an independent accounting and tax-preparation support provider. We are <strong style="color:rgba(250,245,237,0.4);">not a licensed CPA firm or a law firm</strong>, and our team does not include US-licensed CPAs, Enrolled Agents, or attorneys. Our delivery team is based in India and serves US clients. US tax returns are prepared for review and signature by your designated licensed preparer where required; any IRS representation, audit defense, or legal documents are handled by your licensed CPA, EA, or attorney. Where US taxpayer information is processed outside the United States, we obtain your written consent as required by IRC §7216. Nothing on this website is legal, tax, or accounting advice for your specific situation — please consult a qualified professional before acting.</div>
   </div>
 </footer>
 
@@ -1184,13 +1182,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
         <div style="font-family:var(--font-display);font-size:1.2rem;font-weight:600;margin-bottom:8px;">Ready to get started?</div>
         <p style="color:var(--brown-muted);font-size:0.9rem;line-height:1.7;max-width:380px;">Click the button below to schedule your free 30-minute consultation with a senior accountant from Advisory Monks Consulting.</p>
       </div>
-      <!-- 
-        INTEGRATION NOTE: Replace the button href below with your actual Calendly link:
-        e.g. href="https://cal.com/shamik/us-discovery-call"
-        For full inline embed, use: 
-        <div class="calendly-inline-widget" data-url="https://cal.com/shamik/us-discovery-call" style="min-width:320px;height:630px;"></div>
-        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-      -->
+      
       <a href="https://cal.com/shamik/us-discovery-call" target="_blank" class="btn btn-accent btn-lg" onclick="closeCalendly()">
         Open Scheduling Calendar →
       </a>
@@ -1205,9 +1197,9 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
 <script>
 // ── Page Navigation ──────────────────────────────────────────────────────
 const PAGE_META = {
-  'home':        { title: 'Advisory Monks Consulting — US Tax & Accounting Support', desc: 'Expert US tax preparation, bookkeeping, virtual CFO, and payroll services for American businesses. Dedicated specialists. Transparent pricing from $2,500/month.', url: '/' },
-  'pricing':     { title: 'Pricing Plans — Advisory Monks Consulting', desc: 'Clear, transparent pricing for US tax, bookkeeping, and CFO services. Foundations $2,500/mo · Command $5,000/mo · Enterprise $10,000/mo. No hidden fees.', url: '/pricing' },
-  'svc-tax':     { title: 'US Tax Preparation Services — Advisory Monks Consulting', desc: 'Federal and state tax return preparation for businesses and individuals across all 50 US states. IRS e-filing, accuracy guarantee, audit support included.', url: '/services/tax-preparation' },
+  'home':        { title: 'Advisory Monks Consulting — US Tax & Accounting Support', desc: 'Expert US tax preparation, bookkeeping, virtual CFO, and payroll services for American businesses. Dedicated specialists. Transparent monthly pricing.', url: '/' },
+  'pricing':     { title: 'Pricing Plans — Advisory Monks Consulting', desc: 'Clear, transparent pricing for US tax, bookkeeping, and CFO services. Foundations $600/mo · Command $1,500/mo · Enterprise $4,000/mo. No hidden fees.', url: '/pricing' },
+  'svc-tax':     { title: 'US Tax Preparation Services — Advisory Monks Consulting', desc: 'Federal and state tax return preparation for US businesses and individuals across all 50 states. Carefully reviewed and prepared for e-filing, with document-organization support.', url: '/services/tax-preparation' },
   'svc-bookkeeping': { title: 'Monthly Bookkeeping Services — Advisory Monks Consulting', desc: 'Clean, accurate monthly bookkeeping with P&L, balance sheets, and bank reconciliation. QBO and Xero certified. Delivered on time, every month.', url: '/services/bookkeeping' },
   'svc-payroll': { title: 'Payroll Management Services — Advisory Monks Consulting', desc: 'Full-service US payroll processing, tax withholdings, W-2s, 1099s, and direct deposit across all 50 states. Multi-state payroll expertise.', url: '/services/payroll' },
   'svc-cfo':     { title: 'Virtual CFO Services — Advisory Monks Consulting', desc: 'On-demand CFO expertise for growing US businesses. Cash flow forecasting, investor reporting, board decks, and strategic financial leadership.', url: '/services/virtual-cfo' },
@@ -1223,7 +1215,7 @@ const PAGE_META = {
   'refund':      { title: 'Refund & Cancellation Policy — Advisory Monks Consulting', desc: 'Cancel anytime, pro-rated refunds on unused time. No lock-in contracts. Our transparent refund policy explained.', url: '/refund' },
   'accessibility':{ title: 'Accessibility Statement — Advisory Monks Consulting', desc: 'Advisory Monks Consulting is committed to WCAG 2.1 AA accessibility. Learn about our accessibility features and how to report issues.', url: '/accessibility' },
   '404':         { title: 'Page Not Found — Advisory Monks Consulting', desc: 'The page you are looking for could not be found.', url: '/404' },
-  'lp-start':    { title: 'Get Started — Advisory Monks Consulting', desc: 'Stop worrying about US taxes. Our specialists handle your federal and state returns, monthly bookkeeping, payroll, and CFO services from $2,500/month.', url: '/start' },
+  'lp-start':    { title: 'Get Started — Advisory Monks Consulting', desc: 'Stop worrying about US taxes. Our specialists handle your federal and state returns, monthly bookkeeping, payroll, and CFO services from $600/month.', url: '/start' },
   'lp-consultation': { title: 'Book a Free Consultation — Advisory Monks Consulting', desc: 'Book a free 30-minute call with a senior accountant. No commitment, no sales pitch. Get honest advice on your US tax and accounting situation.', url: '/free-consultation' },
   'article-llc-scorp':               { title: 'LLC vs S-Corp — Advisory Monks Consulting', desc: 'Should you elect S-Corp status? A practical guide to the LLC vs S-Corp decision for US small business owners.', url: '/resources/llc-vs-scorp' },
   'article-bookkeeping-mistakes':    { title: '7 Bookkeeping Mistakes — Advisory Monks Consulting', desc: 'The 7 most common bookkeeping mistakes small business owners make and how to avoid them.', url: '/resources/bookkeeping-mistakes' },
@@ -1238,11 +1230,11 @@ const FAQ_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "What does Advisory Monks Consulting charge for US tax services?", "acceptedAnswer": { "@type": "Answer", "text": "Our plans start at $2,500/month (Foundations), $5,000/month (Command), and $10,000/month (Enterprise). All plans include a dedicated accountant, real-time client portal, and monthly bookkeeping. Annual plans are discounted 20%. Custom Enterprise plans are available on request." } },
+    { "@type": "Question", "name": "What does Advisory Monks Consulting charge for US tax services?", "acceptedAnswer": { "@type": "Answer", "text": "Our plans start at $600/month (Foundations), $1,500/month (Command), and $4,000/month (Enterprise). All plans include a dedicated accountant, real-time client portal, and monthly bookkeeping. Annual plans are discounted 20%. Custom Enterprise plans are available on request." } },
     { "@type": "Question", "name": "How long does onboarding take?", "acceptedAnswer": { "@type": "Answer", "text": "Onboarding typically takes 3–5 business days from signing your engagement letter. You will receive portal access on day one, and your assigned accountant will reach out within 24 hours to begin document collection." } },
     { "@type": "Question", "name": "Can you help with international tax — India-US?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. International tax is a core specialization at Advisory Monks Consulting. We handle FBAR, FATCA, Form 5472, transfer pricing documentation, India-US DTAA treaty benefits, and compliance for foreign-owned US entities." } },
-    { "@type": "Question", "name": "What accounting software do you use?", "acceptedAnswer": { "@type": "Answer", "text": "We are QuickBooks Online ProAdvisors and Xero Certified. We can work with your existing software or set up a new account. Our client portal is powered by Zoho Books for document sharing and communication." } },
-    { "@type": "Question", "name": "Is my financial data secure?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. All documents are stored with 256-bit AES encryption on AWS S3 with strict access controls. Our client portal uses bank-grade SSL encryption and role-based access. We are SOC 2 compliant and adhere to US data privacy laws." } }
+    { "@type": "Question", "name": "What accounting software do you use?", "acceptedAnswer": { "@type": "Answer", "text": "Our team works daily in QuickBooks Online and Xero. We can work with your existing software or set up a new account. Our client portal is powered by Zoho Books for document sharing and communication." } },
+    { "@type": "Question", "name": "Is my financial data secure?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Documents are exchanged through an encrypted client portal with role-based access. We follow strict confidentiality and US data-handling practices, and we are glad to share our current security practices on request." } }
   ]
 };
 
@@ -1286,11 +1278,11 @@ function go(page) {
     }
     const ARTICLE_META = {
       'article-llc-scorp':            { headline:'LLC vs. S-Corp: Which Structure Saves You More in 2026?', datePublished:'2026-04-01', author:'Akash Ukil', image:'https://www.advisorymonks.io/images/llc-vs-scorp.jpg' },
-      'article-bookkeeping-mistakes': { headline:'7 Bookkeeping Mistakes That Are Costing Your Business Money', datePublished:'2026-03-15', author:'Priya Nair', image:'https://www.advisorymonks.io/images/bookkeeping-mistakes.jpg' },
-      'article-india-us-tax':         { headline:'The Complete India-US Cross-Border Tax Guide for 2026', datePublished:'2026-02-20', author:'Arjun Mehta', image:'https://www.advisorymonks.io/images/india-us-tax.jpg' },
+      'article-bookkeeping-mistakes': { headline:'7 Bookkeeping Mistakes That Are Costing Your Business Money', datePublished:'2026-03-15', author:'Advisory Monks Team', image:'https://www.advisorymonks.io/images/bookkeeping-mistakes.jpg' },
+      'article-india-us-tax':         { headline:'The Complete India-US Cross-Border Tax Guide for 2026', datePublished:'2026-02-20', author:'Advisory Monks Team', image:'https://www.advisorymonks.io/images/india-us-tax.jpg' },
       'article-tax-calendar':         { headline:'2026 US Tax Deadline Calendar — Never Miss a Filing Date', datePublished:'2026-01-10', author:'Akash Ukil', image:'https://www.advisorymonks.io/images/tax-calendar.jpg' },
-      'article-series-a-data-room':   { headline:'What Investors Actually Want in Your Series A Data Room', datePublished:'2026-03-01', author:'Vikram Shah', image:'https://www.advisorymonks.io/images/series-a-data-room.jpg' },
-      'article-ecommerce-tax':        { headline:'E-Commerce Tax Compliance: Sales Tax Nexus in All 50 States', datePublished:'2026-02-05', author:'Priya Nair', image:'https://www.advisorymonks.io/images/ecommerce-tax.jpg' },
+      'article-series-a-data-room':   { headline:'What Investors Actually Want in Your Series A Data Room', datePublished:'2026-03-01', author:'Advisory Monks Team', image:'https://www.advisorymonks.io/images/series-a-data-room.jpg' },
+      'article-ecommerce-tax':        { headline:'E-Commerce Tax Compliance: Sales Tax Nexus in All 50 States', datePublished:'2026-02-05', author:'Advisory Monks Team', image:'https://www.advisorymonks.io/images/ecommerce-tax.jpg' },
     };
     if (ARTICLE_META[page]) {
       const am = ARTICLE_META[page];
@@ -1513,7 +1505,7 @@ function submitContactForm(btn){
   var card=btn.closest('.contact-form-card')||btn.parentElement;
   function v(n){var e=card.querySelector('[name="'+n+'"]');return e?(''+e.value).trim():'';}
   var fname=v('first_name'), email=v('email'), msg=v('message');
-  if(!fname||!email||email.indexOf('@')<1){ alert('Please enter your name and a valid email address.'); return; }
+  if(!fname||!email||email.indexOf('@')<1){ alert('Please enter your name and a valid email address.'); return; } var _cons=card.querySelector('[name=consent]'); if(_cons && !_cons.checked){ alert('Please agree to the privacy terms to continue.'); return; }
   var orig=btn.textContent; btn.disabled=true; btn.textContent='Sending…';
   function done(ok){
     btn.disabled=false; btn.textContent=orig;
@@ -2498,10 +2490,10 @@ updateBreadcrumbSchema('home');
             <div class="pcard">
               <div class="pcard-head"><div class="pcard-title"> Upload Document</div></div>
               <div class="pcard-body">
-                <div class="pupload-zone" onclick="alert('In the live portal, this opens a secure file picker. Documents are encrypted with AES-256.')">
+                <div class="pupload-zone" onclick="alert('In the live portal, this opens a secure file picker. Documents are encrypted in transit and at rest.')">
                   <div style="font-size:2rem;margin-bottom:8px;"></div>
                   <div style="font-size:0.85rem;font-weight:600;color:#5C5347;">Click to upload or drag & drop</div>
-                  <p>PDF, Excel, CSV, images up to 50MB · AES-256 encrypted</p>
+                  <p>PDF, Excel, CSV, images up to 50MB · Encrypted</p>
                 </div>
               </div>
             </div>
