@@ -362,7 +362,7 @@ em.tilt,.serif-display em,h1 em,h2 em{font-style:italic;font-weight:400;color:va
 .band-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,7vw,100px);align-items:center}
 @media(max-width:880px){.band-grid{grid-template-columns:1fr}}
 .band-q{font-family:var(--serif);font-weight:330;font-style:italic;font-size:clamp(24px,2.5vw,34px);line-height:1.34;letter-spacing:-.012em}
-.band-q em{color:var(--d-accent)}
+.band-q em{color:var(--d-accent);font-style:normal;font-weight:inherit}
 .band-attr{margin-top:24px;font-size:10.5px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--d-faint)}
 .stat-list{border-top:1px solid var(--d-line)}
 .stat{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:19px 0;border-bottom:1px solid var(--d-line)}
@@ -823,7 +823,7 @@ html.js .reveal.in{opacity:1;transform:none;transition:opacity .75s ease,transfo
 .about-stat-val,.price-name,.price-amt,.pv-title,.hero h1,.page-view h1{font-weight:660;letter-spacing:-.024em}
 
 /* Emphasis = upright brand blue, never italic (kills the AI-serif tell) */
-em.tilt,.serif-display em,h1 em,h2 em,.s-display em,.band-q em{font-style:normal;font-weight:inherit;color:var(--accent)}
+em.tilt,.serif-display em,h1 em,h2 em,.s-display em{font-style:normal;font-weight:inherit;color:var(--accent)}
 .hero-home h1 em{font-style:normal;font-weight:inherit;color:var(--d-accent)}
 
 /* --- Brand logo (header + footer) --- */
