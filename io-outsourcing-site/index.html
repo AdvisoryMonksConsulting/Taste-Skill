@@ -896,58 +896,11 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
       
     </div>
     <div class="hero-visual">
-      <div class="hero-card">
-        <div class="hcard-badge"><span class="hcard-dot"></span>What you get with Advisory Monks Consulting</div>
-        <div class="hcard-title">Your complete financial team, from day one.</div>
-        <div class="hcard-services">
-          <div class="hcard-service">
-            <div class="hcard-service-icon" style="background:var(--terracotta-light)"></div>
-            <div class="hcard-service-info">
-              <div class="hcard-service-name">Tax Preparation &amp; Filing</div>
-              <div class="hcard-service-tag">Federal + All 50 States · IRS e-file</div>
-            </div>
-            <div class="hcard-check">✓</div>
-          </div>
-          <div class="hcard-service">
-            <div class="hcard-service-icon" style="background:var(--forest-light)"></div>
-            <div class="hcard-service-info">
-              <div class="hcard-service-name">Monthly Bookkeeping</div>
-              <div class="hcard-service-tag">P&amp;L · Balance Sheet · Cash Flow</div>
-            </div>
-            <div class="hcard-check">✓</div>
-          </div>
-          <div class="hcard-service">
-            <div class="hcard-service-icon" style="background:var(--gold-light)"></div>
-            <div class="hcard-service-info">
-              <div class="hcard-service-name">Payroll &amp; Virtual CFO</div>
-              <div class="hcard-service-tag">W-2s · 1099s · Cash Flow Forecasting</div>
-            </div>
-            <div class="hcard-check">✓</div>
-          </div>
-          <div class="hcard-service">
-            <div class="hcard-service-icon" style="background:rgba(44,36,25,0.05)"></div>
-            <div class="hcard-service-info">
-              <div class="hcard-service-name">Entity Formation</div>
-              <div class="hcard-service-tag">LLC · S-Corp · EIN Registration</div>
-            </div>
-            <div class="hcard-check">✓</div>
-          </div>
-        </div>
-        <div class="hcard-cta" onclick="openCalendly()">
-          <span class="hcard-cta-text">Book your free 30-min consultation</span>
-          <span class="hcard-cta-arrow">→</span>
-        </div>
-        <div class="hcard-trust">
-          <div class="hcard-avatars">
-            <div class="hcard-avatar">JR</div>
-            <div class="hcard-avatar">SK</div>
-            <div class="hcard-avatar">RP</div>
-            <div class="hcard-avatar">MJ</div>
-          </div>
-          <div class="hcard-trust-text">Built for <strong>US businesses</strong></div>
+        <div class="hero3d" id="hero3d">
+          <div class="hero3d-glow" aria-hidden="true"></div>
+          <div class="spiral" id="heroSpiral" aria-hidden="true"></div>
         </div>
       </div>
-    </div>
   </div>
 </section>
 
@@ -2787,6 +2740,31 @@ updateBreadcrumbSchema('home');
     var el = e.target.closest('[data-go]');
     if(el){ e.preventDefault(); window.go(el.getAttribute('data-go')); }
   });
+})();
+</script>
+
+
+<!-- ===== Hero 3D visual: CSS disc-spiral fallback + optional Spline scene =====
+     To use a real 3D object: create a scene at spline.design, Export > Public URL
+     (.splinecode), and paste it into SPLINE_SCENE_URL below. Leave empty to keep
+     the CSS visual. -->
+<script>
+(function(){
+  var sp=document.getElementById('heroSpiral');
+  if(sp){for(var i=0;i<26;i++){var d=document.createElement('div');d.className='disc';
+    var ang=i*(360/26)*1.6,r=70,sc=1-Math.abs(13-i)/26;
+    d.style.transform='translate(-50%,-50%) rotate('+ang+'deg) translateX('+r+'px) rotate(70deg) scale('+(0.6+sc*0.6)+')';
+    d.style.opacity=(0.55+sc*0.45).toFixed(2);sp.appendChild(d);}}
+  var SPLINE_SCENE_URL=''; /* e.g. https://prod.spline.design/XXXXXXXX/scene.splinecode */
+  if(SPLINE_SCENE_URL){
+    var host=document.getElementById('hero3d'); if(!host) return;
+    var loader=document.createElement('script'); loader.type='module';
+    loader.src='https://unpkg.com/@splinetool/viewer@1.9.48/build/spline-viewer.js';
+    document.head.appendChild(loader);
+    var v=document.createElement('spline-viewer'); v.setAttribute('url',SPLINE_SCENE_URL);
+    v.className='hero-spline'; host.appendChild(v);
+    v.addEventListener('load',function(){v.classList.add('ready');host.classList.add('spline-on');});
+  }
 })();
 </script>
 

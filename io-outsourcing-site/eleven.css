@@ -414,3 +414,20 @@ html, body{ overflow-x:hidden; }
 /* Logo prominence */
 .navbar-inner, .lp-navbar{ min-height:76px; }
 .logo, .lp-navbar-logo{ display:flex; align-items:center; }
+
+/* ── Hero 3D visual (Spline + CSS disc-spiral fallback) ─────── */
+.hero3d{ position:relative; width:100%; height:clamp(340px,40vw,500px);
+  display:flex; align-items:center; justify-content:center; }
+.hero3d-glow{ position:absolute; width:74%; aspect-ratio:1; border-radius:50%;
+  background:radial-gradient(circle, rgba(29,69,156,.16), transparent 62%); filter:blur(26px); }
+.hero3d .spiral{ position:relative; width:min(360px,82%); aspect-ratio:1;
+  animation:hero3dspin 26s linear infinite; }
+.hero3d .disc{ position:absolute; top:50%; left:50%; width:42%; height:13%;
+  border-radius:50%; background:linear-gradient(180deg,#DBE6FF,#4A6CD0 55%,#16235A);
+  box-shadow:0 2px 8px rgba(22,34,58,.18); transform-origin:50% 50%; }
+.hero-spline{ position:absolute; inset:0; width:100%; height:100%; border:0;
+  opacity:0; transition:opacity .6s ease; }
+.hero-spline.ready{ opacity:1; }
+.hero3d.spline-on .spiral, .hero3d.spline-on .hero3d-glow{ opacity:0; transition:opacity .4s; }
+@keyframes hero3dspin{ to{ transform:rotate(360deg); } }
+@media (prefers-reduced-motion:reduce){ .hero3d .spiral{ animation:none; } }
