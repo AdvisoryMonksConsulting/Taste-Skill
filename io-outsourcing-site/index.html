@@ -908,8 +908,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
 <!-- TRUST BAR — US Businesses -->
 
 
-<div class="cap-marquee" aria-hidden="true"><div class="cap-track"><span>Tax Preparation</span><span class="dot">●</span><span>Monthly Bookkeeping</span><span class="dot">●</span><span>Payroll Management</span><span class="dot">●</span><span>Virtual CFO</span><span class="dot">●</span><span>Entity Formation</span><span class="dot">●</span><span>US GAAP</span><span class="dot">●</span><span>All 50 States</span><span class="dot">●</span><span>Cross-Border Support</span><span class="dot">●</span><span>Tax Preparation</span><span class="dot">●</span><span>Monthly Bookkeeping</span><span class="dot">●</span><span>Payroll Management</span><span class="dot">●</span><span>Virtual CFO</span><span class="dot">●</span><span>Entity Formation</span><span class="dot">●</span><span>US GAAP</span><span class="dot">●</span><span>All 50 States</span><span class="dot">●</span><span>Cross-Border Support</span><span class="dot">●</span></div></div>
-      <!-- SERVICES -->
+<!-- SERVICES -->
 <section class="services" id="services-anchor">
   <div class="container">
     <div class="services-header reveal">
@@ -1003,39 +1002,17 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
 </section>
 
 <!-- PROCESS -->
-<section class="process howit">
+<section class="process">
   <div class="container">
     <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto;">
       <div class="section-label" style="justify-content:center;"><span class="section-label-line"></span>How it Works</div>
       <h2 class="section-heading">Get started in <em>4 simple steps</em></h2>
     </div>
-    <div class="howit-grid">
-      <div class="howit-sticky">
-        <div class="howit-panel">
-          <div class="howit-glow" aria-hidden="true"></div>
-          <div class="howit-rail" aria-hidden="true"><div class="howit-fill" id="howFill"></div><span class="howit-dot" data-i="0"></span><span class="howit-dot" data-i="1"></span><span class="howit-dot" data-i="2"></span><span class="howit-dot" data-i="3"></span></div>
-          <div class="howit-body">
-            <div class="howit-eyebrow">Your onboarding</div>
-            <div class="howit-num" id="howNum">01</div>
-            <div class="howit-ttl" id="howTtl">Book Your Free Call</div>
-            <div class="howit-desc" id="howDesc">A 30-minute consultation to understand your business — no commitment, just clarity.</div>
-          </div>
-        </div>
-      </div>
-      <div class="howit-steps">
-        <div class="howstep" data-i="0" data-num="01" data-title="Book Your Free Call" data-desc="A 30-minute consultation to understand your business — no commitment, just clarity.">
-          <div class="howstep-num">01</div><h4>Book Your Free Call</h4><p>30-min consultation to understand your business needs. No commitment, just clarity.</p>
-        </div>
-        <div class="howstep" data-i="1" data-num="02" data-title="Choose Your Plan" data-desc="We recommend the right service tier with transparent, all-in pricing — no hidden fees, ever.">
-          <div class="howstep-num">02</div><h4>Choose Your Plan</h4><p>We recommend the right service tier. Transparent pricing — no hidden fees ever.</p>
-        </div>
-        <div class="howstep" data-i="2" data-num="03" data-title="Meet Your Accountant" data-desc="A dedicated accountant learns your business, goals, and preferences, and owns your file.">
-          <div class="howstep-num">03</div><h4>Meet Your Accountant</h4><p>We assign a dedicated accountant who learns your business, goals, and preferences.</p>
-        </div>
-        <div class="howstep" data-i="3" data-num="04" data-title="Relax & Grow" data-desc="Your finances run on autopilot — monthly reports, proactive planning, and zero surprises.">
-          <div class="howstep-num">04</div><h4>Relax & Grow</h4><p>Your finances run on autopilot. Monthly reports, proactive planning, zero surprises.</p>
-        </div>
-      </div>
+    <div class="process-grid">
+      <div class="process-step reveal reveal-d1"><div class="step-num">1</div><h4>Book Your Free Call</h4><p>30-min consultation to understand your business needs. No commitment, just clarity.</p></div>
+      <div class="process-step reveal reveal-d2"><div class="step-num">2</div><h4>Choose Your Plan</h4><p>We recommend the right service tier. Transparent pricing — no hidden fees ever.</p></div>
+      <div class="process-step reveal reveal-d3"><div class="step-num">3</div><h4>Meet Your Accountant</h4><p>We assign a dedicated accountant who learns your business, goals, and preferences.</p></div>
+      <div class="process-step reveal reveal-d4"><div class="step-num">4</div><h4>Relax &amp; Grow</h4><p>Your finances run on autopilot. Monthly reports, proactive planning, zero surprises.</p></div>
     </div>
   </div>
 </section>
@@ -2793,27 +2770,6 @@ updateBreadcrumbSchema('home');
 </script>
 
 
-<script>
-(function(){
-  var steps=[].slice.call(document.querySelectorAll('.howstep'));
-  if(!steps.length) return;
-  var num=document.getElementById('howNum'),ttl=document.getElementById('howTtl'),
-      desc=document.getElementById('howDesc'),fill=document.getElementById('howFill'),
-      dots=[].slice.call(document.querySelectorAll('.howit-dot'));
-  function setActive(i){
-    steps.forEach(function(s,k){ s.classList.toggle('active',k===i); });
-    dots.forEach(function(d,k){ d.classList.toggle('on',k<=i); });
-    if(num) num.textContent=steps[i].dataset.num;
-    if(ttl) ttl.textContent=steps[i].dataset.title;
-    if(desc) desc.textContent=steps[i].dataset.desc;
-    if(fill) fill.style.height=(i/3*100)+'%';
-  }
-  var io=new IntersectionObserver(function(es){
-    es.forEach(function(e){ if(e.isIntersecting) setActive(steps.indexOf(e.target)); });
-  },{rootMargin:'-45% 0px -45% 0px',threshold:0});
-  steps.forEach(function(s){ io.observe(s); });
-  setActive(0);
-})();
-</script>
+
 </body>
 </html>
