@@ -310,7 +310,7 @@ h1 em, h2 em, .hero h1 em, .lp-hero-h1 em{ font-style:normal !important; color:v
   #page-lp-consultation div[style*="1fr 1fr"]{ grid-template-columns:1fr !important; }
   .pdash-main, #amc-portal{ overflow-x:hidden; }
 }
-html, body{ overflow-x:hidden; }
+html{ overflow-x:clip; } body{ overflow-x:clip; }
 
 /* ── MOTION: restrained, interaction-only ────────────────────── */
 /* Scroll-reveal: handled by base .reveal -> .vis via IntersectionObserver.
@@ -455,3 +455,37 @@ html, body{ overflow-x:hidden; }
 .cap-track .dot{ color:var(--blu); font-size:8px; padding:0 4px; }
 @keyframes cap-scroll{ to{ transform:translateX(-50%) } }
 @media (prefers-reduced-motion:reduce){ .cap-track{ animation:none } }
+
+/* ── Sticky-scroll "How it works" ───────────────────────────── */
+.howit-grid{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; margin-top:44px; }
+.howit-sticky{ position:sticky; top:96px; }
+.howit-panel{ position:relative; overflow:hidden; display:flex; gap:26px;
+  background:linear-gradient(160deg,#0B1B33,#16223A); border-radius:24px; padding:40px; min-height:420px;
+  color:#fff; box-shadow:var(--shadow-lg); }
+.howit-glow{ position:absolute; right:-90px; top:-90px; width:340px; height:340px; border-radius:50%;
+  background:radial-gradient(circle,rgba(29,69,156,.5),transparent 60%); animation:amc-pulse 7s ease-in-out infinite; }
+.howit-rail{ position:relative; width:3px; background:rgba(255,255,255,.12); border-radius:3px; flex-shrink:0;
+  display:flex; flex-direction:column; justify-content:space-between; align-items:center; }
+.howit-fill{ position:absolute; top:0; left:0; width:100%; height:0;
+  background:linear-gradient(#7FA2E8,#1D459C); border-radius:3px; transition:height .55s cubic-bezier(.4,0,.2,1); }
+.howit-dot{ position:relative; z-index:1; width:13px; height:13px; border-radius:50%;
+  background:#1b2c4a; border:2px solid rgba(255,255,255,.22); transition:.4s; }
+.howit-dot.on{ background:#7FA2E8; border-color:#7FA2E8; box-shadow:0 0 0 5px rgba(127,162,232,.18); }
+.howit-body{ position:relative; z-index:1; }
+.howit-eyebrow{ font-family:var(--font-mono,monospace); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#E0C782; }
+.howit-num{ font-family:var(--font-display); font-weight:300; font-size:64px; line-height:1; color:#fff; margin:14px 0 10px; }
+.howit-ttl{ font-family:var(--font-display); font-weight:600; font-size:26px; color:#fff; }
+.howit-desc{ font-size:15px; color:rgba(255,255,255,.72); line-height:1.6; margin-top:12px; max-width:38ch; }
+.howit-steps{ display:flex; flex-direction:column; }
+.howstep{ min-height:60vh; display:flex; flex-direction:column; justify-content:center; padding:24px 0;
+  opacity:.5; transition:opacity .4s ease; }
+.howstep.active{ opacity:1; }
+.howstep-num{ font-family:var(--font-mono,monospace); font-size:13px; letter-spacing:.1em; color:var(--blu); margin-bottom:10px; }
+.howstep h4{ font-family:var(--font-display); font-weight:600; font-size:24px; color:var(--ink); margin-bottom:8px; }
+.howstep p{ font-size:16px; color:var(--text-mid); max-width:42ch; }
+@media (max-width:900px){
+  .howit-grid{ grid-template-columns:1fr; gap:0; }
+  .howit-sticky{ display:none; }
+  .howstep{ min-height:auto; opacity:1; padding:18px 0; border-top:1px solid var(--text-line); }
+}
+@media (prefers-reduced-motion:reduce){ .howstep{ opacity:1; } .howit-glow{ animation:none; } }
