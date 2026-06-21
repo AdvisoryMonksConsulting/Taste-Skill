@@ -313,7 +313,9 @@ h1 em, h2 em, .hero h1 em, .lp-hero-h1 em{ font-style:normal !important; color:v
 html, body{ overflow-x:hidden; }
 
 /* ── MOTION: restrained, interaction-only ────────────────────── */
-.reveal{ opacity:1 !important; transform:none !important; }
+/* Scroll-reveal: handled by base .reveal -> .vis via IntersectionObserver.
+   Reduced-motion (and the <noscript> fallback in <head>) show everything. */
+@media (prefers-reduced-motion:reduce){ .reveal,.reveal.vis{ opacity:1 !important; transform:none !important; } }
 @media (prefers-reduced-motion:reduce){
   *{ transition:none !important; animation:none !important; }
   .hero-tag, .hero h1, .hero-desc, .hero-actions, .hero-proof,
@@ -431,3 +433,25 @@ html, body{ overflow-x:hidden; }
 .hero3d.spline-on .spiral, .hero3d.spline-on .hero3d-glow{ opacity:0; transition:opacity .4s; }
 @keyframes hero3dspin{ to{ transform:rotate(360deg); } }
 @media (prefers-reduced-motion:reduce){ .hero3d .spiral{ animation:none; } }
+
+
+/* ── Premium motion pass (xflow-inspired, restrained) ───────── */
+/* Card hover: lift + soft blue glow */
+.service-card:hover, .why-card:hover, .pricing-card:not(.featured):not(.enterprise):hover,
+.page-view a.ins-card:hover, .tcard:hover{
+  box-shadow:0 20px 44px -24px rgba(29,69,156,.38), 0 0 0 1px rgba(29,69,156,.22) !important;
+}
+/* Hero glow: slow pulse */
+@media (prefers-reduced-motion:no-preference){
+  .hero3d-glow{ animation:amc-pulse 7s ease-in-out infinite; }
+}
+@keyframes amc-pulse{ 0%,100%{ opacity:.75; transform:scale(1) } 50%{ opacity:1; transform:scale(1.07) } }
+/* Capabilities marquee */
+.cap-marquee{ overflow:hidden; border-top:1px solid var(--text-line); border-bottom:1px solid var(--text-line);
+  background:linear-gradient(180deg,#FBFCFE,#F3F6FA); padding:16px 0; -webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); }
+.cap-track{ display:flex; gap:0; width:max-content; animation:cap-scroll 28s linear infinite; }
+.cap-track span{ font-family:var(--font-body); font-size:14px; font-weight:500; color:var(--text-mid);
+  letter-spacing:.02em; padding:0 26px; white-space:nowrap; display:inline-flex; align-items:center; }
+.cap-track .dot{ color:var(--blu); font-size:8px; padding:0 4px; }
+@keyframes cap-scroll{ to{ transform:translateX(-50%) } }
+@media (prefers-reduced-motion:reduce){ .cap-track{ animation:none } }
