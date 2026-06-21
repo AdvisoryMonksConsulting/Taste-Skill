@@ -820,22 +820,13 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
     </div>
     <div class="nav-menu">
       <a href="/" data-page="home" >Home</a>
-      <div class="nav-dropdown">
-        <a href="/services/tax-preparation" data-page="services" >Services ▾</a>
-        <div class="nav-dropdown-menu">
-          <a href="/services/tax-preparation" >Tax Preparation</a>
-          <a href="/services/bookkeeping" >Monthly Bookkeeping</a>
-          <a href="/services/payroll" >Payroll Management</a>
-          <a href="/services/virtual-cfo" >Virtual CFO</a>
-          <a href="/services/entity-formation" >Entity Formation</a>
-          <a href="/pricing"  style="opacity:0.5;pointer-events:none;">Tax Planning <span style="font-size:0.68rem;background:var(--gold-light);color:var(--gold);padding:2px 6px;border-radius:4px;margin-left:4px;">Soon</span></a>
-        </div>
-      </div>
+      <a href="/cpa-firms" data-page="cpa-firms" >For CPA Firms</a>
       <a href="/pricing" data-page="pricing" >Pricing</a>
       <div class="nav-dropdown">
         <a href="/about" data-page="company" >Company ▾</a>
         <div class="nav-dropdown-menu">
-          <a href="/about" >Our Story</a>
+          <a href="/cpa-firms" >For CPA Firms</a>
+            <a href="/about" >Our Story</a>
           <a href="/about/team" >Our Team</a>
           <a href="/resources" >Resources & Blog</a>
           <a href="/faq" >FAQ</a>
@@ -844,16 +835,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
       <a href="/contact" data-page="contact" >Contact</a>
     </div>
     <div class="nav-actions">
-      <div class="nav-dropdown">
-        <a href="#" class="btn btn-accent btn-sm" style="display:flex;align-items:center;gap:6px;">Get Started ▾</a>
-        <div class="nav-dropdown-menu" style="right:0;left:auto;min-width:220px;">
-          <a href="/start"  style="display:flex;align-items:center;gap:8px;"><span><strong style="display:block;font-size:0.82rem;">Start Here</strong><span style="font-size:0.72rem;color:var(--brown-faint);font-weight:400;">New to Advisory Monks</span></span></a>
-          <a href="/start"  style="display:flex;align-items:center;gap:8px;"><span></span><span><strong style="display:block;font-size:0.82rem;">India-US Taxes</strong><span style="font-size:0.72rem;color:var(--brown-faint);font-weight:400;">FBAR, FATCA, DTAA, Form 5472</span></span></a>
-          <a href="/free-consultation"  style="display:flex;align-items:center;gap:8px;"><span><strong style="display:block;font-size:0.82rem;">Free Consultation</strong><span style="font-size:0.72rem;color:var(--brown-faint);font-weight:400;">30-min call, no commitment</span></span></a>
-          <div style="border-top:1px solid rgba(44,36,25,0.06);margin:6px 0;"></div>
-          <a href="#" onclick="openCalendly()" style="color:var(--terracotta);font-weight:700;text-align:center;justify-content:center;">Book Free Call →</a>
-        </div>
-      </div>
+      <a href="#" class="btn btn-accent btn-sm" onclick="openCalendly()">Book a Fit Call →</a>
     </div>
     <button class="nav-mobile" aria-label="Menu" onclick="toggleMobile()">
       <div class="nav-mobile-icon"><span></span><span></span><span></span></div>
@@ -940,8 +922,8 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
   <div class="container">
     <div class="reveal" style="max-width:600px;margin-bottom:48px;">
       <div class="section-label"><span class="section-label-line"></span>Contact Us</div>
-      <h1 class="section-heading">Let's talk about <em>your business</em></h1>
-      <p class="section-sub">Book a free 30-minute consultation or send us a message.</p>
+      <h1 class="section-heading">Let's talk about <em>your firm</em></h1>
+      <p class="section-sub">Book a 20-minute fit call or send us a message. We'll map your client books, software, and turnaround — and start with a small pilot block, no volume commitment.</p>
       <div class="response-badge" role="status" aria-live="polite">
         <span class="response-dot" aria-hidden="true"></span>
         We aim to respond within one business day · Mon–Fri 9am–6pm ET (US hours)
@@ -1011,21 +993,19 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
             <div class="form-group"><label class="form-label">First Name</label><input type="text" name="first_name" class="form-input" placeholder="John"></div>
             <div class="form-group"><label class="form-label">Last Name</label><input type="text" name="last_name" class="form-input" placeholder="Smith"></div>
           </div>
-          <div class="form-group"><label class="form-label">Business Email</label><input type="email" name="email" class="form-input" placeholder="john@company.com"></div>
-          <div class="form-group"><label class="form-label">Company Name</label><input type="text" name="company" class="form-input" placeholder="Acme Corp"></div>
+          <div class="form-group"><label class="form-label">Work Email</label><input type="email" name="email" class="form-input" placeholder="you@yourfirm.com"></div>
+          <div class="form-group"><label class="form-label">Firm name</label><input type="text" name="company" class="form-input" placeholder="Your firm"></div>
           <div class="form-group">
-            <label class="form-label">Service Interest</label>
+            <label class="form-label">What can we help with?</label>
             <select name="service" class="form-select">
-              <option value="">Select a service...</option>
-              <option>Tax Preparation</option>
-              <option>Monthly Bookkeeping</option>
-              <option>Payroll Management</option>
-              <option>Virtual CFO</option>
-              <option>Entity Formation</option>
-              
-              
-              <option>Multiple Services / General Enquiry</option>
-              <option>Enterprise / Custom</option>
+              <option value="">Select an option...</option>
+              <option>White-label CAS for our CPA firm</option>
+              <option>White-label monthly close &amp; reporting</option>
+              <option>Outsourced bookkeeping for our firm</option>
+              <option>Payroll &amp; sales tax production</option>
+              <option>Tax-return preparation support</option>
+              <option>Direct engagement (we're not a CPA firm)</option>
+              <option>Multiple services / General enquiry</option>
             </select>
           </div>
           <div class="form-group">
@@ -1041,7 +1021,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
               <option>Other</option>
             </select>
           </div>
-          <div class="form-group"><label class="form-label">Message</label><textarea name="message" class="form-textarea" placeholder="Tell us about your business and what you're looking for..."></textarea></div>
+          <div class="form-group"><label class="form-label">Message</label><textarea name="message" class="form-textarea" placeholder="Tell us about your firm, the client volume you're considering, and your software (QuickBooks, Xero, etc.)"></textarea></div>
           <label style="display:flex;gap:10px;align-items:flex-start;font-size:0.8rem;color:var(--brown-muted);line-height:1.5;margin:4px 0 16px;"><input type="checkbox" name="consent" style="margin-top:3px;flex-shrink:0;"><span>I agree to Advisory Monks processing my information as described in the <a href="/privacy" style="color:var(--terracotta);">Privacy Policy</a>, including cross-border processing in India. For US tax engagements, a separate written IRC §7216 consent is obtained before any return information is processed offshore.</span></label>
 <button class="btn btn-accent" id="contactSubmitBtn" style="width:100%;" onclick="submitContactForm(this)">Send Message →</button>
           <p style="font-size:0.78rem;color:var(--brown-faint);text-align:center;margin-top:12px;">We aim to respond within one business day. Your data is private. <a href="/privacy"  style="color:var(--terracotta);">Privacy Policy</a></p>
@@ -1270,6 +1250,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
 // ── Page Navigation ──────────────────────────────────────────────────────
 const PAGE_META = {
   'home':        { title: 'Advisory Monks Consulting — US Tax & Accounting Support', desc: 'Expert US tax preparation, bookkeeping, virtual CFO, and payroll services for American businesses. Dedicated specialists. Transparent pricing from $2,500/month.', url: '/' },
+  'cpa-firms':   { title: 'White-Label CAS for US CPA Firms — Outsourced Monthly Close & Reporting | Advisory Monks', desc: 'White-label CAS production for US CPA firms — outsourced bookkeeping, white-label monthly close, and decision-ready reporting in your software, under your brand.', url: '/cpa-firms' },
   'pricing':     { title: 'Pricing Plans — Advisory Monks Consulting', desc: 'Clear, transparent pricing for US tax, bookkeeping, and CFO services. Foundations $2,500/mo · Command $5,000/mo · Enterprise $10,000/mo. No hidden fees.', url: '/pricing' },
   'svc-tax':     { title: 'US Tax Preparation Services — Advisory Monks Consulting', desc: 'Federal and state tax return preparation for US businesses and individuals across all 50 states. Carefully reviewed and prepared for e-filing, with document-organization support.', url: '/services/tax-preparation' },
   'svc-bookkeeping': { title: 'Monthly Bookkeeping Services — Advisory Monks Consulting', desc: 'Clean, accurate monthly bookkeeping with P&L, balance sheets, and bank reconciliation. QBO and Xero certified. Delivered on time, every month.', url: '/services/bookkeeping' },

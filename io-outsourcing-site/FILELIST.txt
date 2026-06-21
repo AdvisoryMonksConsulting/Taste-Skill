@@ -5,6 +5,7 @@ about/index.html
 about/team.html
 accessibility.html
 contact.html
+cpa-firms.html
 eleven.css
 faq.html
 free-consultation.html

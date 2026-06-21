@@ -820,22 +820,13 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
     </div>
     <div class="nav-menu">
       <a href="/" data-page="home" >Home</a>
-      <div class="nav-dropdown">
-        <a href="/services/tax-preparation" data-page="services" >Services ▾</a>
-        <div class="nav-dropdown-menu">
-          <a href="/services/tax-preparation" >Tax Preparation</a>
-          <a href="/services/bookkeeping" >Monthly Bookkeeping</a>
-          <a href="/services/payroll" >Payroll Management</a>
-          <a href="/services/virtual-cfo" >Virtual CFO</a>
-          <a href="/services/entity-formation" >Entity Formation</a>
-          <a href="/pricing"  style="opacity:0.5;pointer-events:none;">Tax Planning <span style="font-size:0.68rem;background:var(--gold-light);color:var(--gold);padding:2px 6px;border-radius:4px;margin-left:4px;">Soon</span></a>
-        </div>
-      </div>
+      <a href="/cpa-firms" data-page="cpa-firms" >For CPA Firms</a>
       <a href="/pricing" data-page="pricing" >Pricing</a>
       <div class="nav-dropdown">
         <a href="/about" data-page="company" >Company ▾</a>
         <div class="nav-dropdown-menu">
-          <a href="/about" >Our Story</a>
+          <a href="/cpa-firms" >For CPA Firms</a>
+            <a href="/about" >Our Story</a>
           <a href="/about/team" >Our Team</a>
           <a href="/resources" >Resources & Blog</a>
           <a href="/faq" >FAQ</a>
@@ -844,16 +835,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
       <a href="/contact" data-page="contact" >Contact</a>
     </div>
     <div class="nav-actions">
-      <div class="nav-dropdown">
-        <a href="#" class="btn btn-accent btn-sm" style="display:flex;align-items:center;gap:6px;">Get Started ▾</a>
-        <div class="nav-dropdown-menu" style="right:0;left:auto;min-width:220px;">
-          <a href="/start"  style="display:flex;align-items:center;gap:8px;"><span><strong style="display:block;font-size:0.82rem;">Start Here</strong><span style="font-size:0.72rem;color:var(--brown-faint);font-weight:400;">New to Advisory Monks</span></span></a>
-          <a href="/start"  style="display:flex;align-items:center;gap:8px;"><span></span><span><strong style="display:block;font-size:0.82rem;">India-US Taxes</strong><span style="font-size:0.72rem;color:var(--brown-faint);font-weight:400;">FBAR, FATCA, DTAA, Form 5472</span></span></a>
-          <a href="/free-consultation"  style="display:flex;align-items:center;gap:8px;"><span><strong style="display:block;font-size:0.82rem;">Free Consultation</strong><span style="font-size:0.72rem;color:var(--brown-faint);font-weight:400;">30-min call, no commitment</span></span></a>
-          <div style="border-top:1px solid rgba(44,36,25,0.06);margin:6px 0;"></div>
-          <a href="#" onclick="openCalendly()" style="color:var(--terracotta);font-weight:700;text-align:center;justify-content:center;">Book Free Call →</a>
-        </div>
-      </div>
+      <a href="#" class="btn btn-accent btn-sm" onclick="openCalendly()">Book a Fit Call →</a>
     </div>
     <button class="nav-mobile" aria-label="Menu" onclick="toggleMobile()">
       <div class="nav-mobile-icon"><span></span><span></span><span></span></div>
@@ -1449,6 +1431,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
 // ── Page Navigation ──────────────────────────────────────────────────────
 const PAGE_META = {
   'home':        { title: 'Advisory Monks Consulting — US Tax & Accounting Support', desc: 'Expert US tax preparation, bookkeeping, virtual CFO, and payroll services for American businesses. Dedicated specialists. Transparent pricing from $2,500/month.', url: '/' },
+  'cpa-firms':   { title: 'White-Label CAS for US CPA Firms — Outsourced Monthly Close & Reporting | Advisory Monks', desc: 'White-label CAS production for US CPA firms — outsourced bookkeeping, white-label monthly close, and decision-ready reporting in your software, under your brand.', url: '/cpa-firms' },
   'pricing':     { title: 'Pricing Plans — Advisory Monks Consulting', desc: 'Clear, transparent pricing for US tax, bookkeeping, and CFO services. Foundations $2,500/mo · Command $5,000/mo · Enterprise $10,000/mo. No hidden fees.', url: '/pricing' },
   'svc-tax':     { title: 'US Tax Preparation Services — Advisory Monks Consulting', desc: 'Federal and state tax return preparation for US businesses and individuals across all 50 states. Carefully reviewed and prepared for e-filing, with document-organization support.', url: '/services/tax-preparation' },
   'svc-bookkeeping': { title: 'Monthly Bookkeeping Services — Advisory Monks Consulting', desc: 'Clean, accurate monthly bookkeeping with P&L, balance sheets, and bank reconciliation. QBO and Xero certified. Delivered on time, every month.', url: '/services/bookkeeping' },
