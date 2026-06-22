@@ -471,28 +471,5 @@ a.service-card h3{ color:var(--ink, #16223A); }
   .process-grid::before{ display:none !important; }
 }
 
-/* ── +20% BLUE PASS: extend the same blue (#1D459C) further ──── */
-/* Primary actions: black → brand blue */
-.btn-accent, .btn-primary, .lp-cta-primary{ background:var(--blu) !important; }
-.btn-accent:hover, .btn-primary:hover, .lp-cta-primary:hover{ background:#16336E !important; }
-/* Process step numbers → blue */
-.step-num{ color:var(--blu) !important; border-color:rgba(29,69,156,0.30) !important; }
-.process-step:hover .step-num{ background:var(--blu) !important; color:#fff !important; border-color:var(--blu) !important; }
-.svc-step-num, .lp-step-num, .step-circle{ color:var(--blu) !important; }
-/* Audience/card accent arrows → blue */
-a.service-card span{ color:var(--blu) !important; }
-/* Subtle blue top accent on cards */
-.service-card{ border-top:2px solid var(--blu) !important; }
-/* CTA band → navy for more blue + crisp white button */
-.cta-box{ background:linear-gradient(155deg,#0E2547 0%,#16336E 100%) !important;
-  border:1px solid rgba(29,69,156,0.30) !important; }
-.cta-content h2, .cta-content p{ color:#fff !important; }
-.cta-content p{ opacity:0.86 !important; }
-.cta-content h2 em{ background:none !important; -webkit-text-fill-color:#8FB0FF !important; color:#8FB0FF !important; }
-.cta-note{ color:rgba(255,255,255,0.65) !important; }
-/* CPA volume pricing: blue featured tier + responsive */
-.pricing-card.featured{ background:var(--blu) !important; border-color:var(--blu) !important; color:#fff !important; }
-.pricing-card.featured .pricing-price, .pricing-card.featured .pricing-desc, .pricing-card.featured .pricing-feature{ color:#fff !important; }
-.pricing-card.featured .pricing-tier{ color:rgba(255,255,255,0.72) !important; }
-.pricing-card.featured .feature-check{ background:rgba(255,255,255,0.18) !important; color:#fff !important; }
+/* CPA volume pricing: keep grid responsive (stack on mobile) */
 @media (max-width:768px){ #cpa-pricing .pricing-grid{ grid-template-columns:1fr !important; } }
