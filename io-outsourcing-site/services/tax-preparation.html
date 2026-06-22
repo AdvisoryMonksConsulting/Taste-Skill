@@ -8,6 +8,11 @@
 <meta property="og:title" id="og-title" content="US Tax Preparation Services — Advisory Monks Consulting">
 <meta property="og:description" id="og-description" content="Federal and state tax return preparation for US businesses and individuals across all 50 states. Carefully reviewed and prepared for e-filing, with document-organization support.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://www.advisorymonks.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.advisorymonks.io/og-image.png">
 <meta property="og:url" id="og-url" content="https://www.advisorymonks.io/services/tax-preparation">
 <link rel="canonical" id="canonical-url" href="https://www.advisorymonks.io/services/tax-preparation">
 <!-- FAQ Schema (Point 16) -->
@@ -1170,7 +1175,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
         <h4>Stay Informed</h4>
         <p>US tax updates, deadlines, and practical financial tips — monthly, no spam.</p>
         <div class="newsletter-form">
-          <input type="email" class="newsletter-input" placeholder="your@email.com">
+          <input type="email" class="newsletter-input" placeholder="your@email.com" aria-label="Your email address">
           <button class="btn btn-accent btn-sm" onclick="newsletterSignup(this)">→</button>
         </div>
         <div style="margin-top:20px;">
@@ -1754,7 +1759,7 @@ updateBreadcrumbSchema('home');
         </div>
         <div>
           <label style="display:block;font-size:0.8rem;font-weight:600;color:var(--brown);margin-bottom:6px;">Business Email</label>
-          <input id="downloadEmail" type="email" placeholder="you@company.com" style="width:100%;padding:12px 16px;border:1.5px solid rgba(44,36,25,0.1);border-radius:var(--radius-md);font-size:0.9rem;color:var(--brown);background:var(--cream);outline:none;font-family:var(--font-body);" onfocus="this.style.borderColor='var(--terracotta)'" onblur="this.style.borderColor='rgba(44,36,25,0.1)'">
+          <input id="downloadEmail" type="email" aria-label="Your email address" placeholder="you@company.com" style="width:100%;padding:12px 16px;border:1.5px solid rgba(44,36,25,0.1);border-radius:var(--radius-md);font-size:0.9rem;color:var(--brown);background:var(--cream);outline:none;font-family:var(--font-body);" onfocus="this.style.borderColor='var(--terracotta)'" onblur="this.style.borderColor='rgba(44,36,25,0.1)'">
         </div>
         <button class="btn btn-accent" style="width:100%;margin-top:4px;" onclick="submitDownload()">Send Me the Guide →</button>
         <p style="font-size:0.72rem;color:var(--brown-faint);text-align:center;">We respect your privacy. No spam, ever. <a href="#" onclick="closeDownloadGate();go('privacy')" style="color:var(--terracotta);">Privacy Policy</a></p>
@@ -2139,7 +2144,7 @@ updateBreadcrumbSchema('home');
         </div>
         <div class="plog-field">
           <label class="plog-label" for="portal-email">Business Email</label>
-          <input class="plog-input" id="portal-email" type="email" placeholder="you@company.com" autocomplete="email">
+          <input class="plog-input" id="portal-email" type="email" aria-label="Email address" placeholder="you@company.com" autocomplete="email">
         </div>
         <div class="plog-field">
           <label class="plog-label" for="portal-pass">Password</label>

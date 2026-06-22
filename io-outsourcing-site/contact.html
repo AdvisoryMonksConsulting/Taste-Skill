@@ -8,6 +8,11 @@
 <meta property="og:title" id="og-title" content="Contact Us — Advisory Monks Consulting">
 <meta property="og:description" id="og-description" content="Book a free 30-minute consultation with a senior accountant. Get in touch with Advisory Monks Consulting for US tax, bookkeeping, and accounting services.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://www.advisorymonks.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.advisorymonks.io/og-image.png">
 <meta property="og:url" id="og-url" content="https://www.advisorymonks.io/contact">
 <link rel="canonical" id="canonical-url" href="https://www.advisorymonks.io/contact">
 <!-- FAQ Schema (Point 16) -->
@@ -994,14 +999,14 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
         <div class="contact-form-card reveal reveal-d1">
           <h3 style="font-family:var(--font-display);font-size:1.3rem;font-weight:600;margin-bottom:24px;">Send us a message</h3>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">First Name</label><input type="text" name="first_name" class="form-input" placeholder="John"></div>
-            <div class="form-group"><label class="form-label">Last Name</label><input type="text" name="last_name" class="form-input" placeholder="Smith"></div>
+            <div class="form-group"><label class="form-label">First Name</label><input type="text" name="first_name" class="form-input" placeholder="John" aria-label="First name"></div>
+            <div class="form-group"><label class="form-label">Last Name</label><input type="text" name="last_name" class="form-input" placeholder="Smith" aria-label="Last name"></div>
           </div>
-          <div class="form-group"><label class="form-label">Work Email</label><input type="email" name="email" class="form-input" placeholder="you@yourfirm.com"></div>
-          <div class="form-group"><label class="form-label">Firm name</label><input type="text" name="company" class="form-input" placeholder="Your firm"></div>
+          <div class="form-group"><label class="form-label">Work Email</label><input type="email" name="email" class="form-input" placeholder="you@yourfirm.com" aria-label="Work email"></div>
+          <div class="form-group"><label class="form-label">Firm name</label><input type="text" name="company" class="form-input" placeholder="Your firm" aria-label="Firm name"></div>
           <div class="form-group">
             <label class="form-label">What can we help with?</label>
-            <select name="service" class="form-select">
+            <select name="service" class="form-select" aria-label="What can we help with?">
               <option value="">Select an option...</option>
               <option>White-label CAS for our CPA firm</option>
               <option>White-label monthly close &amp; reporting</option>
@@ -1014,7 +1019,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
           </div>
           <div class="form-group">
             <label class="form-label">Country</label>
-            <select name="country" class="form-select">
+            <select name="country" class="form-select" aria-label="Country">
               <option>United States</option>
               <option>United Kingdom</option>
               <option>Canada</option>
@@ -1025,7 +1030,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
               <option>Other</option>
             </select>
           </div>
-          <div class="form-group"><label class="form-label">Message</label><textarea name="message" class="form-textarea" placeholder="Tell us about your firm, the client volume you're considering, and your software (QuickBooks, Xero, etc.)"></textarea></div>
+          <div class="form-group"><label class="form-label">Message</label><textarea name="message" class="form-textarea" aria-label="Your message" placeholder="Tell us about your firm, the client volume you're considering, and your software (QuickBooks, Xero, etc.)"></textarea></div>
           <label style="display:flex;gap:10px;align-items:flex-start;font-size:0.8rem;color:var(--brown-muted);line-height:1.5;margin:4px 0 16px;"><input type="checkbox" name="consent" style="margin-top:3px;flex-shrink:0;"><span>I agree to Advisory Monks processing my information as described in the <a href="/privacy" style="color:var(--terracotta);">Privacy Policy</a>, including cross-border processing in India. For US tax engagements, a separate written IRC §7216 consent is obtained before any return information is processed offshore.</span></label>
 <button class="btn btn-accent" id="contactSubmitBtn" style="width:100%;" onclick="submitContactForm(this)">Send Message →</button>
           <p style="font-size:0.78rem;color:var(--brown-faint);text-align:center;margin-top:12px;">We aim to respond within one business day. Your data is private. <a href="/privacy"  style="color:var(--terracotta);">Privacy Policy</a></p>
@@ -1190,7 +1195,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
         <h4>Stay Informed</h4>
         <p>US tax updates, deadlines, and practical financial tips — monthly, no spam.</p>
         <div class="newsletter-form">
-          <input type="email" class="newsletter-input" placeholder="your@email.com">
+          <input type="email" class="newsletter-input" placeholder="your@email.com" aria-label="Your email address">
           <button class="btn btn-accent btn-sm" onclick="newsletterSignup(this)">→</button>
         </div>
         <div style="margin-top:20px;">
@@ -1775,7 +1780,7 @@ updateBreadcrumbSchema('home');
         </div>
         <div>
           <label style="display:block;font-size:0.8rem;font-weight:600;color:var(--brown);margin-bottom:6px;">Business Email</label>
-          <input id="downloadEmail" type="email" placeholder="you@company.com" style="width:100%;padding:12px 16px;border:1.5px solid rgba(44,36,25,0.1);border-radius:var(--radius-md);font-size:0.9rem;color:var(--brown);background:var(--cream);outline:none;font-family:var(--font-body);" onfocus="this.style.borderColor='var(--terracotta)'" onblur="this.style.borderColor='rgba(44,36,25,0.1)'">
+          <input id="downloadEmail" type="email" aria-label="Your email address" placeholder="you@company.com" style="width:100%;padding:12px 16px;border:1.5px solid rgba(44,36,25,0.1);border-radius:var(--radius-md);font-size:0.9rem;color:var(--brown);background:var(--cream);outline:none;font-family:var(--font-body);" onfocus="this.style.borderColor='var(--terracotta)'" onblur="this.style.borderColor='rgba(44,36,25,0.1)'">
         </div>
         <button class="btn btn-accent" style="width:100%;margin-top:4px;" onclick="submitDownload()">Send Me the Guide →</button>
         <p style="font-size:0.72rem;color:var(--brown-faint);text-align:center;">We respect your privacy. No spam, ever. <a href="#" onclick="closeDownloadGate();go('privacy')" style="color:var(--terracotta);">Privacy Policy</a></p>
@@ -2160,7 +2165,7 @@ updateBreadcrumbSchema('home');
         </div>
         <div class="plog-field">
           <label class="plog-label" for="portal-email">Business Email</label>
-          <input class="plog-input" id="portal-email" type="email" placeholder="you@company.com" autocomplete="email">
+          <input class="plog-input" id="portal-email" type="email" aria-label="Email address" placeholder="you@company.com" autocomplete="email">
         </div>
         <div class="plog-field">
           <label class="plog-label" for="portal-pass">Password</label>

@@ -13,6 +13,7 @@ free-consultation.html
 index.html
 logo.png
 logo.svg
+og-image.png
 pricing.html
 privacy.html
 refund.html

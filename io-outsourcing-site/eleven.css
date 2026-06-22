@@ -12,7 +12,7 @@
   --cream:#FFFFFF; --cream-dark:#F5F5F5; --parchment:#F5F2EF; --white:#FFFFFF;
   /* Text */
   --brown:#000000; --brown-light:#1A1A19; --brown-medium:#4E4E4E;
-  --brown-muted:#777169; --brown-faint:#A8A39B;
+  --brown-muted:#6B665E; --brown-faint:#756F66; /* darkened to meet WCAG AA contrast */
   /* Accents: black core + one professional blue, used sparingly */
   --terracotta:#000000; --terracotta-hover:#262626;
   --terracotta-light:rgba(0,0,0,0.045); --terracotta-glow:rgba(0,0,0,0.07);
@@ -210,7 +210,9 @@ h1 em, h2 em, .hero h1 em, .lp-hero-h1 em{ font-style:normal !important; color:v
 .footer a, .footer-links a, .footer-legal a{ color:#4E4E4E !important; }
 .footer a:hover{ color:#000 !important; }
 .footer-brand p, .footer-newsletter p{ color:#4E4E4E !important; }
-.footer-bottom p, .footer-bottom, .circular-230{ color:#777169 !important; }
+.footer-bottom p, .footer-bottom, .circular-230{ color:#5A554E !important; }
+.circular-230 strong{ color:#1A1A19 !important; }
+.footer-country{ color:#4E4E4E !important; border-color:rgba(0,0,0,0.14) !important; background:rgba(0,0,0,0.04) !important; }
 .footer-bottom{ border-top:1px solid rgba(0,0,0,0.07) !important; }
 .footer-social{ color:#000 !important; border:1px solid rgba(0,0,0,0.15) !important; background:#fff !important; }
 .newsletter-input{ background:#FFFFFF !important; border:1px solid rgba(0,0,0,0.12) !important;
@@ -491,3 +493,20 @@ a.service-card h3{ color:var(--ink, #16223A); }
 @media (max-width:480px){
   .cookie-banner-v2{ left:12px !important; right:12px !important; bottom:12px !important; max-width:none !important; }
 }
+
+/* ── QC: accessibility — contrast, tap targets ─────────────── */
+/* Cookie banner links: light color for the dark banner background */
+.cookie-v2-desc a, .cookie-banner-v2 a, .cookie-text a{ color:#E0C782 !important; }
+/* Hamburger: ≥44px touch target */
+.nav-mobile{ width:44px !important; height:44px !important; }
+/* Footer links: larger tap area on mobile */
+@media (max-width:768px){
+  .footer-links a{ padding:6px 0 !important; display:inline-block; }
+}
+
+/* ── QC: footer button text + social tap size ──────────────── */
+/* Footer CTA buttons must keep white text on their dark fill */
+.footer .btn-accent, .footer .btn-primary, .footer a.btn{ color:#fff !important; }
+/* Social icons: ≥44px touch target */
+.footer-social{ width:44px !important; height:44px !important; }
+@media (max-width:768px){ .footer-legal a{ padding:6px 2px !important; display:inline-block; } }
