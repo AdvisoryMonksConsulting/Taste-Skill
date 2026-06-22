@@ -473,3 +473,21 @@ a.service-card h3{ color:var(--ink, #16223A); }
 
 /* CPA volume pricing: keep grid responsive (stack on mobile) */
 @media (max-width:768px){ #cpa-pricing .pricing-grid{ grid-template-columns:1fr !important; } }
+
+/* ── Cookie banner: compact card, bottom-right, no hero overlap ── */
+.cookie-banner-v2{
+  left:auto !important; right:20px !important; bottom:20px !important;
+  max-width:340px !important; padding:18px 20px !important; border-radius:14px !important;
+}
+.cookie-banner-v2 .cookie-v2-title{ font-size:0.92rem !important; }
+.cookie-banner-v2 .cookie-v2-desc{ font-size:0.76rem !important; margin-bottom:14px !important; }
+.cookie-banner-v2 .cookie-categories{ gap:8px !important; margin-bottom:14px !important; }
+.cookie-banner-v2 .cookie-cat{ padding:9px 11px !important; }
+.cookie-banner-v2 .cookie-cat-desc{ font-size:0.69rem !important; }
+.cookie-banner-v2 .cookie-v2-actions{ flex-wrap:wrap !important; gap:6px !important; }
+.cookie-banner-v2 .cookie-v2-accept-all,
+.cookie-banner-v2 .cookie-v2-save,
+.cookie-banner-v2 .cookie-v2-reject{ padding:8px 12px !important; font-size:0.78rem !important; }
+@media (max-width:480px){
+  .cookie-banner-v2{ left:12px !important; right:12px !important; bottom:12px !important; max-width:none !important; }
+}
