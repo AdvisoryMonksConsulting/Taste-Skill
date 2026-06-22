@@ -821,11 +821,13 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
     <div class="nav-menu">
       <a href="/" data-page="home" >Home</a>
       <a href="/cpa-firms" class="active" data-page="cpa-firms" >For CPA Firms</a>
+      <a href="/businesses" data-page="businesses" >For Businesses</a>
       <a href="/pricing" data-page="pricing" >Pricing</a>
       <div class="nav-dropdown">
         <a href="/about" data-page="company" >Company ▾</a>
         <div class="nav-dropdown-menu">
           <a href="/cpa-firms" >For CPA Firms</a>
+          <a href="/businesses" >For Businesses</a>
             <a href="/about" >Our Story</a>
           <a href="/about/team" >Our Team</a>
           <a href="/resources" >Resources & Blog</a>
@@ -845,6 +847,8 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="/" >Home</a>
+  <a href="/cpa-firms" >For CPA Firms</a>
+  <a href="/businesses" >For Businesses</a>
   <a href="/services/tax-preparation"  class="sub">↳ Tax Preparation</a>
   <a href="/services/bookkeeping"  class="sub">↳ Bookkeeping</a>
   <a href="/services/payroll"  class="sub">↳ Payroll</a>
@@ -909,7 +913,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
       <p class="section-sub">A complete white-label CAS production line — recurring every month, in your software, ready for your review.</p>
     </div>
     <div class="services-grid">
-      <div class="service-card reveal"><div class="service-icon forest"><span aria-hidden="true"></span></div><h3>Management Reporting</h3><p>P&amp;L, balance sheet, cash flow, and a KPI / dashboard pack — clean, decision-ready financials your client actually reads, not raw data entry.</p></div><div class="service-card reveal"><div class="service-icon forest"><span aria-hidden="true"></span></div><h3>Monthly Bookkeeping</h3><p>Categorized books and bank reconciliations every month — the dependable foundation for a clean close.</p></div><div class="service-card reveal"><div class="service-icon forest"><span aria-hidden="true"></span></div><h3>Monthly Close</h3><p>A disciplined, on-time close with workpapers and tie-outs your reviewer can trust.</p></div><div class="service-card reveal"><div class="service-icon forest"><span aria-hidden="true"></span></div><h3>Payroll</h3><p>End-to-end payroll processing, withholdings, and year-end forms.</p></div><div class="service-card reveal"><div class="service-icon forest"><span aria-hidden="true"></span></div><h3>Multi-State Sales Tax</h3><p>Registration, calculation, and filing across the states your clients sell in.</p></div><div class="service-card reveal"><div class="service-icon forest"><span aria-hidden="true"></span></div><h3>Business &amp; Individual Tax Filings</h3><p>Federal and state returns prepared for your firm&rsquo;s review and signature.</p></div>
+      <div class="service-card reveal"><div class="service-icon forest"><span aria-hidden="true"></span></div><h3>Management Reporting <span style="display:inline-block;margin-left:6px;padding:2px 8px;border-radius:999px;background:var(--terracotta);color:#fff;font-size:0.6rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;vertical-align:middle;">Our edge</span></h3><p>P&amp;L, balance sheet, cash flow, and a KPI / dashboard pack — clean, decision-ready financials your client actually reads, not raw data entry.</p></div><div class="service-card reveal"><div class="service-icon forest"><span aria-hidden="true"></span></div><h3>Monthly Bookkeeping</h3><p>Categorized books and bank reconciliations every month — the dependable foundation for a clean close.</p></div><div class="service-card reveal"><div class="service-icon forest"><span aria-hidden="true"></span></div><h3>Monthly Close</h3><p>A disciplined, on-time close with workpapers and tie-outs your reviewer can trust.</p></div><div class="service-card reveal"><div class="service-icon forest"><span aria-hidden="true"></span></div><h3>Payroll</h3><p>End-to-end payroll processing, withholdings, and year-end forms.</p></div><div class="service-card reveal"><div class="service-icon forest"><span aria-hidden="true"></span></div><h3>Multi-State Sales Tax</h3><p>Registration, calculation, and filing across the states your clients sell in.</p></div><div class="service-card reveal"><div class="service-icon forest"><span aria-hidden="true"></span></div><h3>Annual Tax Filings</h3><p>Federal and state annual returns &mdash; Forms 1120, 1120-S, 1065, and 1040 &mdash; prepared for your firm&rsquo;s review and signature.</p></div>
     </div>
   </div>
 </section>
@@ -962,7 +966,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
         <div class="section-label"><span class="section-label-line"></span>Direct Engagements</div>
         <h2 class="section-heading">Not a CPA firm?</h2>
         <p class="section-sub">We also work directly with foreign-owned US subsidiaries and growing US businesses that need bookkeeping, the monthly close, and tax — the same production quality, working directly with you.</p>
-        <a href="/start" class="btn btn-outline" style="margin-top:28px;">Explore direct services →</a>
+        <a href="/businesses" class="btn btn-outline" style="margin-top:28px;">Explore services for businesses →</a>
       </div>
       <div class="reveal reveal-d2">
         <div class="global-flags">
@@ -1168,6 +1172,8 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
       <div class="footer-col">
         <h4>Company</h4>
         <div class="footer-links">
+          <a href="/cpa-firms" >For CPA Firms</a>
+          <a href="/businesses" >For Businesses</a>
           <a href="/about" >Our Story</a>
           <a href="/about/team" >Our Team</a>
           <a href="/pricing" >Pricing</a>
@@ -1264,6 +1270,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
 const PAGE_META = {
   'home':        { title: 'White-Label CAS for US CPA Firms — Advisory Monks', desc: 'White-label bookkeeping, monthly close, and decision-ready reporting for US CPA firms. In your software, under your brand.', url: '/' },
   'cpa-firms':   { title: 'White-Label CAS for US CPA Firms — Outsourced Monthly Close & Reporting | Advisory Monks', desc: 'White-label CAS production for US CPA firms — outsourced bookkeeping, white-label monthly close, and decision-ready reporting in your software, under your brand.', url: '/cpa-firms' },
+  'businesses':  { title: 'Outsourced Bookkeeping, Monthly Reporting & Tax Filing for US Businesses | Advisory Monks', desc: 'Outsourced bookkeeping, monthly close, decision-ready reporting, payroll, sales tax, and annual tax filings for US businesses and foreign-owned US subsidiaries.', url: '/businesses' },
   'pricing':     { title: 'Pricing Plans — Advisory Monks Consulting', desc: 'Clear, transparent pricing for US tax, bookkeeping, and CFO services. Foundations $2,500/mo · Command $5,000/mo · Enterprise $10,000/mo. No hidden fees.', url: '/pricing' },
   'svc-tax':     { title: 'US Tax Preparation Services — Advisory Monks Consulting', desc: 'Federal and state tax return preparation for US businesses and individuals across all 50 states. Carefully reviewed and prepared for e-filing, with document-organization support.', url: '/services/tax-preparation' },
   'svc-bookkeeping': { title: 'Monthly Bookkeeping Services — Advisory Monks Consulting', desc: 'Clean, accurate monthly bookkeeping with P&L, balance sheets, and bank reconciliation. QBO and Xero certified. Delivered on time, every month.', url: '/services/bookkeeping' },

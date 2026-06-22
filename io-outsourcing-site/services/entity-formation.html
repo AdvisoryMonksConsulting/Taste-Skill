@@ -821,11 +821,13 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
     <div class="nav-menu">
       <a href="/" data-page="home" >Home</a>
       <a href="/cpa-firms" data-page="cpa-firms" >For CPA Firms</a>
+      <a href="/businesses" data-page="businesses" >For Businesses</a>
       <a href="/pricing" data-page="pricing" >Pricing</a>
       <div class="nav-dropdown">
         <a href="/about" data-page="company" >Company ▾</a>
         <div class="nav-dropdown-menu">
           <a href="/cpa-firms" >For CPA Firms</a>
+          <a href="/businesses" >For Businesses</a>
             <a href="/about" >Our Story</a>
           <a href="/about/team" >Our Team</a>
           <a href="/resources" >Resources & Blog</a>
@@ -845,6 +847,8 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="/" >Home</a>
+  <a href="/cpa-firms" >For CPA Firms</a>
+  <a href="/businesses" >For Businesses</a>
   <a href="/services/tax-preparation"  class="sub">↳ Tax Preparation</a>
   <a href="/services/bookkeeping"  class="sub">↳ Bookkeeping</a>
   <a href="/services/payroll"  class="sub">↳ Payroll</a>
@@ -1095,6 +1099,8 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
       <div class="footer-col">
         <h4>Company</h4>
         <div class="footer-links">
+          <a href="/cpa-firms" >For CPA Firms</a>
+          <a href="/businesses" >For Businesses</a>
           <a href="/about" >Our Story</a>
           <a href="/about/team" >Our Team</a>
           <a href="/pricing" >Pricing</a>
@@ -1190,6 +1196,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
 // ── Page Navigation ──────────────────────────────────────────────────────
 const PAGE_META = {
   'home':        { title: 'Advisory Monks Consulting — US Tax & Accounting Support', desc: 'Expert US tax preparation, bookkeeping, virtual CFO, and payroll services for American businesses. Dedicated specialists. Transparent pricing from $2,500/month.', url: '/' },
+  'businesses':  { title: 'Outsourced Bookkeeping, Monthly Reporting & Tax Filing for US Businesses | Advisory Monks', desc: 'Outsourced bookkeeping, monthly close, decision-ready reporting, payroll, sales tax, and annual tax filings for US businesses and foreign-owned US subsidiaries.', url: '/businesses' },
   'pricing':     { title: 'Pricing Plans — Advisory Monks Consulting', desc: 'Clear, transparent pricing for US tax, bookkeeping, and CFO services. Foundations $2,500/mo · Command $5,000/mo · Enterprise $10,000/mo. No hidden fees.', url: '/pricing' },
   'svc-tax':     { title: 'US Tax Preparation Services — Advisory Monks Consulting', desc: 'Federal and state tax return preparation for US businesses and individuals across all 50 states. Carefully reviewed and prepared for e-filing, with document-organization support.', url: '/services/tax-preparation' },
   'svc-bookkeeping': { title: 'Monthly Bookkeeping Services — Advisory Monks Consulting', desc: 'Clean, accurate monthly bookkeeping with P&L, balance sheets, and bank reconciliation. QBO and Xero certified. Delivered on time, every month.', url: '/services/bookkeeping' },

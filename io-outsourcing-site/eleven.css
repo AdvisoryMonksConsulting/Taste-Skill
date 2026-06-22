@@ -445,3 +445,28 @@ html{ overflow-x:clip; } body{ overflow-x:clip; }
 .hero3d-glow{ animation:none !important; }
 .hero3d .spiral{ animation:none !important; }
 @media (prefers-reduced-motion:reduce){ .reveal:not(.vis){ transform:none; } }
+
+/* ── Motion removed (static, professional) ─────────────────────
+   Scroll-reveal and hero entrance fades disabled per brand
+   preference. Functional states (loading spinner, form status,
+   portal) and subtle hover shadow are kept. ────────────────── */
+.reveal, .reveal.vis, .reveal:not(.vis){
+  opacity:1 !important; transform:none !important; transition:none !important;
+}
+.hero-tag, .hero h1, .hero-desc, .hero-actions, .hero-proof, .hero-visual{
+  opacity:1 !important; animation:none !important; transform:none !important;
+}
+.hero3d-glow, .hero3d .spiral{ animation:none !important; }
+/* Audience path cards: clickable service cards */
+a.service-card{ color:inherit; text-decoration:none; }
+a.service-card h3{ color:var(--ink, #16223A); }
+
+/* ── Audience selector + responsive grids ──────────────────── */
+.audience-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+.audience-grid > .service-card{ height:100%; }
+@media (max-width:760px){ .audience-grid{ grid-template-columns:1fr !important; } }
+/* 3-step process grid: stack on mobile (inline repeat(3,1fr) needs !important to override) */
+@media (max-width:768px){
+  .process-grid{ grid-template-columns:1fr !important; }
+  .process-grid::before{ display:none !important; }
+}

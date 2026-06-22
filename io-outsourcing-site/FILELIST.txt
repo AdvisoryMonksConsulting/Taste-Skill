@@ -4,6 +4,7 @@ _redirects
 about/index.html
 about/team.html
 accessibility.html
+businesses.html
 contact.html
 cpa-firms.html
 eleven.css
