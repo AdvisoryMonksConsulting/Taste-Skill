@@ -1003,7 +1003,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
      ===================================================================== -->
 
 
-<div class="active page" id="page-lp-consultation" style="display:block">
+<div class="active page" id="page-lp-consultation" style="display:block"><a id="main-content" tabindex="-1"></a>
   <nav class="lp-navbar" aria-label="Landing page navigation">
     <div class="lp-navbar-logo" data-go="home" aria-label="Advisory Monks Consulting home"><img src="/logo.svg" alt="Advisory Monks Consulting" style="height:54px;width:auto;display:block;" decoding="async">
     </div>
@@ -1234,8 +1234,8 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--terracotta);outline
         </div>
       </div>
       <div class="footer-socials">
-        <a href="https://www.linkedin.com/company/advisory-monks-consulting/" target="_blank" class="footer-social" title="LinkedIn — Advisory Monks Consulting" aria-label="LinkedIn">in</a>
-        <a href="https://www.advisorymonks.com" target="_blank" class="footer-social" title="India Practice — advisorymonks.com" aria-label="India website">↗</a>
+        <a href="https://www.linkedin.com/company/advisory-monks-consulting/" target="_blank" rel="noopener noreferrer" class="footer-social" title="LinkedIn — Advisory Monks Consulting" aria-label="LinkedIn">in</a>
+        <a href="https://www.advisorymonks.com" target="_blank" rel="noopener noreferrer" class="footer-social" title="India Practice — advisorymonks.com" aria-label="India website">↗</a>
       </div>
     </div>
     <!-- Circular 230 Disclaimer -->
@@ -1326,8 +1326,9 @@ pages.forEach(p => { p.style.display = 'none'; });
 const initActive = document.querySelector('.page.active');
 if (initActive) initActive.style.display = 'block';
 function go(page) {
-  pages.forEach(p => { p.classList.remove('active'); p.style.display = 'none'; });
   const target = document.getElementById('page-' + page);
+  if (!target) { var __m = (typeof PAGE_META!=='undefined') ? PAGE_META[page] : null; window.location.href = (__m && __m.url) ? __m.url : '/'; return; }
+  pages.forEach(p => { p.classList.remove('active'); p.style.display = 'none'; });
   if (target) {
     target.classList.add('active');
     target.style.display = 'block';
@@ -2704,7 +2705,7 @@ updateBreadcrumbSchema('home');
 
 <script>
 (function(){
-  var U = {"home": "/", "pricing": "/pricing", "svc-tax": "/services/tax-preparation", "svc-bookkeeping": "/services/bookkeeping", "svc-payroll": "/services/payroll", "svc-cfo": "/services/virtual-cfo", "svc-entity": "/services/entity-formation", "company": "/about", "team": "/about/team", "resources": "/resources", "faq": "/faq", "contact": "/contact", "privacy": "/privacy", "terms": "/terms", "refund": "/refund", "accessibility": "/accessibility", "404": "/404", "lp-start": "/start", "lp-consultation": "/free-consultation", "article-llc-scorp": "/resources/llc-vs-scorp", "article-bookkeeping-mistakes": "/resources/bookkeeping-mistakes", "article-india-us-tax": "/resources/india-us-tax-guide", "article-tax-calendar": "/resources/tax-calendar-2026", "article-series-a-data-room": "/resources/series-a-data-room", "article-ecommerce-tax": "/resources/ecommerce-tax-guide", "sitemap": "/sitemap"};
+  var U = {"home": "/", "cpa-firms": "/cpa-firms", "businesses": "/businesses", "pricing": "/pricing", "svc-tax": "/services/tax-preparation", "svc-bookkeeping": "/services/bookkeeping", "svc-payroll": "/services/payroll", "svc-cfo": "/services/virtual-cfo", "svc-entity": "/services/entity-formation", "company": "/about", "team": "/about/team", "resources": "/resources", "faq": "/faq", "contact": "/contact", "privacy": "/privacy", "terms": "/terms", "refund": "/refund", "accessibility": "/accessibility", "404": "/404", "lp-start": "/start", "lp-consultation": "/free-consultation", "article-llc-scorp": "/resources/llc-vs-scorp", "article-bookkeeping-mistakes": "/resources/bookkeeping-mistakes", "article-india-us-tax": "/resources/india-us-tax-guide", "article-tax-calendar": "/resources/tax-calendar-2026", "article-series-a-data-room": "/resources/series-a-data-room", "article-ecommerce-tax": "/resources/ecommerce-tax-guide", "sitemap": "/sitemap"};
   window.go = function(p){ var u = U[p]||'/'; if(location.pathname !== u){ location.href = u; } };
   document.addEventListener('click', function(e){
     var el = e.target.closest('[data-go]');
