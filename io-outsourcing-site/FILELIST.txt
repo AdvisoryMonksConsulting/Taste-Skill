@@ -35,3 +35,4 @@ sitemap.html
 sitemap.xml
 start.html
 terms.html
+transitions.css
