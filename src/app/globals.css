@@ -129,3 +129,57 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Motion layer — inspired by transitions.dev (Jakub Antalik).
+   Semantic motion tokens on :root + namespaced t-* classes, all opt-in so they
+   never affect pages that don't use them. Scroll reveals trigger by adding
+   `.t-in` (via IntersectionObserver); hover utilities animate on their own.
+   Fully disabled under prefers-reduced-motion.
+   ────────────────────────────────────────────────────────────────────────── */
+:root {
+  --t-fast: 220ms;
+  --t-base: 520ms;
+  --t-slow: 760ms;
+  --t-ease: cubic-bezier(0.22, 1, 0.36, 1); /* smooth "out-expo"-ish ease */
+  --t-rise: 28px;
+}
+
+/* Scroll-reveal: hidden until `.t-in` is added when the element enters view.
+   Only hidden when `.t-js` is present (added on mount), so with no JS — or
+   before hydration — everything renders fully visible. Progressive enhancement. */
+.t-js .t-reveal {
+  opacity: 0;
+  transform: translateY(var(--t-rise));
+  transition: opacity var(--t-base) var(--t-ease), transform var(--t-base) var(--t-ease);
+  transition-delay: calc(var(--t-i, 0) * 90ms);
+  will-change: opacity, transform;
+}
+.t-js .t-reveal.t-fade { transform: none; }
+.t-js .t-reveal.t-scale-in { transform: scale(0.94); }
+.t-js .t-reveal.t-blur-in { filter: blur(12px); transition: opacity var(--t-base) var(--t-ease), transform var(--t-base) var(--t-ease), filter var(--t-base) var(--t-ease); }
+.t-js .t-reveal.t-in {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* Hover lift for cards / CTAs. */
+.t-lift { transition: transform var(--t-fast) var(--t-ease), box-shadow var(--t-fast) var(--t-ease); }
+.t-lift:hover { transform: translateY(-4px); }
+
+/* Press feedback for buttons. */
+.t-press { transition: transform var(--t-fast) var(--t-ease), box-shadow var(--t-fast) var(--t-ease); }
+.t-press:hover { transform: translateY(-2px); }
+.t-press:active { transform: translateY(0) scale(0.98); }
+
+@media (prefers-reduced-motion: reduce) {
+  .t-js .t-reveal, .t-js .t-reveal.t-scale-in, .t-js .t-reveal.t-blur-in {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+  .t-lift, .t-press { transition: none; }
+  .t-lift:hover, .t-press:hover, .t-press:active { transform: none; }
+}
