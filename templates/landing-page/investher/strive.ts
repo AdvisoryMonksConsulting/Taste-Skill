@@ -66,6 +66,22 @@ export const FOUNDERS = {
   body: "We built STRIVE — and the InvestHER community of 50,000+ women — from our own turning points: realizing that success on paper isn’t the same as a life that feels like yours. Every woman has the birthright to become financially free, and no one should have to build it alone.",
 };
 
+export const TESTIMONIALS = [
+  { q: "I found my people and doubled my portfolio in a year. STRIVE changed how I invest — and how I live.", who: "Member · 14 doors" },
+  { q: "The systems I built here bought back my time. I run a real business now, not a second job.", who: "Member · STRIVE" },
+  { q: "I went from listening to the podcast to closing my first multifamily deal in eight months.", who: "Member · first deal" },
+  { q: "Self-care isn’t soft — it’s the reason I haven’t burned out while scaling. No one else teaches that.", who: "Member · 3 years" },
+];
+
+export const FAQS = [
+  { q: "Who is STRIVE for?", a: "Women real estate investors who have already built a portfolio and are ready to grow more intentionally — with stronger systems, clearer decisions, and a room of peers at their level." },
+  { q: "Is this for beginners?", a: "STRIVE is designed for investors who already own property. If you’re just starting, the InvestHER community and podcast are the perfect first step — and they’re free." },
+  { q: "How much time does it take?", a: "STRIVE is built around busy lives. Expect a focused monthly rhythm of strategy, accountability and community — designed to give you time back, not take it." },
+  { q: "What exactly do I get?", a: "The STRIVE Method and its five principles, a curated community of women investors, monthly strategic alignment, and the tools to optimize and scale your business." },
+  { q: "How do I join?", a: "STRIVE is application-based so the room stays curated. Apply in a few minutes and the team will be in touch about fit and next steps." },
+  { q: "What if I’m not sure it’s right for me?", a: "Take the Portfolio X-Ray on the home page for an instant read, or apply — there’s no obligation, and the conversation will tell you quickly." },
+];
+
 export const STATS = [
   { n: "50,000+", l: "Women in the community" },
   { n: "50+", l: "Local meetups" },
