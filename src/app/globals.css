@@ -173,6 +173,13 @@
 .t-press:hover { transform: translateY(-2px); }
 .t-press:active { transform: translateY(0) scale(0.98); }
 
+/* Marquee (used by the Bold concept). */
+@keyframes inv-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.inv-marquee { animation: inv-marquee 24s linear infinite; }
+
 @media (prefers-reduced-motion: reduce) {
   .t-js .t-reveal, .t-js .t-reveal.t-scale-in, .t-js .t-reveal.t-blur-in {
     opacity: 1;
@@ -182,4 +189,5 @@
   }
   .t-lift, .t-press { transition: none; }
   .t-lift:hover, .t-press:hover, .t-press:active { transform: none; }
+  .inv-marquee { animation: none; }
 }

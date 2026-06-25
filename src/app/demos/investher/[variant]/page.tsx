@@ -1,22 +1,34 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { themes, getTheme } from "../../../../../templates/landing-page/investher-themes";
-import { InvestHerDemo } from "../../../../../templates/landing-page/investher";
+import { DESIGNS, getDesign } from "../../../../../templates/landing-page/investher/content";
+import Editorial from "../../../../../templates/landing-page/investher/editorial";
+import Bold from "../../../../../templates/landing-page/investher/bold";
+import Community from "../../../../../templates/landing-page/investher/community";
+import Platform from "../../../../../templates/landing-page/investher/platform";
+import Luxe from "../../../../../templates/landing-page/investher/luxe";
+
+const REGISTRY: Record<string, React.ComponentType> = {
+  editorial: Editorial,
+  bold: Bold,
+  community: Community,
+  platform: Platform,
+  luxe: Luxe,
+};
 
 export function generateStaticParams() {
-  return themes.map((t) => ({ variant: t.slug }));
+  return DESIGNS.map((d) => ({ variant: d.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ variant: string }> }): Promise<Metadata> {
   const { variant } = await params;
-  const t = getTheme(variant);
-  if (!t) return {};
-  return { title: `InvestHER — ${t.name} concept by Veska`, description: t.vibe };
+  const d = getDesign(variant);
+  if (!d) return {};
+  return { title: `InvestHER — ${d.name} concept by Veska`, description: d.approach };
 }
 
 export default async function Page({ params }: { params: Promise<{ variant: string }> }) {
   const { variant } = await params;
-  const t = getTheme(variant);
-  if (!t) notFound();
-  return <InvestHerDemo t={t} />;
+  const Design = REGISTRY[variant];
+  if (!Design) notFound();
+  return <Design />;
 }
