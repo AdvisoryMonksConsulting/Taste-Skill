@@ -13,7 +13,7 @@ const EPISODES = [
   { n: 408, t: "From first rental to a real business", len: "40 min" },
 ];
 
-const Podcast: FC = () => {
+const Podcast: FC<{ base?: string }> = ({ base = "/demos/strive" }) => {
   const [playing, setPlaying] = useState<number | null>(null);
   return (
     <main className="mx-auto max-w-4xl px-6 py-16">
@@ -54,7 +54,7 @@ const Podcast: FC = () => {
 
       <div className="mt-12 rounded-2xl p-8 text-center" style={{ backgroundColor: C.teal, color: C.cream }}>
         <h2 className="font-serif text-2xl italic">Loved an episode? Take the next step.</h2>
-        <Link href="/demos/strive/apply" className="mt-6 inline-block rounded-full px-8 py-3.5 text-sm font-bold uppercase tracking-[0.15em] text-white" style={{ backgroundColor: C.rasp }}>Apply to STRIVE</Link>
+        <Link href={`${base}/apply`} className="mt-6 inline-block rounded-full px-8 py-3.5 text-sm font-bold uppercase tracking-[0.15em] text-white" style={{ backgroundColor: C.rasp }}>Apply to STRIVE</Link>
       </div>
     </main>
   );

@@ -8,7 +8,7 @@ import { C } from "../strive";
 
 const field = "w-full rounded-xl border px-4 py-3 outline-none";
 
-const Login: FC = () => {
+const Login: FC<{ base?: string }> = ({ base = "/demos/strive" }) => {
   const [msg, setMsg] = useState("");
   return (
     <main className="mx-auto flex min-h-[75vh] max-w-md flex-col justify-center px-6 py-16">
@@ -21,7 +21,7 @@ const Login: FC = () => {
         <button type="submit" className="w-full rounded-full px-6 py-3 text-sm font-bold uppercase tracking-[0.15em] text-white" style={{ backgroundColor: C.rasp }}>Log in</button>
       </form>
       {msg && <p className="mt-5 rounded-xl p-4 text-center text-sm" style={{ backgroundColor: C.blue, color: C.teal }}>{msg}</p>}
-      <p className="mt-6 text-center text-sm" style={{ color: C.teal }}>Not a member yet? <Link href="/demos/strive/apply" className="font-bold underline" style={{ color: C.rasp }}>Apply to STRIVE</Link></p>
+      <p className="mt-6 text-center text-sm" style={{ color: C.teal }}>Not a member yet? <Link href={`${base}/apply`} className="font-bold underline" style={{ color: C.rasp }}>Apply to STRIVE</Link></p>
     </main>
   );
 };

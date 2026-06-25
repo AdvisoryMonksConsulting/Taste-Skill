@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Photo, Crest } from "../ui";
 import { C, IMG, METHOD, PRINCIPLES } from "../strive";
 
-const Method: FC = () => {
+const Method: FC<{ base?: string }> = ({ base = "/demos/strive" }) => {
   const [active, setActive] = useState(0);
   return (
     <main>
@@ -44,7 +44,7 @@ const Method: FC = () => {
 
       <section className="px-6 py-20 text-center" style={{ backgroundColor: C.teal, color: C.cream }}>
         <h2 className="font-serif text-3xl italic sm:text-4xl">Ready to put the method to work?</h2>
-        <Link href="/demos/strive/apply" className="mt-8 inline-block rounded-full px-9 py-4 text-sm font-bold uppercase tracking-[0.15em] text-white" style={{ backgroundColor: C.rasp }}>Apply to STRIVE</Link>
+        <Link href={`${base}/apply`} className="mt-8 inline-block rounded-full px-9 py-4 text-sm font-bold uppercase tracking-[0.15em] text-white" style={{ backgroundColor: C.rasp }}>Apply to STRIVE</Link>
       </section>
     </main>
   );

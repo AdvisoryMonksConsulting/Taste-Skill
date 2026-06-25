@@ -12,7 +12,7 @@ const EMPTY: Data = { name: "", email: "", units: "", years: "", goal: "" };
 
 const field = "w-full rounded-xl border px-4 py-3 outline-none transition";
 
-const Apply: FC = () => {
+const Apply: FC<{ base?: string }> = ({ base = "/demos/strive" }) => {
   const [step, setStep] = useState(0);
   const [d, setD] = useState<Data>(EMPTY);
   const [done, setDone] = useState(false);
@@ -39,8 +39,8 @@ const Apply: FC = () => {
       <h1 className="mt-6 font-serif text-4xl" style={{ color: C.teal }}>Application received, {d.name.split(" ")[0] || "there"}.</h1>
       <p className="mt-4 leading-relaxed" style={{ color: C.ink, opacity: 0.8 }}>Thank you. The STRIVE team will review your application and reach out at <b>{d.email}</b> about fit and next steps. In the meantime, explore the Method or listen to the podcast.</p>
       <div className="mt-8 flex flex-wrap justify-center gap-3">
-        <Link href="/demos/strive/method" className="rounded-full px-7 py-3 text-sm font-bold uppercase tracking-[0.15em] text-white" style={{ backgroundColor: C.rasp }}>The 5 principles</Link>
-        <Link href="/demos/strive" className="rounded-full border px-7 py-3 text-sm font-bold uppercase tracking-[0.15em]" style={{ borderColor: C.teal, color: C.teal }}>Back home</Link>
+        <Link href={`${base}/method`} className="rounded-full px-7 py-3 text-sm font-bold uppercase tracking-[0.15em] text-white" style={{ backgroundColor: C.rasp }}>The 5 principles</Link>
+        <Link href={base} className="rounded-full border px-7 py-3 text-sm font-bold uppercase tracking-[0.15em]" style={{ borderColor: C.teal, color: C.teal }}>Back home</Link>
       </div>
     </main>
   );

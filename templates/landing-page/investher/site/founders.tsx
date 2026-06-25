@@ -11,7 +11,7 @@ const BIOS = [
   { name: "Andresa Guidelli", role: "Co-founder", img: IMG.method, bio: "Andresa came to real estate as an immigrant and entrepreneur, then through a divorce that, in her words, cost her her voice and her spark. Rebuilding both taught her that success on paper means little without a life that feels like yours — the belief at the heart of STRIVE." },
 ];
 
-const Founders: FC = () => (
+const Founders: FC<{ base?: string }> = ({ base = "/demos/strive" }) => (
   <Reveal>
     <section className="px-6 py-16 text-center">
       <p className="t-reveal text-[12px] font-bold uppercase tracking-[0.3em]" style={{ color: C.rasp }}>The founders</p>
@@ -34,7 +34,7 @@ const Founders: FC = () => (
 
     <section className="px-6 py-20 text-center" style={{ backgroundColor: C.teal, color: C.cream }}>
       <h2 className="t-reveal font-serif text-3xl italic sm:text-4xl">Come build with us.</h2>
-      <Link href="/demos/strive/apply" className="t-reveal mt-8 inline-block rounded-full px-9 py-4 text-sm font-bold uppercase tracking-[0.15em] text-white" style={{ backgroundColor: C.rasp }}>Apply to STRIVE</Link>
+      <Link href={`${base}/apply`} className="t-reveal mt-8 inline-block rounded-full px-9 py-4 text-sm font-bold uppercase tracking-[0.15em] text-white" style={{ backgroundColor: C.rasp }}>Apply to STRIVE</Link>
     </section>
   </Reveal>
 );
