@@ -47,10 +47,10 @@ export type DesignMeta = {
 export const DESIGNS: DesignMeta[] = [
   {
     slug: "editorial",
-    name: "Editorial",
-    approach: "Magazine layout — large serif type, asymmetric columns, numbered sections, generous whitespace. Noir & champagne.",
-    swatch: ["#1a1a1d", "#c9a24b", "#c98b6a", "#f5f3ef"],
-    grad: ["#121214", "#34313a"],
+    name: "Editorial (modeled on their brand)",
+    approach: "Their real STRIVE brand — dusty-blue + cream + deep-teal + raspberry, crest monogram, serif + italic script, founder photography, B&W detail strips. Real copy.",
+    swatch: ["#1e4d48", "#a5113f", "#a7c3cd", "#f6f0e1"],
+    grad: ["#1e4d48", "#a7c3cd"],
   },
   {
     slug: "bold",
