@@ -2,114 +2,110 @@
 
 import type { FC } from "react";
 import { useReveal } from "./reveal";
-import { PILLARS, LADDER, STATS, TESTIMONIALS } from "./content";
+import { Photo, Crest } from "./ui";
+import { C, IMG, HERO, WHY, PAINS, METHOD, PRINCIPLES, FOUNDERS, STATS } from "./strive";
 
 /**
- * Direction 2 — BOLD MODERN. Oversized uppercase sans, high-contrast color
- * blocks, a scrolling marquee, a bento pillar grid, thick borders, sharp edges.
- * Palette: terracotta / amber / near-black on warm sand.
+ * Direction 4 — MODERN BOLD. Contemporary take on their brand: oversized type,
+ * strong teal/cream/blue color blocks, a framed founder photo, the 5 Principles
+ * as a big numbered grid. High-contrast and confident, still on-palette.
  */
-const sand = "#fbf2ea";
-const ink = "#1c0f0a";
-const brand = "#b5462f";
-const amber = "#e8884f";
-const dark = "#7e2d1d";
-
 const Bold: FC = () => {
   const scope = useReveal<HTMLDivElement>();
-  const marquee = ["INVEST", "SCALE", "OWN IT", "BALANCE", "BUILD WEALTH"];
   return (
-    <div ref={scope} className="font-sans" style={{ backgroundColor: sand, color: ink }}>
+    <div ref={scope} className="font-sans" style={{ backgroundColor: C.cream, color: C.ink }}>
       {/* nav */}
-      <nav className="flex items-center justify-between px-6 py-4 text-white" style={{ backgroundColor: brand }}>
-        <span className="text-lg font-black uppercase tracking-tight">InvestHER</span>
-        <a href="#join" className="t-press rounded-md bg-white px-5 py-2.5 text-sm font-bold uppercase tracking-wide" style={{ color: brand }}>Join free</a>
+      <nav className="flex items-center justify-between px-6 py-4" style={{ backgroundColor: C.teal }}>
+        <span className="flex items-center gap-3"><Crest size={34} color="#fff" /><span className="font-serif text-lg text-white">STRIVE</span></span>
+        <a href="#apply" className="rounded-md px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-white" style={{ backgroundColor: C.rasp }}>Apply here</a>
       </nav>
 
-      {/* hero */}
-      <section className="px-6 py-16 text-white sm:py-24" style={{ backgroundColor: brand }}>
-        <div className="mx-auto max-w-6xl">
-          <p className="t-reveal text-sm font-bold uppercase tracking-[0.3em]" style={{ color: "#ffe2cf" }}>17,000+ women · 50+ cities</p>
-          <h1 className="t-reveal mt-5 text-[3.2rem] font-black uppercase leading-[0.92] tracking-tight sm:text-[6.5rem]">
-            Build wealth<br />on your<br /><span style={{ color: amber }}>own terms.</span>
-          </h1>
-          <div className="t-reveal mt-10 flex flex-col gap-3 sm:flex-row">
-            <a href="#join" className="t-press rounded-md px-8 py-4 text-center text-base font-bold uppercase tracking-wide" style={{ backgroundColor: ink, color: "#fff" }}>Join the free community →</a>
-            <a href="#podcast" className="t-press rounded-md border-2 px-8 py-4 text-center text-base font-bold uppercase tracking-wide text-white" style={{ borderColor: "#ffffff66" }}>The podcast</a>
+      {/* hero — color block + framed photo */}
+      <section className="px-6 py-16 text-white sm:py-20" style={{ backgroundColor: C.teal }}>
+        <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+          <div className="t-reveal">
+            <p className="text-sm font-bold uppercase tracking-[0.3em]" style={{ color: C.blue }}>{HERO.eyebrow}</p>
+            <h1 className="mt-5 font-serif text-5xl leading-[0.98] sm:text-7xl">Start building wealth with the <span className="italic" style={{ color: C.blue }}>right community.</span></h1>
+            <p className="mt-6 max-w-lg text-lg" style={{ opacity: 0.85 }}>{HERO.sub}</p>
+            <a href="#apply" className="mt-8 inline-block rounded-md px-8 py-4 text-base font-bold uppercase tracking-wide text-white" style={{ backgroundColor: C.rasp }}>Apply here →</a>
           </div>
+          <div className="t-reveal t-scale-in aspect-[3/4] overflow-hidden rounded-lg border-4" style={{ borderColor: C.blue, ["--t-i" as string]: 1 }}><Photo src={IMG.hero} label="Liz & Andresa" /></div>
         </div>
       </section>
 
-      {/* marquee */}
-      <div className="overflow-hidden border-y-4 py-4" style={{ borderColor: ink, backgroundColor: amber }}>
-        <div className="inv-marquee flex w-max gap-8 whitespace-nowrap">
-          {[...marquee, ...marquee, ...marquee, ...marquee].map((w, i) => (
-            <span key={i} className="text-3xl font-black uppercase tracking-tight sm:text-5xl" style={{ color: i % 2 ? ink : "#fff", WebkitTextStroke: i % 2 ? "0" : `1px ${ink}` }}>
-              {w} ✦
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* stats */}
-      <section className="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-6 py-16 sm:grid-cols-4">
-        {STATS.map((s) => (
-          <div key={s.l} className="t-reveal t-lift rounded-md border-2 p-6" style={{ borderColor: ink }}>
-            <div className="text-4xl font-black sm:text-5xl" style={{ color: brand }}>{s.n}</div>
-            <div className="mt-2 text-xs font-bold uppercase tracking-[0.15em]" style={{ opacity: 0.6 }}>{s.l}</div>
-          </div>
-        ))}
-      </section>
-
-      {/* bento pillars */}
-      <section className="mx-auto max-w-6xl px-6 pb-16">
-        <h2 className="t-reveal text-3xl font-black uppercase sm:text-5xl">Three pillars.<br />One free life.</h2>
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
-          {PILLARS.map((p, i) => (
-            <div
-              key={p.k}
-              className="t-reveal t-lift flex flex-col rounded-md border-2 p-7"
-              style={{ borderColor: ink, backgroundColor: i === 0 ? brand : i === 1 ? ink : amber, color: i === 1 ? "#fff" : i === 2 ? ink : "#fff" }}
-            >
-              <span className="text-5xl font-black">0{i + 1}</span>
-              <h3 className="mt-4 text-2xl font-black uppercase leading-tight">{p.k}</h3>
-              <p className="mt-3 text-sm font-medium leading-relaxed" style={{ opacity: 0.9 }}>{p.d}</p>
+      {/* stats band */}
+      <section className="px-6 py-10" style={{ backgroundColor: C.blue }}>
+        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-6 sm:grid-cols-4">
+          {STATS.map((s) => (
+            <div key={s.l} className="t-reveal text-center">
+              <div className="font-serif text-4xl sm:text-5xl" style={{ color: C.teal }}>{s.n}</div>
+              <div className="mt-1 text-xs font-bold uppercase tracking-wide" style={{ color: C.teal, opacity: 0.75 }}>{s.l}</div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ladder — stepped blocks */}
-      <section className="mx-auto max-w-6xl px-6 pb-16">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {LADDER.map((l, i) => (
-            <div key={l.t} className="t-reveal rounded-md border-2 p-6" style={{ borderColor: ink, ["--t-i" as string]: i }}>
-              <span className="text-xs font-black uppercase tracking-[0.2em]" style={{ color: brand }}>{l.step}</span>
-              <h3 className="mt-2 text-xl font-black uppercase leading-tight">{l.t}</h3>
-              <p className="mt-2 text-sm font-medium" style={{ opacity: 0.7 }}>{l.d}</p>
+      {/* why — big heading + pain grid */}
+      <section className="mx-auto max-w-6xl px-6 py-20">
+        <h2 className="t-reveal max-w-3xl font-serif text-4xl leading-tight sm:text-6xl" style={{ color: C.teal }}>{WHY.title}</h2>
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {PAINS.map((p, i) => (
+            <div key={p.t} className="t-reveal t-lift rounded-lg p-7" style={{ backgroundColor: i % 2 ? C.teal : C.blue, color: i % 2 ? "#fff" : C.teal, ["--t-i" as string]: i % 3 }}>
+              <h3 className="font-serif text-2xl" style={{ color: i % 2 ? C.blue : C.rasp }}>{p.t}</h3>
+              <p className="mt-3 italic leading-relaxed" style={{ opacity: 0.9 }}>&ldquo;{p.q}&rdquo;</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* testimonial */}
-      <section id="podcast" className="px-6 py-20 text-white" style={{ backgroundColor: ink }}>
-        <div className="t-reveal mx-auto max-w-4xl">
-          <p className="text-sm font-bold uppercase tracking-[0.3em]" style={{ color: amber }}>From a member</p>
-          <blockquote className="mt-6 text-3xl font-black uppercase leading-tight sm:text-5xl">“{TESTIMONIALS[0].q}”</blockquote>
-          <p className="mt-6 text-sm font-bold uppercase tracking-wide" style={{ opacity: 0.6 }}>{TESTIMONIALS[0].who}</p>
+      {/* method */}
+      <section id="method" className="px-6 py-16" style={{ backgroundColor: C.cream2 }}>
+        <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
+          <div className="t-reveal">
+            <h2 className="font-serif text-4xl sm:text-6xl" style={{ color: C.teal }}>{METHOD.title}</h2>
+            <p className="mt-5 text-lg leading-relaxed" style={{ color: C.teal, opacity: 0.85 }}>{METHOD.body}</p>
+            <a href="#apply" className="mt-7 inline-block rounded-md px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white" style={{ backgroundColor: C.rasp }}>Apply here</a>
+          </div>
+          <div className="t-reveal t-scale-in aspect-square overflow-hidden rounded-lg" style={{ ["--t-i" as string]: 1 }}><Photo src={IMG.method} label="The founders" /></div>
+        </div>
+      </section>
+
+      {/* principles big numbered grid */}
+      <section className="mx-auto max-w-6xl px-6 py-20">
+        <h2 className="t-reveal text-center font-serif text-4xl sm:text-6xl" style={{ color: C.teal }}>The 5 Principles</h2>
+        <div className="mt-14 grid gap-8 md:grid-cols-2">
+          {PRINCIPLES.map((pr, i) => (
+            <div key={pr.t} className="t-reveal flex gap-6 border-t pt-7" style={{ borderColor: C.blue, ["--t-i" as string]: i % 2 }}>
+              <span className="font-serif text-6xl leading-none" style={{ color: C.rasp }}>{i + 1}</span>
+              <div>
+                <h3 className="font-serif text-2xl leading-tight" style={{ color: C.teal }}>{pr.t}</h3>
+                <p className="mt-2 leading-relaxed" style={{ opacity: 0.78 }}>{pr.d}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* founders */}
+      <section id="founders" className="px-6 py-16" style={{ backgroundColor: C.teal }}>
+        <div className="mx-auto grid max-w-5xl items-center gap-12 text-white md:grid-cols-[1fr_1.1fr]">
+          <div className="t-reveal t-scale-in aspect-[4/5] overflow-hidden rounded-lg border-4" style={{ borderColor: C.blue }}><Photo src={IMG.founders} label="Liz & Andresa" /></div>
+          <div className="t-reveal" style={{ ["--t-i" as string]: 1 }}>
+            <p className="text-sm font-bold uppercase tracking-[0.25em]" style={{ color: C.blue }}>The founders</p>
+            <h2 className="mt-3 font-serif text-4xl sm:text-5xl">{FOUNDERS.names}</h2>
+            <p className="mt-5 text-lg leading-relaxed" style={{ opacity: 0.88 }}>{FOUNDERS.body}</p>
+          </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section id="join" className="px-6 py-24 text-center" style={{ backgroundColor: amber, color: ink }}>
-        <h2 className="t-reveal text-4xl font-black uppercase leading-none sm:text-7xl">Join free.<br />Start today.</h2>
-        <a href="#" className="t-press mt-9 inline-block rounded-md px-12 py-5 text-lg font-black uppercase tracking-wide text-white" style={{ backgroundColor: ink }}>Join the community →</a>
-        <p className="mt-4 text-sm font-bold uppercase tracking-wide" style={{ opacity: 0.6 }}>No credit card · ~100 join every week</p>
+      <section id="apply" className="px-6 py-24 text-center" style={{ backgroundColor: C.rasp, color: "#fff" }}>
+        <h2 className="t-reveal mx-auto max-w-3xl font-serif text-4xl leading-tight sm:text-6xl">Stop growing alone. Start today.</h2>
+        <a href="#" className="t-reveal mt-9 inline-block rounded-md px-10 py-4 text-base font-bold uppercase tracking-wide" style={{ backgroundColor: "#fff", color: C.rasp }}>Apply to STRIVE</a>
       </section>
 
-      <footer className="px-6 py-8 text-center text-xs font-bold uppercase tracking-[0.2em]" style={{ opacity: 0.5 }}>
-        The Real Estate InvestHER · Bold concept by Veska — veskadesign.com
+      <footer className="px-6 py-8 text-center text-xs font-bold uppercase tracking-[0.2em]" style={{ color: C.teal, opacity: 0.55 }}>
+        The Real Estate InvestHER · STRIVE · Bold concept by Veska — veskadesign.com
       </footer>
     </div>
   );

@@ -43,42 +43,42 @@ export type DesignMeta = {
   grad: [string, string]; // preview gradient
 };
 
-/** The five directions — order = display order in the chooser. */
+/** The directions — all modeled on the real InvestHER/STRIVE brand. Order = display order. */
 export const DESIGNS: DesignMeta[] = [
   {
     slug: "editorial",
-    name: "Editorial (modeled on their brand)",
-    approach: "Their real STRIVE brand — dusty-blue + cream + deep-teal + raspberry, crest monogram, serif + italic script, founder photography, B&W detail strips. Real copy.",
+    name: "Editorial",
+    approach: "Magazine layout — serif + italic script, pain-point cards, the 5 Principles flanked by B&W detail strips. Dense and premium.",
     swatch: ["#1e4d48", "#a5113f", "#a7c3cd", "#f6f0e1"],
     grad: ["#1e4d48", "#a7c3cd"],
   },
   {
-    slug: "bold",
-    name: "Bold Modern",
-    approach: "Oversized uppercase sans, high-contrast color blocks, a scrolling marquee, bento grid. Energetic terracotta.",
-    swatch: ["#b5462f", "#e8884f", "#1c0f0a", "#fbf2ea"],
-    grad: ["#7e2d1d", "#d56b3a"],
+    slug: "boutique",
+    name: "Boutique",
+    approach: "Airy and high-end — full-bleed founder photography, centered single column, thin serif, vast cream whitespace, hairline dividers.",
+    swatch: ["#163a36", "#a5113f", "#c9dde2", "#f6f0e1"],
+    grad: ["#163a36", "#1e4d48"],
   },
   {
     slug: "community",
     name: "Warm Community",
-    approach: "Friendly and social — rounded cards, overlapping member collage, a testimonial wall. Aubergine & rose.",
-    swatch: ["#5b2a4e", "#c2766a", "#e7b6a6", "#f7f1ea"],
-    grad: ["#3d1c34", "#6e3a5e"],
+    approach: "Friendly and social — split hero, rounded dusty-blue cards, a stats ribbon, the 50,000-women community front and centre.",
+    swatch: ["#a7c3cd", "#1e4d48", "#a5113f", "#f6f0e1"],
+    grad: ["#1e4d48", "#a7c3cd"],
   },
   {
-    slug: "platform",
-    name: "Platform / SaaS",
-    approach: "Structured and trustworthy — product-style hero card, trust strip, tiered pricing table, FAQ. Sapphire navy.",
-    swatch: ["#1e3a64", "#3f8efc", "#e08a6b", "#f2f4f9"],
-    grad: ["#122444", "#2d5286"],
+    slug: "bold",
+    name: "Modern Bold",
+    approach: "Contemporary — oversized type, strong teal/blue colour blocks, framed founder photo, the 5 Principles as a big numbered grid.",
+    swatch: ["#1e4d48", "#a5113f", "#a7c3cd", "#fbf7ec"],
+    grad: ["#1e4d48", "#163a36"],
   },
   {
-    slug: "luxe",
-    name: "Luxe Minimal",
-    approach: "Boutique and understated — centered single column, thin type, huge negative space, slow blur reveals. Emerald & gold.",
-    swatch: ["#1f5142", "#caa64e", "#9bb7a8", "#f3f3ec"],
-    grad: ["#143329", "#2c6b56"],
+    slug: "heritage",
+    name: "Heritage",
+    approach: "Classic and timeless — symmetrical, serif throughout, ornate crest dividers, framed photography with thin double borders.",
+    swatch: ["#1e4d48", "#a5113f", "#a7c3cd", "#f6f0e1"],
+    grad: ["#a7c3cd", "#1e4d48"],
   },
 ];
 

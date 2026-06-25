@@ -2,17 +2,17 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { DESIGNS, getDesign } from "../../../../../templates/landing-page/investher/content";
 import Editorial from "../../../../../templates/landing-page/investher/editorial";
-import Bold from "../../../../../templates/landing-page/investher/bold";
+import Boutique from "../../../../../templates/landing-page/investher/boutique";
 import Community from "../../../../../templates/landing-page/investher/community";
-import Platform from "../../../../../templates/landing-page/investher/platform";
-import Luxe from "../../../../../templates/landing-page/investher/luxe";
+import Bold from "../../../../../templates/landing-page/investher/bold";
+import Heritage from "../../../../../templates/landing-page/investher/heritage";
 
 const REGISTRY: Record<string, React.ComponentType> = {
   editorial: Editorial,
-  bold: Bold,
+  boutique: Boutique,
   community: Community,
-  platform: Platform,
-  luxe: Luxe,
+  bold: Bold,
+  heritage: Heritage,
 };
 
 export function generateStaticParams() {
