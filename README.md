@@ -34,7 +34,7 @@ See `docs/spec.md` § "Out of scope for v1". Short list: Trading Comps, Preceden
 - **Iter 2** (`aimsg_01kt75drkxf558bjmf7xbb8831`, commit `5393dcd`): Excel/CSV import + export via SheetJS in `src/lib/io/xlsx.ts` with a round-trip Vitest test; Sensitivity heatmap (`src/components/Sensitivity.tsx`) with cool→warm cells and a ringed center; football-field range chart (`src/components/FootballField.tsx`) via Recharts; assumption inputs accept `15` or `0.15` for percentages; "Last saved Xs ago" indicator that turns amber when dirty.
 - **Iter 3** (`aimsg_01kt8ag9trfk4sec0t3e032kqm`, commit `2c9d3c5a`): per-model `Share` dialog with email-based collaborator add/remove (`view` / `edit`); new `org_invites` table + signup trigger that consumes pending invites; org switcher in sidebar and a Team card in `/app/settings`; restrained marketing landing (hero / three features / workspace screenshot placeholder / who-it's-for / how-it-works / FAQ / footer); Google OAuth button + post-auth redirect; friendly empty state on `/app`. "Shared with me" section in the sidebar; only `edit` collaborators can save (enforced via updated RLS).
 
-Next up: a real workspace screenshot in the landing, plus the second valuation method (likely Trading Comps).
+Next up: a real workspace screenshot in the landing, plus the second valuation method (likely Trading Comps). The iteration 4 brief is in `docs/iter-prompts/iter-4-trading-comps.md` — paste it into the Lovable chat when there are credits and the agent is reachable.
 
 ## Development
 
