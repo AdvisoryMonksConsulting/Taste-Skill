@@ -1,0 +1,15 @@
+{
+  "name": "Advisory Monks Consulting",
+  "short_name": "Advisory Monks",
+  "description": "Independent, advisory-led firm for India's founders, VCs and incubators — and everything cross-border.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FAFAFA",
+  "theme_color": "#061C33",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" }
+  ]
+}
