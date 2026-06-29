@@ -154,7 +154,7 @@
     var form = document.getElementById('contact-form');
     var status = document.getElementById('form-status');
     if (!form) return;
-    var FORM_ENDPOINT = '';                       /* e.g. 'https://formspree.io/f/abc123' */
+    var FORM_ENDPOINT = '/api/contact';           /* Cloudflare Pages Function (functions/api/contact.js) */
     var FALLBACK_EMAIL = 'info@advisorymonks.com';
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -224,25 +224,20 @@
     if (dec) dec.addEventListener('click', function () { record('essential'); });
   }
 
-  /* ---- Analytics — gated on consent ----------------------------- */
+  /* ---- Analytics — Cloudflare Web Analytics (privacy-first, cookieless) ----
+     No cookies, no personal data, so it runs without a consent gate.
+     Easiest setup: enable Web Analytics on the Pages project (dashboard,
+     one click — auto-injects the beacon, no token needed here). Otherwise
+     paste the site token below to load it from the client. ------------- */
   function setupAnalytics() {
-    var ANALYTICS_DOMAIN = 'advisorymonks.com';
-    var ANALYTICS_ENABLED = false;               /* flip when Plausible/GA4 is live */
-    function loadPlausible() {
-      if (window.__amcPlausibleLoaded) return;
-      window.__amcPlausibleLoaded = true;
-      var s = document.createElement('script');
-      s.defer = true;
-      s.dataset.domain = ANALYTICS_DOMAIN;
-      s.src = 'https://plausible.io/js/script.js';
-      document.head.appendChild(s);
-    }
-    function maybe() {
-      if (!ANALYTICS_ENABLED) return;
-      if (window.amcConsent === 'all') loadPlausible();
-    }
-    maybe();
-    window.addEventListener('amc:consent', maybe);
+    var CF_BEACON_TOKEN = '';                    /* paste Cloudflare Web Analytics token to activate via JS */
+    if (!CF_BEACON_TOKEN || window.__amcAnalytics) return;
+    window.__amcAnalytics = true;
+    var s = document.createElement('script');
+    s.defer = true;
+    s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+    s.setAttribute('data-cf-beacon', JSON.stringify({ token: CF_BEACON_TOKEN }));
+    document.head.appendChild(s);
   }
 
   function init() {
