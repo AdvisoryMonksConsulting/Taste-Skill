@@ -16,6 +16,22 @@
 /* Keep the nav steady (it morphs in place) while the page body cross-fades */
 .navbar{ view-transition-name:am-nav; }
 
+/* Persistent fixed UI (WhatsApp bubble, back-to-top, mobile sticky CTA bar):
+   identical on every page, so pin each to its own group with animation:none
+   — otherwise they'd be swept into the root snapshot and visibly flicker/
+   double-image during the crossfade even though nothing about them changes. */
+#whatsappBtn{ view-transition-name:am-whatsapp; }
+#backToTop{ view-transition-name:am-backtotop; }
+#mobileStickyBar{ view-transition-name:am-mobilesticky; }
+::view-transition-image-pair(am-whatsapp),
+::view-transition-image-pair(am-backtotop),
+::view-transition-image-pair(am-mobilesticky){ isolation:auto; }
+::view-transition-old(am-whatsapp), ::view-transition-new(am-whatsapp),
+::view-transition-old(am-backtotop), ::view-transition-new(am-backtotop),
+::view-transition-old(am-mobilesticky), ::view-transition-new(am-mobilesticky){
+  animation:none !important; mix-blend-mode:normal;
+}
+
 /* Premium easing on interactions (the buttery transitions.dev feel) */
 a,.btn,.service-card,.why-card,.pricing-card,.nav-menu a{
   transition-timing-function:cubic-bezier(.2,.7,.2,1) !important;

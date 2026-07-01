@@ -9,6 +9,8 @@ contact.html
 cpa-firms.html
 eleven.css
 faq.html
+favicon.png
+favicon.svg
 free-consultation.html
 index.html
 logo.png
