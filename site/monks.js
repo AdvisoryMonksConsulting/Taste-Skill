@@ -10,7 +10,7 @@
     var auto = document.querySelectorAll(
       '.section .s-head, .sp-card, .index-row, .principle, .outcome, .tcard, ' +
       '.p-step, .price-card, .price-custom, .about-stats, .who-card, .work-item, ' +
-      '.scenario, .faq-item, .ins-card, .team-card, .ledger-cell, .stat'
+      '.scenario, .faq-item, .ins-card, .ledger-cell, .stat'
     );
     auto.forEach(function (el) { el.classList.add('reveal'); });
     var els = document.querySelectorAll('.reveal');
@@ -210,16 +210,43 @@
     if (!banner) return;
     var stored = null;
     try { stored = localStorage.getItem(KEY); } catch (e) {}
+    var acc = document.getElementById('consent-accept');
+    var dec = document.getElementById('consent-decline');
+    var heading = document.getElementById('consent-h');
+    var lastFocused = null;
+
     function record(choice) {
       try { localStorage.setItem(KEY, choice); } catch (e) {}
       window.amcConsent = choice;
       banner.hidden = true;
+      document.removeEventListener('keydown', onKeydown);
+      if (lastFocused && document.contains(lastFocused)) lastFocused.focus();
       window.dispatchEvent(new CustomEvent('amc:consent', { detail: { choice: choice } }));
     }
+    function onKeydown(ev) {
+      if (ev.key === 'Escape') { record('essential'); return; }
+      if (ev.key !== 'Tab') return;
+      // Trap Tab within every real focusable element in the dialog (the
+      // Privacy Policy link plus both buttons) — not just the two buttons,
+      // otherwise Shift+Tab from the link escapes the dialog entirely.
+      var focusable = Array.prototype.slice.call(banner.querySelectorAll('a[href], button:not([disabled])'));
+      if (!focusable.length) return;
+      var first = focusable[0], last = focusable[focusable.length - 1];
+      if (ev.shiftKey && document.activeElement === first) { ev.preventDefault(); last.focus(); }
+      else if (!ev.shiftKey && document.activeElement === last) { ev.preventDefault(); first.focus(); }
+    }
+    function show() {
+      banner.hidden = false;
+      lastFocused = document.activeElement;
+      document.addEventListener('keydown', onKeydown);
+      // Move focus into the dialog per ARIA dialog pattern; the heading
+      // (tabindex=-1) lets a screen reader announce the dialog's purpose
+      // before the user reaches the action buttons.
+      if (heading) { heading.setAttribute('tabindex', '-1'); heading.focus(); }
+    }
+
     if (stored) { window.amcConsent = stored; }
-    else { banner.hidden = false; }
-    var acc = document.getElementById('consent-accept');
-    var dec = document.getElementById('consent-decline');
+    else { show(); }
     if (acc) acc.addEventListener('click', function () { record('all'); });
     if (dec) dec.addEventListener('click', function () { record('essential'); });
   }
@@ -241,14 +268,14 @@
   }
 
   function init() {
-    setupReveals();
-    setupCounters();
-    setupFaq();
-    setupBriefs();
-    setupPricing();
-    setupForm();
-    setupConsent();
-    setupAnalytics();
+    /* Each setup runs in isolation: a failure in one (e.g. the decorative
+       reveal animations) must never prevent the ones after it — especially
+       setupForm/setupConsent, which carry the actual lead-capture and
+       legal-consent obligations — from wiring up. */
+    [setupReveals, setupCounters, setupFaq, setupBriefs, setupPricing, setupForm, setupConsent, setupAnalytics]
+      .forEach(function (fn) {
+        try { fn(); } catch (e) { if (window.console) console.error('[monks.js] ' + fn.name + ' failed:', e); }
+      });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();

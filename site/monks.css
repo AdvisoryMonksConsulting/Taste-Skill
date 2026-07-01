@@ -79,13 +79,12 @@ ul,ol{list-style:none}
 .skip:focus{left:12px;top:12px}
 
 /* ---- Type utilities ------------------------------------------ */
-.eyebrow,.section-num,.pv-eyebrow,.hero-eyebrow,.ins-eyebrow,.scenario-label,.sp-eyebrow{
+.eyebrow,.section-num,.pv-eyebrow,.hero-eyebrow,.scenario-label,.sp-eyebrow{
   display:inline-flex;align-items:center;gap:12px;
   font-family:var(--sans);font-size:11px;font-weight:600;
   letter-spacing:.28em;text-transform:uppercase;color:var(--accent);
 }
-.serif-display{font-family:var(--serif);font-weight:360;letter-spacing:-.02em;line-height:1.05}
-em.tilt,.serif-display em,h1 em,h2 em{font-style:italic;font-weight:400;color:var(--accent)}
+h1 em,h2 em{font-style:italic;font-weight:400;color:var(--accent)}
 
 /* ============================================================
    NAV RAIL
@@ -100,9 +99,6 @@ em.tilt,.serif-display em,h1 em,h2 em{font-style:italic;font-weight:400;color:va
   transition:background .3s,border-color .3s;
 }
 .rail-l a{display:flex;align-items:baseline;gap:12px}
-.brandmark{font-family:var(--serif);font-weight:560;font-size:21px;letter-spacing:-.012em;color:var(--text);white-space:nowrap}
-.brandmark .sl{font-style:italic;color:var(--accent);font-weight:420}
-.brandsub{font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.4em;text-transform:uppercase;color:var(--faint)}
 .rail-c{display:flex;align-items:center;gap:clamp(16px,2.4vw,34px)}
 .rail-c a{
   position:relative;font-size:13.5px;font-weight:500;color:var(--mid);
@@ -118,7 +114,7 @@ em.tilt,.serif-display em,h1 em,h2 em{font-style:italic;font-weight:400;color:va
 .rail-r .wa{color:var(--mid);transition:color .2s}
 .rail-r .wa:hover{color:#1FA855}
 .rail-r .wa svg{width:21px;height:21px;fill:currentColor}
-.rail-r .cta,a.nav-cta{
+.rail-r .cta{
   font-size:13px;font-weight:600;letter-spacing:.01em;
   background:var(--text);color:var(--paper);
   padding:11px 20px;border-radius:var(--rad);border:1px solid var(--text);
@@ -142,7 +138,6 @@ em.tilt,.serif-display em,h1 em,h2 em{font-style:italic;font-weight:400;color:va
   .nav-toggle{display:grid}
   .nav-toggle-cb:checked ~ .rail-c{display:flex}
   .rail-r .cta{display:none}
-  .brandsub{display:none}
 }
 
 /* ============================================================
@@ -153,7 +148,6 @@ em.tilt,.serif-display em,h1 em,h2 em{font-style:italic;font-weight:400;color:va
 .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:52px;border-bottom:1px solid var(--d-line)}
 @media(max-width:960px){.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.footer-grid{grid-template-columns:1fr}}
-.footer-brand-mark{font-family:var(--serif);font-weight:500;font-size:22px;letter-spacing:-.01em;color:var(--d-text);margin-bottom:14px}
 .footer-brand-desc{font-size:13.5px;line-height:1.7;color:var(--d-mid);max-width:34ch}
 .footer-col h4{
   font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:.26em;
@@ -172,7 +166,7 @@ em.tilt,.serif-display em,h1 em,h2 em{font-style:italic;font-weight:400;color:va
 /* ============================================================
    BUTTONS
    ============================================================ */
-.btn,.btn-primary,.btn-ghost,.cta-btn-primary,.cta-btn-secondary,.team-link,.consent-btn{
+.btn,.btn-primary,.btn-ghost,.cta-btn-primary,.cta-btn-secondary,.consent-btn{
   display:inline-flex;align-items:center;justify-content:center;gap:11px;
   font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:.01em;
   padding:15px 28px;border-radius:var(--rad);
@@ -310,7 +304,6 @@ em.tilt,.serif-display em,h1 em,h2 em{font-style:italic;font-weight:400;color:va
 .aud-group:last-child{margin-bottom:0}
 .aud-head{display:flex;align-items:baseline;gap:18px;margin-bottom:6px}
 .aud-title{font-size:11px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
-.aud-desc{font-size:13px;color:var(--faint);display:none}
 .aud-ln{flex:1;height:1px;background:var(--line);transform:translateY(-3px)}
 .index{border-top:1px solid var(--text)}
 .aud-group .index{border-top:none}
@@ -411,7 +404,6 @@ em.tilt,.serif-display em,h1 em,h2 em{font-style:italic;font-weight:400;color:va
 }
 .pbar-btn + .pbar-btn{border-left:1px solid var(--line-strong)}
 .pbar-btn.active{background:var(--text);color:var(--paper)}
-.pbar-meta{margin-left:18px;font-size:12.5px;color:var(--faint)}
 @media(max-width:640px){.pbar{width:100%}.pbar-btn{flex:1;text-align:center}}
 .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
 @media(max-width:960px){.price-grid{grid-template-columns:1fr}}
@@ -665,8 +657,8 @@ main{display:block}
 .page-view>ol{counter-reset:pvol}
 .page-view>ol li{counter-increment:pvol}
 .page-view>ol li::before{content:counter(pvol,decimal-leading-zero);position:absolute;left:0;top:7px;font-family:var(--mono);font-size:11.5px;color:var(--accent)}
-.page-view a:not(.btn):not(.ins-card):not(.team-link):not(.pn-link){color:var(--accent);border-bottom:1px solid var(--line-strong);transition:border-color .2s}
-.page-view a:not(.btn):not(.ins-card):not(.team-link):not(.pn-link):hover{border-color:var(--accent)}
+.page-view a:not(.btn):not(.ins-card):not(.pn-link){color:var(--accent);border-bottom:1px solid var(--line-strong);transition:border-color .2s}
+.page-view a:not(.btn):not(.ins-card):not(.pn-link):hover{border-color:var(--accent)}
 .page-view blockquote{
   font-family:var(--serif);font-style:italic;font-size:18px;line-height:1.6;color:var(--text);
   border-left:2px solid var(--accent);padding:6px 0 6px 24px;margin:24px 0;max-width:640px;
@@ -715,37 +707,15 @@ a.pv-back:hover{border-color:var(--accent)!important;color:var(--accent)!importa
 .ins-related-links a{font-family:var(--serif);font-size:16.5px;color:var(--text)!important;border-bottom:1px solid var(--line-strong)!important;padding-bottom:2px}
 .ins-related-links a:hover{color:var(--accent)!important;border-color:var(--accent)!important}
 
-/* team */
-.team-grid{display:grid;gap:18px;margin-top:6px}
-.team-card{
-  background:var(--paper);border:1px solid var(--line);border-radius:var(--rad-lg);
-  display:flex;flex-direction:column;transition:border-color .25s;
-}
-.team-card:hover{border-color:var(--line-strong)}
-.team-body{padding:30px 32px 30px;display:flex;flex-direction:column;gap:12px}
-.team-meta{font-size:10.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
-.team-name{font-family:var(--serif);font-weight:440;font-size:clamp(24px,2.4vw,30px);letter-spacing:-.015em;color:var(--text)}
-.team-bio{font-size:14.5px;line-height:1.75;color:var(--mid);max-width:75ch}
-.team-bio strong{color:var(--text);font-weight:600}
-.team-focus{margin-top:6px}
-.team-focus-key{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:10px}
-.team-focus-list{display:flex;flex-wrap:wrap;gap:8px}
-.team-focus-list li{
-  font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--mid);
-  border:1px solid var(--line);border-radius:999px;padding:6px 13px;
-}
-.team-link{align-self:flex-start;margin-top:8px;font-size:12px!important;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)!important;border:1px solid var(--line-strong)!important;padding:10px 18px!important}
-.team-link:hover{border-color:var(--accent)!important;background:var(--accent-tint)}
-.team-foot{margin-top:34px;padding-top:24px;border-top:1px solid var(--line);font-size:13.5px;color:var(--mid);max-width:70ch;line-height:1.7}
 
 /* calculator (tools) */
 .calc{border:1px solid var(--line);border-radius:var(--rad-lg);padding:30px;background:var(--paper-dim);margin:26px 0;max-width:760px}
 .calc .field{margin-bottom:16px}
-.calc-out,.calc-result{
+.calc-out{
   background:var(--band);color:var(--d-text);border-radius:var(--rad);
   padding:22px 24px;margin-top:18px;font-variant-numeric:lining-nums;
 }
-.calc-out .big,.calc-result .big{font-family:var(--serif);font-size:30px;font-weight:440}
+.calc-out .big{font-family:var(--serif);font-size:30px;font-weight:440}
 .calc button,.calc .btn{background:var(--text);color:var(--paper);border-radius:var(--rad);padding:13px 24px;font-weight:600;font-size:14px}
 .calc button:hover{background:var(--accent)}
 
@@ -809,7 +779,6 @@ html.js .reveal.in{opacity:1;transform:none;transition:opacity .75s ease,transfo
    ============================================================ */
 
 /* --- Display weights tuned for Inter (heavier than the old serif) --- */
-.serif-display{font-weight:660;letter-spacing:-.028em}
 .s-display,.section-title{font-weight:660;letter-spacing:-.028em;line-height:1.05}
 .hero-home h1{font-weight:680;letter-spacing:-.032em;line-height:1.03}
 .band-q{font-weight:480;font-style:normal;letter-spacing:-.018em}
@@ -820,10 +789,10 @@ html.js .reveal.in{opacity:1;transform:none;transition:opacity .75s ease,transfo
 .stat-v{font-weight:660}
 .ledger-v{font-weight:660}
 .tcard blockquote{font-weight:460;letter-spacing:-.005em}
-.about-stat-val,.price-name,.price-amt,.pv-title,.hero h1,.page-view h1{font-weight:660;letter-spacing:-.024em}
+.about-stat-val,.price-name,.price-amt,.hero h1,.page-view h1{font-weight:660;letter-spacing:-.024em}
 
 /* Emphasis = upright brand blue, never italic (kills the AI-serif tell) */
-em.tilt,.serif-display em,h1 em,h2 em,.s-display em{font-style:normal;font-weight:inherit;color:var(--accent)}
+h1 em,h2 em,.s-display em{font-style:normal;font-weight:inherit;color:var(--accent)}
 .hero-home h1 em{font-style:normal;font-weight:inherit;color:var(--d-accent)}
 
 /* --- Brand logo (header + footer) --- */
@@ -835,8 +804,8 @@ em.tilt,.serif-display em,h1 em,h2 em,.s-display em{font-style:normal;font-weigh
 /* --- Blue carried through the primary actions --- */
 .btn-primary,.cta-btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}
 .btn-primary:hover,.cta-btn-primary:hover{background:var(--accent-deep);border-color:var(--accent-deep);color:#fff}
-.rail-r .cta,a.nav-cta{background:var(--accent);border-color:var(--accent);color:#fff}
-.rail-r .cta:hover,a.nav-cta:hover{background:var(--accent-deep);border-color:var(--accent-deep);color:#fff}
+.rail-r .cta{background:var(--accent);border-color:var(--accent);color:#fff}
+.rail-r .cta:hover{background:var(--accent-deep);border-color:var(--accent-deep);color:#fff}
 /* On the navy bands the brand-blue button would vanish — use white there */
 .hero-home .btn-primary{background:#fff;border-color:#fff;color:var(--band)}
 .hero-home .btn-primary:hover{background:var(--d-accent);border-color:var(--d-accent);color:var(--band)}
