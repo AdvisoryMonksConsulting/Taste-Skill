@@ -14,6 +14,12 @@
 const DEFAULT_TO = "info@advisorymonks.com";
 const DEFAULT_FROM = "Advisory Monks Website <noreply@advisorymonks.com>";
 
+// Hard caps so one submission can't balloon parsing time, the outbound
+// email, or (indirectly) Resend usage. Generous for a real inquiry,
+// tight enough to reject abuse cheaply.
+const MAX_BODY_BYTES = 20_000; // whole request
+const MAX_FIELD_LEN = { name: 200, company: 200, email: 254, phone: 40, persona: 100, tier: 100, message: 4000 };
+
 function json(obj, status = 200) {
   return new Response(JSON.stringify(obj), {
     status,
@@ -25,27 +31,48 @@ function esc(s) {
   return String(s == null ? "" : s).replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c]));
 }
 
+function clip(v, max) {
+  return v == null ? "" : String(v).trim().slice(0, max);
+}
+
 export async function onRequestPost({ request, env }) {
+  // ---- reject oversized requests before touching the body ----
+  const len = Number(request.headers.get("content-length") || 0);
+  if (len > MAX_BODY_BYTES) {
+    return json({ ok: false, error: "Submission is too large." }, 413);
+  }
+
   // ---- parse body (FormData from the site, or JSON) ----
-  let data = {};
+  let raw = {};
   const ctype = request.headers.get("content-type") || "";
   try {
     if (ctype.includes("application/json")) {
-      data = await request.json();
+      raw = await request.json();
     } else {
       const fd = await request.formData();
-      data = Object.fromEntries(fd.entries());
+      raw = Object.fromEntries(fd.entries());
     }
   } catch {
     return json({ ok: false, error: "Could not read the submission." }, 400);
   }
 
   // ---- spam honeypot: pretend success, send nothing ----
-  if (data._gotcha) return json({ ok: true });
+  if (raw._gotcha) return json({ ok: true });
+
+  // ---- clip every field to a sane length before using it anywhere ----
+  const data = {
+    name: clip(raw.name, MAX_FIELD_LEN.name),
+    company: clip(raw.company, MAX_FIELD_LEN.company),
+    email: clip(raw.email, MAX_FIELD_LEN.email),
+    phone: clip(raw.phone, MAX_FIELD_LEN.phone),
+    persona: clip(raw.persona, MAX_FIELD_LEN.persona),
+    tier: clip(raw.tier, MAX_FIELD_LEN.tier),
+    message: clip(raw.message, MAX_FIELD_LEN.message),
+  };
 
   // ---- validate ----
-  const name = (data.name || "").toString().trim();
-  const email = (data.email || "").toString().trim();
+  const name = data.name;
+  const email = data.email;
   if (!name || !email) return json({ ok: false, error: "Name and email are required." }, 422);
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return json({ ok: false, error: "That email address does not look right." }, 422);
@@ -97,8 +124,12 @@ export async function onRequestPost({ request, env }) {
   }
 
   if (!r.ok) {
+    // Do not relay Resend's raw response to an unauthenticated caller —
+    // it can contain account/domain configuration detail. Log it
+    // server-side (visible in the Pages Function's Real-time Logs) only.
     const detail = await r.text().catch(() => "");
-    return json({ ok: false, error: "Could not send right now.", detail: detail.slice(0, 200) }, 502);
+    console.error("Resend send failed", r.status, detail.slice(0, 500));
+    return json({ ok: false, error: "Could not send right now." }, 502);
   }
 
   return json({ ok: true });

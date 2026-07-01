@@ -23,7 +23,7 @@
   /* text — neutral grays */
   --text:#1A1B1E;
   --mid:#585A5F;
-  --faint:#8B8D92;
+  --faint:#646569;
   /* lines */
   --line:#E6E6E8;
   --line-strong:#CFCFD2;
@@ -34,7 +34,7 @@
   /* on dark (navy band) */
   --d-text:#EEF0F3;
   --d-mid:#9BA6B4;
-  --d-faint:#6A7480;
+  --d-faint:#9EA4AC;
   --d-line:rgba(238,240,243,.13);
   --d-accent:#B6D2EA;
   /* type */
@@ -44,7 +44,7 @@
   --mono:'Spline Sans Mono',ui-monospace,'SF Mono',monospace;
   /* legacy aliases (old inline styles on a few pages) */
   --text-line:#E6E6E8; --text-line-strong:#CFCFD2;
-  --text-strong:#1A1B1E; --text-mid:#585A5F; --text-faint:#8B8D92;
+  --text-strong:#1A1B1E; --text-mid:#585A5F; --text-faint:#646569;
   --paper-deeper:#E7E7E9; --ivory:#FAFAFA;
   --blue:#061C33; --blue-deep:#123A63; --blue-soft:#6E8DB0;
   --gold:#061C33; --gold-tint:#EDF2F7; --blue-tint:#EDF2F7;
@@ -72,6 +72,8 @@ button{font:inherit;cursor:pointer;background:none;border:0;color:inherit}
 ul,ol{list-style:none}
 ::selection{background:var(--accent);color:#fff}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+/* On dark navy bands the default accent outline matches the background (both #061C33) and disappears — swap to a light outline */
+.hero-home :focus-visible,.band-dark :focus-visible,.cta-section :focus-visible,.footer :focus-visible{outline-color:var(--d-accent)}
 .wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
 .skip{position:absolute;left:-9999px;top:0;background:var(--text);color:var(--paper);padding:10px 18px;z-index:200}
 .skip:focus{left:12px;top:12px}
@@ -317,7 +319,7 @@ em.tilt,.serif-display em,h1 em,h2 em{font-style:italic;font-weight:400;color:va
   padding:21px 0;border-bottom:1px solid var(--line);
 }
 @media(max-width:960px){.index-row{grid-template-columns:54px 1fr auto}.idx-desc{display:none}}
-@media(max-width:560px){.index-row{grid-template-columns:44px 1fr}.idx-for{display:none}}
+@media(max-width:560px){.index-row{grid-template-columns:44px 1fr}}
 .index-row::before{
   content:"";position:absolute;left:0;bottom:-1px;width:0;height:1.5px;
   background:var(--accent);transition:width .42s var(--ease);
@@ -327,8 +329,6 @@ em.tilt,.serif-display em,h1 em,h2 em{font-style:italic;font-weight:400;color:va
 .idx-name{font-family:var(--serif);font-weight:470;font-size:clamp(19px,1.85vw,23px);letter-spacing:-.012em;color:var(--text);transition:color .25s,transform .3s var(--ease)}
 .index-row:hover .idx-name{color:var(--accent);transform:translateX(5px)}
 .idx-desc{font-size:13.5px;line-height:1.6;color:var(--mid)}
-.idx-for{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);white-space:nowrap;transition:color .25s}
-.index-row:hover .idx-for{color:var(--text)}
 
 /* principles (#trust) */
 .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3.5vw,44px)}
