@@ -4,7 +4,7 @@ Contact: info [at] advisorymonks.com
 Location: Noida, India
 
 /* SITE */
-Last update: 2026-06-11
+Last update: 2026-07-01
 Standards: HTML5, CSS3, schema.org JSON-LD
 Components: Inter, Spline Sans Mono (self-hosted, variable)
 Software: Hand-crafted HTML

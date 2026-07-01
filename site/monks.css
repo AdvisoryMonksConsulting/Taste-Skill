@@ -1,13 +1,11 @@
 /* ============================================================
    ADVISORY MONKS CONSULTING — "QUIET AUTHORITY"
    Design system v3 · single stylesheet for all pages
-   Editorial serif (Fraunces) · Inter · Spline Sans Mono
+   Inter · Spline Sans Mono (self-hosted, variable)
    Neutral paper · navy blue-charcoal bands · steel-blue accent
    ============================================================ */
 
 /* ---- Fonts (self-hosted, variable, latin) ------------------ */
-@font-face{font-family:'Fraunces';src:url('/fonts/Fraunces-Var.woff2') format('woff2');font-weight:300 700;font-style:normal;font-display:swap}
-@font-face{font-family:'Fraunces';src:url('/fonts/Fraunces-Italic-Var.woff2') format('woff2');font-weight:300 700;font-style:italic;font-display:swap}
 @font-face{font-family:'Inter';src:url('/fonts/Inter-Var.woff2') format('woff2');font-weight:400 700;font-style:normal;font-display:swap}
 @font-face{font-family:'Spline Sans Mono';src:url('/fonts/SplineSansMono-Var.woff2') format('woff2');font-weight:400 500;font-style:normal;font-display:swap}
 
